@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        "2xl": "1920px",
+      },
+    },
     fontFamily: {
       display: ["Oswald", "sans-serif"],
       body: ["Lato", "sans-serif"],
@@ -13,14 +17,15 @@ module.exports = {
       "esn-dark-blue": "#2e3192",
       black: "#000",
       white: "#fff",
-      footer: "#363c3b",
+      footer: "#3a3a3a",
       "white-bg": "#ebebeb",
+      transparent: "#ffffffff",
     },
-    maxWidth: {
-      "1/4": "25%",
-      "1/2": "50%",
-      "3/4": "75%",
-    },
+    // maxWidth: {
+    //   "1/4": "25%",
+    //   "1/2": "50%",
+    //   "3/4": "75%",
+    // },
   },
   variants: {},
   plugins: [require("@tailwindcss/typography")],
