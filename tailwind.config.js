@@ -2,7 +2,14 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "2xl": "1920px",
+        "2xl": "1880px",
+      },
+      spacing: {
+        26: "6.5rem",
+        lg2: "20px",
+      },
+      inset: {
+        "1/8": "12.5%",
       },
     },
     fontFamily: {
@@ -16,16 +23,11 @@ module.exports = {
       "esn-orange": "#f47b20",
       "esn-dark-blue": "#2e3192",
       black: "#000",
+      gray: "#d3d3d3",
       white: "#fff",
       footer: "#3a3a3a",
-      "white-bg": "#ebebeb",
       transparent: "#ffffffff",
     },
-    // maxWidth: {
-    //   "1/4": "25%",
-    //   "1/2": "50%",
-    //   "3/4": "75%",
-    // },
   },
   variants: {},
   plugins: [require("@tailwindcss/typography")],
