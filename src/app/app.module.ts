@@ -6,7 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { NetworkPageComponent } from './pages/network-page/network-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
@@ -14,7 +16,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     LandingPageComponent,
     NavigationComponent,
+    NavigationDarkComponent,
     FooterComponent,
+    NetworkPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
