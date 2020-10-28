@@ -11,7 +11,6 @@ const routes: Routes = [
   },
   {
     path: 'our-network',
-    pathMatch: 'full',
     component: NetworkPageComponent,
   },
   // { path: '**', pathMatch: 'full', redirectTo: 'error' },
