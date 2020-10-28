@@ -1,0 +1,25 @@
+.bg {
+  background: #2e3192;
+  // opacity: 0.5;
+  z-index: -1;
+}
+.divider-top {
+  position: absolute;
+  top: 136px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.divider-top svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 64px;
+}
+
+.divider-top .shape-fill {
+  fill: #2e3192;
+  // opacity: 0.5;
+}
