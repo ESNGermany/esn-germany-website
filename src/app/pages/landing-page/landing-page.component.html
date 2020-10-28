@@ -1,10 +1,154 @@
-<div class="bg-cover bg-center header-image relative">
+<ng-container *ngFor="let i of [0, 1, 2]">
+  <div
+    *ngIf="i == index && !loading"
+    [@fadeInOut]
+    [ngClass]="'overlay background div' + i"
+  ></div>
+</ng-container>
+<div *ngIf="loading" class="background div0"></div>
+<div class="bg-cover bg-center">
   <app-navigation></app-navigation>
-  <div class="absolute left-8 right-8 bottom-8">
-    <div class="max-w-screen-xl m-auto">
-      <!-- <h2 class="text-xl lg:text-4xl text-black">
-                <span class="bg-white px-2">current Text</span>
-            </h2> -->
+  <div class="m-auto pt-16 pb-16 w-64 mt-8 mb-8">
+    <p class="text-body text-center text-white m-auto italic text-4xl">
+      Erasmus.<br />Do it.
+    </p>
+  </div>
+  <!-- <div class="">
+    <img src="../../../assets/main-line.png" alt="line" class="m-auto w-104">
+  </div> -->
+</div>
+<div
+  class="block w-full bg-footer text-white m-auto shadow-strong mt-28 lg:mt-22 xl:mt-22"
+>
+  <div
+    class="flex flex-wrap items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body"
+  >
+    <!-- <div class="inline-block">
+      <p class="text-xl font-bold text-center">for</p>
+    </div> -->
+    <!-- <div class="inline-block">
+      <p class="text-xl font-bold text-center">one of</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-3xl lg:text-4xl xl:text-6xl text-center font-bold">42</p>
+      <p class="text-lg text-center font-bold">Countries</p>
+    </div> -->
+    <div class="inline-block">
+      <p class="text-4xl lg:text-5xl xl:text-6xl text-center font-bold">
+        1 200
+      </p>
+      <p class="text-lg text-center font-bold">Volunteers</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-2xl font-bold text-center">for</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-4xl lg:text-5xl xl:text-6xl text-center font-bold">
+        10 600
+      </p>
+      <p class="text-lg text-center font-bold">Exchange Students</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-2xl font-bold text-center">in</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-4xl lg:text-5xl xl:text-6xl text-center font-bold">40</p>
+      <p class="text-lg text-center font-bold">Sections</p>
+    </div>
+    <!-- <div class="inline-block">
+      <p class="text-xl font-bold text-center">we are</p>
+    </div> -->
+  </div>
+</div>
+<div class="max-w-screen-xl m-auto sm:px-16 pt-8 xl:mt-28 lg:mt-22 sm:mt-16">
+  <div class="px-8 mb-16">
+    <div class="m-auto mb-8 relative">
+      <p class="font-heading text-esn-dark-blue font-bold text-3xl title">
+        What is ESN?
+      </p>
+    </div>
+    <div class="m-auto block">
+      <p class="font-body text-lg">
+        Erasmus Student Network (ESN) is a non-profit international student
+        organisation. Our mission is to represent international students, thus
+        provide opportunities for cultural understanding and self-development
+        under the principle of Students Helping Students. In Europe there are
+        local ESN sections at more than 500 higher education facilities in more
+        than 40 countries. This makes us one of the largest student initiatives
+        in Europe.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="flex flex-wrap items-center justify-evenly m-auto w-5/6">
+  <img
+    src="../../../assets/ex-img1.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img3.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img2.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img1.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img3.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img1.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img1.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img2.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+</div>
+<div class="max-w-screen-xl m-auto sm:px-16 pt-8">
+  <div class="px-8 mb-16">
+    <div class="my-8">
+      <div class="mb-8 relative">
+        <p class="font-heading text-esn-dark-blue font-bold text-3xl title">
+          Join us!
+        </p>
+      </div>
+      <div class="m-auto block">
+        <p class="font-body text-lg">
+          We are not a drinking organisation. We are not a drinking
+          organisation. We are not a drinking organisation. We are not a
+          drinking organisation. We are not a drinking organisation. We are not
+          a drinking organisation. We are not a drinking organisation. We are
+          not a drinking organisation. We are not a drinking organisation. We
+          are not a drinking organisation. We are not a drinking organisation.
+        </p>
+      </div>
+    </div>
+    <div class="m-auto mb-8 relative">
+      <p class="font-heading text-esn-dark-blue font-bold text-3xl title">
+        Supported by
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center justify-between pt-4">
+      <img src="../../../assets/eu.png" alt="EU" class="h-8 m-4" />
+      <img src="../../../assets/daad.png" alt="DAAD" class="h-8 m-4" />
     </div>
   </div>
 </div>

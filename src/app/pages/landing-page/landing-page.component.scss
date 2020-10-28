@@ -1,5 +1,32 @@
-.header-image {
-  height: 60vh;
+.background {
+  position: absolute;
   width: 100%;
+  height: 490px;
+  z-index: -1;
+  background-position: center;
+}
+.div1 {
   background-image: url("../../../assets/landing-bg.png");
+  // linear-gradient(rgba(46, 49, 146, 0.99), rgba(46, 49, 146, 0.99));
+  // background-blend-mode: overlay;
+}
+.div2 {
+  background-image: url("https://picsum.photos/id/301/2500/1667"),
+    linear-gradient(rgba(46, 49, 146, 0.99), rgba(46, 49, 146, 0.99));
+  background-blend-mode: overlay;
+}
+.div0 {
+  background-image: url("../../../assets/landing-bg-2.JPG"),
+    linear-gradient(rgba(46, 49, 146, 0.99), rgba(46, 49, 146, 0.99));
+  background-blend-mode: overlay;
+}
+
+.title::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -4px;
+  width: 48px;
+  height: 4px;
+  background: #2e3192;
 }
