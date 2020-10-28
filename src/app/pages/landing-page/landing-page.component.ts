@@ -15,7 +15,7 @@ import {
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),
-      transition('void <=> *', [animate(500)]),
+      transition('void <=> *', [animate(600)]),
     ]),
   ],
 })
@@ -27,8 +27,8 @@ export class LandingPageComponent implements OnInit {
   imagesLoaded: number = 0;
   loading: boolean = true;
   imagesUrl = [
-    `url('../../../assets/landing-bg.png')`,
-    `url('../../../assets/landing-bg-2.JPG')`,
+    "url('../../../assets/landing1.png')",
+    "url('../../../assets/landing2.png')",
     'https://picsum.photos/id/301/2500/1667',
     'https://picsum.photos/id/400/2500/1667',
   ];

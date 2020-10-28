@@ -1,6 +1,6 @@
 <ng-container *ngFor="let i of [0, 1, 2]">
   <div
-    *ngIf="i == index && !loading"
+    *ngIf="i == index"
     [@fadeInOut]
     [ngClass]="'overlay background div' + i"
   ></div>
@@ -8,13 +8,13 @@
 <div *ngIf="loading" class="background div0"></div>
 <div class="bg-cover bg-center">
   <app-navigation></app-navigation>
-  <div class="m-auto pt-16 pb-16 w-64 mt-8 mb-8">
+  <div class="m-auto pt-16 pb-16 w-128 mt-8 mb-8">
     <p class="text-body text-center text-white m-auto italic text-4xl">
-      Erasmus.<br />Do it.
+      Erasmus in Germany?<br />Do it.
     </p>
   </div>
   <!-- <div class="">
-    <img src="../../../assets/main-line.png" alt="line" class="m-auto w-104">
+    <img src=" ../../../assets/main-line.png" alt="line" class="m-auto w-104">
   </div> -->
 </div>
 <div
@@ -23,16 +23,6 @@
   <div
     class="flex flex-wrap items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body"
   >
-    <!-- <div class="inline-block">
-      <p class="text-xl font-bold text-center">for</p>
-    </div> -->
-    <!-- <div class="inline-block">
-      <p class="text-xl font-bold text-center">one of</p>
-    </div>
-    <div class="inline-block">
-      <p class="text-3xl lg:text-4xl xl:text-6xl text-center font-bold">42</p>
-      <p class="text-lg text-center font-bold">Countries</p>
-    </div> -->
     <div class="inline-block">
       <p class="text-4xl lg:text-5xl xl:text-6xl text-center font-bold">
         1 200
@@ -55,9 +45,6 @@
       <p class="text-4xl lg:text-5xl xl:text-6xl text-center font-bold">40</p>
       <p class="text-lg text-center font-bold">Sections</p>
     </div>
-    <!-- <div class="inline-block">
-      <p class="text-xl font-bold text-center">we are</p>
-    </div> -->
   </div>
 </div>
 <div class="max-w-screen-xl m-auto sm:px-16 pt-8 xl:mt-28 lg:mt-22 sm:mt-16">
@@ -75,33 +62,15 @@
         under the principle of Students Helping Students. In Europe there are
         local ESN sections at more than 500 higher education facilities in more
         than 40 countries. This makes us one of the largest student initiatives
-        in Europe.
+        in Europe. In Europe there are local ESN sections at more than 500
+        higher education facilities in more than 40 countries. This makes us one
+        of the largest student initiatives in Europe.
       </p>
     </div>
   </div>
 </div>
 <div class="flex flex-wrap items-center justify-evenly m-auto w-5/6">
   <img
-    src="../../../assets/ex-img1.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img3.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img2.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img1.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
     src="../../../assets/ex-img3.jpg"
     alt=""
     class="h-48 xl:h-64 lg:h-48 m-4"
@@ -117,7 +86,22 @@
     class="h-48 xl:h-64 lg:h-48 m-4"
   />
   <img
+    src="../../../assets/ex-img3.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
     src="../../../assets/ex-img2.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img3.jpg"
+    alt=""
+    class="h-48 xl:h-64 lg:h-48 m-4"
+  />
+  <img
+    src="../../../assets/ex-img1.jpg"
     alt=""
     class="h-48 xl:h-64 lg:h-48 m-4"
   />
@@ -147,8 +131,8 @@
       </p>
     </div>
     <div class="flex flex-wrap items-center justify-between pt-4">
-      <img src="../../../assets/eu.png" alt="EU" class="h-8 m-4" />
-      <img src="../../../assets/daad.png" alt="DAAD" class="h-8 m-4" />
+      <img src="../../../assets/eu.png" alt="EU" class="h-8 m-4 ml-0" />
+      <img src="../../../assets/daad.png" alt="DAAD" class="h-8 m-4 mr-0" />
     </div>
   </div>
 </div>
