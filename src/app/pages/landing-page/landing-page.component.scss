@@ -4,21 +4,13 @@
   height: 490px;
   z-index: -1;
   background-position: center;
+  background-size: cover;
 }
 .div1 {
-  background-image: url("../../../assets/landing-bg.png");
-  // linear-gradient(rgba(46, 49, 146, 0.99), rgba(46, 49, 146, 0.99));
-  // background-blend-mode: overlay;
-}
-.div2 {
-  background-image: url("https://picsum.photos/id/301/2500/1667"),
-    linear-gradient(rgba(46, 49, 146, 0.99), rgba(46, 49, 146, 0.99));
-  background-blend-mode: overlay;
+  background-image: url("../../../assets/landing1.png");
 }
 .div0 {
-  background-image: url("../../../assets/landing-bg-2.JPG"),
-    linear-gradient(rgba(46, 49, 146, 0.99), rgba(46, 49, 146, 0.99));
-  background-blend-mode: overlay;
+  background-image: url("../../../assets/landing2.png");
 }
 
 .title::after {
