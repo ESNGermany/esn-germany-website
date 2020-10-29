@@ -1,6 +1,30 @@
 .bg {
   background: #2e3192;
+  background-image: url("../../../assets/landing3.png");
+  background-position: center;
+  background-size: cover;
   z-index: -1;
+  padding-bottom: 99px;
+}
+
+.custom-shape-divider-bottom-1603982404 {
+  position: absolute;
+  top: 136px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1603982404 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 99px;
+}
+
+.custom-shape-divider-bottom-1603982404 .shape-fill {
+  fill: #fff;
 }
 .divider-top {
   position: absolute;

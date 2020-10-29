@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { NetworkPageComponent } from './pages/network-page/network-page.component';
+import { StudentsPageComponent } from './pages/students-page/students-page.component';
+import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -19,6 +21,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavigationDarkComponent,
     FooterComponent,
     NetworkPageComponent,
+    StudentsPageComponent,
+    PartnersPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
