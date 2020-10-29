@@ -1,24 +1,27 @@
 <app-navigation-dark></app-navigation-dark>
 <div class="max-w-screen-xl m-auto sm:px-16 pt-8 xl:mt-24 lg:mt-22 sm:mt-16">
-  <div class="font-body text-esn-dark-blue text-lg px-8 mb-12">
+  <!-- <div class="font-body text-esn-dark-blue text-lg px-8 mb-12">
     <ul class="list-disc list-inside">
       <li routerLinkActive="active">
-        <a [routerLink]="['/our-network/']" fragment="esngermany"
-          >ESN Germany</a
-        >
+        <a [routerLink]="['/our-network/']" fragment="esngermany">ESN Germany</a>
       </li>
       <li routerLinkActive="active">
-        <a [routerLink]="['/our-network/']" fragment="nationalboard"
-          >The National Board</a
-        >
+        <a [routerLink]="['/our-network/']" fragment="nationalboard">The National Board</a>
       </li>
       <li routerLinkActive="active">
-        <a [routerLink]="['/our-network/']" fragment="esninternational"
-          >ESN International</a
-        >
+        <a [routerLink]="['/our-network/']" fragment="esninternational">ESN International</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/our-network/']" fragment="committees">The National Committees</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/our-network/']" fragment="auditboard">The Audit Board</a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/our-network/']" fragment="alumni">The Alumni</a>
       </li>
     </ul>
-  </div>
+  </div> -->
   <div class="mb-12">
     <img
       class="m-auto"
@@ -48,11 +51,23 @@
       </p>
     </div>
   </div>
-  <div class="mb-8">
+  <div class="mb-8 px-8">
     <img class="m-auto" src="../../../assets/network.jpg" />
-    <p class="pt-4 text-footer italic">
+    <p class="py-4 text-footer italic">
       National Assembly in Munich / January 2020.
     </p>
+    <button
+      type="button"
+      class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow"
+    >
+      <a
+        href="https://esn.org"
+        target="_blank"
+        rel="noopener"
+        class="font-body text-lg p-2"
+        >Learn more ↗</a
+      >
+    </button>
   </div>
   <div class="px-8 mt-24" id="nationalboard">
     <div class="m-auto mb-8 relative">
@@ -72,6 +87,9 @@
         the relationships between the sections and their members. Each one of
         the board members of ESN Germany is a volunteer and was elected at our
         January National Assembly by our sections.
+      </p>
+      <p class="font-body text-black text-lg pt-4">
+        We proudly present our National Board 2020/21:
       </p>
     </div>
   </div>
@@ -131,6 +149,12 @@
       <p>Tanyel Arabaci</p>
     </figure>
   </div>
+  <!-- <div class="max-w-screen-xl px-24 m-auto">
+    <button type="button"
+      class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow">
+      <a href="https://esn.org" target="_blank" rel="noopener" class="font-body text-lg p-2">Learn more ↗</a>
+    </button>
+  </div> -->
 </div>
 <div class="max-w-screen-xl m-auto px-16 mb-20">
   <div class="px-8 mb-12" id="esninternational">
@@ -144,7 +168,7 @@
       </a>
     </div>
     <div class="m-auto block">
-      <p class="font-body text-lg">
+      <p class="font-body text-lg pb-4">
         Erasmus Student Network (ESN) is the biggest student association in
         Europe. It was born on the 16th October 1989 and legally registered in
         1990 for supporting and developing student exchange. We are present in
@@ -155,11 +179,23 @@
         50,000 young people offering its services to around 350,000
         international students every year.
       </p>
+      <button
+        type="button"
+        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow"
+      >
+        <a
+          href="https://esn.org"
+          target="_blank"
+          rel="noopener"
+          class="font-body text-lg p-2"
+          >Learn more ↗</a
+        >
+      </button>
     </div>
   </div>
 </div>
 <div class="max-w-screen-xl m-auto px-16 mb-20">
-  <div class="px-8 mb-12" id="committees">
+  <div class="px-8" id="committees">
     <div class="m-auto mb-8 relative">
       <a
         [routerLink]="['/our-network/']"
@@ -170,15 +206,27 @@
       </a>
     </div>
     <div class="m-auto block">
-      <p class="font-body text-lg">
+      <p class="font-body text-lg pb-4">
         The National Committees are formed by ESN volunteers that support the
         board in different dedicated fields. Each committee is linked to a board
         position.
       </p>
+      <button
+        type="button"
+        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow"
+      >
+        <a
+          href="https://esn.org"
+          target="_blank"
+          rel="noopener"
+          class="font-body text-lg p-2"
+          >Learn more ↗</a
+        >
+      </button>
     </div>
   </div>
 </div>
-<div class="max-w-screen-xl m-auto px-16 mb-20">
+<div class="max-w-screen-xl m-auto px-16 mb-8">
   <div class="px-8 mb-12" id="auditboard">
     <div class="m-auto mb-8 relative">
       <a
@@ -196,7 +244,48 @@
         processes, monitor the National Board’s work, watch over the adherence
         to our SOS, promote compliance and check the budget.
       </p>
+      <p class="font-body text-black text-lg pt-4">
+        We proudly present our Audit Board 2020/21:
+      </p>
     </div>
+  </div>
+</div>
+<div class="max-w-screen-xl m-auto mb-16 mt-6">
+  <div class="mb-8 font-body m-auto flex flex-wrap justify-evenly">
+    <figure class="p-4 inline-block">
+      <img class="h-56" src="../../../assets/patrickp.jpg" alt="Patrick" />
+      <p class="pt-2 font-bold">Main Audit</p>
+      <p>Patrick Peeck</p>
+    </figure>
+    <figure class="p-4 inline-block">
+      <img class="h-56" src="../../../assets/patrickp.jpg" alt="Julius" />
+      <p class="pt-2 font-bold">Legal Audit</p>
+      <p>Julius Netzer</p>
+    </figure>
+    <figure class="p-4 inline-block">
+      <img class="h-56" src="../../../assets/ivo.png" alt="Ivo" />
+      <p class="pt-2 font-bold">Vice Legal Audit</p>
+      <p>Ivo Sieder</p>
+    </figure>
+    <figure class="p-4 inline-block">
+      <img class="h-56" src="../../../assets/alina.jpg" alt="Alina" />
+      <p class="pt-2 font-bold">Financial Audit</p>
+      <p>Alina Dallmann</p>
+    </figure>
+  </div>
+  <div class="px-24">
+    <button
+      type="button"
+      class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow"
+    >
+      <a
+        href="https://esn.org"
+        target="_blank"
+        rel="noopener"
+        class="font-body text-lg p-2"
+        >Learn more ↗</a
+      >
+    </button>
   </div>
 </div>
 <div class="max-w-screen-xl m-auto px-16 mb-20">
@@ -211,11 +300,23 @@
       </a>
     </div>
     <div class="m-auto block">
-      <p class="font-body text-lg">
+      <p class="font-body text-lg pb-4">
         The ESN Alumni Deutschland e.V. is an association of former ESN members
         who wish to remain connected to ESN in a way after their active
         engagement.
       </p>
+      <button
+        type="button"
+        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow"
+      >
+        <a
+          href="https://esn.org"
+          target="_blank"
+          rel="noopener"
+          class="font-body text-lg p-2"
+          >Learn more ↗</a
+        >
+      </button>
     </div>
   </div>
 </div>

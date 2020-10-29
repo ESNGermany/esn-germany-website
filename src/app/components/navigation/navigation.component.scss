@@ -1,9 +1,9 @@
-.addhover:hover:after {
+.addhover:hover:before {
   position: absolute;
   content: "";
-  left: 32px;
+  left: 0;
   bottom: -4px;
-  width: 82px;
+  width: 48px;
   height: 3px;
   background: #fff;
 }
