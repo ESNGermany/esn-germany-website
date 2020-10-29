@@ -13,52 +13,49 @@
     <div
       class="px-8 w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden lg:visible"
     >
-      <div class="text-2xl lg:flex-grow">
-        <button
-          type="button"
-          id="network-button"
-          class="block mt-4 lg:inline-block xl:px-8 lg:px-4 font-bold text-white focus:outline-none relative"
-        >
-          <a
-            routerLink="/our-network"
-            routerLinkActive="active"
-            class="addhover"
-            >Our Network</a
+      <div class="text-2xl flex justify-between lg:flex-grow max-w-screen-xl">
+        <div class="relative">
+          <button
+            type="button"
+            id="network-button"
+            class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
           >
-        </button>
-        <button
-          type="button"
-          id="students-button"
-          class="block mt-4 lg:inline-block xl:px-8 lg:px-4 font-bold text-white ocus:outline-none relative"
-        >
-          <a
-            routerLink="/for-students"
-            routerLinkActive="active"
-            class="addhover"
-            >For Students</a
+            <a routerLink="/our-network" routerLinkActive="active"
+              >Our Network</a
+            >
+          </button>
+        </div>
+        <div class="relative">
+          <button
+            type="button"
+            id="students-button"
+            class="block mt-4 inline-block font-bold text-white ocus:outline-none addhover"
           >
-        </button>
-        <button
-          type="button"
-          id="partners-button"
-          class="block mt-4 lg:inline-block xl:px-8 lg:px-4 font-bold text-white focus:outline-none relative"
-        >
-          <a
-            routerLinkFor="/for-partners"
-            routerLinkActive="active"
-            class="addhover"
-            >Partners</a
+            <a routerLink="/for-students" routerLinkActive="active"
+              >For Students</a
+            >
+          </button>
+        </div>
+        <div class="relative">
+          <button
+            type="button"
+            id="partners-button"
+            class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
           >
-        </button>
-        <button
-          type="button"
-          id="news-button"
-          class="block mt-4 lg:inline-block xl:px-8 lg:px-4 font-bold text-white focus:outline-none relative"
-        >
-          <a routerLinkFor="/news" routerLinkActive="active" class="addhover"
-            >News</a
+            <a routerLinkFor="/for-partners" routerLinkActive="active"
+              >Partners</a
+            >
+          </button>
+        </div>
+        <div class="relative">
+          <button
+            type="button"
+            id="news-button"
+            class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
           >
-        </button>
+            <a routerLinkFor="/news" routerLinkActive="active">News</a>
+          </button>
+        </div>
       </div>
     </div>
     <div class="block pr-8 sm:pr-16 lg:hidden">
