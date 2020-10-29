@@ -16,6 +16,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.9",
+    "@angular/cdk": "^10.2.6",
     "@angular/common": "~9.1.9",
     "@angular/compiler": "~9.1.9",
     "@angular/core": "~9.1.9",
@@ -33,7 +34,6 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^10.0.1",
-    "@angular/cdk": "^10.2.5",
     "@angular/cli": "^9.1.12",
     "@angular/compiler-cli": "~9.1.9",
     "@nguniversal/builders": "^9.1.1",
