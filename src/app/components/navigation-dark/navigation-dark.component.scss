@@ -1,6 +1,5 @@
 .bg {
   background: #2e3192;
-  // opacity: 0.5;
   z-index: -1;
 }
 .divider-top {
@@ -21,5 +20,14 @@
 
 .divider-top .shape-fill {
   fill: #2e3192;
-  // opacity: 0.5;
+}
+
+.addhover:hover:after {
+  position: absolute;
+  content: "";
+  left: 32px;
+  bottom: -4px;
+  width: 82px;
+  height: 3px;
+  background: #fff;
 }

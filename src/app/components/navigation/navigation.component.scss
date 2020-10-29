@@ -1,0 +1,9 @@
+.addhover:hover:after {
+  position: absolute;
+  content: "";
+  left: 32px;
+  bottom: -4px;
+  width: 82px;
+  height: 3px;
+  background: #fff;
+}
