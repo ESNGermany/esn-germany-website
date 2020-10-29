@@ -1,5 +1,24 @@
 <app-navigation-dark></app-navigation-dark>
 <div class="max-w-screen-xl m-auto sm:px-16 pt-8 xl:mt-24 lg:mt-22 sm:mt-16">
+  <div class="font-body text-esn-dark-blue text-lg px-8 mb-12">
+    <ul class="list-disc list-inside">
+      <li routerLinkActive="active">
+        <a [routerLink]="['/our-network/']" fragment="esngermany"
+          >ESN Germany</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/our-network/']" fragment="nationalboard"
+          >The National Board</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/our-network/']" fragment="esninternational"
+          >ESN International</a
+        >
+      </li>
+    </ul>
+  </div>
   <div class="mb-12">
     <img
       class="m-auto"
@@ -7,11 +26,15 @@
       alt="Sections Map"
     />
   </div>
-  <div class="px-8 mb-12">
+  <div class="px-8 mb-12" id="esngermany">
     <div class="m-auto mb-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-3xl title">
+      <a
+        [routerLink]="['/our-network/']"
+        fragment="esngermany"
+        class="font-heading text-esn-dark-blue font-bold text-3xl title hash"
+      >
         ESN Germany
-      </p>
+      </a>
     </div>
     <div class="m-auto block">
       <p class="font-body text-lg">
@@ -31,11 +54,15 @@
       National Assembly in Munich / January 2020.
     </p>
   </div>
-  <div class="px-8 mt-24">
+  <div class="px-8 mt-24" id="nationalboard">
     <div class="m-auto mb-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-3xl title">
+      <a
+        [routerLink]="['/our-network/']"
+        fragment="nationalboard"
+        class="font-heading text-esn-dark-blue font-bold text-3xl title hash"
+      >
         The National Board
-      </p>
+      </a>
     </div>
     <div class="m-auto block">
       <p class="font-body text-lg">
@@ -57,11 +84,7 @@
       <p>Pedro Gonzalez</p>
     </figure>
     <figure class="p-4 inline-block">
-      <img
-        class="h-56 inline-block"
-        src="../../../assets/NB/Jona.jpg"
-        alt="Jona"
-      />
+      <img class="h-56" src="../../../assets/NB/Jona.jpg" alt="Jona" />
       <p class="pt-2 font-bold">Vice President</p>
       <p>Jona Winstroth</p>
     </figure>
@@ -75,6 +98,7 @@
       <p class="pt-2 font-bold">PR Manager</p>
       <p>Inès Leimgruber</p>
     </figure>
+    <div class="break"></div>
     <figure class="p-4 inline-block">
       <img class="h-56" src="../../../assets/NB/Jana.jpg" alt="Jana" />
       <p class="pt-2 font-bold">National Representative</p>
@@ -95,6 +119,7 @@
       <p class="pt-2 font-bold">Event Manager</p>
       <p>Milan Grigull</p>
     </figure>
+    <div class="break"></div>
     <figure class="p-4 inline-block">
       <img class="h-56" src="../../../assets/NB/Chris.jpg" alt="Chris" />
       <p class="pt-2 font-bold">Webmaster</p>
@@ -108,11 +133,15 @@
   </div>
 </div>
 <div class="max-w-screen-xl m-auto px-16 mb-20">
-  <div class="px-8 mb-12">
+  <div class="px-8 mb-12" id="esninternational">
     <div class="m-auto mb-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-3xl title">
+      <a
+        [routerLink]="['/our-network/']"
+        fragment="esninternational"
+        class="font-heading text-esn-dark-blue font-bold text-3xl title hash"
+      >
         ESN International
-      </p>
+      </a>
     </div>
     <div class="m-auto block">
       <p class="font-body text-lg">
@@ -125,6 +154,67 @@
         mainly taking care of international students. Thus, ESN involves around
         50,000 young people offering its services to around 350,000
         international students every year.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="max-w-screen-xl m-auto px-16 mb-20">
+  <div class="px-8 mb-12" id="committees">
+    <div class="m-auto mb-8 relative">
+      <a
+        [routerLink]="['/our-network/']"
+        fragment="committees"
+        class="font-heading text-esn-dark-blue font-bold text-3xl title hash"
+      >
+        The National Committees
+      </a>
+    </div>
+    <div class="m-auto block">
+      <p class="font-body text-lg">
+        The National Committees are formed by ESN volunteers that support the
+        board in different dedicated fields. Each committee is linked to a board
+        position.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="max-w-screen-xl m-auto px-16 mb-20">
+  <div class="px-8 mb-12" id="auditboard">
+    <div class="m-auto mb-8 relative">
+      <a
+        [routerLink]="['/our-network/']"
+        fragment="auditboard"
+        class="font-heading text-esn-dark-blue font-bold text-3xl title hash"
+      >
+        The Audit Board
+      </a>
+    </div>
+    <div class="m-auto block">
+      <p class="font-body text-lg">
+        The Audit Board is formed by the Main Chair, the Finance Audit and the
+        Legal Audit. Their tasks are among other things to audit general
+        processes, monitor the National Board’s work, watch over the adherence
+        to our SOS, promote compliance and check the budget.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="max-w-screen-xl m-auto px-16 mb-20">
+  <div class="px-8 mb-12" id="alumni">
+    <div class="m-auto mb-8 relative">
+      <a
+        [routerLink]="['/our-network/']"
+        fragment="alumni"
+        class="font-heading text-esn-dark-blue font-bold text-3xl title hash"
+      >
+        The Alumni
+      </a>
+    </div>
+    <div class="m-auto block">
+      <p class="font-body text-lg">
+        The ESN Alumni Deutschland e.V. is an association of former ESN members
+        who wish to remain connected to ESN in a way after their active
+        engagement.
       </p>
     </div>
   </div>
