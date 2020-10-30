@@ -1,19 +1,9 @@
-.addhover:hover:before {
+.menu {
   position: absolute;
-  content: "";
-  left: 0;
-  bottom: -4px;
-  width: 48px;
-  height: 3px;
-  background: #fff;
+  top: 0;
+  right: 0;
 }
 
-.addhoverActive:before {
-  position: absolute;
-  content: "";
-  left: 0;
-  bottom: -4px;
-  width: 48px;
-  height: 3px;
-  background: #fff;
+.vis {
+  display: block;
 }

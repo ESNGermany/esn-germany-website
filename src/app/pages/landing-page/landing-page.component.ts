@@ -27,9 +27,8 @@ export class LandingPageComponent implements OnInit {
   imagesLoaded: number = 0;
   loading: boolean = true;
   imagesUrl = [
-    "url('../../../assets/landing1.png')",
-    "url('../../../assets/landing2.png')",
-    // "url('../../../assets/landing3.png')",
+    '../../../assets/landing1.png',
+    '../../../assets/landing2.png',
     'https://picsum.photos/id/400/2500/1667',
     'https://picsum.photos/id/301/2500/1667',
   ];

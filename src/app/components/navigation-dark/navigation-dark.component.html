@@ -11,6 +11,28 @@
     ></path>
   </svg>
 </div>
+<div class="w-full">
+  <ul
+    class="font-body text-white text-xl bg-footer float-right w-1/2 hidden absolute right-0"
+    id="menu"
+  >
+    <a href="#" (click)="hideMenu()">
+      <li class="p-4 border-b border-white">Home</li>
+    </a>
+    <a routerLink="/our-network" routerLinkActive="active">
+      <li class="p-4 border-b border-white">Our Network</li>
+    </a>
+    <a routerLink="/for-students" routerLinkActive="active">
+      <li class="p-4 border-b border-white">For Students</li>
+    </a>
+    <a routerLink="/for-partners" routerLinkActive="active">
+      <li class="p-4 border-b border-white">For Partners</li>
+    </a>
+    <a routerLink="/news" routerLinkActive="active">
+      <li class="p-4">News</li>
+    </a>
+  </ul>
+</div>
 <div class="w-full mb-16 bg">
   <nav
     class="flex flex-wrap items-center max-w-screen-xl justify-between m-auto sm:px-16 pt-8 font-body"
@@ -71,9 +93,10 @@
         </div>
       </div>
     </div>
-    <div class="block pr-8 sm:pr-16 lg:hidden">
+    <div class="block pr-8 sm:pr-16 lg:hidden" id="burger">
       <button
-        class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-gray hover:border-gray"
+        class="flex items-center px-3 py-2 border rounded text-white border-white"
+        (click)="showMenu()"
       >
         <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
           <title>Menu</title>
@@ -82,5 +105,4 @@
       </button>
     </div>
   </nav>
-  <!-- <div class="w-full bg-graylight h-32"></div> -->
 </div>

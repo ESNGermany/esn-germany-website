@@ -17,4 +17,19 @@ export class NavigationDarkComponent implements OnInit {
       activeLink.classList.add('addhoverActive');
     }
   }
+
+  showMenu() {
+    var burger = <HTMLUListElement>document.getElementById('burger');
+    var menu = <HTMLUListElement>document.getElementById('menu');
+    burger.classList.add('hidden');
+    menu.classList.remove('hidden');
+    menu.classList.add('vis');
+  }
+
+  hideMenu() {
+    var menu = <HTMLUListElement>document.getElementById('menu');
+    menu.classList.add('vis burger');
+    var burger = <HTMLUListElement>document.getElementById('burger');
+    burger.classList.remove('hidden');
+  }
 }
