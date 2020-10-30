@@ -2,27 +2,24 @@
   <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i"></div>
 </ng-container>
 <div *ngIf="loading" class="background div0"></div>
-<div class="bg-cover bg-center m-auto">
-  <app-navigation activeMenu=""></app-navigation>
-  <div class="m-auto pb-16 w-128 mb-8 extra">
-    <span
-      class="bg-white font-heading text-center text-black font-bold text-4xl"
-    >
-      Erasmus in Germany?<br />Amazing idea.
-    </span>
-  </div>
-  <!-- <div class="">
+<app-navigation></app-navigation>
+<div class="m-auto pb-16 w-128 mb-8 extra">
+  <span class="bg-white font-heading text-center text-black font-bold text-4xl">
+    Erasmus in Germany?<br />Amazing idea.
+  </span>
+</div>
+<!-- <div class="">
     <img src=" ../../../assets/main-line.png" alt="line" class="m-auto w-104">
   </div> -->
-</div>
+<!-- </div> -->
 <div
-  class="block w-full bg-footer text-white m-auto shadow-strong mt-28 lg:mt-22 xl:mt-22"
+  class="block w-full bg-footer text-white m-auto shadow-strong mt-28 lg:mt-22 xl:mt-22 relative"
 >
   <div
     class="flex flex-wrap items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body"
   >
     <div class="inline-block">
-      <p class="text-4xl lg:text-5xl xl:text-6xl text-center font-bold">
+      <p class="text-5xl lg:text-5xl xl:text-6xl text-center font-bold">
         1 200
       </p>
       <p class="text-lg text-center font-bold">Volunteers</p>
@@ -31,7 +28,7 @@
       <p class="text-2xl font-bold text-center px-3">for</p>
     </div>
     <div class="inline-block">
-      <p class="text-4xl lg:text-5xl xl:text-6xl text-center font-bold">
+      <p class="text-5xl lg:text-5xl xl:text-6xl text-center font-bold">
         10 600
       </p>
       <p class="text-lg text-center font-bold">Exchange Students</p>
@@ -40,7 +37,7 @@
       <p class="text-2xl font-bold text-center px-3">in</p>
     </div>
     <div class="inline-block">
-      <p class="text-4xl lg:text-5xl xl:text-6xl text-center font-bold">40</p>
+      <p class="text-5xl lg:text-5xl xl:text-6xl text-center font-bold">40</p>
       <p class="text-lg text-center font-bold">Sections</p>
     </div>
   </div>

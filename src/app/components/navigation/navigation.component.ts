@@ -10,11 +10,20 @@ export class NavigationComponent implements OnInit {
 
   @Input() activeMenu: string;
 
-  ngOnInit() {
-    if (this.activeMenu) {
-      var id = this.activeMenu + '-button';
-      var activeLink = <HTMLButtonElement>document.getElementById(id);
-      activeLink.classList.add('addhoverActive');
-    }
+  ngOnInit() {}
+
+  showMenu() {
+    var burger = <HTMLUListElement>document.getElementById('burger');
+    var menu = <HTMLUListElement>document.getElementById('menu');
+    burger.classList.add('hidden');
+    menu.classList.remove('hidden');
+    menu.classList.add('vis');
+  }
+
+  hideMenu() {
+    var menu = <HTMLUListElement>document.getElementById('menu');
+    menu.classList.add('vis burger');
+    var burger = <HTMLUListElement>document.getElementById('burger');
+    burger.classList.remove('hidden');
   }
 }
