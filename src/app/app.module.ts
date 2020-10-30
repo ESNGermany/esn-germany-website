@@ -12,6 +12,7 @@ import { PartnersPageComponent } from './pages/partners-page/partners-page.compo
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
