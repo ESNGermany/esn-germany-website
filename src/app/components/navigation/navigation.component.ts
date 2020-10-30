@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -8,5 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  @Input() activeMenu: string;
+
+  ngOnInit() {
+    if (this.activeMenu) {
+      var id = this.activeMenu + '-button';
+      var activeLink = <HTMLButtonElement>document.getElementById(id);
+      activeLink.classList.add('addhoverActive');
+    }
+  }
 }
