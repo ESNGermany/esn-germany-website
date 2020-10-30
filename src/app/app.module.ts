@@ -13,6 +13,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     FlexLayoutModule,
     MatIconModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
