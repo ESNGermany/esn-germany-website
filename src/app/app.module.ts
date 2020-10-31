@@ -9,6 +9,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { NetworkPageComponent } from './pages/network-page/network-page.component';
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
 import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
+import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -26,6 +27,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     NetworkPageComponent,
     StudentsPageComponent,
     PartnersPageComponent,
+    NewsPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
