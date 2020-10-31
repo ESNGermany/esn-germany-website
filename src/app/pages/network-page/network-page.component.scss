@@ -37,8 +37,13 @@
   transition: transform 0.2s;
   width: 256px;
   height: 312px;
+  background-color: white;
+  z-index: 3;
+  opacity: 0.85;
 }
 
 .zoom:hover {
   transform: scale(0.91);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
