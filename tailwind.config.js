@@ -17,7 +17,8 @@ module.exports = {
         "1/8": "12.5%",
       },
       boxShadow: {
-        strong: "0 25px 50px -12px rgba(0, 0, 0, 0.75)",
+        strong:
+          "0 25px 50px -12px rgba(0, 0, 0, 0.75), 0 -25px 50px -12px rgba(0, 0, 0, 0.75)",
       },
       colors: {
         "esn-green": "#7ac143",
