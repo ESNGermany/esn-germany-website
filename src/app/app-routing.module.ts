@@ -4,6 +4,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { NetworkPageComponent } from './pages/network-page/network-page.component';
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
 import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
+import { NewsPageComponent } from './pages/news-page/news-page.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'for-partners',
     component: PartnersPageComponent,
+  },
+  {
+    path: 'news',
+    component: NewsPageComponent,
   },
   // { path: '**', pathMatch: 'full', redirectTo: 'error' },
   // { path: 'error', component: NotFoundPageComponent, data: { title: 'Error' } },
