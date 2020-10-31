@@ -10,6 +10,7 @@ import { NetworkPageComponent } from './pages/network-page/network-page.componen
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
 import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -28,6 +29,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     StudentsPageComponent,
     PartnersPageComponent,
     NewsPageComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

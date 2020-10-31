@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-network-page',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./network-page.component.scss'],
 })
 export class NetworkPageComponent implements OnInit {
-  constructor() {}
+  constructor(private title: Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title.setTitle('Our Network - ESN Germany e.V.');
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-students-page',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./students-page.component.scss'],
 })
 export class StudentsPageComponent implements OnInit {
-  constructor() {}
+  constructor(private title: Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title.setTitle('For Students - ESN Germany e.V.');
+  }
 }

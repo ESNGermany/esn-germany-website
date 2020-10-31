@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-news-page',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-page.component.scss'],
 })
 export class NewsPageComponent implements OnInit {
-  constructor() {}
+  constructor(private title: Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title.setTitle('News - ESN Germany e.V.');
+  }
 }
