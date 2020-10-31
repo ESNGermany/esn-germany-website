@@ -14,6 +14,7 @@ import { NavigationDarkComponent } from './components/navigation-dark/navigation
 import { FooterComponent } from './components/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MatDividerModule } from '@angular/material/divider';
     FlexLayoutModule,
     MatIconModule,
     MatDividerModule,
+    IvyCarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
