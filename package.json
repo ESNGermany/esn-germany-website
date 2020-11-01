@@ -29,6 +29,7 @@
     "@angular/router": "~9.1.9",
     "@nguniversal/express-engine": "^9.1.1",
     "angular-responsive-carousel": "^1.5.11",
+    "axios": "^0.21.0",
     "express": "^4.15.2",
     "material-icons": "^0.3.1",
     "rxjs": "~6.5.4",

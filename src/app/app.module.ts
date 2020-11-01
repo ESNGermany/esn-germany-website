@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     MatIconModule,
     MatDividerModule,
     IvyCarouselModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
