@@ -58,6 +58,7 @@ const routes: Routes = [
       initialNavigation: 'enabled',
       useHash: false,
       anchorScrolling: 'enabled',
+      onSameUrlNavigation: 'reload',
     }),
   ],
   exports: [RouterModule],
