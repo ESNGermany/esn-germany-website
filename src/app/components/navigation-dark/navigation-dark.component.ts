@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-navigation-dark',
@@ -26,10 +27,5 @@ export class NavigationDarkComponent implements OnInit {
     menu.classList.add('vis');
   }
 
-  hideMenu() {
-    var menu = <HTMLUListElement>document.getElementById('menu');
-    menu.classList.add('vis burger');
-    var burger = <HTMLUListElement>document.getElementById('burger');
-    burger.classList.remove('hidden');
-  }
+  hideMenu() {}
 }

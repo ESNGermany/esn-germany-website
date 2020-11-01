@@ -3,7 +3,7 @@
   content: "";
   left: 0;
   bottom: -4px;
-  width: 78px;
+  width: 73px;
   height: 5px;
   background: #2e3192;
 }
@@ -35,15 +35,15 @@
 
 .zoom {
   transition: transform 0.2s;
-  width: 256px;
-  height: 312px;
-  background-color: white;
-  z-index: 3;
-  opacity: 0.85;
+  width: 256px; //256px;
+  // height: 224px; //312px;
+  // background-color: white;
+  // z-index: 3;
+  // opacity: 0.85;
 }
 
 .zoom:hover {
-  transform: scale(0.91);
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  transform: scale(1.08);
+  // opacity: 1;
+  // transition: opacity 0.3s ease-in-out;
 }
