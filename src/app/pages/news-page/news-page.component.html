@@ -1,38 +1,50 @@
 <app-navigation-dark activeMenu="news"></app-navigation-dark>
 <div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
-  <!-- <div *ngIf="error">{{ error }}</div> -->
   <div
     *ngFor="let ni of newsItemList"
-    class="p-8 mb-16 border rounded border-graylight shadow-xl"
+    class="p-8 mb-16 border rounded border-graylight shadow-xl overflow-hidden"
   >
-    <div class="m-auto mb-8 relative">
+    <div class="m-auto mb-8 relative w-full">
       <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
         {{ ni.Title }}
       </p>
     </div>
-    <div class="m-auto block">
-      <div class="flex lg:flex-no-wrap flex-wrap items-center justify-between">
+    <div class="m-auto font-body text-lg">
+      <figure class="pl-8 pb-0 pr-0 pt-0 float-right w-2/5">
         <img
           src="https://strapi.esn-germany.de{{ ni.Image.formats.medium.url }}"
           alt="{{ ni.Image.alternativeText }}"
-          class="w-1/4 pr-8"
+          class="pb-4"
         />
-        <p class="font-body text-lg w-3/4">
-          {{ ni.Shorttext }} <br />
-          <a
-            href="https://esn.org"
-            target="_blank"
-            rel="noopener"
-            class="text-esn-dark-blue hover:underline"
-            >More info</a
-          >
-        </p>
-      </div>
-      <p class="font-body font-bold text-lg py-4 text-gray text-right">
-        {{ ni.Author }} <br />
-        {{ ni.published_at | date: "mediumDate" }}
+        <figcaption class="text-black italic">
+          {{ ni.Image.caption }}
+        </figcaption>
+      </figure>
+      <p id="shortnews{{ ni.id }}">
+        {{ ni.Shorttext | words: 30:"..." }} <br />
+        <span
+          id="span{{ ni.id }}"
+          (click)="showText(ni.id)"
+          class="cursor-pointer text-esn-dark-blue hover:underline"
+          >Show more</span
+        >
       </p>
+      <p class="hidden news{{ ni.id }}">{{ ni.Text }}</p>
+      <span
+        (click)="showLess(ni.id)"
+        class="cursor-pointer hidden text-esn-dark-blue hover:underline spanLess{{
+          ni.id
+        }}"
+        >Show less</span
+      >
+      <br />
     </div>
+    <p
+      class="font-body font-bold text-lg py-4 text-gray text-right w-full block"
+    >
+      {{ ni.Author }} <br />
+      {{ ni.published_at | date: "mediumDate" }}
+    </p>
   </div>
   <p class="mb-24 px-8 text-center font-body">
     Do you want to write an article? Contact us at
