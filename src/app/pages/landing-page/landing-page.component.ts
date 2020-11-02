@@ -30,7 +30,6 @@ export class LandingPageComponent implements OnInit {
     '../../../assets/landing1.png',
     '../../../assets/landing2.png',
     '../../../assets/landing3.png',
-    // 'https://picsum.photos/id/400/2500/1667',
     'https://picsum.photos/id/301/2500/1667',
   ];
 
@@ -39,7 +38,6 @@ export class LandingPageComponent implements OnInit {
       const image = new Image();
       image.onload = () => {
         this.imagesLoaded++;
-        // this.loading = this.imagesLoaded != this.numImages;
       };
       image.src = x;
     });
