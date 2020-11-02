@@ -23,13 +23,14 @@ export class LandingPageComponent implements OnInit {
   constructor() {}
 
   index: number = 0;
-  numImages: number = 2;
+  numImages: number = 3;
   imagesLoaded: number = 0;
   loading: boolean = true;
   imagesUrl = [
     '../../../assets/landing1.png',
     '../../../assets/landing2.png',
-    'https://picsum.photos/id/400/2500/1667',
+    '../../../assets/landing3.png',
+    // 'https://picsum.photos/id/400/2500/1667',
     'https://picsum.photos/id/301/2500/1667',
   ];
 
@@ -38,13 +39,13 @@ export class LandingPageComponent implements OnInit {
       const image = new Image();
       image.onload = () => {
         this.imagesLoaded++;
-        this.loading = this.imagesLoaded != this.numImages;
+        // this.loading = this.imagesLoaded != this.numImages;
       };
       image.src = x;
     });
 
     interval(5000).subscribe(() => {
-      if (!this.loading) this.index = (this.index + 1) % this.numImages;
+      this.index = (this.index + 1) % this.numImages;
     });
   }
 }

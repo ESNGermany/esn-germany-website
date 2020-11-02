@@ -1,7 +1,6 @@
-<ng-container *ngFor="let i of [0, 1, 2]">
+<ng-container *ngFor="let i of [0, 1, 2, 3]">
   <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i"></div>
 </ng-container>
-<div *ngIf="loading" class="background div0"></div>
 <app-navigation></app-navigation>
 <div class="m-auto pb-16 w-128 mb-8 extra">
   <span class="bg-white font-heading text-center text-black font-bold text-4xl">
