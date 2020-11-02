@@ -47,7 +47,7 @@ export class NewsPageComponent implements OnInit {
   }
 
   showText(id: string) {
-    var news = document
+    document
       .getElementsByClassName('news' + id)[0]
       .setAttribute('style', 'display:block;');
     document.getElementById('span' + id).style.display = 'none';

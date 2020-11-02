@@ -6,64 +6,37 @@
         Our Current Partners
       </p>
     </div>
+    <p class="font-body text-xl pb-4">Click logo to show more information.</p>
     <carousel
       [margin]="12"
-      [autoplay]="true"
+      [autoplay]="false"
       [autoplayInterval]="3000"
-      [cellsToShow]="4"
+      [cellsToShow]="3"
       [arrowsOutside]="true"
       [loop]="true"
     >
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a href="https://www.tk.de/techniker" target="_blank" rel="noopener">
-          <img src="../../../assets/partners/tk.jpg" />
-        </a>
-      </div>
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a href="https://www.dr-walter.com/" target="_blank" rel="noopener">
-          <img src="../../../assets/partners/drwalter.png" />
-        </a>
-      </div>
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a href="https://www.eurosender.com/" target="_blank" rel="noopener">
-          <img src="../../../assets/partners/eurosender.jpg" />
-        </a>
-      </div>
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a href="https://www.flyla.com/" target="_blank" rel="noopener">
-          <img src="../../../assets/partners/flyla.png" />
-        </a>
-      </div>
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a
-          href="https://www.hihostels.com/destinations/de/hostels"
-          target="_blank"
-          rel="noopener"
-        >
-          <img src="../../../assets/partners/hostelling.png" />
-        </a>
-      </div>
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a href="https://www.revolut.com/en-DE" target="_blank" rel="noopener">
-          <img src="../../../assets/partners/revolut.png" />
-        </a>
-      </div>
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a href="https://www.spotahome.com/" target="_blank" rel="noopener">
-          <img src="../../../assets/partners/spotahome.jpg" />
-        </a>
-      </div>
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a href="https://www.uniplaces.com/" target="_blank" rel="noopener">
-          <img src="../../../assets/partners/uniplaces.png" />
-        </a>
-      </div>
-      <div class="carousel-cell p-4 border rounded border-graylight shadow">
-        <a href="https://wanderlust.com/" target="_blank" rel="noopener">
-          <img src="../../../assets/partners/wanderlust.png" />
-        </a>
+      <div
+        *ngFor="let pi of partnersItemList"
+        class="carousel-cell p-4 border rounded border-graylight shadow"
+      >
+        <img
+          (click)="showMore(pi.id)"
+          src="https://strapi.esn-germany.de{{ pi.Logo.formats.medium.url }}"
+          alt="{{ pi.Logo.alternativeText }}"
+        />
       </div>
     </carousel>
+    <div *ngFor="let pi of partnersItemList">
+      <div
+        class="partner{{
+          pi.id
+        }} hidden border rounded border-graylight p-8 my-16 shadow-xl"
+      >
+        <p class="font-body font-bold text-3xl pb-12">{{ pi.Name }}</p>
+        <p class="font-body font-bold text-lg pb-8">{{ pi.Description }}</p>
+        <p class="font-body text-lg">Deal: <br />{{ pi.Deal }}</p>
+      </div>
+    </div>
     <div class="m-auto my-8 relative">
       <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
         Become a Partner!
