@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { HttpClientModule } from '@angular/common/http';
+import { TruncateModule } from '@yellowspot/ng-truncate';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatDividerModule,
     IvyCarouselModule,
     HttpClientModule,
+    TruncateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

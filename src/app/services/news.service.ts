@@ -27,7 +27,6 @@ interface NewsItem {
   providedIn: 'root',
 })
 export class NewsService {
-  error = null;
   public newsItemList: NewsItem[];
   public newsItemListChanged = new Subject<NewsItem[]>();
 

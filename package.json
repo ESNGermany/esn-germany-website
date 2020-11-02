@@ -28,6 +28,7 @@
     "@angular/platform-server": "~9.1.9",
     "@angular/router": "~9.1.9",
     "@nguniversal/express-engine": "^9.1.1",
+    "@yellowspot/ng-truncate": "^1.5.2",
     "angular-responsive-carousel": "^1.5.11",
     "axios": "^0.21.0",
     "express": "^4.15.2",
