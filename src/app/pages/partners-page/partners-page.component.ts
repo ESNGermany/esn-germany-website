@@ -31,14 +31,15 @@ export class PartnersPageComponent implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('For Partners - ESN Germany e.V.');
-    this.partnersService.partnersItemList = new Array<PartnersItem>();
-    this.partnersService.fetchPartnersList();
+    this.getPartners();
+  }
 
-    this.partnersService.partnersItemListChanged.subscribe(
-      (partnersItemList: PartnersItem[]) => {
-        this.partnersItemList = partnersItemList;
-      }
-    );
+  getPartners(): void {
+    this.partnersService
+      .fetchPartnersList()
+      .subscribe(
+        (partnersItemList) => (this.partnersItemList = partnersItemList)
+      );
   }
 
   showMore(id: string) {

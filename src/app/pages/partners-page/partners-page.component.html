@@ -3,49 +3,48 @@
   <div class="px-8 mb-24">
     <div class="m-auto mb-8 relative">
       <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Our Current Partners
+        To Do
       </p>
     </div>
-    <p class="font-body text-xl pb-4">Click logo to show more information.</p>
-    <carousel
-      [margin]="12"
-      [autoplay]="false"
-      [autoplayInterval]="3000"
-      [cellsToShow]="3"
-      [arrowsOutside]="true"
-      [loop]="true"
-    >
-      <div
-        *ngFor="let pi of partnersItemList"
-        class="carousel-cell p-4 border rounded border-graylight shadow"
-      >
-        <img
-          (click)="showMore(pi.id)"
-          class="cursor-pointer"
-          src="https://strapi.esn-germany.de{{ pi.Logo.formats.medium.url }}"
-          alt="{{ pi.Logo.alternativeText }}"
-        />
-      </div>
-    </carousel>
-    <div *ngFor="let pi of partnersItemList">
-      <div
-        class="partner{{
-          pi.id
-        }} hidden border rounded border-graylight p-8 my-16 shadow-xl"
-      >
-        <p class="font-body font-bold text-3xl pb-12">{{ pi.Name }}</p>
-        <p class="font-body font-bold text-lg pb-8">{{ pi.Description }}</p>
-        <p class="font-body text-lg">Deal: <br />{{ pi.Deal }}</p>
-      </div>
+    <div class="m-auto block mb-16">
+      <p class="font-body text-lg">
+        Waiting for texts from Partnership Manager.
+      </p>
     </div>
-    <div class="m-auto my-8 relative">
+    <div class="m-auto mb-8 relative">
       <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Become a Partner!
+        Our National Partners
       </p>
-    </div>
-    <div class="m-auto block">
-      <p class="font-body text-lg">We need the money.</p>
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+<div class="max-w-screen-2xl m-auto mb-16 mt-6">
+  <div class="flex flex-wrap items-center justify-evenly font-body text-lg">
+    <ng-container *ngFor="let partner of partnersItemList">
+      <a href="{{ partner.Link }}" target="_blank" rel="noopener">
+        <figure class="mx-16 my-8">
+          <img
+            class="w-48"
+            src="https://strapi.esn-germany.de{{
+              partner.Logo.formats.medium.url
+            }}"
+            alt="{{ partner.Logo.alternativeText }}"
+          />
+        </figure>
+      </a>
+    </ng-container>
+  </div>
+</div>
+<div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
+  <div class="px-8 mb-12">
+    <div class="m-auto my-8 relative">
+      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
+        Interested? Become a Partner!
+      </p>
+    </div>
+    <div class="m-auto block mb-16">
+      <p class="font-body text-lg">We need the money.</p>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
