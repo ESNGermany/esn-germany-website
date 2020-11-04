@@ -24,6 +24,7 @@ module.exports = {
         "esn-green": "#7ac143",
         "esn-blue": "#00aeef",
         "esn-pink": "#ec008c",
+        "esn-lightpink": "#dd97da",
         "esn-orange": "#f47b20",
         "esn-dark-blue": "#2e3192",
         black: "#000",
