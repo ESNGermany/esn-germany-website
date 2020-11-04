@@ -18,8 +18,10 @@
     </div>
   </div>
 </div>
-<div class="max-w-screen-2xl m-auto mb-16 mt-6">
-  <div class="flex flex-wrap items-center justify-evenly font-body text-lg">
+<div class="max-w-screen-xl m-auto mb-16 mt-6">
+  <div
+    class="px-8 flex flex-wrap items-center justify-evenly font-body text-lg"
+  >
     <ng-container *ngFor="let partner of partnersItemList">
       <a href="{{ partner.Link }}" target="_blank" rel="noopener">
         <figure class="mx-16 my-8">
@@ -46,5 +48,5 @@
       <p class="font-body text-lg">We need the money.</p>
     </div>
   </div>
-  <app-footer></app-footer>
 </div>
+<app-footer></app-footer>

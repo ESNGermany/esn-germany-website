@@ -14,11 +14,11 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { TruncateModule } from '@yellowspot/ng-truncate';
+
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -38,11 +38,10 @@ import { TruncateModule } from '@yellowspot/ng-truncate';
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
-    MatIconModule,
-    MatDividerModule,
     IvyCarouselModule,
     HttpClientModule,
     TruncateModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
