@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { MessageService } from './message.service';
 
 interface NewsItem {
   id: string;
@@ -27,18 +29,28 @@ interface NewsItem {
   providedIn: 'root',
 })
 export class NewsService {
-  public newsItemList: NewsItem[];
-  public newsItemListChanged = new Subject<NewsItem[]>();
+  private url = 'https://strapi.esn-germany.de/news-items?_limit=5';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
 
-  fetchNewsList(): void {
-    const url = 'https://strapi.esn-germany.de/news-items?_limit=5';
-    this.http.get<any>(url).subscribe((data) => {
-      data.map((item) => {
-        this.newsItemList.push(item);
-      });
-      this.newsItemListChanged.next(this.newsItemList);
-    });
+  fetchNewsList(): Observable<NewsItem[]> {
+    return this.http.get<NewsItem[]>(this.url).pipe(
+      tap((_) => this.log('fetched news')),
+      catchError(this.handleError<NewsItem[]>('fetchNewsList', []))
+    );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+  private log(message: string) {
+    this.messageService.add(`NewsService: ${message}`);
   }
 }

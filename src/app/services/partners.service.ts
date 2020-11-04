@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { MessageService } from './message.service';
 
 interface PartnersItem {
   id: string;
@@ -23,18 +25,28 @@ interface PartnersItem {
   providedIn: 'root',
 })
 export class PartnersService {
-  public partnersItemList: PartnersItem[];
-  public partnersItemListChanged = new Subject<PartnersItem[]>();
+  private url = 'https://strapi.esn-germany.de/partners';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
 
-  fetchPartnersList(): void {
-    const url = 'https://strapi.esn-germany.de/partners';
-    this.http.get<any>(url).subscribe((data) => {
-      data.map((item) => {
-        this.partnersItemList.push(item);
-      });
-      this.partnersItemListChanged.next(this.partnersItemList);
-    });
+  fetchPartnersList(): Observable<PartnersItem[]> {
+    return this.http.get<PartnersItem[]>(this.url).pipe(
+      tap((_) => this.log('fetched partners')),
+      catchError(this.handleError<PartnersItem[]>('fetchPartnersList', []))
+    );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      this.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
+  }
+  private log(message: string) {
+    this.messageService.add(`PartnersService: ${message}`);
   }
 }
