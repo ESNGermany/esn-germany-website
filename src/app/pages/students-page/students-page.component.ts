@@ -1,5 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { PartnersService } from 'src/app/services/partners.service';
+
+interface PartnersItem {
+  id: string;
+  Name: string;
+  Description: string;
+  Deal: string;
+  Link: string;
+  Logo: {
+    alternativeText: string;
+    caption: string;
+    formats: {
+      medium: {
+        url: string;
+      };
+    };
+  };
+}
 
 @Component({
   selector: 'app-students-page',
@@ -7,9 +25,16 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./students-page.component.scss'],
 })
 export class StudentsPageComponent implements OnInit {
-  constructor(private title: Title) {}
+  public partnersItemList: PartnersItem[];
+  constructor(private title: Title, private partnersService: PartnersService) {}
 
   ngOnInit(): void {
     this.title.setTitle('For Students - ESN Germany e.V.');
+    // this.getPartners();
   }
+
+  // getPartners(): void {
+  //   this.partnersService.fetchPartnersList()
+  //     .subscribe(partnersItemList => this.partnersItemList = partnersItemList)
+  // }
 }

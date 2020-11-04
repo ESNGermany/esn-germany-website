@@ -7,3 +7,20 @@
   height: 5px;
   background: #2e3192;
 }
+
+.addheight {
+  width: 100% !important;
+}
+
+.zoom {
+  transition: transform 0.2s;
+  width: 256px;
+}
+
+.zoom:hover {
+  transform: scale(1.08);
+}
+
+.size {
+  width: 256px;
+}
