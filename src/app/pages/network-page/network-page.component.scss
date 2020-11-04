@@ -35,15 +35,9 @@
 
 .zoom {
   transition: transform 0.2s;
-  width: 256px; //256px;
-  // height: 224px; //312px;
-  // background-color: white;
-  // z-index: 3;
-  // opacity: 0.85;
+  width: 256px;
 }
 
 .zoom:hover {
   transform: scale(1.08);
-  // opacity: 1;
-  // transition: opacity 0.3s ease-in-out;
 }
