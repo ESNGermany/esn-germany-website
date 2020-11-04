@@ -29,21 +29,19 @@ interface NewsItem {
   styleUrls: ['./news-page.component.scss'],
 })
 export class NewsPageComponent implements OnInit {
-  public newsItemList: NewsItem[];
+  newsItemList: NewsItem[];
 
   constructor(private title: Title, private newsService: NewsService) {}
 
   ngOnInit() {
     this.title.setTitle('News - ESN Germany e.V.');
+    this.getNews();
+  }
 
-    this.newsService.newsItemList = new Array<NewsItem>();
-    this.newsService.fetchNewsList();
-
-    this.newsService.newsItemListChanged.subscribe(
-      (newsItemList: NewsItem[]) => {
-        this.newsItemList = newsItemList;
-      }
-    );
+  getNews(): void {
+    this.newsService
+      .fetchNewsList()
+      .subscribe((newsItemList) => (this.newsItemList = newsItemList));
   }
 
   showText(id: string) {
