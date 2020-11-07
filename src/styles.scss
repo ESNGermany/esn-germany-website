@@ -1,6 +1,21 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+@font-face {
+  font-family: lato;
+  src: url(assets/fonts/Lato-Medium.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: roboto;
+  src: url(assets/fonts/Roboto-Medium.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: kelson;
+  src: url(assets/fonts//KelsonSans-Normal.otf) format("opentype");
+}
