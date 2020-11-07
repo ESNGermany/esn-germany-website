@@ -2,11 +2,19 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "2xl": "1880px",
+        // "sm": "640px",
+        // "md": "768px",
+        // "lg": "1024px",
+        // "xl": "1280px",
+        "2lg": "1400px",
+        "2xl": "1800px",
       },
       spacing: {
+        1: "0.5rem",
         22: "5rem",
         26: "6.5rem",
+        36: "10rem",
+        56: "14rem",
         72: "18rem",
         80: "20rem",
         84: "21rem",
@@ -37,9 +45,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: ["Oswald", "sans-serif"],
-      body: ["Lato", "sans-serif"],
-      heading: ["Kelson Sans", "sans-serif"],
+      body: ["lato", "sans-serif"],
+      heading: ["kelson", "sans-serif"],
     },
   },
   variants: {},
