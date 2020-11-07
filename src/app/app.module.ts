@@ -11,6 +11,7 @@ import { StudentsPageComponent } from './pages/students-page/students-page.compo
 import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -31,6 +32,7 @@ import { SharedModule } from './shared/shared.module';
     StudentsPageComponent,
     PartnersPageComponent,
     NewsPageComponent,
+    ImprintPageComponent,
     ErrorPageComponent,
   ],
   imports: [
