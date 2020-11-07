@@ -38,6 +38,7 @@ module.exports = {
         black: "#000",
         gray: "#d3d3d3",
         graylight: "#eaeaea",
+        bluelight: "#afb2ff",
         white: "#fff",
         whitebg: "#efefef",
         footer: "#3a3a3a",
