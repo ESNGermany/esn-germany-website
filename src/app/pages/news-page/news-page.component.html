@@ -4,8 +4,10 @@
     *ngFor="let ni of newsItemList"
     class="p-8 mb-16 border rounded border-graylight shadow-xl overflow-hidden"
   >
-    <div class="m-auto mb-8 relative w-full">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
+    <div class="m-auto mb-4 relative w-full">
+      <p
+        class="font-heading text-esn-dark-blue font-bold text-4xl title w-full relative"
+      >
         {{ ni.Title }}
       </p>
     </div>
@@ -20,6 +22,9 @@
           {{ ni.Image.caption }}
         </figcaption>
       </figure>
+      <p class="text-gray pb-4 text-xl">
+        {{ ni.Author }} – {{ ni.published_at | date: "mediumDate" }}
+      </p>
       <p id="shortnews{{ ni.id }}">
         {{ ni.Shorttext | words: 30:"..." }} <br />
         <span
@@ -39,12 +44,6 @@
       >
       <br />
     </div>
-    <p
-      class="font-body font-bold text-lg py-4 text-gray text-right w-full block"
-    >
-      {{ ni.Author }} <br />
-      {{ ni.published_at | date: "mediumDate" }}
-    </p>
   </div>
   <p class="mb-24 px-8 text-center font-body">
     Do you want to write an article? Contact us at
