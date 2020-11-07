@@ -71,6 +71,10 @@
   right: 0;
 }
 
-.vis {
-  display: block;
+.hov {
+  transition: transform 0.2s;
+}
+
+.hov:hover {
+  transform: scale(1.2);
 }

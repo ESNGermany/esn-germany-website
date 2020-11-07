@@ -5,6 +5,7 @@ import { NetworkPageComponent } from './pages/network-page/network-page.componen
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
 import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
+import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
@@ -16,28 +17,31 @@ const routes: Routes = [
   {
     path: 'our-network',
     component: NetworkPageComponent,
-    data: {
-      title: 'Our Network - ESN Germany e.V.',
-    },
   },
   {
     path: 'for-students',
     component: StudentsPageComponent,
-    data: {
-      title: 'For Students - ESN Germany e.V.',
-    },
   },
   {
     path: 'for-partners',
     component: PartnersPageComponent,
-    data: {
-      title: 'For Partners - ESN Germany e.V.',
-    },
   },
   {
     path: 'news',
     component: NewsPageComponent,
   },
+  {
+    path: 'imprint',
+    component: ImprintPageComponent,
+  },
+  // {
+  //   path: 'imprint\#CoC',
+  //   component: ImprintPageComponent,
+  // },
+  // {
+  //   path: 'imprint\#privacy-policy',
+  //   component: ImprintPageComponent,
+  // },
   {
     path: 'error',
     component: ErrorPageComponent,

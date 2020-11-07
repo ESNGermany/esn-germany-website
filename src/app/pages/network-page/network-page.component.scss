@@ -30,12 +30,13 @@
 }
 
 .addeffect {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.35s ease-in-out;
 }
 
 .zoom {
   transition: transform 0.2s;
   width: 256px;
+  margin: 0 35px;
 }
 
 .zoom:hover {
