@@ -28,9 +28,9 @@ export class LandingPageComponent implements OnInit {
   loading: boolean = true;
   imagesUrl = [
     '../../../assets/landing1.png',
+    '../../../assets/landing1.png',
     '../../../assets/landing2.png',
     '../../../assets/landing3.png',
-    'https://picsum.photos/id/301/2500/1667',
   ];
 
   ngOnInit() {

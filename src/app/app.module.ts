@@ -12,12 +12,17 @@ import { PartnersPageComponent } from './pages/partners-page/partners-page.compo
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
+import { CocPageComponent } from './pages/legal/coc-page/coc-page.component';
+import { EppPageComponent } from './pages/legal/epp-page/epp-page.component';
+import { StatutesPageComponent } from './pages/legal/statutes-page/statutes-page.component';
+import { OrdnungPageComponent } from './pages/legal/ordnung-page/ordnung-page.component';
+import { KonsultationsordnungPageComponent } from './pages/legal/konsultationsordnung-page/konsultationsordnung-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavigationDarkComponent } from './components/navigation-dark/navigation-dark.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { TruncateModule } from '@yellowspot/ng-truncate';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -34,16 +39,21 @@ import { SharedModule } from './shared/shared.module';
     NewsPageComponent,
     ImprintPageComponent,
     ErrorPageComponent,
+    CocPageComponent,
+    EppPageComponent,
+    OrdnungPageComponent,
+    KonsultationsordnungPageComponent,
+    StatutesPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
-    IvyCarouselModule,
     HttpClientModule,
     TruncateModule,
     SharedModule,
+    MarkdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
