@@ -6,6 +6,11 @@ import { StudentsPageComponent } from './pages/students-page/students-page.compo
 import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
+import { CocPageComponent } from './pages/legal/coc-page/coc-page.component';
+import { EppPageComponent } from './pages/legal/epp-page/epp-page.component';
+import { StatutesPageComponent } from './pages/legal/statutes-page/statutes-page.component';
+import { OrdnungPageComponent } from './pages/legal/ordnung-page/ordnung-page.component';
+import { KonsultationsordnungPageComponent } from './pages/legal/konsultationsordnung-page/konsultationsordnung-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
@@ -34,14 +39,26 @@ const routes: Routes = [
     path: 'imprint',
     component: ImprintPageComponent,
   },
-  // {
-  //   path: 'imprint\#CoC',
-  //   component: ImprintPageComponent,
-  // },
-  // {
-  //   path: 'imprint\#privacy-policy',
-  //   component: ImprintPageComponent,
-  // },
+  {
+    path: 'coc',
+    component: CocPageComponent,
+  },
+  {
+    path: 'epp',
+    component: EppPageComponent,
+  },
+  {
+    path: 'statutes',
+    component: StatutesPageComponent,
+  },
+  {
+    path: 'ordnung',
+    component: OrdnungPageComponent,
+  },
+  {
+    path: 'konsultationsordnung',
+    component: KonsultationsordnungPageComponent,
+  },
   {
     path: 'error',
     component: ErrorPageComponent,
