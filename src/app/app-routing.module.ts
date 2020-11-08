@@ -80,6 +80,7 @@ const routes: Routes = [
       useHash: false,
       anchorScrolling: 'enabled',
       onSameUrlNavigation: 'reload',
+      scrollPositionRestoration: 'enabled',
     }),
   ],
   exports: [RouterModule],
