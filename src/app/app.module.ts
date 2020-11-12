@@ -23,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TruncateModule } from '@yellowspot/ng-truncate';
 import { MarkdownModule } from 'ngx-markdown';
+import { SectionmapComponent } from './components/sectionmap/sectionmap.component';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -44,6 +45,7 @@ import { SharedModule } from './shared/shared.module';
     OrdnungPageComponent,
     KonsultationsordnungPageComponent,
     StatutesPageComponent,
+    SectionmapComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
