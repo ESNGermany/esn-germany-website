@@ -18,6 +18,10 @@ interface NewsItem {
       };
     };
   };
+  Attachments: {
+    name: string;
+    url: string;
+  };
   Author: string;
   Text: string;
   published_at: Date;

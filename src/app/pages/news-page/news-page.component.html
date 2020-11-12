@@ -35,7 +35,21 @@
           >Show more</span
         >
       </p>
-      <p class="hidden news{{ ni.id }}">{{ ni.Text }}</p>
+      <div class="hidden news{{ ni.id }}">
+        <p>{{ ni.Text }}</p>
+        <div *ngIf="ni.Attachments" class="my-4">
+          <p>Open attachment:</p>
+          <a
+            href="https://strapi.esn-germany.de{{ ni.Attachments.url }}"
+            target="_blank"
+            rel="noopener"
+            class="font-body text-lg text-esn-dark-blue hover:underline"
+          >
+            {{ ni.Attachments.name }}
+            <mat-icon class="icon"> call_made </mat-icon></a
+          >
+        </div>
+      </div>
       <span
         (click)="showLess(ni.id)"
         class="cursor-pointer hidden text-esn-dark-blue hover:underline spanLess{{
@@ -49,11 +63,11 @@
   <p class="mb-24 px-8 text-center font-body">
     Do you want to write an article? Contact us at
     <a
-      href="mailto:someone@esn-germany.de"
+      href="mailto:board@esn-germany.de"
       target="_blank"
       rel="noopener"
       class="text-esn-dark-blue hover:underline"
-      >someone@esn-germany.de</a
+      >board@esn-germany.de</a
     >.
   </p>
 </div>
