@@ -1,0 +1,20 @@
+.esn-map {
+  display: flex;
+  justify-content: center;
+  max-height: 600px;
+}
+​ svg:not(:root) {
+  max-height: 600px;
+}
+​ #info-box {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: #ffffff;
+  border: 2px solid #bf0a30;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: arial;
+}

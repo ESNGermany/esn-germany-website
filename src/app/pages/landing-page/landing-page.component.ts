@@ -7,6 +7,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing-page',
@@ -20,7 +21,7 @@ import {
   ],
 })
 export class LandingPageComponent implements OnInit {
-  constructor() {}
+  constructor(private title: Title) {}
 
   index: number = 0;
   numImages: number = 3;
@@ -28,12 +29,13 @@ export class LandingPageComponent implements OnInit {
   loading: boolean = true;
   imagesUrl = [
     '../../../assets/landing1.png',
-    '../../../assets/landing1.png',
     '../../../assets/landing2.png',
     '../../../assets/landing3.png',
+    '../../../assets/landing1.png',
   ];
 
   ngOnInit() {
+    this.title.setTitle('ESN Germany e.V.');
     this.imagesUrl.forEach((x, index) => {
       const image = new Image();
       image.onload = () => {

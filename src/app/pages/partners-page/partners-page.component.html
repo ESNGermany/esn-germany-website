@@ -3,12 +3,31 @@
   <div class="px-8 mb-24">
     <div class="m-auto mb-8 relative">
       <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        To Do
+        Become a partner of ESN Germany
       </p>
     </div>
     <div class="m-auto block mb-16">
       <p class="font-body text-lg">
-        Waiting for texts from Partnership Manager.
+        You are a company or association and would like to work with a young,
+        international student network based in Germany? Then become our partner!
+        We are currently cooperating with several companies in very different
+        ways. From discounts connected to our membership card, the
+        <a
+          href="https://esncard.org"
+          rel="noopener"
+          target="_blank"
+          class="text-esn-dark-blue hover:underline"
+          >ESNcard</a
+        >, sponsoring or collaborating on projects, the possibilities are
+        endless. If you would like to contact us and discuss your ideas, feel
+        free to send an email to our partnership manager Hannah at
+        <a
+          href="mailto:partnership@esn-germany.de"
+          rel="noopener"
+          target="_blank"
+          class="text-esn-dark-blue hover:underline"
+          >partnership@esn-germany.de</a
+        >.
       </p>
     </div>
     <div class="m-auto mb-8 relative">
@@ -18,14 +37,19 @@
     </div>
   </div>
 </div>
-<div class="max-w-screen-2xl m-auto mb-16 mt-6">
+<div class="max-w-screen-2xl m-auto mb-16">
   <div *ngIf="!partnersItemList" class="bg-white w-screen h-screen"></div>
   <div
-    class="mx-8 flex flex-wrap items-center justify-evenly font-body text-lg"
+    class="mx-8 flex flex-wrap items-center justify-evenly font-body text-lg border border-graylight shadow-xl p-8"
   >
     <ng-container *ngFor="let partner of partnersItemList">
-      <a href="{{ partner.Link }}" target="_blank" rel="noopener">
-        <figure class="m-8 zoom">
+      <a
+        href="{{ partner.Link }}"
+        title="{{ partner.Logo.alternativeText }}"
+        target="_blank"
+        rel="noopener"
+      >
+        <figure class="m-6 zoom">
           <img
             class="w-40"
             src="https://strapi.esn-germany.de{{
@@ -42,11 +66,52 @@
   <div class="px-8 mb-12">
     <div class="m-auto my-8 relative">
       <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Interested? Become a Partner!
+        Institutional Stakeholders
       </p>
     </div>
     <div class="m-auto block mb-16">
-      <p class="font-body text-lg">We need the money.</p>
+      <p class="font-body text-lg">
+        ESN Germany advocates for students on international mobilities, incoming
+        as well as outgoing, with a focus on the Erasmus+ Programme. We
+        represent their needs and rights on the local, national and
+        international level. Furthermore, we advocate for social inclusion and
+        accessible international mobility programmes for every person,
+        regardless of their background.
+        <br />
+        We are constantly looking for new institutional cooperations with
+        organisations that have similar goals and aims. If your organisation
+        would like to work with us, send us an email at
+        <a
+          href="mailto:board@esn-germany.de"
+          rel="noopener"
+          target="_blank"
+          class="text-esn-dark-blue hover:underline"
+          >board@esn-germany.de</a
+        >
+        and we can talk about possibilities for joint projects or general
+        cooperation opportunities!
+      </p>
+    </div>
+    <div class="m-auto my-8 relative">
+      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
+        Memberships & Partner Associations
+      </p>
+    </div>
+    <div class="m-auto block mb-16">
+      <a
+        href="https://www.vdsi.org/"
+        title="VDSI"
+        target="_blank"
+        rel="noopener"
+      >
+        <figure class="m-6 zoom">
+          <img
+            class="w-40"
+            src="../../../assets/partners/vdsi.png"
+            alt="VDSI"
+          />
+        </figure>
+      </a>
     </div>
   </div>
 </div>
