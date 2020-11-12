@@ -2,17 +2,13 @@
   <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i"></div>
 </ng-container>
 <app-navigation></app-navigation>
-<div class="m-auto pb-16 w-128 mb-8 extra padd">
+<div class="m-auto py-16 w-128 mb-8 extra">
   <span class="bg-white font-heading text-center text-black font-bold text-4xl">
     Erasmus in Germany?<br />Amazing idea.
   </span>
 </div>
-<div
-  class="block w-full bg-footer text-white m-auto shadow-strong mt-28 lg:mt-22 xl:mt-22 relative"
->
-  <div
-    class="flex flex-wrap items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body"
-  >
+<!-- <div class="block w-full bg-footer text-white m-auto shadow-strong mt-28 lg:mt-22 xl:mt-22 relative">
+  <div class="flex flex-wrap items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body">
     <div class="inline-block">
       <p class="text-5xl lg:text-5xl xl:text-6xl text-center font-bold">
         1 200
@@ -36,10 +32,10 @@
       <p class="text-lg text-center font-bold">Sections</p>
     </div>
   </div>
-</div>
+</div> -->
 <div class="max-w-screen-xl m-auto sm:px-16 pt-8 xl:mt-28 lg:mt-22 sm:mt-16">
-  <div class="px-8 mb-16">
-    <div class="m-auto mb-8 relative">
+  <div class="px-8 mt-24 mb-16">
+    <div class="m-auto my-8 relative">
       <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
         We are ESN Germany.
       </p>
@@ -59,184 +55,159 @@
     </div>
   </div>
 </div>
-<div class="flex flex-wrap items-center justify-between w-full">
+<mat-grid-list cols="4" rowHeight="280px">
+  <mat-grid-tile [colspan]="3" [rowspan]="1">
+    <img src="../../../assets/big-img1.jpg" />
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <img src="../../../assets/big-img4.jpg" class="h-full" />
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <img src="../../../assets/big-img2.jpg" />
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <img src="../../../assets/big-img3.jpg" />
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- <div class="block w-full bg-esn-blue text-white m-auto mt-28 lg:mt-22 xl:mt-22 relative">
+  <div
+    class="flex flex-wrap items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-16 px-12 font-body">
+    <div class="inline-block">
+      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">
+        1 200
+      </p>
+      <p class="text-lg text-center font-bold">Volunteers</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-2xl font-bold text-center px-3">for</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">
+        10 600
+      </p>
+      <p class="text-lg text-center font-bold">Exchange Students</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-2xl font-bold text-center px-3">in</p>
+    </div>
+    <div class="inline-block">
+      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">40</p>
+      <p class="text-lg text-center font-bold">Sections</p>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="flex flex-wrap items-center justify-between w-full">
   <img src="../../../assets/ex-img3.jpg" alt="" class="lg:h-48 xl:h-64 m-4" />
-  <img
-    src="../../../assets/ex-img1.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img1.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img2.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img3.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img3.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img1.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img3.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img3.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-  <img
-    src="../../../assets/ex-img3.jpg"
-    alt=""
-    class="h-48 xl:h-64 lg:h-48 m-4"
-  />
-</div>
-<div class="max-w-screen-xl m-auto sm:px-16 pt-8">
+  <img src="../../../assets/ex-img1.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+  <img src="../../../assets/ex-img1.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+  <img src="../../../assets/ex-img2.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+  <img src="../../../assets/ex-img3.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+  <img src="../../../assets/ex-img3.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+  <img src="../../../assets/ex-img1.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+  <img src="../../../assets/ex-img3.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+  <img src="../../../assets/ex-img3.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+  <img src="../../../assets/ex-img3.jpg" alt="" class="h-48 xl:h-64 lg:h-48 m-4" />
+</div> -->
+<div class="max-w-screen-xl m-auto sm:px-16 pt-8 xl:mt-28 lg:mt-22 sm:mt-16">
   <div class="px-8 mb-16">
-    <div class="my-12">
-      <div class="mb-8 relative">
+    <div class="m-auto mb-8 relative">
+      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
+        Join us!
+      </p>
+    </div>
+    <div class="m-auto block">
+      <p class="font-body text-xl">
+        Erasmus Student Network (ESN) is a non-profit international student
+        organisation. Our mission is to represent international students, thus
+        provide opportunities for cultural understanding and self-development
+        under the principle of Students Helping Students. In Europe there are
+        local ESN sections at more than 500 higher education facilities in more
+        than 40 countries. This makes us one of the largest student initiatives
+        in Europe. In Europe there are local ESN sections at more than 500
+        higher education facilities in more than 40 countries. This makes us one
+        of the largest student initiatives in Europe.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- <div class="max-w-screen-xl m-auto sm:px-16 pt-8">
+  <div class="px-8">
+    <div class="font-body text-xl">
+      <div class="relative">
         <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-          Our Causes
+          Find out more!
         </p>
       </div>
-      <div class="font-body text-xl border border-graylight shadow-xl p-8">
-        <div class="flex items-center lg:flex-no-wrap flex-wrap">
-          <div class="m-4 mx-8 w-full">
-            <img
-              src="../../../assets/causes/edu.png"
-              alt="Education and Youth"
-              class="m-auto h-24"
-            />
-            <p class="text-center text-2xl text-esn-blue font-bold p-4">
-              Education & Youth
-            </p>
-          </div>
-          <div class="m-6">
-            <p>
-              As a key volunteer student organisation in international higher
-              education in Europe, our members provide information about
-              mobility programmes and motivate students to study abroad.
-            </p>
-          </div>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="max-w-screen-2xl m-auto sm:px-16 pt-8">
+  <div class="relative w-full">
+    <div class="absolute t24 right-0">
+      <svg width="950px" height="670px" viewbox="0 0 950 670">
+        <defs>
+          <clipPath id="clip">
+            <polygon points="950 0, 950 670, 0 470, 0 200" />
+          </clipPath>
+        </defs>
+        <image
+          xlink:href="https://i.picsum.photos/id/301/2500/1667.jpg?hmac=shA39wIqh0fWc1ZN4t6uDTXpdYcdwzpYM1yqgSonk0Q"
+          x="0" y="0" clip-path="url(#clip)" />
+      </svg>
+    </div>
+  </div>
+  <div class="mb-48">
+    <svg width="950px" height="670px" viewbox="0 0 950 670">
+      <defs>
+        <clipPath id="clip2">
+          <polygon points="0 0, 950 200, 950 470, 0 670" />
+        </clipPath>
+      </defs>
+      <image xlink:href="https://i.picsum.photos/id/371/1000/1000.jpg?hmac=CCTRQVKocjSPcu5LhXZg6-8lVN1XUFpjkXKolCZYu4I"
+        x="0" y="0" clip-path="url(#clip2)" />
+    </svg>
+  </div>
+</div> -->
+<!-- <div class="max-w-screen-2xl m-auto sm:px-16 pt-8">
+  <div class="px-8 mb-16">
+    <div class="mb-12 font-body text-3xl">
+      <div class="flex items-center lg:flex-no-wrap flex-wrap">
+        <div class="m-4">
+          <img src="../../../assets/ex-img2.jpg" alt="Education and Youth" class="m-auto h-96" />
         </div>
-        <mat-divider class="text-graylight"></mat-divider>
-        <div class="flex items-center lg:flex-no-wrap flex-wrap-reverse">
-          <div class="m-6">
-            <p>
-              ESN stands for active citizenship, which includes actively
-              partaking in finding solutions for current problems. Environmental
-              sustainability is one of the major struggles of today’s society
-              and, when it comes to this field, our members try to raise
-              awareness about the issue and lead by example.
-            </p>
-          </div>
-          <div class="m-4 mx-8 w-full">
-            <img
-              src="../../../assets/causes/environ.png"
-              alt="Environmental Sustainability"
-              class="m-auto h-24"
-            />
-            <p class="text-center text-2xl text-esn-green font-bold p-4">
-              Environmental Sustainability
-            </p>
-          </div>
+        <p>
+          Learn more about Our Network <mat-icon class="icon">arrow_right_alt</mat-icon>
+        </p>
+      </div>
+      <div class="flex items-center lg:flex-no-wrap flex-wrap-reverse">
+        <p>
+          Learn more about being an Incoming or Outgoing <mat-icon class="icon">arrow_right_alt</mat-icon>
+        </p>
+        <div class="m-4">
+          <img src="../../../assets/ex-img1.jpg" alt="Environmental Sustainability" class="m-auto h-96" />
         </div>
-        <mat-divider class="text-graylight"></mat-divider>
-        <div class="flex items-center lg:flex-no-wrap flex-wrap">
-          <div class="m-4 mx-8 w-full">
-            <img
-              src="../../../assets/causes/health.png"
-              alt="Health and Wellbeing"
-              class="m-auto h-24"
-            />
-            <p class="text-center text-2xl text-esn-dark-blue font-bold p-4">
-              Health & Wellbeing
-            </p>
-          </div>
-          <p class="m-6">
-            Mens sana in corpore sano. Moving abroad for an exchange is a big
-            turnaround which includes changing our everyday habits. Regular
-            practices usually happen when we have a stable routine, and it’s
-            kind of hard to plan anything when you are aware that you will have
-            to change your lifestyle again in 6 months or so.
-          </p>
+      </div>
+      <div class="flex items-center lg:flex-no-wrap flex-wrap">
+        <div class="m-4">
+          <img src="../../../assets/ex-img3.jpg" alt="Health and Wellbeing" class="m-auto h-96" />
         </div>
-        <mat-divider class="text-graylight"></mat-divider>
-        <div class="flex items-center lg:flex-no-wrap flex-wrap-reverse">
-          <p class="m-6">
-            According to the Erasmus Impact Study launched by the European
-            Commission in 2012, 85% of students study or train abroad to enhance
-            their employability and more than 90% of students reported an
-            improvement in their transversal skills.
-          </p>
-          <div class="m-4 mx-8 w-full">
-            <img
-              src="../../../assets/causes/skills.png"
-              alt="Skills and Employability"
-              class="m-auto h-24"
-            />
-            <p class="text-center text-2xl text-black font-bold p-4">
-              Skills & Employability
-            </p>
-          </div>
-        </div>
-        <mat-divider class="text-graylight"></mat-divider>
-        <div class="flex items-center lg:flex-no-wrap flex-wrap">
-          <div class="m-4 mx-8 w-full">
-            <img
-              src="../../../assets/causes/socialincl.png"
-              alt="Social Inclusion"
-              class="m-auto h-24"
-            />
-            <p class="text-center text-2xl text-esn-pink font-bold p-4">
-              Social Inclusion
-            </p>
-          </div>
-          <p class="m-6">
-            ESN implements the field of social inclusion by widening the
-            participation and social engagement. ESN believes in a more diverse
-            Erasmus+ programme, which is why our members work hard to raise
-            awareness about mobility opportunities for students from
-            underrepresented groups.
-          </p>
-        </div>
-        <mat-divider class="text-graylight"></mat-divider>
-        <div class="flex items-center lg:flex-no-wrap flex-wrap-reverse">
-          <p class="m-6">
-            Culture; customs, values and social behavior of a particular group
-            of people at a particular time. Experiencing the way of life in
-            diverse and unknown cultures is a strong motivator for young people
-            to move abroad in order to participate in mobility programmes.
-          </p>
-          <div class="m-4 mx-8 w-full">
-            <img
-              src="../../../assets/causes/culture.png"
-              alt="Culture"
-              class="m-auto h-24"
-            />
-            <p class="text-center text-2xl text-esn-orange font-bold p-4">
-              Culture
-            </p>
-          </div>
+        <p>
+          Learn more if you are a (potential) partner <mat-icon class="icon">arrow_right_alt</mat-icon>
+        </p>
+      </div>
+      <div class="flex items-center lg:flex-no-wrap flex-wrap-reverse">
+        <p>
+          Learn more about our News <mat-icon class="icon">arrow_right_alt</mat-icon>
+        </p>
+        <div class="m-4">
+          <img src="../../../assets/ex-img1.jpg" alt="Skills and Employability" class="m-auto h-96" />
         </div>
       </div>
     </div>
+  </div>
+</div> -->
+<div class="max-w-screen-xl m-auto sm:px-16 pt-8">
+  <div class="px-8 mb-32">
     <div class="m-auto mb-8 relative">
       <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
         Supported by
