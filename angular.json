@@ -23,7 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.ico", "src/_redirects", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": [],
             "customWebpackConfig": {
@@ -155,7 +155,20 @@
           "options": {
             "browserTarget": "esn-germany-website:build:production",
             "serverTarget": "esn-germany-website:server:production",
-            "routes": ["/"]
+            "routes": [
+              "/",
+              "/our-network",
+              "/for-students",
+              "/for-partners",
+              "/news",
+              "/imprint",
+              "/coc",
+              "/epp",
+              "/statutes",
+              "/ordnung",
+              "/konsultationsordnung",
+              "/error"
+            ]
           },
           "configurations": {
             "production": {}
@@ -164,5 +177,8 @@
       }
     }
   },
-  "defaultProject": "esn-germany-website"
+  "defaultProject": "esn-germany-website",
+  "cli": {
+    "analytics": "c0348058-3a9d-47cc-9d55-a1d3464f2728"
+  }
 }

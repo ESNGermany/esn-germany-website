@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
 import {
-  trigger,
+  animate,
   state,
   style,
-  animate,
   transition,
+  trigger,
 } from '@angular/animations';
 import { Title } from '@angular/platform-browser';
 
@@ -21,8 +20,6 @@ import { Title } from '@angular/platform-browser';
   ],
 })
 export class LandingPageComponent implements OnInit {
-  constructor(private title: Title) {}
-
   index: number = 0;
   numImages: number = 3;
   imagesLoaded: number = 0;
@@ -34,18 +31,21 @@ export class LandingPageComponent implements OnInit {
     '../../../assets/landing1.png',
   ];
 
+  constructor(private title: Title) {}
+
   ngOnInit() {
     this.title.setTitle('ESN Germany e.V.');
-    this.imagesUrl.forEach((x, index) => {
+    // TODO: preload images with a service worker
+    /*this.imagesUrl.forEach((x, index) => {
       const image = new Image();
       image.onload = () => {
         this.imagesLoaded++;
       };
       image.src = x;
-    });
-
-    interval(5000).subscribe(() => {
+    });*/
+    // TODO: solve this in a way that makes the app go stable
+    /*interval(5000).subscribe(() => {
       this.index = (this.index + 1) % this.numImages;
-    });
+    });*/
   }
 }
