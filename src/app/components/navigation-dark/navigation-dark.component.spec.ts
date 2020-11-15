@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NavigationDarkComponent } from './navigation-dark.component';
 
@@ -6,7 +6,7 @@ describe('NavigationDarkComponent', () => {
   let component: NavigationDarkComponent;
   let fixture: ComponentFixture<NavigationDarkComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [NavigationDarkComponent],
     }).compileComponents();

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CocPageComponent } from './coc-page.component';
 
@@ -6,7 +6,7 @@ describe('CocPageComponent', () => {
   let component: CocPageComponent;
   let fixture: ComponentFixture<CocPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CocPageComponent],
     }).compileComponents();
