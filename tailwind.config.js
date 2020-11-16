@@ -52,8 +52,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      body: ["lato", "sans-serif"],
-      heading: ["kelson", "sans-serif"],
+      body: ["Lato", "sans-serif"],
+      heading: ["Oswald", "sans-serif"],
     },
   },
   variants: {},

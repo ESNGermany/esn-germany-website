@@ -12,7 +12,7 @@
     "build:prod": "ng build --prod",
     "dev:ssr": "ng run esn-germany-website:serve-ssr",
     "serve:ssr": "node dist/esn-germany-website/server/main.js",
-    "build:ssr": "build --prod && ng run esn-germany-website:server:production",
+    "build:ssr": "ng build --prod && ng run esn-germany-website:server:production",
     "prerender": "ng run esn-germany-website:prerender"
   },
   "private": true,
