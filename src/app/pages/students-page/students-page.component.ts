@@ -1,22 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { PartnersService } from 'src/app/services/partners.service';
+import { SectionsService } from 'src/app/services/sections.service';
 
-interface PartnersItem {
+interface SectionItem {
   id: string;
   Name: string;
-  Description: string;
-  Deal: string;
-  Link: string;
-  Logo: {
-    alternativeText: string;
-    caption: string;
-    formats: {
-      medium: {
-        url: string;
-      };
-    };
-  };
+  City: string;
+  email: string;
+  website: string;
+  Region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
 }
 
 @Component({
@@ -25,16 +17,73 @@ interface PartnersItem {
   styleUrls: ['./students-page.component.scss'],
 })
 export class StudentsPageComponent implements OnInit {
-  public partnersItemList: PartnersItem[];
-  constructor(private title: Title, private partnersService: PartnersService) {}
+  public northSectionItemList: SectionItem[];
+  public westSectionItemList: SectionItem[];
+  public eastSectionItemList: SectionItem[];
+  public southWestSectionItemList: SectionItem[];
+  public southEastSectionItemList: SectionItem[];
+
+  public regions: string[] = [
+    'North',
+    'West',
+    'East',
+    'SouthWest',
+    'SouthEast',
+  ];
+
+  constructor(private title: Title, private sectionsService: SectionsService) {}
 
   ngOnInit(): void {
     this.title.setTitle('For Students - ESN Germany e.V.');
-    // this.getPartners();
+    this.getNorthSections();
+    this.getWestSections();
+    this.getEastSections();
+    this.getSouthWestSections();
+    this.getSouthEastSections();
   }
 
-  // getPartners(): void {
-  //   this.partnersService.fetchPartnersList()
-  //     .subscribe(partnersItemList => this.partnersItemList = partnersItemList)
-  // }
+  getNorthSections(): void {
+    this.sectionsService
+      .fetchSectionsNorthList()
+      .subscribe(
+        (northSectionItemList) =>
+          (this.northSectionItemList = northSectionItemList)
+      );
+  }
+
+  getWestSections(): void {
+    this.sectionsService
+      .fetchSectionsWestList()
+      .subscribe(
+        (westSectionItemList) =>
+          (this.westSectionItemList = westSectionItemList)
+      );
+  }
+
+  getEastSections(): void {
+    this.sectionsService
+      .fetchSectionsEastList()
+      .subscribe(
+        (eastSectionItemList) =>
+          (this.eastSectionItemList = eastSectionItemList)
+      );
+  }
+
+  getSouthEastSections(): void {
+    this.sectionsService
+      .fetchSectionsSouthEastList()
+      .subscribe(
+        (southEastSectionItemList) =>
+          (this.southEastSectionItemList = southEastSectionItemList)
+      );
+  }
+
+  getSouthWestSections(): void {
+    this.sectionsService
+      .fetchSectionsSouthWestList()
+      .subscribe(
+        (southWestSectionItemList) =>
+          (this.southWestSectionItemList = southWestSectionItemList)
+      );
+  }
 }

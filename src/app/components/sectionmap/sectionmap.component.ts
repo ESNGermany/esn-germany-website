@@ -1,4 +1,99 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Directive,
+  ElementRef,
+  HostListener,
+  OnInit,
+} from '@angular/core';
+
+@Directive({
+  selector: 'g path',
+})
+export class SectionmapDirective {
+  constructor(private el: ElementRef) {}
+
+  public northSections: string[] = [
+    'ESN Kiel',
+    'ESN Braunschweig',
+    'ESN Göttingen',
+    'ESN LEI Greifswald',
+    'ESN Hamburg',
+    'ESN Hannover',
+    'ESN Hildesheim',
+    'ESN LEI Rostock',
+  ];
+  public eastSections: string[] = [
+    'ESN Erasmix Medizin Berlin',
+    'ESN TU Dresden & ESN HTW Dresden',
+    'ESN Frankfurt (Oder)',
+    'ESN Halle',
+    'ESN Jena',
+    'ESN Potsdam',
+  ];
+  public westSections: string[] = [
+    'ESN Bochum',
+    'ESN Bonn',
+    'ESN Dortmund',
+    'ESN Düsseldorf',
+    'ESN Koblenz',
+    'Köln',
+    'ESN Siegen',
+    'ESN Witten/Herdecke',
+  ];
+  public southEastSections: string[] = [
+    'ESN Augsburg',
+    'ESN Bayreuth',
+    'ESN AKI-Deggendorf',
+    'ESN Ingolstadt',
+    'ESN MESA München & ESN TUMi München',
+  ];
+  public southWestSections: string[] = [
+    'ESN Darmstadt',
+    'ESN Frankfurt (Main)',
+    'ESN Freiburg',
+    'ESN Heidelberg',
+    'ESN Kaiserslautern',
+    'ESN AKE Karlsruhe',
+    'ESN Konstanz',
+    'ESN Landau',
+    'ESN Mannheim',
+    'ESN Saarbrücken',
+    'ESN Stuttgart',
+  ];
+  public sections: string[] = this.northSections
+    .concat(this.eastSections)
+    .concat(this.westSections)
+    .concat(this.southEastSections)
+    .concat(this.southWestSections);
+
+  @HostListener('mouseenter')
+  onMouseEnter() {
+    if (this.sections.includes(this.el.nativeElement.id)) {
+      const box = document.getElementById('infobox');
+      box.innerHTML = '<div>' + this.el.nativeElement.id + '</div>';
+      box.classList.remove('hidden');
+      box.classList.add('block');
+    }
+  }
+  @HostListener('mouseleave')
+  onMouseLeave() {
+    const box = document.getElementById('infobox');
+    box.classList.remove('block');
+    box.classList.add('hidden');
+  }
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    const box = document.getElementById('infobox');
+    box.setAttribute(
+      'style',
+      'top: ' +
+        String(event.pageY - box.offsetHeight - 30) +
+        'px; left: ' +
+        String(event.pageX - box.offsetWidth / 2) +
+        'px'
+    );
+  }
+}
 
 @Component({
   selector: 'app-sectionmap',
@@ -9,28 +104,4 @@ export class SectionmapComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  // onMouseOver() {
-  //   $("path, circle").hover(function (e) {
-  //     document.getElementById('info-box').setAttribute('display', 'block'); //$('#info-box').css('display', 'block');
-  //     $('#info-box').html($(this).data('info'));
-  //   });
-
-  //   $("path, circle").mouseleave(function (e) {
-  //     document.getElementById('info-box').setAttribute('display', 'none'); // $('#info-box').css('display', 'none');
-  //   });
-
-  //   $(document).mousemove(function (e) {
-  //     $('#info-box').css('top', e.pageY - $('#info-box').height() - 30);
-  //     $('#info-box').css('left', e.pageX - ($('#info-box').width()) / 2);
-  //   }).mouseover();
-
-  //   var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  //   if (ios) {
-  //     $('a').on('click touchend', function () {
-  //       var link = $(this).attr('href');
-  //       window.open(link, '_blank');
-  //       return false;
-  //     });
-  //   }
 }
