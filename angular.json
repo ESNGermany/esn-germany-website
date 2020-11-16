@@ -15,20 +15,23 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "outputPath": "dist/esn-germany-website/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/_redirects", "src/assets"],
-            "styles": ["src/styles.scss"],
-            "scripts": [],
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            }
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -41,7 +44,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -62,12 +64,10 @@
           }
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "esn-germany-website:build",
-            "customWebpackConfig": {
-              "path": "webpack.config.js"
-            }
+            "extraWebpackConfig": "webpack.config.js",
+            "browserTarget": "esn-germany-website:build"
           },
           "configurations": {
             "production": {
@@ -82,14 +82,21 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
+            "extraWebpackConfig": "webpack.config.js",
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/_redirects",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -99,9 +106,12 @@
             "tsConfig": [
               "tsconfig.app.json",
               "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "e2e/tsconfig.json",
+              "tsconfig.server.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -156,18 +166,7 @@
             "browserTarget": "esn-germany-website:build:production",
             "serverTarget": "esn-germany-website:server:production",
             "routes": [
-              "/",
-              "/our-network",
-              "/for-students",
-              "/for-partners",
-              "/news",
-              "/imprint",
-              "/coc",
-              "/epp",
-              "/statutes",
-              "/ordnung",
-              "/konsultationsordnung",
-              "/error"
+              "/"
             ]
           },
           "configurations": {
@@ -179,6 +178,6 @@
   },
   "defaultProject": "esn-germany-website",
   "cli": {
-    "analytics": "c0348058-3a9d-47cc-9d55-a1d3464f2728"
+    "analytics": "52d5bcd8-baaa-492c-93a8-a100196bf7c3"
   }
 }
