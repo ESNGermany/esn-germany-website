@@ -12,7 +12,7 @@ module.exports = {
         // "lg": "1024px",
         // "xl": "1280px",
         "2lg": "1400px",
-        "2xl": "1800px",
+        "2xl": "1570px",
       },
       spacing: {
         1: "0.5rem",
