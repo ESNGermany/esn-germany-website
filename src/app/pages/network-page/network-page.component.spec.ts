@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NetworkPageComponent } from './network-page.component';
 
@@ -6,7 +6,7 @@ describe('NetworkPageComponent', () => {
   let component: NetworkPageComponent;
   let fixture: ComponentFixture<NetworkPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [NetworkPageComponent],
     }).compileComponents();

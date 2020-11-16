@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EppPageComponent } from './epp-page.component';
 
@@ -6,7 +6,7 @@ describe('EppPageComponent', () => {
   let component: EppPageComponent;
   let fixture: ComponentFixture<EppPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [EppPageComponent],
     }).compileComponents();
