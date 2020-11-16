@@ -26,6 +26,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { SectionmapComponent } from './components/sectionmap/sectionmap.component';
 
 import { SharedModule } from './shared/shared.module';
+import { SectionmapDirective } from './components/sectionmap/sectionmap.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SharedModule } from './shared/shared.module';
     KonsultationsordnungPageComponent,
     StatutesPageComponent,
     SectionmapComponent,
+    SectionmapDirective,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
