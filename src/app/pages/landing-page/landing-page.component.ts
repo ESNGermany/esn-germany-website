@@ -25,10 +25,10 @@ export class LandingPageComponent implements OnInit {
   imagesLoaded: number = 0;
   loading: boolean = true;
   imagesUrl = [
-    '../../../assets/landing1.png',
-    '../../../assets/landing2.png',
-    '../../../assets/landing3.png',
-    '../../../assets/landing1.png',
+    '../../../assets/landing/landing1.png',
+    '../../../assets/landing/landing2.png',
+    '../../../assets/landing/landing3.png',
+    '../../../assets/landing/landing1.png',
   ];
 
   constructor(private title: Title) {}
