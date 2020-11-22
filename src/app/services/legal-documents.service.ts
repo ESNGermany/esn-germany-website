@@ -33,7 +33,6 @@ export class LegalDocumentsService {
 
   fetchLegalDocumentsList(id: string): Observable<LegalDocumentsItem> {
     this.fullUrl = this.url + id;
-    console.log(this.fullUrl);
     return this.http.get<LegalDocumentsItem>(this.fullUrl).pipe(
       tap((_) => this.log('fetched LegalDocuments')),
       catchError(this.handleError<LegalDocumentsItem>('fetchLegalDocuments'))
