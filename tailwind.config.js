@@ -55,6 +55,9 @@ module.exports = {
       body: ["Lato", "sans-serif"],
       heading: ["Oswald", "sans-serif"],
     },
+    gridAutoRows: {
+      images: "280px",
+    },
   },
   variants: {},
   plugins: [require("@tailwindcss/typography")],
