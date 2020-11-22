@@ -28,6 +28,7 @@ import {
 } from './components/sectionmap/sectionmap.component';
 
 import { SharedModule } from './shared/shared.module';
+import { ExpandableComponent } from './components/expandable/expandable.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SharedModule } from './shared/shared.module';
     StatutesPageComponent,
     SectionmapComponent,
     SectionmapDirective,
+    ExpandableComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -21,148 +21,136 @@
   <!-- <app-sectionmap></app-sectionmap> -->
   <div class="font-body">
     <p class="font-bold text-2xl">Sections ordered by region</p>
-    <!--    TODO: Implement without using material  -->
-    <!--<mat-accordion>
-      <div class="m-4">
-        <mat-expansion-panel class="border border-esn-blue rounded-lg">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="font-bold text-xl">North</mat-panel-title>
-          </mat-expansion-panel-header>
-          <div *ngFor="let section of northSectionItemList" class="cont">
-            <div class="flex justify-between pt-1">
-              <p>{{ section.Name }}</p>
-              <span class="text-footer"
-                ><a
-                  href="mailto:{{ section.email }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">email</mat-icon> </a
-                ><a
-                  href="https://{{ section.website }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">launch</mat-icon>
-                </a>
-              </span>
-            </div>
+    <div class="m-4">
+      <app-expandable class="border border-esn-blue rounded-lg">
+        <p slot="header" class="font-bold text-xl">North</p>
+        <div *ngFor="let section of northSectionItemList" class="cont">
+          <div class="flex justify-between pt-1">
+            <p>{{ section.Name }}</p>
+            <span class="text-footer">
+              <a
+                href="mailto:{{ section.email }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">email</i>
+              </a>
+              <a
+                href="https://{{ section.website }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">launch</i>
+              </a>
+            </span>
           </div>
-        </mat-expansion-panel>
-      </div>
-      <div class="m-4">
-        <mat-expansion-panel class="border border-esn-orange rounded-lg">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="font-bold text-xl">East</mat-panel-title>
-          </mat-expansion-panel-header>
-          <div *ngFor="let section of eastSectionItemList" class="cont">
-            <div class="flex justify-between pt-1">
-              <p>{{ section.Name }}</p>
-              <span class="text-footer"
-                ><a
-                  href="mailto:{{ section.email }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">email</mat-icon> </a
-                ><a
-                  href="https://{{ section.website }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">launch</mat-icon>
-                </a>
-              </span>
-            </div>
+        </div>
+      </app-expandable>
+    </div>
+    <div class="m-4">
+      <app-expandable class="border border-esn-orange rounded-lg">
+        <p slot="header" class="font-bold text-xl">East</p>
+        <div *ngFor="let section of eastSectionItemList" class="cont">
+          <div class="flex justify-between pt-1">
+            <p>{{ section.Name }}</p>
+            <span class="text-footer"
+              ><a
+                href="mailto:{{ section.email }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">email</i>
+              </a>
+              <a
+                href="https://{{ section.website }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">launch</i>
+              </a>
+            </span>
           </div>
-        </mat-expansion-panel>
-      </div>
-      <div class="m-4">
-        <mat-expansion-panel class="border border-esn-pink rounded-lg">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="font-bold text-xl">West</mat-panel-title>
-          </mat-expansion-panel-header>
-          <div *ngFor="let section of westSectionItemList" class="cont">
-            <div class="flex justify-between pt-1">
-              <p>{{ section.Name }}</p>
-              <span class="text-footer"
-                ><a
-                  href="mailto:{{ section.email }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">email</mat-icon> </a
-                ><a
-                  href="https://{{ section.website }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">launch</mat-icon>
-                </a>
-              </span>
-            </div>
+        </div>
+      </app-expandable>
+    </div>
+    <div class="m-4">
+      <app-expandable class="border border-esn-pink rounded-lg">
+        <p slot="header" class="font-bold text-xl">West</p>
+        <div *ngFor="let section of westSectionItemList" class="cont">
+          <div class="flex justify-between pt-1">
+            <p>{{ section.Name }}</p>
+            <span class="text-footer">
+              <a
+                href="mailto:{{ section.email }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">email</i>
+              </a>
+              <a
+                href="https://{{ section.website }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">launch</i>
+              </a>
+            </span>
           </div>
-        </mat-expansion-panel>
-      </div>
-      <div class="m-4">
-        <mat-expansion-panel class="border border-esn-dark-blue rounded-lg">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="font-bold text-xl"
-              >South East</mat-panel-title
-            >
-          </mat-expansion-panel-header>
-          <div *ngFor="let section of southEastSectionItemList" class="cont">
-            <div class="flex justify-between pt-1">
-              <p>{{ section.Name }}</p>
-              <span class="text-footer"
-                ><a
-                  href="mailto:{{ section.email }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">email</mat-icon> </a
-                ><a
-                  href="https://{{ section.website }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">launch</mat-icon>
-                </a>
-              </span>
-            </div>
+        </div>
+      </app-expandable>
+    </div>
+    <div class="m-4">
+      <app-expandable class="border border-esn-dark-blue rounded-lg">
+        <p slot="header" class="font-bold text-xl">South East</p>
+        <div *ngFor="let section of southEastSectionItemList" class="cont">
+          <div class="flex justify-between pt-1">
+            <p>{{ section.Name }}</p>
+            <span class="text-footer">
+              <a
+                href="mailto:{{ section.email }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">email</i>
+              </a>
+              <a
+                href="https://{{ section.website }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">launch</i>
+              </a>
+            </span>
           </div>
-        </mat-expansion-panel>
-      </div>
-      <div class="m-4">
-        <mat-expansion-panel class="border border-esn-green rounded-lg">
-          <mat-expansion-panel-header>
-            <mat-panel-title class="font-bold text-xl"
-              >South West</mat-panel-title
-            >
-          </mat-expansion-panel-header>
-          <div *ngFor="let section of southWestSectionItemList" class="cont">
-            <div class="flex justify-between pt-1">
-              <p>{{ section.Name }}</p>
-              <span class="text-footer"
-                ><a
-                  href="mailto:{{ section.email }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">email</mat-icon> </a
-                ><a
-                  href="https://{{ section.website }}"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <mat-icon class="icon">launch</mat-icon>
-                </a>
-              </span>
-            </div>
+        </div>
+      </app-expandable>
+    </div>
+    <div class="m-4">
+      <app-expandable class="border border-esn-green rounded-lg">
+        <p slot="header" class="font-bold text-xl">South West</p>
+        <div *ngFor="let section of southWestSectionItemList" class="cont">
+          <div class="flex justify-between pt-1">
+            <p>{{ section.Name }}</p>
+            <span class="text-footer">
+              <a
+                href="mailto:{{ section.email }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">email</i>
+              </a>
+              <a
+                href="https://{{ section.website }}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="icon material-icons">launch</i>
+              </a>
+            </span>
           </div>
-        </mat-expansion-panel>
-      </div>
-    </mat-accordion>-->
+        </div>
+      </app-expandable>
+    </div>
   </div>
 </div>
 <div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
