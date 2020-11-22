@@ -6,16 +6,16 @@ interface BoardPositionItem {
   id: string;
   Name: string;
   Position: string;
-  Type: "NB" | "AB";
+  Type: 'NB' | 'AB';
   order: number;
   Email: string;
   Portrait: {
     formats: {
       portrait: {
         url: string;
-      }
-    }
-  }
+      };
+    };
+  };
 }
 @Component({
   selector: 'app-network-page',
@@ -26,7 +26,10 @@ export class NetworkPageComponent implements OnInit {
   NBItemList: BoardPositionItem[];
   ABItemList: BoardPositionItem[];
 
-  constructor(private title: Title, private boardPositionService: BoardPositionsService) { }
+  constructor(
+    private title: Title,
+    private boardPositionService: BoardPositionsService
+  ) {}
 
   ngOnInit(): void {
     this.title.setTitle('Our Network - ESN Germany e.V.');

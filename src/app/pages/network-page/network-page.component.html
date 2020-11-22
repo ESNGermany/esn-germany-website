@@ -23,11 +23,6 @@
     <p class="py-4 text-footer italic">
       National Assembly in Munich / January 2020.
     </p>
-    <!-- <button type="button"
-      class="bg-white hover:bg-bluelight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect">
-      <a href="https://esn.org" target="_blank" rel="noopener" class="font-body text-lg p-2">Learn more <mat-icon
-          class="icon"> call_made</mat-icon></a>
-    </button> -->
   </div>
   <div class="px-8 mb-16">
     <div class="my-12">
@@ -41,7 +36,12 @@
           class="flex items-center flex-col lg:flex-row border-gray border-b"
         >
           <div class="m-4 mx-8 w-full">
-            <img src="../../../assets/causes/edu.png" alt="Education and Youth" class="m-auto h-24" />
+            <img
+              src="../../../assets/causes/edu.svg"
+              alt="Education and Youth"
+              class="m-auto h-24"
+              title="Education and Youth"
+            />
             <p class="text-center text-2xl text-esn-blue font-bold p-4">
               Education & Youth
             </p>
@@ -74,7 +74,12 @@
             </p>
           </div>
           <div class="m-4 mx-8 w-full">
-            <img src="../../../assets/causes/environ.png" alt="Environmental Sustainability" class="m-auto h-24" />
+            <img
+              src="../../../assets/causes/environ.svg"
+              alt="Environmental Sustainability"
+              class="m-auto h-24"
+              title="Environmental Sustainability"
+            />
             <p class="text-center text-2xl text-esn-green font-bold p-4">
               Environmental Sustainability
             </p>
@@ -84,7 +89,12 @@
           class="flex items-center flex-col lg:flex-row border-gray border-b"
         >
           <div class="m-4 mx-8 w-full">
-            <img src="../../../assets/causes/health.png" alt="Health and Wellbeing" class="m-auto h-24" />
+            <img
+              src="../../../assets/causes/health.svg"
+              alt="Health and Wellbeing"
+              class="m-auto h-24"
+              title="Health and Wellbeing"
+            />
             <p class="text-center text-2xl text-esn-dark-blue font-bold p-4">
               Health & Wellbeing
             </p>
@@ -112,7 +122,12 @@
             of non-formal education.
           </p>
           <div class="m-4 mx-8 w-full">
-            <img src="../../../assets/causes/skills.png" alt="Skills and Employability" class="m-auto h-24" />
+            <img
+              src="../../../assets/causes/skills.svg"
+              alt="Skills and Employability"
+              class="m-auto h-24"
+              title="Skills and Employability"
+            />
             <p class="text-center text-2xl text-black font-bold p-4">
               Skills & Employability
             </p>
@@ -122,7 +137,12 @@
           class="flex items-center flex-col lg:flex-row border-gray border-b"
         >
           <div class="m-4 mx-8 w-full">
-            <img src="../../../assets/causes/socialincl.png" alt="Social Inclusion" class="m-auto h-24" />
+            <img
+              src="../../../assets/causes/socialincl.svg"
+              alt="Social Inclusion"
+              class="m-auto h-24"
+              title="Social Inclusion"
+            />
             <p class="text-center text-2xl text-esn-pink font-bold p-4">
               Social Inclusion
             </p>
@@ -146,7 +166,12 @@
             to move abroad in order to participate in mobility programmes.
           </p>
           <div class="m-4 mx-8 w-full">
-            <img src="../../../assets/causes/culture.png" alt="Culture" class="m-auto h-24" />
+            <img
+              src="../../../assets/causes/culture.svg"
+              alt="Culture"
+              class="m-auto h-24"
+              title="Culture"
+            />
             <p class="text-center text-2xl text-esn-orange font-bold p-4">
               Culture
             </p>
@@ -187,12 +212,17 @@
 </div>
 <div class="max-w-screen-2xl m-auto mb-16 mt-6">
   <div class="mb-8 font-body m-auto flex flex-wrap justify-evenly">
-    <div *ngFor="let bp of NBItemList;">
-      <figure class="py-4 inline-block zoom" title="{{ bp.Email }}">
-        <img class="h-56" src="https://strapi.esn-germany.de{{ bp.Portrait[0].formats.portrait.url }}"
-          alt="{{ bp.Name }}" />
-        <p class="pt-2 font-bold">{{ bp.Position }}</p>
-        <p>{{ bp.Name }}</p>
+    <div *ngFor="let nb of NBItemList">
+      <figure class="py-4 inline-block zoom" title="{{ nb.Email }}">
+        <img
+          class="h-56"
+          src="https://strapi.esn-germany.de{{
+            nb.Portrait[0].formats.portrait.url
+          }}"
+          alt="{{ nb.Portrait[0].alternativeText }}"
+        />
+        <p class="pt-2 font-bold">{{ nb.Position }}</p>
+        <p>{{ nb.Name }}</p>
       </figure>
     </div>
   </div>
@@ -212,9 +242,15 @@
           board position. Learn more about them here.
         </p>
       </div>
-      <div class="px-2 m-auto font-body flex flex-wrap justify-evenly items-center">
+      <div
+        class="px-2 m-auto font-body flex flex-wrap justify-evenly items-center"
+      >
         <figure class="m-4 inline-block relative hoverimgcontainer bg-esn-pink">
-          <img class="h-64 hoverimg" src="../../../assets/NB/Chris.jpg" alt="IT Team" />
+          <img
+            class="h-64 hoverimg"
+            src="../../../assets/NB/Chris.jpg"
+            alt="IT Team"
+          />
           <figcaption class="text-center font-bold text-xl pt-2 bg-whitebg">
             IT Team
           </figcaption>
@@ -227,8 +263,14 @@
             </p>
           </div>
         </figure>
-        <figure class="m-4 inline-block bg-esn-dark-blue relative hoverimgcontainer">
-          <img class="h-64 hoverimg" src="../../../assets/NB/Ines.jpg" alt="Communication Committee" />
+        <figure
+          class="m-4 inline-block bg-esn-dark-blue relative hoverimgcontainer"
+        >
+          <img
+            class="h-64 hoverimg"
+            src="../../../assets/NB/Ines.jpg"
+            alt="Communication Committee"
+          />
           <figcaption class="text-center font-bold text-xl pt-2 bg-whitebg">
             Communication Committee
           </figcaption>
@@ -241,7 +283,11 @@
           </div>
         </figure>
         <figure class="m-4 inline-block relative hoverimgcontainer bg-esn-blue">
-          <img class="h-64 hoverimg" src="../../../assets/NB/Tanyel.jpg" alt="Causes Committee" />
+          <img
+            class="h-64 hoverimg"
+            src="../../../assets/NB/Tanyel.jpg"
+            alt="Causes Committee"
+          />
           <figcaption class="text-center font-bold text-xl pt-2 bg-whitebg">
             Causes Committee
           </figcaption>
@@ -279,12 +325,17 @@
 </div>
 <div class="max-w-screen-2xl px-16 m-auto mb-8">
   <div class="px-8 mb-8 font-body m-auto flex flex-wrap justify-evenly">
-    <div *ngFor="let ap of ABItemList;">
-      <figure class="p-4 inline-block zoom" title="{{ ap.Email }}">
-        <img class=" h-56" src="https://strapi.esn-germany.de{{ ap.Portrait[0].formats.portrait.url }}"
-          alt="{{ ap.Name }}" />
-        <p class="pt-2 font-bold">{{ ap.Position }}</p>
-        <p>{{ ap.Name }}</p>
+    <div *ngFor="let ab of ABItemList">
+      <figure class="p-4 inline-block zoom" title="{{ ab.Email }}">
+        <img
+          class="h-56"
+          src="https://strapi.esn-germany.de{{
+            ab.Portrait[0].formats.portrait.url
+          }}"
+          alt="{{ ab.Position }}"
+        />
+        <p class="pt-2 font-bold">{{ ab.Position }}</p>
+        <p>{{ ab.Name }}</p>
       </figure>
     </div>
   </div>
@@ -305,10 +356,17 @@
         alumni association has grown continuously and is now one of the most
         active within ESN.
       </p>
-      <button type="button"
-        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect">
-        <a href="https://alumni.esn-germany.de" target="_blank" rel="noopener" class="font-body text-lg p-2">Learn more
-          <i class="material-icons icon"> call_made</i></a>
+      <button
+        type="button"
+        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+      >
+        <a
+          href="https://alumni.esn-germany.de"
+          target="_blank"
+          rel="noopener"
+          class="font-body text-lg p-2"
+          >Learn more <i class="material-icons icon"> call_made</i></a
+        >
       </button>
     </div>
   </div>
@@ -341,10 +399,17 @@
         students who cannot access a period abroad ("internationalisation at
         home").
       </p>
-      <button type="button"
-        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect">
-        <a href="https://esn.org" target="_blank" rel="noopener" class="font-body text-lg p-2">Learn more <i
-            class="material-icons icon"> call_made</i></a>
+      <button
+        type="button"
+        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+      >
+        <a
+          href="https://esn.org"
+          target="_blank"
+          rel="noopener"
+          class="font-body text-lg p-2"
+          >Learn more <i class="material-icons icon"> call_made</i></a
+        >
       </button>
     </div>
   </div>
