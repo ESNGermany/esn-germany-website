@@ -36,7 +36,7 @@ export class SectionmapDirective {
     'ESN Dortmund',
     'ESN Düsseldorf',
     'ESN Koblenz',
-    'Köln',
+    'ESN Köln',
     'ESN Siegen',
     'ESN Witten/Herdecke',
   ];
