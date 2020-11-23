@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  HostListener,
-  OnInit,
-  ElementRef,
-} from '@angular/core';
+import { Component, HostListener, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -20,8 +14,6 @@ export class NavigationComponent implements OnInit {
       this.hideMenu();
     }
   }
-
-  @Input() activeMenu: string;
 
   ngOnInit() {}
 
