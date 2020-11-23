@@ -213,16 +213,16 @@
 <div class="max-w-screen-2xl m-auto mb-16 mt-6">
   <div class="mb-8 font-body m-auto flex flex-wrap justify-evenly">
     <div *ngFor="let nb of NBItemList">
-      <figure class="py-4 inline-block zoom" title="{{ nb.Email }}">
-        <!-- <img
+      <figure class="py-4 inline-block zoom" title="{{ nb.email }}">
+        <img
           class="h-56"
           src="https://strapi.esn-germany.de{{
             nb.Portrait[0].formats.portrait.url
           }}"
           alt="{{ nb.Portrait[0].alternativeText }}"
-        /> -->
-        <p class="pt-2 font-bold">{{ nb.Position }}</p>
-        <p>{{ nb.Name }}</p>
+        />
+        <p class="pt-2 font-bold">{{ nb.position }}</p>
+        <p>{{ nb.name }}</p>
       </figure>
     </div>
   </div>
@@ -326,16 +326,16 @@
 <div class="max-w-screen-2xl px-16 m-auto mb-8">
   <div class="px-8 mb-8 font-body m-auto flex flex-wrap justify-evenly">
     <div *ngFor="let ab of ABItemList">
-      <figure class="p-4 inline-block zoom" title="{{ ab.Email }}">
-        <!-- <img
+      <figure class="p-4 inline-block zoom" title="{{ ab.email }}">
+        <img
           class="h-56"
           src="https://strapi.esn-germany.de{{
             ab.Portrait[0].formats.portrait.url
           }}"
-          alt="{{ ab.Position }}"
-        /> -->
-        <p class="pt-2 font-bold">{{ ab.Position }}</p>
-        <p>{{ ab.Name }}</p>
+          alt="{{ ab.Portrait[0].formats.portrait.url }}"
+        />
+        <p class="pt-2 font-bold">{{ ab.position }}</p>
+        <p>{{ ab.name }}</p>
       </figure>
     </div>
   </div>

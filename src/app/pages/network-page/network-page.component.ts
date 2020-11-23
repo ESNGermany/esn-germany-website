@@ -7,6 +7,15 @@ interface BoardPositionItem {
   name: string;
   position: string;
   email: string;
+  Portrait: [
+    {
+      formats: {
+        portrait: {
+          url: string;
+        };
+      };
+    }
+  ];
 }
 
 @Component({
