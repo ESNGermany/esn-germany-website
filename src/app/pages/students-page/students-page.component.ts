@@ -4,11 +4,11 @@ import { SectionsService } from 'src/app/services/sections.service';
 
 interface SectionItem {
   id: string;
-  Name: string;
-  City: string;
+  name: string;
+  city: string;
   email: string;
   website: string;
-  Region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
+  region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
 }
 
 @Component({

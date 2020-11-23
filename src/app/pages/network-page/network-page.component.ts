@@ -1,22 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { BoardPositionsService } from 'src/app/services/boardpositions.service';
+import { BoardPositionsService } from 'src/app/services/board-positions.service';
 
 interface BoardPositionItem {
   id: string;
-  Name: string;
-  Position: string;
-  Type: 'NB' | 'AB';
-  order: number;
-  Email: string;
-  Portrait: {
-    formats: {
-      portrait: {
-        url: string;
-      };
-    };
-  };
+  name: string;
+  position: string;
+  email: string;
 }
+
 @Component({
   selector: 'app-network-page',
   templateUrl: './network-page.component.html',

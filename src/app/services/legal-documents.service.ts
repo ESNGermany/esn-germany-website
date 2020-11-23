@@ -23,7 +23,7 @@ export class LegalDocumentsService {
    * 5: Konsultationsordnung
    */
 
-  private url = 'https://strapi.esn-germany.de/legal-documents/';
+  private url = 'https://strapi.esn-germany.de/web-legal-documents/';
   private fullUrl: string;
 
   constructor(

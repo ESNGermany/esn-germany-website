@@ -214,13 +214,13 @@
   <div class="mb-8 font-body m-auto flex flex-wrap justify-evenly">
     <div *ngFor="let nb of NBItemList">
       <figure class="py-4 inline-block zoom" title="{{ nb.Email }}">
-        <img
+        <!-- <img
           class="h-56"
           src="https://strapi.esn-germany.de{{
             nb.Portrait[0].formats.portrait.url
           }}"
           alt="{{ nb.Portrait[0].alternativeText }}"
-        />
+        /> -->
         <p class="pt-2 font-bold">{{ nb.Position }}</p>
         <p>{{ nb.Name }}</p>
       </figure>
@@ -327,13 +327,13 @@
   <div class="px-8 mb-8 font-body m-auto flex flex-wrap justify-evenly">
     <div *ngFor="let ab of ABItemList">
       <figure class="p-4 inline-block zoom" title="{{ ab.Email }}">
-        <img
+        <!-- <img
           class="h-56"
           src="https://strapi.esn-germany.de{{
             ab.Portrait[0].formats.portrait.url
           }}"
           alt="{{ ab.Position }}"
-        />
+        /> -->
         <p class="pt-2 font-bold">{{ ab.Position }}</p>
         <p>{{ ab.Name }}</p>
       </figure>

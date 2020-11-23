@@ -6,27 +6,16 @@ import { MessageService } from './message.service';
 
 interface BoardPositionItem {
   id: string;
-  Name: string;
-  Position: string;
-  Email: string;
-  Portrait: [
-    {
-      alternativeText: string;
-      formats: {
-        portrait: {
-          url: string;
-        };
-      };
-    }
-  ];
+  name: string;
+  position: string;
+  email: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class BoardPositionsService {
-  private url =
-    'https://strapi.esn-germany.de/board-positions?_sort=order&Type=';
+  private url = 'https://strapi.esn-germany.de/web-board-member?_sort=order';
   private fullUrl: string;
 
   constructor(
@@ -34,16 +23,16 @@ export class BoardPositionsService {
     private messageService: MessageService
   ) {}
 
-  fetchABPositionList(): Observable<BoardPositionItem[]> {
-    this.fullUrl = this.url + 'AB';
+  fetchABList(): Observable<BoardPositionItem[]> {
+    this.fullUrl = this.url + '&type=AB';
     return this.http.get<BoardPositionItem[]>(this.fullUrl).pipe(
       tap((_) => this.log('fetched ABPositions')),
       catchError(this.handleError<BoardPositionItem[]>('fetchABPositions'))
     );
   }
 
-  fetchNBPositionList(): Observable<BoardPositionItem[]> {
-    this.fullUrl = this.url + 'NB';
+  fetchNBList(): Observable<BoardPositionItem[]> {
+    this.fullUrl = this.url + '&type=NB';
     return this.http.get<BoardPositionItem[]>(this.fullUrl).pipe(
       tap((_) => this.log('fetched NBPositions')),
       catchError(this.handleError<BoardPositionItem[]>('fetchNBPositions'))
