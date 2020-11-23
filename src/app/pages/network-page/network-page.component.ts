@@ -33,7 +33,7 @@ export class NetworkPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Our Network - ESN Germany e.V.');
+    this.title.setTitle('Our Network - ESN Germany');
     this.getNB();
     this.getAB();
   }

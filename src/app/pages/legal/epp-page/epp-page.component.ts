@@ -23,7 +23,7 @@ export class EppPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Event Policy Paper - ESN Germany e.V.');
+    this.title.setTitle('Event Policy Paper - ESN Germany');
     this.getEppItem();
   }
 

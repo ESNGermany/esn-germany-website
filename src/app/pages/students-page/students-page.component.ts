@@ -34,7 +34,7 @@ export class StudentsPageComponent implements OnInit {
   constructor(private title: Title, private sectionsService: SectionsService) {}
 
   ngOnInit(): void {
-    this.title.setTitle('For Students - ESN Germany e.V.');
+    this.title.setTitle('For Students - ESN Germany');
     this.getNorthSections();
     this.getWestSections();
     this.getEastSections();

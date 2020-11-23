@@ -30,7 +30,7 @@ export class PartnersPageComponent implements OnInit {
   constructor(private title: Title, private partnersService: PartnersService) {}
 
   ngOnInit() {
-    this.title.setTitle('ESNcard & Partners - ESN Germany e.V.');
+    this.title.setTitle('ESNcard & Partners - ESN Germany');
     this.getPartners();
   }
 

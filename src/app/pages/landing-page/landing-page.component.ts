@@ -34,7 +34,7 @@ export class LandingPageComponent implements OnInit {
   constructor(private title: Title) {}
 
   ngOnInit() {
-    this.title.setTitle('ESN Germany e.V.');
+    this.title.setTitle('ESN Germany');
     // TODO: preload images with a service worker
     /*this.imagesUrl.forEach((x, index) => {
       const image = new Image();
