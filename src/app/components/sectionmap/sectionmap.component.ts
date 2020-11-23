@@ -70,16 +70,20 @@ export class SectionmapDirective {
   onMouseEnter() {
     if (this.sections.includes(this.el.nativeElement.id)) {
       const box = document.getElementById('infobox');
-      box.innerHTML = '<div>' + this.el.nativeElement.id + '</div>';
-      box.classList.remove('hidden');
-      box.classList.add('block');
+      if (box) {
+        box.innerHTML = '<div>' + this.el.nativeElement.id + '</div>';
+        box.classList.remove('hidden');
+        box.classList.add('block');
+      }
     }
   }
   @HostListener('mouseleave')
   onMouseLeave() {
     const box = document.getElementById('infobox');
-    box.classList.remove('block');
-    box.classList.add('hidden');
+    if (box) {
+      box.classList.remove('block');
+      box.classList.add('hidden');
+    }
   }
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
