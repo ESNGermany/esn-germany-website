@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  HostListener,
+  OnInit,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -6,7 +12,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent implements OnInit {
-  constructor() {}
+  constructor(private el: ElementRef) {}
+
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if (!this.el.nativeElement.contains(event.target)) {
+      this.hideMenu();
+    }
+  }
 
   @Input() activeMenu: string;
 
@@ -21,9 +34,11 @@ export class NavigationComponent implements OnInit {
   }
 
   hideMenu() {
-    var menu = <HTMLUListElement>document.getElementById('menu');
-    menu.classList.add('vis burger');
-    var burger = <HTMLUListElement>document.getElementById('burger');
+    const burger = document.getElementById('burger') as HTMLUListElement;
+    const menu = document.getElementById('menu') as HTMLUListElement;
     burger.classList.remove('hidden');
+    burger.classList.add('vis');
+    menu.classList.remove('vis');
+    menu.classList.add('hidden');
   }
 }
