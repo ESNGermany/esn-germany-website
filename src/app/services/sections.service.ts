@@ -6,18 +6,18 @@ import { MessageService } from './message.service';
 
 interface SectionItem {
   id: string;
-  Name: string;
-  City: string;
+  name: string;
+  city: string;
   email: string;
   website: string;
-  Region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
+  region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class SectionsService {
-  private url = 'https://strapi.esn-germany.de/sections';
+  private url = 'https://strapi.esn-germany.de/web-section';
 
   constructor(
     private http: HttpClient,
@@ -32,28 +32,28 @@ export class SectionsService {
   }
 
   fetchSectionsNorthList(): Observable<SectionItem[]> {
-    return this.http.get<SectionItem[]>(this.url + '?Region_eq=North').pipe(
+    return this.http.get<SectionItem[]>(this.url + '?region_eq=North').pipe(
       tap((_) => this.log('fetched north sections')),
       catchError(this.handleError<SectionItem[]>('fetchEastSectionList', []))
     );
   }
 
   fetchSectionsEastList(): Observable<SectionItem[]> {
-    return this.http.get<SectionItem[]>(this.url + '?Region_eq=East').pipe(
+    return this.http.get<SectionItem[]>(this.url + '?region_eq=East').pipe(
       tap((_) => this.log('fetched east sections')),
       catchError(this.handleError<SectionItem[]>('fetchEastSectionList', []))
     );
   }
 
   fetchSectionsWestList(): Observable<SectionItem[]> {
-    return this.http.get<SectionItem[]>(this.url + '?Region_eq=West').pipe(
+    return this.http.get<SectionItem[]>(this.url + '?region_eq=West').pipe(
       tap((_) => this.log('fetched west sections')),
       catchError(this.handleError<SectionItem[]>('fetchWestSectionList', []))
     );
   }
 
   fetchSectionsSouthWestList(): Observable<SectionItem[]> {
-    return this.http.get<SectionItem[]>(this.url + '?Region_eq=SouthWest').pipe(
+    return this.http.get<SectionItem[]>(this.url + '?region_eq=SouthWest').pipe(
       tap((_) => this.log('fetched south west sections')),
       catchError(
         this.handleError<SectionItem[]>('fetchSouthWestSectionList', [])
@@ -62,7 +62,7 @@ export class SectionsService {
   }
 
   fetchSectionsSouthEastList(): Observable<SectionItem[]> {
-    return this.http.get<SectionItem[]>(this.url + '?Region_eq=SouthEast').pipe(
+    return this.http.get<SectionItem[]>(this.url + '?region_eq=SouthEast').pipe(
       tap((_) => this.log('fetched south east sections')),
       catchError(
         this.handleError<SectionItem[]>('fetchSouthEastSectionList', [])

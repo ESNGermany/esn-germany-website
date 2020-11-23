@@ -1,4 +1,4 @@
-<app-navigation-dark activeMenu="students"></app-navigation-dark>
+<app-navigation-dark></app-navigation-dark>
 <div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
   <div class="px-8 mb-8">
     <div class="m-auto mb-8 relative">
@@ -26,7 +26,9 @@
         <p slot="header" class="font-bold text-xl">North</p>
         <div *ngFor="let section of northSectionItemList" class="cont">
           <div class="flex justify-between pt-1">
-            <p>{{ section.Name }}</p>
+            <p>
+              {{ section.name }}
+            </p>
             <span class="text-footer">
               <a
                 href="mailto:{{ section.email }}"
@@ -52,7 +54,7 @@
         <p slot="header" class="font-bold text-xl">East</p>
         <div *ngFor="let section of eastSectionItemList" class="cont">
           <div class="flex justify-between pt-1">
-            <p>{{ section.Name }}</p>
+            <p>{{ section.name }}</p>
             <span class="text-footer"
               ><a
                 href="mailto:{{ section.email }}"
@@ -78,7 +80,7 @@
         <p slot="header" class="font-bold text-xl">West</p>
         <div *ngFor="let section of westSectionItemList" class="cont">
           <div class="flex justify-between pt-1">
-            <p>{{ section.Name }}</p>
+            <p>{{ section.name }}</p>
             <span class="text-footer">
               <a
                 href="mailto:{{ section.email }}"
@@ -104,7 +106,7 @@
         <p slot="header" class="font-bold text-xl">South East</p>
         <div *ngFor="let section of southEastSectionItemList" class="cont">
           <div class="flex justify-between pt-1">
-            <p>{{ section.Name }}</p>
+            <p>{{ section.name }}</p>
             <span class="text-footer">
               <a
                 href="mailto:{{ section.email }}"
@@ -130,7 +132,7 @@
         <p slot="header" class="font-bold text-xl">South West</p>
         <div *ngFor="let section of southWestSectionItemList" class="cont">
           <div class="flex justify-between pt-1">
-            <p>{{ section.Name }}</p>
+            <p>{{ section.name }}</p>
             <span class="text-footer">
               <a
                 href="mailto:{{ section.email }}"

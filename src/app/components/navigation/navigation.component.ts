@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -6,9 +6,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent implements OnInit {
-  constructor() {}
+  constructor(private el: ElementRef) {}
 
-  @Input() activeMenu: string;
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if (!this.el.nativeElement.contains(event.target)) {
+      this.hideMenu(false);
+      if (screenX > 1024) {
+        this.hideMenu(true);
+      }
+    }
+  }
 
   ngOnInit() {}
 
@@ -20,10 +28,14 @@ export class NavigationComponent implements OnInit {
     menu.classList.add('vis');
   }
 
-  hideMenu() {
-    var menu = <HTMLUListElement>document.getElementById('menu');
-    menu.classList.add('vis burger');
-    var burger = <HTMLUListElement>document.getElementById('burger');
+  hideMenu(burgerHide: boolean) {
+    const burger = document.getElementById('burger') as HTMLUListElement;
+    const menu = document.getElementById('menu') as HTMLUListElement;
     burger.classList.remove('hidden');
+    if (burgerHide) {
+      burger.classList.add('vis');
+    }
+    menu.classList.remove('vis');
+    menu.classList.add('hidden');
   }
 }

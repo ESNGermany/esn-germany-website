@@ -10,6 +10,6 @@ export class ImprintPageComponent implements OnInit {
   constructor(private title: Title) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Imprint - ESN Germany e.V.');
+    this.title.setTitle('Imprint - ESN Germany');
   }
 }

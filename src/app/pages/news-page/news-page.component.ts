@@ -38,7 +38,7 @@ export class NewsPageComponent implements OnInit {
   constructor(private title: Title, private newsService: NewsService) {}
 
   ngOnInit() {
-    this.title.setTitle('News - ESN Germany e.V.');
+    this.title.setTitle('News - ESN Germany');
     this.getNews();
   }
 

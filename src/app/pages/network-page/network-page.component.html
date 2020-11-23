@@ -1,4 +1,4 @@
-<app-navigation-dark activeMenu="network"></app-navigation-dark>
+<app-navigation-dark></app-navigation-dark>
 <div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
   <div class="px-8 mb-12" id="esngermany">
     <div class="m-auto mb-8 relative">
@@ -213,7 +213,7 @@
 <div class="max-w-screen-2xl m-auto mb-16 mt-6">
   <div class="mb-8 font-body m-auto flex flex-wrap justify-evenly">
     <div *ngFor="let nb of NBItemList">
-      <figure class="py-4 inline-block zoom" title="{{ nb.Email }}">
+      <figure class="py-4 inline-block zoom" title="{{ nb.email }}">
         <img
           class="h-56"
           src="https://strapi.esn-germany.de{{
@@ -221,8 +221,8 @@
           }}"
           alt="{{ nb.Portrait[0].alternativeText }}"
         />
-        <p class="pt-2 font-bold">{{ nb.Position }}</p>
-        <p>{{ nb.Name }}</p>
+        <p class="pt-2 font-bold">{{ nb.position }}</p>
+        <p>{{ nb.name }}</p>
       </figure>
     </div>
   </div>
@@ -326,16 +326,16 @@
 <div class="max-w-screen-2xl px-16 m-auto mb-8">
   <div class="px-8 mb-8 font-body m-auto flex flex-wrap justify-evenly">
     <div *ngFor="let ab of ABItemList">
-      <figure class="p-4 inline-block zoom" title="{{ ab.Email }}">
+      <figure class="p-4 inline-block zoom" title="{{ ab.email }}">
         <img
           class="h-56"
           src="https://strapi.esn-germany.de{{
             ab.Portrait[0].formats.portrait.url
           }}"
-          alt="{{ ab.Position }}"
+          alt="{{ ab.Portrait[0].formats.portrait.url }}"
         />
-        <p class="pt-2 font-bold">{{ ab.Position }}</p>
-        <p>{{ ab.Name }}</p>
+        <p class="pt-2 font-bold">{{ ab.position }}</p>
+        <p>{{ ab.name }}</p>
       </figure>
     </div>
   </div>

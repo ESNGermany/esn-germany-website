@@ -25,7 +25,7 @@ interface PartnersItem {
   providedIn: 'root',
 })
 export class PartnersService {
-  private url = 'https://strapi.esn-germany.de/partners';
+  private url = 'https://strapi.esn-germany.de/web-partner';
 
   constructor(
     private http: HttpClient,

@@ -4,11 +4,11 @@ import { SectionsService } from 'src/app/services/sections.service';
 
 interface SectionItem {
   id: string;
-  Name: string;
-  City: string;
+  name: string;
+  city: string;
   email: string;
   website: string;
-  Region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
+  region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
 }
 
 @Component({
@@ -34,7 +34,7 @@ export class StudentsPageComponent implements OnInit {
   constructor(private title: Title, private sectionsService: SectionsService) {}
 
   ngOnInit(): void {
-    this.title.setTitle('For Students - ESN Germany e.V.');
+    this.title.setTitle('For Students - ESN Germany');
     this.getNorthSections();
     this.getWestSections();
     this.getEastSections();

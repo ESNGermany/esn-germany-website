@@ -23,7 +23,7 @@ export class StatutesPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Statutes - ESN Germany e.V.');
+    this.title.setTitle('Statutes - ESN Germany');
     this.getStatutesItem();
   }
 

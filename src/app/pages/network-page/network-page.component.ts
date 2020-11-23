@@ -4,12 +4,11 @@ import { BoardPositionsService } from 'src/app/services/board-positions.service'
 
 interface BoardPositionItem {
   id: string;
-  Name: string;
-  Position: string;
-  Email: string;
+  name: string;
+  position: string;
+  email: string;
   Portrait: [
     {
-      alternativeText: string;
       formats: {
         portrait: {
           url: string;
@@ -25,8 +24,8 @@ interface BoardPositionItem {
   styleUrls: ['./network-page.component.scss'],
 })
 export class NetworkPageComponent implements OnInit {
-  ABItemList: BoardPositionItem[];
   NBItemList: BoardPositionItem[];
+  ABItemList: BoardPositionItem[];
 
   constructor(
     private title: Title,
@@ -34,20 +33,20 @@ export class NetworkPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Our Network - ESN Germany e.V.');
-    this.getAB();
+    this.title.setTitle('Our Network - ESN Germany');
     this.getNB();
-  }
-
-  getAB(): void {
-    this.boardPositionService
-      .fetchABPositionList()
-      .subscribe((ABItemList) => (this.ABItemList = ABItemList));
+    this.getAB();
   }
 
   getNB(): void {
     this.boardPositionService
-      .fetchNBPositionList()
+      .fetchNBList()
       .subscribe((NBItemList) => (this.NBItemList = NBItemList));
+  }
+
+  getAB(): void {
+    this.boardPositionService
+      .fetchABList()
+      .subscribe((ABItemList) => (this.ABItemList = ABItemList));
   }
 }

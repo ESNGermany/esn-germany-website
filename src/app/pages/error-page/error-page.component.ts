@@ -10,6 +10,6 @@ export class ErrorPageComponent implements OnInit {
   constructor(private title: Title) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Oopsie... - ESN Germany e.V.');
+    this.title.setTitle('Oopsie... - ESN Germany');
   }
 }

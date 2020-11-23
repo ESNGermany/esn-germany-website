@@ -23,7 +23,7 @@ export class CocPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Code of Conduct - ESN Germany e.V.');
+    this.title.setTitle('Code of Conduct - ESN Germany');
     this.getCoCItem();
   }
 

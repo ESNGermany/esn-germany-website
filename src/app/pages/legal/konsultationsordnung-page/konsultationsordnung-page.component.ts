@@ -23,7 +23,7 @@ export class KonsultationsordnungPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Konsultationsordnung - ESN Germany e.V.');
+    this.title.setTitle('Konsultationsordnung - ESN Germany');
     this.getKonsultationsordnungItem();
   }
   getKonsultationsordnungItem(): void {

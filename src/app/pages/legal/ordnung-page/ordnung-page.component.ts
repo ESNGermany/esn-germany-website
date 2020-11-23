@@ -23,7 +23,7 @@ export class OrdnungPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.title.setTitle('Ordnung - ESN Germany e.V.');
+    this.title.setTitle('Ordnung - ESN Germany');
     this.getOrdnungItem();
   }
   getOrdnungItem(): void {
