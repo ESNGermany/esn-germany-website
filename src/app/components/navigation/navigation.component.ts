@@ -11,7 +11,10 @@ export class NavigationComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   clickout(event) {
     if (!this.el.nativeElement.contains(event.target)) {
-      this.hideMenu();
+      this.hideMenu(false);
+      if (screenX > 1024) {
+        this.hideMenu(true);
+      }
     }
   }
 
@@ -25,11 +28,13 @@ export class NavigationComponent implements OnInit {
     menu.classList.add('vis');
   }
 
-  hideMenu() {
+  hideMenu(burgerHide: boolean) {
     const burger = document.getElementById('burger') as HTMLUListElement;
     const menu = document.getElementById('menu') as HTMLUListElement;
     burger.classList.remove('hidden');
-    burger.classList.add('vis');
+    if (burgerHide) {
+      burger.classList.add('vis');
+    }
     menu.classList.remove('vis');
     menu.classList.add('hidden');
   }
