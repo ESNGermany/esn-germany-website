@@ -1,0 +1,75 @@
+<div id="navbar" class="" [@fade]>
+  <nav
+    class="flex flex-wrap items-center max-w-screen-xl justify-between m-auto sm:px-16 font-body"
+  >
+    <div class="flex items-center flex-shrink-0 text-2xl pr-8">
+      <a routerLink="/" routerLinkActive="active"
+        ><img
+          class="h-20 ml-8 py-2"
+          alt="ESN logo"
+          src="../assets/logo/DE_colour-white.png"
+      /></a>
+    </div>
+    <div
+      class="px-8 w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden lg:visible"
+    >
+      <div class="text-xl flex justify-between lg:flex-grow max-w-screen-xl">
+        <div class="relative">
+          <a routerLink="/our-network" routerLinkActive="active"
+            ><button
+              type="button"
+              id="network-button"
+              class="block mr-2 inline-block font-bold text-white focus:outline-none addhover"
+            >
+              Our Network
+            </button>
+          </a>
+        </div>
+        <div class="relative">
+          <a routerLink="/for-students" routerLinkActive="active">
+            <button
+              type="button"
+              id="students-button"
+              class="block mr-2 inline-block font-bold text-white ocus:outline-none addhover"
+            >
+              For Students
+            </button>
+          </a>
+        </div>
+        <div class="relative">
+          <a routerLink="/for-partners" routerLinkActive="active">
+            <button
+              type="button"
+              id="partners-button"
+              class="block mr-2 inline-block font-bold text-white focus:outline-none addhover"
+            >
+              ESNcard & Partners
+            </button></a
+          >
+        </div>
+        <div class="relative">
+          <a routerLink="/news" routerLinkActive="active">
+            <button
+              type="button"
+              id="news-button"
+              class="block mr-2 inline-block font-bold text-white focus:outline-none addhover"
+            >
+              News
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="block pr-8 sm:pr-16 lg:hidden" id="burger">
+      <button
+        class="flex items-center px-3 py-2 border rounded text-white border-white"
+        (click)="showMenu()"
+      >
+        <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+</div>
