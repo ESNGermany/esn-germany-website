@@ -10,7 +10,10 @@ export class NavigationComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   clickout(event) {
-    if (!this.el.nativeElement.contains(event.target)) {
+    if (
+      !this.el.nativeElement.contains(event.target) &&
+      !document.getElementById('menu').classList.contains('hidden')
+    ) {
       this.hideMenu(false);
       if (screenX > 1024) {
         this.hideMenu(true);

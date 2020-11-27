@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { Component, HostListener, OnInit } from '@angular/core';
 import {
   animate,
   state,
@@ -48,4 +49,15 @@ export class LandingPageComponent implements OnInit {
       this.index = (this.index + 1) % this.numImages;
     });*/
   }
+
+  // @HostListener('window:scroll', ['$event'])
+  // onWindowScroll(e) {
+  //   if (window.pageYOffset > 200) {
+  //     let element = document.getElementById('navbar');
+  //     element.classList.add('extra');
+  //   } else {
+  //     let element = document.getElementById('navbar');
+  //     element.classList.remove('extra');
+  //   }
+  // }
 }

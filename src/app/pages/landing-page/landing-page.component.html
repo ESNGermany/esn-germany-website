@@ -1,7 +1,9 @@
+<!-- <app-sticky-navbar></app-sticky-navbar> -->
 <ng-container *ngFor="let i of [0, 1, 2, 3]">
   <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i"></div>
 </ng-container>
 <app-navigation></app-navigation>
+<!-- <section (scroll)="onWindowScroll($event)"> -->
 <div class="m-auto py-16 w-128 mb-8 extra">
   <span class="bg-white font-heading text-center text-black font-bold text-4xl">
     Erasmus in Germany?<br />Amazing idea.
@@ -104,23 +106,35 @@
       </p>
     </div>
     <div class="flex flex-wrap items-center justify-evenly pt-4">
-      <img
-        src="../../../assets/partners/vdsi.png"
-        alt="VDSI"
-        class="h-24 m-4"
-      />
-      <img src="../../../assets/partners/eu.png" alt="EU" class="h-12 m-4" />
-      <img
-        src="../../../assets/partners/logo-daad.png"
-        alt="DAAD"
-        class="h-24 m-4"
-      />
-      <img
-        src="../../../assets/partners/bvmd.png"
-        alt="BVMD"
-        class="h-24 m-4"
-      />
+      <a href="https://www.vdsi.org/" target="_blank" rel="noopener"
+        ><img
+          src="../../../assets/partners/vdsi.png"
+          alt="VDSI"
+          class="h-24 m-4"
+      /></a>
+      <a
+        href="https://ec.europa.eu/programmes/erasmus-plus"
+        target="_blank"
+        rel="noopener"
+      >
+        <img src="../../../assets/partners/eu.png" alt="EU" class="h-12 m-4" />
+      </a>
+      <a href="https://wwww.daad.de/" target="_blank" rel="noopener">
+        <img
+          src="../../../assets/partners/logo-daad.png"
+          alt="DAAD"
+          class="h-24 m-4"
+        />
+      </a>
+      <a href="https://www.bvmd.de/" target="_blank" rel="noopener">
+        <img
+          src="../../../assets/partners/bvmd.png"
+          alt="BVMD"
+          class="h-24 m-4"
+        />
+      </a>
     </div>
   </div>
 </div>
+<!-- </section> -->
 <app-footer></app-footer>
