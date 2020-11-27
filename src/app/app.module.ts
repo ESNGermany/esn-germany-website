@@ -29,6 +29,7 @@ import {
 
 import { SharedModule } from './shared/shared.module';
 import { ExpandableComponent } from './components/expandable/expandable.component';
+import { StickyNavbarComponent } from './components/sticky-navbar/sticky-navbar.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ExpandableComponent } from './components/expandable/expandable.componen
     SectionmapComponent,
     SectionmapDirective,
     ExpandableComponent,
+    StickyNavbarComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
