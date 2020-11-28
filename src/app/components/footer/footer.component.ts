@@ -11,17 +11,13 @@ export class FooterComponent implements OnInit {
   constructor() {}
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // console.log(window.screenX);
-    // console.log(this.desktop);
-    if (window.screenX >= 1024) {
-      // console.log(window.screenX);
+    if (window.screenX >= 1267) {
       this.desktop = true;
-      // console.log(this.desktop);
     }
     if (
       window.pageYOffset ||
       document.documentElement.scrollTop ||
-      document.body.scrollTop > 80
+      document.body.scrollTop > 100
     ) {
       this.windowScrolled = true;
     } else if (
@@ -42,10 +38,5 @@ export class FooterComponent implements OnInit {
       }
     })();
   }
-  ngOnInit(): void {
-    // if (window.screen.width >= 1024) {
-    //   this.desktop = true;
-    //   console.log(this.desktop);
-    // }
-  }
+  ngOnInit(): void {}
 }
