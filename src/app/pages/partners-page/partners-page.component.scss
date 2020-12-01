@@ -2,7 +2,7 @@
   position: absolute;
   content: "";
   left: 0;
-  bottom: -4px;
+  bottom: -12px;
   width: 73px;
   height: 5px;
   background: #2e3192;
@@ -19,4 +19,8 @@
 
 .hx {
   height: 160px;
+}
+
+.imgh {
+  max-height: 6rem;
 }

@@ -78,14 +78,17 @@
         target="_blank"
         rel="noopener"
       >
-        <figure class="m-6 zoom">
+        <figure class="m-2 zoom">
           <img
-            class="w-40"
+            class="imgh m-auto"
             src="https://strapi.esn-germany.de{{
               partner.Logo.formats.medium.url
             }}"
             alt="{{ partner.Logo.alternativeText }}"
           />
+          <figcaption class="pt-4 text-center font-bold">
+            {{ partner.Name }}
+          </figcaption>
         </figure>
       </a>
     </ng-container>
