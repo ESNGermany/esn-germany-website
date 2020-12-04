@@ -24,12 +24,6 @@ module.exports = {
   plugins: [
     new ImageminPlugin({
       disable: process.env.IMAGEMIN !== "enabled", // Disable during development
-      // jpegtran: { progressive: false },
-      // optipng: { optimizationLevel: 3 },
-      // svgo: {},
-      // pngquant: {
-      //   quality: "95-100",
-      // },
       externalImages: {
         context: "src",
         destination: "dist/esn-germany-website/browser",

@@ -175,7 +175,7 @@
     </div>
     <div class="flex flex-wrap lg:flex-no-wrap">
       <a
-        href="../../../assets/pdf/student_guidebook.pdf"
+        href="/assets/pdf/student_guidebook.pdf"
         target="_blank"
         rel="noopener"
       >
@@ -183,11 +183,15 @@
           class="flex items-center lg:flex-no-wrap flex-wrap font-body text-lg border border-graylight rounded shadow-xl"
         >
           <div class="m-4 mx-8">
-            <img
-              src="../../../assets/stud-guidebook.png"
-              alt="Student Guidebook"
-              class="w-48"
-            />
+            <picture>
+              <source type="image/jpeg" srcset="/assets/stud-guidebook.jpg" />
+              <source type="image/webp" srcset="/assets/stud-guidebook.webp" />
+              <img
+                src="/assets/stud-guidebook.jpg"
+                alt="Student Guidebook"
+                class="w-48"
+              />
+            </picture>
           </div>
           <p
             class="font-body font-bold pb-2 px-8 text-esn-dark-blue hover:underline"
@@ -220,11 +224,21 @@
         >.
       </p>
       <div class="mb-16 mt-4">
-        <img
-          class="m-auto w-2/3"
-          src="../../../assets/How-to-become-an-ESN-section.png"
-          alt="How to become an ESN section"
-        />
+        <picture>
+          <source
+            type="image/jpeg"
+            srcset="/assets/How-to-become-an-ESN-section.jpg"
+          />
+          <source
+            type="image/webp"
+            srcset="/assets/How-to-become-an-ESN-section.webp"
+          />
+          <img
+            class="m-auto w-2/3"
+            src="/assets/How-to-become-an-ESN-section.jpg"
+            alt="How to become an ESN section"
+          />
+        </picture>
       </div>
     </div>
   </div>
