@@ -41,6 +41,9 @@ yarn-error.log
 testem.log
 /typings
 
+# dont commit webp images
+/src/assets/**/*.webp
+
 # System Files
 .DS_Store
 Thumbs.db

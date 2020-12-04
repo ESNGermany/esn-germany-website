@@ -9,11 +9,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --prod",
+    "build:prod": "cross-env IMAGEMIN=enabled ng build --prod",
     "dev:ssr": "ng run esn-germany-website:serve-ssr",
     "serve:ssr": "node dist/esn-germany-website/server/main.js",
-    "build:ssr": "ng build --prod && ng run esn-germany-website:server:production",
-    "prerender": "ng run esn-germany-website:prerender"
+    "build:ssr": "cross-env IMAGEMIN=enabled ng build --prod && ng run esn-germany-website:server:production",
+    "prerender": "cross-env IMAGEMIN=enabled ng run esn-germany-website:prerender"
   },
   "private": true,
   "dependencies": {
@@ -45,7 +45,11 @@
     "@types/node": "^12.11.1",
     "autoprefixer": "^10.0.2",
     "codelyzer": "^6.0.0",
+    "cross-env": "^7.0.3",
+    "glob": "^7.1.6",
     "husky": "^4.3.0",
+    "imagemin-webp": "^6.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.1.0",
