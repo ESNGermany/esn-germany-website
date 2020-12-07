@@ -24,7 +24,7 @@
         </figcaption>
       </figure>
       <p class="text-gray pb-4 text-xl">
-        {{ ni.Author }} – {{ ni.published_at | date: "mediumDate" }}
+        {{ ni.Author }} – {{ ni.updated_at | date: "mediumDate" }}
       </p>
       <p id="shortnews{{ ni.id }}">
         {{ ni.Shorttext | words: 30:"..." }} <br />

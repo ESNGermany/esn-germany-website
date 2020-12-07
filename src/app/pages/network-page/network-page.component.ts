@@ -7,6 +7,7 @@ interface BoardPositionItem {
   name: string;
   position: string;
   email: string;
+  position_description: string;
   Portrait: [
     {
       formats: {

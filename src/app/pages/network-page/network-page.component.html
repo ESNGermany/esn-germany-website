@@ -223,9 +223,9 @@
   </div>
 </div>
 <div class="max-w-screen-2xl m-auto mb-16 mt-6">
-  <div class="mb-8 font-body m-auto flex flex-wrap justify-evenly">
+  <div class="mb-8 font-body m-auto flex flex-wrap items-start justify-evenly">
     <div *ngFor="let nb of NBItemList">
-      <figure class="py-4 inline-block zoom" title="{{ nb.email }}">
+      <!-- <figure class="py-4 inline-block zoom" title="{{ nb.email }}">
         <img
           class="h-56"
           src="https://strapi.esn-germany.de{{
@@ -235,6 +235,27 @@
         />
         <p class="pt-2 font-bold">{{ nb.position }}</p>
         <p>{{ nb.name }}</p>
+      </figure> -->
+      <figure
+        class="p-4 inline-block relative hoverimgcontainer bg-white"
+        title="{{ nb.email }}"
+      >
+        <img
+          class="h-56 hoverimg"
+          src="https://strapi.esn-germany.de{{
+            nb.Portrait[0].formats.portrait.url
+          }}"
+          alt="{{ nb.Portrait[0].alternativeText }}"
+        />
+        <figcaption class="text-left bg-white">
+          <p class="pt-2 text-lg font-bold">{{ nb.position }}</p>
+          <p class="text-lg">{{ nb.name }}</p>
+        </figcaption>
+        <div class="middle text-black">
+          <p class="text-md">
+            {{ nb.position_description }}
+          </p>
+        </div>
       </figure>
     </div>
   </div>

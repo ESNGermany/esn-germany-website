@@ -24,7 +24,7 @@ interface NewsItem {
   };
   Author: string;
   Text: string;
-  published_at: Date;
+  updated_at: Date;
 }
 
 @Component({
