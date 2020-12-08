@@ -243,7 +243,13 @@
             <br />
           </p>
           <p class="text-md pt-2 font-bold">
-            {{ nb.email }}
+            <a
+              href="mailto:{{ nb.email }}"
+              target="_blank"
+              rel="noopener"
+              class="cursor-pointer hover:underline"
+              >{{ nb.email }}</a
+            >
           </p>
         </div>
       </figure>
