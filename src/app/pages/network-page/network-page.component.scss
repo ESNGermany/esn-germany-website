@@ -53,7 +53,19 @@
   opacity: 0;
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 18px;
+  width: 14rem;
+  padding: 2px 4px;
+  transform: translate(0, 8%);
+  -ms-transform: translate(0, 8%);
+  text-align: center;
+}
+.middlecom {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 14rem;
   padding: 2px 4px;
   transform: translate(0, 8%);
@@ -63,6 +75,10 @@
 
 .hoverimgcontainer:hover .hoverimg {
   opacity: 0.3;
+}
+
+.hoverimgcontainer:hover .middlecom {
+  opacity: 1;
 }
 
 .hoverimgcontainer:hover .middle {
