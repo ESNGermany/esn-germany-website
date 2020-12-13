@@ -36,7 +36,8 @@
         >
       </p>
       <div class="hidden news{{ ni.id }}">
-        <p>{{ ni.Text }}</p>
+        <!-- <p>{{ ni.Text }}</p> -->
+        <markdown [data]="ni.Text"></markdown>
         <div *ngIf="ni.Attachments" class="my-4">
           <p>Open attachment:</p>
           <a
