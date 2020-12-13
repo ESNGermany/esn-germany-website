@@ -33,7 +33,8 @@ interface NewsItem {
   providedIn: 'root',
 })
 export class NewsService {
-  private url = 'https://strapi.esn-germany.de/web-news-item?_limit=5';
+  private url =
+    'https://strapi.esn-germany.de/web-news-item?_sort=updated_at:DESC';
 
   constructor(
     private http: HttpClient,
