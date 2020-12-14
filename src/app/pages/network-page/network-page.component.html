@@ -201,9 +201,9 @@
       </div>
       <div class="m-auto block">
         <p class="font-body text-lg">
-          ESN Germany is formed by the National Board. Its purpose is to support
-          the local sections in all kinds of topics, to represent them in the
-          international level between them and ESN International, and to
+          ESN Germany is represented by the National Board. Its purpose is to
+          support the local sections in all kinds of topics, to represent them
+          in the international level between them and ESN International, and to
           strengthen the German network plus the relationships between the
           sections and their members. Each board member of ESN Germany is
           elected for a mandate of one year by the sections and works on a
@@ -212,8 +212,9 @@
           frame of almost 2 months where predecessor and successor can work
           closely together to hand over all important tasks and transfer the
           knowledge.<br />
-          The National Board consists of 10 positions which are always paired by
-          their field of work.
+          The National Board consists of 5 positions which are always paired
+          with another position by their field of work, so there are 10 people
+          in a full National Board.
         </p>
         <p class="font-body text-black text-lg pt-4">
           The current board members are:
@@ -342,10 +343,13 @@
     <div class="m-auto block">
       <p class="font-body text-lg">
         The Audit Board is formed by the Main Chair, the Finance Audit and the
-        Legal Audit. Their tasks are among other things to audit general
-        processes, monitor the National Board’s work, watch over the adherence
-        to our Statutes and Standing Orders, promote compliance and check the
-        budget.
+        Legal Audit and is elected for a mandate of one year (starting on 1st
+        September) by the sections and works on a voluntary basis. Its main
+        tasks are, among other things, to audit general processes, monitor the
+        National Board’s work, watch over the adherence to our Statutes and
+        Standing Orders, promote compliance and check the budget. The Audit
+        board consists of 3 to 5 people (one Main Chair, 1-2 Legal Auditors and
+        1-2 Financial Auditors).
       </p>
       <p class="font-body text-black text-lg pt-4">The current auditors are:</p>
     </div>
@@ -354,6 +358,40 @@
 <div class="max-w-screen-2xl px-16 m-auto mb-8">
   <div class="px-8 mb-8 font-body m-auto flex flex-wrap justify-evenly">
     <div *ngFor="let ab of ABItemList">
+      <figure
+        class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
+      >
+        <img
+          class="h-56 hoverimg"
+          src="https://strapi.esn-germany.de{{
+            ab.Portrait[0].formats.portrait.url
+          }}"
+          alt="{{ ab.Portrait[0].alternativeText }}"
+        />
+        <figcaption class="text-left bg-white">
+          <p class="pt-2 text-lg font-bold">{{ ab.position }}</p>
+          <p class="text-lg">{{ ab.name }}</p>
+        </figcaption>
+        <div class="middle text-black">
+          <p class="text-md">
+            {{ ab.position_description }}
+            <br />
+          </p>
+          <p class="text-md pt-2 font-bold">
+            <a
+              href="mailto:{{ ab.email }}"
+              target="_blank"
+              rel="noopener"
+              class="cursor-pointer hover:underline"
+              >{{ ab.email }}</a
+            >
+          </p>
+        </div>
+      </figure>
+    </div>
+  </div>
+</div>
+<!-- <div *ngFor="let ab of ABItemList">
       <figure class="p-4 inline-block zoom" title="{{ ab.email }}">
         <img
           class="h-56"
@@ -367,7 +405,7 @@
       </figure>
     </div>
   </div>
-</div>
+</div> -->
 <div class="bg-whitebg w-full pt-8 pb-4 my-8">
   <div class="max-w-screen-xl m-auto px-16 mb-12">
     <div class="px-8" id="alumni">

@@ -52,11 +52,11 @@ const routes: Routes = [
     component: StatutesPageComponent,
   },
   {
-    path: 'ordnung',
+    path: 'standing-orders',
     component: OrdnungPageComponent,
   },
   {
-    path: 'konsultationsordnung',
+    path: 'consultation-order',
     component: KonsultationsordnungPageComponent,
   },
   {
