@@ -27,7 +27,7 @@
         {{ ni.Author }} – {{ ni.updated_at | date: "mediumDate" }}
       </p>
       <p id="shortnews{{ ni.id }}">
-        {{ ni.Shorttext | words: 30:"..." }} <br />
+        {{ ni.Shorttext }} <br />
         <span
           id="span{{ ni.id }}"
           (click)="showText(ni.id)"
