@@ -26,16 +26,16 @@
       <p class="text-gray pb-4 text-xl">
         {{ ni.Author }} – {{ ni.updated_at | date: "mediumDate" }}
       </p>
-      <p id="shortnews{{ ni.id }}">
-        {{ ni.Shorttext }} <br />
+      <!-- <p id="shortnews{{ ni.id }}">
+        {{ ni.Text }} <br />
         <span
           id="span{{ ni.id }}"
           (click)="showText(ni.id)"
           class="cursor-pointer text-esn-dark-blue hover:underline"
           >Show more</span
         >
-      </p>
-      <div class="hidden news{{ ni.id }}">
+      </p> -->
+      <div class="news{{ ni.id }}">
         <!-- <p>{{ ni.Text }}</p> -->
         <markdown [data]="ni.Text"></markdown>
         <div *ngIf="ni.Attachments" class="my-4">
