@@ -48,25 +48,25 @@ export class NewsPageComponent implements OnInit {
       .subscribe((newsItemList) => (this.newsItemList = newsItemList));
   }
 
-  showText(id: string) {
-    document
-      .getElementsByClassName('news' + id)[0]
-      .setAttribute('style', 'display:block;');
-    document.getElementById('span' + id).style.display = 'none';
-    document.getElementById('shortnews' + id).style.display = 'none';
-    document
-      .getElementsByClassName('spanLess' + id)[0]
-      .setAttribute('style', 'display:block;');
-  }
+  // showText(id: string) {
+  //   document
+  //     .getElementsByClassName('news' + id)[0]
+  //     .setAttribute('style', 'display:block;');
+  //   document.getElementById('span' + id).style.display = 'none';
+  //   document.getElementById('shortnews' + id).style.display = 'none';
+  //   document
+  //     .getElementsByClassName('spanLess' + id)[0]
+  //     .setAttribute('style', 'display:block;');
+  // }
 
-  showLess(id: string) {
-    document
-      .getElementsByClassName('news' + id)[0]
-      .setAttribute('style', 'display:none;');
-    document.getElementById('span' + id).style.display = 'block';
-    document.getElementById('shortnews' + id).style.display = 'block';
-    document
-      .getElementsByClassName('spanLess' + id)[0]
-      .setAttribute('style', 'display:none;');
-  }
+  // showLess(id: string) {
+  //   document
+  //     .getElementsByClassName('news' + id)[0]
+  //     .setAttribute('style', 'display:none;');
+  //   document.getElementById('span' + id).style.display = 'block';
+  //   document.getElementById('shortnews' + id).style.display = 'block';
+  //   document
+  //     .getElementsByClassName('spanLess' + id)[0]
+  //     .setAttribute('style', 'display:none;');
+  // }
 }
