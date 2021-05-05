@@ -264,68 +264,34 @@
     <div class="px-8" id="committees">
       <div class="m-auto mb-8 relative">
         <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-          The National Committees
+          The National Teams
         </p>
       </div>
       <div class="m-auto block">
         <p class="font-body text-lg pb-4">
-          The National Committees are formed by ESN volunteers that support the
-          board in different dedicated fields. Each committee is linked to a
-          board position. Learn more about them here.
+          The National Teams are formed by ESN volunteers that support the board
+          in different dedicated fields. Each team is linked to a board
+          position. Learn more about them here.
         </p>
       </div>
       <div class="font-body flex flex-wrap justify-evenly items-start">
-        <figure class="m-2 inline-block relative hoverimgcontainer bg-esn-blue">
-          <img
-            class="h-56 hoverimg"
-            src="../../../assets/committees/IT Committee-blue.jpg"
-            alt="IT Team"
-          />
-          <figcaption class="text-center font-bold text-xl bg-whitebg">
-            IT Team
-          </figcaption>
-          <div class="middlecom text-white">
-            <p>
-              Being responsible for maintenance of the IT services. Among
-              others, it helps the sections to use Satellite for the websites
-              and Pretix for distributing event tickets.
-            </p>
-          </div>
-        </figure>
         <figure
-          class="m-2 inline-block relative hoverimgcontainer bg-esn-green"
+          class="m-2 inline-block relative hoverimgcontainer"
+          *ngFor="let team of teamsList"
         >
           <img
             class="h-56 hoverimg"
-            src="../../../assets/committees/Com Committee-green.jpg"
-            alt="Communication Committee"
+            src="https://strapi.esn-germany.de{{
+              team.Image.formats.portrait.url
+            }}"
+            alt=""
           />
           <figcaption class="text-center font-bold text-xl bg-whitebg">
-            Communication<br />Committee
+            {{ team.Teamname }}
           </figcaption>
-          <div class="middlecom text-white">
+          <div class="middlecom text-black">
             <p>
-              A question in design, public relations, social media or the visual
-              identity of ESN? Always ready to help out.
-            </p>
-          </div>
-        </figure>
-        <figure
-          class="m-2 inline-block relative hoverimgcontainer bg-esn-orange"
-        >
-          <img
-            class="h-56 hoverimg"
-            src="../../../assets/committees/Causes Committee-orange.jpg"
-            alt="Causes Committee"
-          />
-          <figcaption class="text-center font-bold text-xl bg-whitebg">
-            Causes Committee
-          </figcaption>
-          <div class="middlecom text-white">
-            <p>
-              Including the causes into national events, projects, preparing
-              how-tos for sections and pointing out how the network can have a
-              big impact with its causes.
+              {{ team.Description }}
             </p>
           </div>
         </figure>
