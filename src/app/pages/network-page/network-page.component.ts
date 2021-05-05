@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { BoardPositionsService } from 'src/app/services/board-positions.service';
+import { TeamsService } from 'src/app/services/teams.service';
 
 interface BoardPositionItem {
   id: string;
@@ -19,6 +20,20 @@ interface BoardPositionItem {
   ];
 }
 
+interface TeamsItem {
+  id: string;
+  Teamname: string;
+  Description: string;
+  Image: {
+    alternativeText: string;
+    formats: {
+      portrait: {
+        url: string;
+      };
+    };
+  };
+}
+
 @Component({
   selector: 'app-network-page',
   templateUrl: './network-page.component.html',
@@ -27,16 +42,19 @@ interface BoardPositionItem {
 export class NetworkPageComponent implements OnInit {
   NBItemList: BoardPositionItem[];
   ABItemList: BoardPositionItem[];
+  teamsList: TeamsItem[];
 
   constructor(
     private title: Title,
-    private boardPositionService: BoardPositionsService
+    private boardPositionService: BoardPositionsService,
+    private teamsService: TeamsService
   ) {}
 
   ngOnInit(): void {
     this.title.setTitle('Our Network - ESN Germany');
     this.getNB();
     this.getAB();
+    this.getTeams();
   }
 
   getNB(): void {
@@ -49,5 +67,11 @@ export class NetworkPageComponent implements OnInit {
     this.boardPositionService
       .fetchABList()
       .subscribe((ABItemList) => (this.ABItemList = ABItemList));
+  }
+
+  getTeams(): void {
+    this.teamsService
+      .fetchTeams()
+      .subscribe((teamsItemList) => (this.teamsList = teamsItemList));
   }
 }
