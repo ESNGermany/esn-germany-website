@@ -49,6 +49,14 @@ export class BoardPositionsService {
     );
   }
 
+  fetchRCList(): Observable<BoardPositionItem[]> {
+    this.fullUrl = this.url + '&type=RC';
+    return this.http.get<BoardPositionItem[]>(this.fullUrl).pipe(
+      tap((_) => this.log('fetched RCPositions')),
+      catchError(this.handleError<BoardPositionItem[]>('fetchRCPositions'))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
