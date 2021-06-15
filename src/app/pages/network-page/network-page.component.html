@@ -299,6 +299,66 @@
     </div>
   </div>
 </div>
+<!--  RC -->
+<div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
+  <div class="px-8 mt-24" id="nationalboard">
+    <div class="m-auto mb-8 relative">
+      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
+        The Regional Coordinators
+      </p>
+    </div>
+    <div class="m-auto block">
+      <p class="font-body text-lg">
+        Regional Coordinators are elected during Local Platforms for a mandate
+        of one year, by the sections, and work on a voluntary basis. Their tasks
+        include, among other things, overlooking the current status of the
+        region and its sections, being a contact point for the Vice President
+        and the sections and are responsible for the organization, promotion and
+        coordination of regional events.
+      </p>
+      <p class="font-body text-black text-lg pt-4">
+        The current Regional Coordinators are:
+      </p>
+    </div>
+  </div>
+</div>
+<div class="max-w-screen-2xl m-auto mb-16 mt-6">
+  <div class="mb-8 font-body m-auto flex flex-wrap items-start justify-evenly">
+    <div *ngFor="let rc of RCItemList">
+      <figure
+        class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
+      >
+        <img
+          class="h-56 hoverimg"
+          src="https://strapi.esn-germany.de{{
+            rc.Portrait[0].formats.portrait.url
+          }}"
+          alt="{{ rc.Portrait[0].alternativeText }}"
+        />
+        <figcaption class="text-left bg-white">
+          <p class="pt-2 text-lg font-bold">{{ rc.position }}</p>
+          <p class="text-lg">{{ rc.name }}</p>
+        </figcaption>
+        <div class="middle text-black">
+          <p class="text-md">
+            {{ rc.position_description }}
+            <br />
+          </p>
+          <p class="text-md pt-2 font-bold">
+            <a
+              href="mailto:{{ rc.email }}"
+              target="_blank"
+              rel="noopener"
+              class="cursor-pointer hover:underline"
+              >{{ rc.email }}</a
+            >
+          </p>
+        </div>
+      </figure>
+    </div>
+  </div>
+</div>
+<!--  RC end -->
 <div class="max-w-screen-xl px-16 m-auto mb-8">
   <div class="px-8 mb-12" id="auditboard">
     <div class="m-auto mb-8 relative">

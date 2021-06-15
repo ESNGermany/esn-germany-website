@@ -42,6 +42,7 @@ interface TeamsItem {
 export class NetworkPageComponent implements OnInit {
   NBItemList: BoardPositionItem[];
   ABItemList: BoardPositionItem[];
+  RCItemList: BoardPositionItem[];
   teamsList: TeamsItem[];
 
   constructor(
@@ -54,6 +55,7 @@ export class NetworkPageComponent implements OnInit {
     this.title.setTitle('Our Network - ESN Germany');
     this.getNB();
     this.getAB();
+    this.getRC();
     this.getTeams();
   }
 
@@ -67,6 +69,12 @@ export class NetworkPageComponent implements OnInit {
     this.boardPositionService
       .fetchABList()
       .subscribe((ABItemList) => (this.ABItemList = ABItemList));
+  }
+
+  getRC(): void {
+    this.boardPositionService
+      .fetchRCList()
+      .subscribe((RCItemList) => (this.RCItemList = RCItemList));
   }
 
   getTeams(): void {
