@@ -59,6 +59,7 @@ export class SectionmapDirective {
     'ESN Mannheim',
     'ESN Saarbrücken',
     'ESN Stuttgart',
+    'ESN Pforzheim',
   ];
   public sections: string[] = this.northSections
     .concat(this.eastSections)
