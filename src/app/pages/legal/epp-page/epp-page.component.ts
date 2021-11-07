@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { LegalDocumentsService } from 'src/app/services/legal-documents.service';
-
-interface LegalDocumentsItem {
-  id: string;
-  UpdateDate: string;
-  MarkdownText: string;
-  Title: string;
-}
+import {
+  LegalDocumentsItem,
+  LegalDocumentsService,
+} from 'src/app/services/legal-documents.service';
 
 @Component({
   selector: 'app-epp-page',

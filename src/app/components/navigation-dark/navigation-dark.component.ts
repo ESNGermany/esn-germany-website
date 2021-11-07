@@ -1,9 +1,11 @@
+import { DOCUMENT } from '@angular/common';
 import {
   Component,
   Input,
   HostListener,
   OnInit,
   ElementRef,
+  Inject,
 } from '@angular/core';
 
 @Component({
@@ -12,7 +14,10 @@ import {
   styleUrls: ['./navigation-dark.component.scss'],
 })
 export class NavigationDarkComponent implements OnInit {
-  constructor(private el: ElementRef) {}
+  constructor(
+    private el: ElementRef,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   @HostListener('document:click', ['$event'])
   clickout(event) {
@@ -26,16 +31,16 @@ export class NavigationDarkComponent implements OnInit {
   ngOnInit() {}
 
   showMenu() {
-    const burger = document.getElementById('burger') as HTMLUListElement;
-    const menu = document.getElementById('menu') as HTMLUListElement;
+    const burger = this.document.getElementById('burger') as HTMLUListElement;
+    const menu = this.document.getElementById('menu') as HTMLUListElement;
     burger.classList.add('hidden');
     menu.classList.remove('hidden');
     menu.classList.add('vis');
   }
 
   hideMenu() {
-    const burger = document.getElementById('burger') as HTMLUListElement;
-    const menu = document.getElementById('menu') as HTMLUListElement;
+    const burger = this.document.getElementById('burger') as HTMLUListElement;
+    const menu = this.document.getElementById('menu') as HTMLUListElement;
     burger.classList.remove('hidden');
     burger.classList.add('vis');
     menu.classList.remove('vis');

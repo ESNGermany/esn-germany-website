@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 
-interface LegalDocumentsItem {
+export interface LegalDocumentsItem {
   id: string;
   UpdateDate: string;
   MarkdownText: string;

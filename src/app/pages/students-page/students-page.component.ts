@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { SectionsService } from 'src/app/services/sections.service';
-
-interface SectionItem {
-  id: string;
-  name: string;
-  city: string;
-  email: string;
-  website: string;
-  region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
-}
+import { Observable, shareReplay } from 'rxjs';
+import {
+  SectionItem,
+  SectionsService,
+} from 'src/app/services/sections.service';
 
 @Component({
   selector: 'app-students-page',
@@ -17,73 +12,32 @@ interface SectionItem {
   styleUrls: ['./students-page.component.scss'],
 })
 export class StudentsPageComponent implements OnInit {
-  public northSectionItemList: SectionItem[];
-  public westSectionItemList: SectionItem[];
-  public eastSectionItemList: SectionItem[];
-  public southWestSectionItemList: SectionItem[];
-  public southEastSectionItemList: SectionItem[];
+  northSections$: Observable<SectionItem[]>;
+  westSections$: Observable<SectionItem[]>;
+  eastSections$: Observable<SectionItem[]>;
+  southWestSections$: Observable<SectionItem[]>;
+  southEastSections$: Observable<SectionItem[]>;
 
-  public regions: string[] = [
-    'North',
-    'West',
-    'East',
-    'SouthWest',
-    'SouthEast',
-  ];
+  regions: string[] = ['North', 'West', 'East', 'SouthWest', 'SouthEast'];
 
   constructor(private title: Title, private sectionsService: SectionsService) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.title.setTitle('For Students - ESN Germany');
-    this.getNorthSections();
-    this.getWestSections();
-    this.getEastSections();
-    this.getSouthWestSections();
-    this.getSouthEastSections();
-  }
-
-  getNorthSections(): void {
-    this.sectionsService
+    this.northSections$ = this.sectionsService
       .fetchSectionsNorthList()
-      .subscribe(
-        (northSectionItemList) =>
-          (this.northSectionItemList = northSectionItemList)
-      );
-  }
-
-  getWestSections(): void {
-    this.sectionsService
+      .pipe(shareReplay(1));
+    this.westSections$ = this.sectionsService
       .fetchSectionsWestList()
-      .subscribe(
-        (westSectionItemList) =>
-          (this.westSectionItemList = westSectionItemList)
-      );
-  }
-
-  getEastSections(): void {
-    this.sectionsService
+      .pipe(shareReplay(1));
+    this.eastSections$ = this.sectionsService
       .fetchSectionsEastList()
-      .subscribe(
-        (eastSectionItemList) =>
-          (this.eastSectionItemList = eastSectionItemList)
-      );
-  }
-
-  getSouthEastSections(): void {
-    this.sectionsService
+      .pipe(shareReplay(1));
+    this.southEastSections$ = this.sectionsService
       .fetchSectionsSouthEastList()
-      .subscribe(
-        (southEastSectionItemList) =>
-          (this.southEastSectionItemList = southEastSectionItemList)
-      );
-  }
-
-  getSouthWestSections(): void {
-    this.sectionsService
+      .pipe(shareReplay(1));
+    this.southWestSections$ = this.sectionsService
       .fetchSectionsSouthWestList()
-      .subscribe(
-        (southWestSectionItemList) =>
-          (this.southWestSectionItemList = southWestSectionItemList)
-      );
+      .pipe(shareReplay(1));
   }
 }

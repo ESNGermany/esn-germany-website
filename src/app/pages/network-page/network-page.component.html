@@ -62,7 +62,13 @@
           </div>
         </div>
         <div
-          class="flex items-center flex-col-reverse lg:flex-row border-gray border-b"
+          class="
+            flex
+            items-center
+            flex-col-reverse
+            lg:flex-row
+            border-gray border-b
+          "
         >
           <div class="m-6">
             <p>
@@ -115,7 +121,13 @@
           </p>
         </div>
         <div
-          class="flex items-center flex-col-reverse lg:flex-row border-gray border-b"
+          class="
+            flex
+            items-center
+            flex-col-reverse
+            lg:flex-row
+            border-gray border-b
+          "
         >
           <p class="m-6">
             According to the Erasmus Impact Study launched by the European
@@ -223,7 +235,10 @@
     </div>
   </div>
 </div>
-<div class="max-w-screen-2xl m-auto mb-16 mt-6">
+<div
+  class="max-w-screen-2xl m-auto mb-16 mt-6"
+  *ngIf="NBItemList$ | async as NBItemList"
+>
   <div class="mb-8 font-body m-auto flex flex-wrap items-start justify-evenly">
     <div *ngFor="let nb of NBItemList">
       <figure
@@ -274,7 +289,10 @@
           position. Learn more about them here.
         </p>
       </div>
-      <div class="font-body flex flex-wrap justify-evenly items-start">
+      <div
+        class="font-body flex flex-wrap justify-evenly items-start"
+        *ngIf="teamsList$ | async as teamsList"
+      >
         <figure
           class="m-2 inline-block relative hoverimgcontainer"
           *ngFor="let team of teamsList"
@@ -322,7 +340,10 @@
     </div>
   </div>
 </div>
-<div class="max-w-screen-2xl m-auto mb-16 mt-6">
+<div
+  class="max-w-screen-2xl m-auto mb-16 mt-6"
+  *ngIf="RCItemList$ | async as RCItemList"
+>
   <div class="mb-8 font-body m-auto flex flex-wrap items-start justify-evenly">
     <div *ngFor="let rc of RCItemList">
       <figure
@@ -381,7 +402,10 @@
     </div>
   </div>
 </div>
-<div class="max-w-screen-2xl px-16 m-auto mb-8">
+<div
+  class="max-w-screen-2xl px-16 m-auto mb-8"
+  *ngIf="ABItemList$ | async as ABItemList"
+>
   <div class="px-8 mb-8 font-body m-auto flex flex-wrap justify-evenly">
     <div *ngFor="let ab of ABItemList">
       <figure
@@ -451,7 +475,18 @@
         </p>
         <button
           type="button"
-          class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+          class="
+            bg-white
+            hover:bg-graylight
+            text-black
+            font-semibold
+            py-2
+            px-4
+            border border-gray
+            rounded-full
+            shadow
+            addeffect
+          "
         >
           <a
             href="https://alumni.esn-germany.de"
@@ -495,7 +530,18 @@
       </p>
       <button
         type="button"
-        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+        class="
+          bg-white
+          hover:bg-graylight
+          text-black
+          font-semibold
+          py-2
+          px-4
+          border border-gray
+          rounded-full
+          shadow
+          addeffect
+        "
       >
         <a
           href="https://esn.org"

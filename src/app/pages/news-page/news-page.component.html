@@ -1,5 +1,8 @@
 <app-navigation-dark></app-navigation-dark>
-<div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
+<div
+  class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4"
+  *ngIf="news$ | async as newsItemList"
+>
   <!-- <div *ngIf="!newsItemList" class="bg-white h-screen w-screen"></div> -->
   <div
     *ngFor="let ni of newsItemList"
@@ -7,7 +10,15 @@
   >
     <div class="m-auto mb-4 relative w-full">
       <p
-        class="font-heading text-esn-dark-blue font-bold text-4xl title w-full relative"
+        class="
+          font-heading
+          text-esn-dark-blue
+          font-bold
+          text-4xl
+          title
+          w-full
+          relative
+        "
       >
         {{ ni.Title }}
       </p>

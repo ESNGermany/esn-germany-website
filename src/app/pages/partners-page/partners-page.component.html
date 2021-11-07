@@ -66,12 +66,25 @@
     </div>
   </div>
 </div>
-<div class="max-w-screen-2xl m-auto mb-16">
-  <div *ngIf="!partnersItemList" class="bg-white w-screen h-screen"></div>
+<div
+  class="max-w-screen-2xl m-auto mb-16"
+  *ngIf="partners$ | async as partners"
+>
+  <div *ngIf="!partners" class="bg-white w-screen h-screen"></div>
   <div
-    class="mx-8 flex flex-wrap items-center justify-evenly font-body text-lg border border-graylight shadow-xl p-8"
+    class="
+      mx-8
+      flex flex-wrap
+      items-center
+      justify-evenly
+      font-body
+      text-lg
+      border border-graylight
+      shadow-xl
+      p-8
+    "
   >
-    <ng-container *ngFor="let partner of partnersItemList">
+    <ng-container *ngFor="let partner of partners">
       <a
         href="{{ partner.Link }}"
         title="{{ partner.Logo.alternativeText }}"

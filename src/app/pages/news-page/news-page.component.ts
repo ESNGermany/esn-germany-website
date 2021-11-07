@@ -1,31 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { NewsService } from 'src/app/services/news.service';
-
-interface NewsItem {
-  id: string;
-  Title: string;
-  Shorttext: string;
-  Image: {
-    id: string;
-    alternativeText: string;
-    caption: string;
-    width: number;
-    height: number;
-    formats: {
-      medium: {
-        url: string;
-      };
-    };
-  };
-  Attachments: {
-    name: string;
-    url: string;
-  };
-  Author: string;
-  Text: string;
-  updated_at: Date;
-}
+import { Observable, shareReplay } from 'rxjs';
+import { NewsItem, NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-news-page',
@@ -33,21 +9,14 @@ interface NewsItem {
   styleUrls: ['./news-page.component.scss'],
 })
 export class NewsPageComponent implements OnInit {
-  newsItemList: NewsItem[];
+  news$: Observable<NewsItem[]>;
 
   constructor(private title: Title, private newsService: NewsService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.title.setTitle('News - ESN Germany');
-    this.getNews();
+    this.news$ = this.newsService.fetchNewsList().pipe(shareReplay(1));
   }
-
-  getNews(): void {
-    this.newsService
-      .fetchNewsList()
-      .subscribe((newsItemList) => (this.newsItemList = newsItemList));
-  }
-
   // showText(id: string) {
   //   document
   //     .getElementsByClassName('news' + id)[0]
