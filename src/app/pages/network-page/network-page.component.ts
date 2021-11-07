@@ -1,38 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { BoardPositionsService } from 'src/app/services/board-positions.service';
-import { TeamsService } from 'src/app/services/teams.service';
-
-interface BoardPositionItem {
-  id: string;
-  name: string;
-  position: string;
-  email: string;
-  position_description: string;
-  Portrait: [
-    {
-      formats: {
-        portrait: {
-          url: string;
-        };
-      };
-    }
-  ];
-}
-
-interface TeamsItem {
-  id: string;
-  Teamname: string;
-  Description: string;
-  Image: {
-    alternativeText: string;
-    formats: {
-      portrait: {
-        url: string;
-      };
-    };
-  };
-}
+import { Observable, shareReplay } from 'rxjs';
+import {
+  BoardPositionItem,
+  BoardPositionsService,
+} from 'src/app/services/board-positions.service';
+import { TeamsItem, TeamsService } from 'src/app/services/teams.service';
 
 @Component({
   selector: 'app-network-page',
@@ -40,10 +13,10 @@ interface TeamsItem {
   styleUrls: ['./network-page.component.scss'],
 })
 export class NetworkPageComponent implements OnInit {
-  NBItemList: BoardPositionItem[];
-  ABItemList: BoardPositionItem[];
-  RCItemList: BoardPositionItem[];
-  teamsList: TeamsItem[];
+  NBItemList$: Observable<BoardPositionItem[]>;
+  ABItemList$: Observable<BoardPositionItem[]>;
+  RCItemList$: Observable<BoardPositionItem[]>;
+  teamsList$: Observable<TeamsItem[]>;
 
   constructor(
     private title: Title,
@@ -51,35 +24,17 @@ export class NetworkPageComponent implements OnInit {
     private teamsService: TeamsService
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.title.setTitle('Our Network - ESN Germany');
-    this.getNB();
-    this.getAB();
-    this.getRC();
-    this.getTeams();
-  }
-
-  getNB(): void {
-    this.boardPositionService
-      .fetchNBList()
-      .subscribe((NBItemList) => (this.NBItemList = NBItemList));
-  }
-
-  getAB(): void {
-    this.boardPositionService
+    this.ABItemList$ = this.boardPositionService
       .fetchABList()
-      .subscribe((ABItemList) => (this.ABItemList = ABItemList));
-  }
-
-  getRC(): void {
-    this.boardPositionService
+      .pipe(shareReplay(1));
+    this.NBItemList$ = this.boardPositionService
+      .fetchNBList()
+      .pipe(shareReplay(1));
+    this.RCItemList$ = this.boardPositionService
       .fetchRCList()
-      .subscribe((RCItemList) => (this.RCItemList = RCItemList));
-  }
-
-  getTeams(): void {
-    this.teamsService
-      .fetchTeams()
-      .subscribe((teamsItemList) => (this.teamsList = teamsItemList));
+      .pipe(shareReplay(1));
+    this.teamsList$ = this.teamsService.fetchTeam().pipe(shareReplay(1));
   }
 }

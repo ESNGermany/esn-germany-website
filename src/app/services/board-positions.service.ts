@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 
-interface BoardPositionItem {
+export interface BoardPositionItem {
   id: string;
   name: string;
   position: string;
@@ -28,33 +28,47 @@ export class BoardPositionsService {
   private url = 'https://strapi.esn-germany.de/web-board-member?_sort=order';
   private fullUrl: string;
 
+  private ABList;
+  private NBList;
+  private RCList;
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {}
+  ) {
+    this.ABList = this.http
+      .get<BoardPositionItem[]>(this.url + '&type=AB')
+      .pipe(
+        shareReplay(1),
+        tap((_) => this.log('fetched ABPositions')),
+        catchError(this.handleError<BoardPositionItem[]>('fetchABPositions'))
+      );
+    this.NBList = this.http
+      .get<BoardPositionItem[]>(this.url + '&type=NB')
+      .pipe(
+        shareReplay(1),
+        tap((_) => this.log('fetched NBPositions')),
+        catchError(this.handleError<BoardPositionItem[]>('fetchNBPositions'))
+      );
+    this.RCList = this.http
+      .get<BoardPositionItem[]>(this.url + '&type=RC')
+      .pipe(
+        shareReplay(1),
+        tap((_) => this.log('fetched RCPositions')),
+        catchError(this.handleError<BoardPositionItem[]>('fetchRCPositions'))
+      );
+  }
 
   fetchABList(): Observable<BoardPositionItem[]> {
-    this.fullUrl = this.url + '&type=AB';
-    return this.http.get<BoardPositionItem[]>(this.fullUrl).pipe(
-      tap((_) => this.log('fetched ABPositions')),
-      catchError(this.handleError<BoardPositionItem[]>('fetchABPositions'))
-    );
+    return this.ABList;
   }
 
   fetchNBList(): Observable<BoardPositionItem[]> {
-    this.fullUrl = this.url + '&type=NB';
-    return this.http.get<BoardPositionItem[]>(this.fullUrl).pipe(
-      tap((_) => this.log('fetched NBPositions')),
-      catchError(this.handleError<BoardPositionItem[]>('fetchNBPositions'))
-    );
+    return this.NBList;
   }
 
   fetchRCList(): Observable<BoardPositionItem[]> {
-    this.fullUrl = this.url + '&type=RC';
-    return this.http.get<BoardPositionItem[]>(this.fullUrl).pipe(
-      tap((_) => this.log('fetched RCPositions')),
-      catchError(this.handleError<BoardPositionItem[]>('fetchRCPositions'))
-    );
+    return this.RCList;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

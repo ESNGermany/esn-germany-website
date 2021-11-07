@@ -1,23 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { PartnersService } from 'src/app/services/partners.service';
-
-interface PartnersItem {
-  id: string;
-  Name: string;
-  Description: string;
-  Deal: string;
-  Link: string;
-  Logo: {
-    alternativeText: string;
-    caption: string;
-    formats: {
-      medium: {
-        url: string;
-      };
-    };
-  };
-}
+import { Observable, shareReplay } from 'rxjs';
+import {
+  PartnersItem,
+  PartnersService,
+} from 'src/app/services/partners.service';
 
 @Component({
   selector: 'app-partners-page',
@@ -25,32 +13,32 @@ interface PartnersItem {
   styleUrls: ['./partners-page.component.scss'],
 })
 export class PartnersPageComponent implements OnInit {
-  public partnersItemList: PartnersItem[];
+  partners$: Observable<PartnersItem[]>;
 
-  constructor(private title: Title, private partnersService: PartnersService) {}
+  constructor(
+    private title: Title,
+    @Inject(DOCUMENT) private document: Document,
+    private partnersService: PartnersService
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.title.setTitle('ESNcard & Partners - ESN Germany');
-    this.getPartners();
-  }
-
-  getPartners(): void {
-    this.partnersService
+    this.partners$ = this.partnersService
       .fetchPartnersList()
-      .subscribe(
-        (partnersItemList) => (this.partnersItemList = partnersItemList)
-      );
+      .pipe(shareReplay(1));
   }
 
   showMore(id: string) {
-    let curr = document.getElementsByClassName('current');
+    let curr = this.document.getElementsByClassName('current');
     if (curr.length > 0) {
       curr[0].setAttribute('style', 'display:none;');
       curr[0].classList.remove('current');
     }
-    document
+    this.document
       .getElementsByClassName('partner' + id)[0]
       .setAttribute('style', 'display:block;');
-    document.getElementsByClassName('partner' + id)[0].classList.add('current');
+    this.document
+      .getElementsByClassName('partner' + id)[0]
+      .classList.add('current');
   }
 }

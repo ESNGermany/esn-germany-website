@@ -1,8 +1,10 @@
+import { DOCUMENT } from '@angular/common';
 import {
   Component,
   Directive,
   ElementRef,
   HostListener,
+  Inject,
   OnInit,
 } from '@angular/core';
 
@@ -10,7 +12,10 @@ import {
   selector: 'g path',
 })
 export class SectionmapDirective {
-  constructor(private el: ElementRef) {}
+  constructor(
+    private el: ElementRef,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   public northSections: string[] = [
     'ESN Kiel',
@@ -70,7 +75,7 @@ export class SectionmapDirective {
   @HostListener('mouseenter')
   onMouseEnter() {
     if (this.sections.includes(this.el.nativeElement.id)) {
-      const box = document.getElementById('infobox');
+      const box = this.document.getElementById('infobox');
       if (box) {
         box.innerHTML = '<div>' + this.el.nativeElement.id + '</div>';
         box.classList.remove('hidden');
@@ -80,7 +85,7 @@ export class SectionmapDirective {
   }
   @HostListener('mouseleave')
   onMouseLeave() {
-    const box = document.getElementById('infobox');
+    const box = this.document.getElementById('infobox');
     if (box) {
       box.classList.remove('block');
       box.classList.add('hidden');
@@ -88,7 +93,7 @@ export class SectionmapDirective {
   }
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
-    const box = document.getElementById('infobox');
+    const box = this.document.getElementById('infobox');
     if (box) {
       box.setAttribute(
         'style',

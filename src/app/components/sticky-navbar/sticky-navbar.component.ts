@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   animate,
   state,
@@ -6,6 +6,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-sticky-navbar',
@@ -20,20 +21,20 @@ import {
   ],
 })
 export class StickyNavbarComponent implements OnInit {
-  constructor() {}
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {}
 
   showMenu(): void {
-    var burger = <HTMLUListElement>document.getElementById('burger');
-    var menu = <HTMLUListElement>document.getElementById('menu');
+    var burger = <HTMLUListElement>this.document.getElementById('burger');
+    var menu = <HTMLUListElement>this.document.getElementById('menu');
     burger.classList.add('hidden');
     menu.classList.remove('hidden');
     menu.classList.add('vis');
   }
   hideMenu(burgerHide: boolean): void {
-    const burger = document.getElementById('burger') as HTMLUListElement;
-    const menu = document.getElementById('menu') as HTMLUListElement;
+    const burger = this.document.getElementById('burger') as HTMLUListElement;
+    const menu = this.document.getElementById('menu') as HTMLUListElement;
     burger.classList.remove('hidden');
     if (burgerHide) {
       burger.classList.add('vis');

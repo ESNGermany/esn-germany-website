@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 
-interface NewsItem {
+export interface NewsItem {
   id: string;
   Title: string;
   Shorttext: string;
@@ -36,16 +36,20 @@ export class NewsService {
   private url =
     'https://strapi.esn-germany.de/web-news-item?_sort=updated_at:DESC';
 
+  private dataRequest;
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {}
-
-  fetchNewsList(): Observable<NewsItem[]> {
-    return this.http.get<NewsItem[]>(this.url).pipe(
+  ) {
+    this.dataRequest = this.http.get<NewsItem[]>(this.url).pipe(
+      shareReplay(1),
       tap((_) => this.log('fetched news')),
       catchError(this.handleError<NewsItem[]>('fetchNewsList', []))
     );
+  }
+
+  fetchNewsList(): Observable<NewsItem[]> {
+    return this.dataRequest;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

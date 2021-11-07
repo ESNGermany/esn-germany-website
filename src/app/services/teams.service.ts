@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 
-interface TeamsItem {
+export interface TeamsItem {
   id: string;
   Teamname: string;
   Description: string;
@@ -23,17 +23,21 @@ interface TeamsItem {
 })
 export class TeamsService {
   private url = 'https://strapi.esn-germany.de/website-national-teams';
+  private dataRequest;
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {}
-
-  fetchTeams(): Observable<TeamsItem[]> {
-    return this.http.get<TeamsItem[]>(this.url).pipe(
-      tap((_) => this.log('fetched Teams')),
-      catchError(this.handleError<TeamsItem[]>('fetchTeams'))
+  ) {
+    this.dataRequest = this.http.get<TeamsItem[]>(this.url).pipe(
+      shareReplay(1),
+      tap((_) => this.log('fetched Team')),
+      catchError(this.handleError<TeamsItem[]>('fetchTeamsList', []))
     );
+  }
+
+  fetchTeam(): Observable<TeamsItem[]> {
+    return this.dataRequest;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

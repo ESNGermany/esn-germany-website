@@ -21,10 +21,10 @@
   <app-sectionmap></app-sectionmap>
   <div class="font-body">
     <p class="font-bold text-2xl">Sections ordered by region</p>
-    <div class="m-4">
+    <div class="m-4" *ngIf="northSections$ | async as northSections">
       <app-expandable class="border border-esn-blue rounded-lg">
         <p slot="header" class="font-bold text-xl">North</p>
-        <div *ngFor="let section of northSectionItemList" class="cont">
+        <div *ngFor="let section of northSections" class="cont">
           <div class="flex justify-between pt-1">
             <p>
               {{ section.name }}
@@ -49,10 +49,10 @@
         </div>
       </app-expandable>
     </div>
-    <div class="m-4">
+    <div class="m-4" *ngIf="eastSections$ | async as eastSections">
       <app-expandable class="border border-esn-orange rounded-lg">
         <p slot="header" class="font-bold text-xl">East</p>
-        <div *ngFor="let section of eastSectionItemList" class="cont">
+        <div *ngFor="let section of eastSections" class="cont">
           <div class="flex justify-between pt-1">
             <p>{{ section.name }}</p>
             <span class="text-footer"
@@ -75,10 +75,10 @@
         </div>
       </app-expandable>
     </div>
-    <div class="m-4">
+    <div class="m-4" *ngIf="westSections$ | async as westSections">
       <app-expandable class="border border-esn-pink rounded-lg">
         <p slot="header" class="font-bold text-xl">West</p>
-        <div *ngFor="let section of westSectionItemList" class="cont">
+        <div *ngFor="let section of westSections" class="cont">
           <div class="flex justify-between pt-1">
             <p>{{ section.name }}</p>
             <span class="text-footer">
@@ -101,10 +101,10 @@
         </div>
       </app-expandable>
     </div>
-    <div class="m-4">
+    <div class="m-4" *ngIf="southEastSections$ | async as southEastSections">
       <app-expandable class="border border-esn-dark-blue rounded-lg">
         <p slot="header" class="font-bold text-xl">South East</p>
-        <div *ngFor="let section of southEastSectionItemList" class="cont">
+        <div *ngFor="let section of southEastSections" class="cont">
           <div class="flex justify-between pt-1">
             <p>{{ section.name }}</p>
             <span class="text-footer">
@@ -127,10 +127,10 @@
         </div>
       </app-expandable>
     </div>
-    <div class="m-4">
+    <div class="m-4" *ngIf="southWestSections$ | async as southWestSections">
       <app-expandable class="border border-esn-green rounded-lg">
         <p slot="header" class="font-bold text-xl">South West</p>
-        <div *ngFor="let section of southWestSectionItemList" class="cont">
+        <div *ngFor="let section of southWestSections" class="cont">
           <div class="flex justify-between pt-1">
             <p>{{ section.name }}</p>
             <span class="text-footer">
@@ -180,7 +180,17 @@
         rel="noopener"
       >
         <div
-          class="flex items-center lg:flex-no-wrap flex-wrap font-body text-lg border border-graylight rounded shadow-xl"
+          class="
+            flex
+            items-center
+            lg:flex-no-wrap
+            flex-wrap
+            font-body
+            text-lg
+            border border-graylight
+            rounded
+            shadow-xl
+          "
         >
           <div class="m-4 mx-8">
             <img
@@ -190,7 +200,13 @@
             />
           </div>
           <p
-            class="font-body font-bold pb-2 px-8 text-esn-dark-blue hover:underline"
+            class="
+              font-body font-bold
+              pb-2
+              px-8
+              text-esn-dark-blue
+              hover:underline
+            "
           >
             Open PDF <i class="material-icons icon"> call_made </i>
           </p>
