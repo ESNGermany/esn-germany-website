@@ -19,6 +19,8 @@ export interface PartnersItem {
       };
     };
   };
+  show: boolean;
+  buttonText: string;
 }
 
 @Injectable({
