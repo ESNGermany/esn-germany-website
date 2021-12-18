@@ -9,10 +9,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --prod",
+    "build:prod": "ng build --configuration production",
     "dev:ssr": "ng run esn-germany-website:serve-ssr",
     "serve:ssr": "node dist/esn-germany-website/server/main.js",
-    "build:ssr": "ng build --prod && ng run esn-germany-website:server:production",
+    "build:ssr": "ng build --configuration production && ng run esn-germany-website:server:production",
     "prerender": "ng run esn-germany-website:prerender"
   },
   "private": true,
