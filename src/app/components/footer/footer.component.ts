@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +10,8 @@ import { Component, OnInit, Inject, HostListener } from '@angular/core';
 export class FooterComponent implements OnInit {
   windowScrolled: boolean;
   desktop: boolean = false;
+  timestamp: string = environment.timeStamp;
+
   constructor(@Inject(DOCUMENT) private document: Document) {}
   @HostListener('window:scroll', [])
   onWindowScroll() {

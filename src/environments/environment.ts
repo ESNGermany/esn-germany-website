@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  timeStamp: '18-12-2021 09:01:53',
 };
 
 /*

@@ -13,7 +13,8 @@
     "dev:ssr": "ng run esn-germany-website:serve-ssr",
     "serve:ssr": "node dist/esn-germany-website/server/main.js",
     "build:ssr": "ng build --configuration production && ng run esn-germany-website:server:production",
-    "prerender": "ng run esn-germany-website:prerender"
+    "prerender": "ng run esn-germany-website:prerender",
+    "timestamp": "node ./timestamp.js"
   },
   "private": true,
   "dependencies": {
@@ -55,11 +56,13 @@
     "karma-jasmine": "4.0.1",
     "karma-jasmine-html-reporter": "1.7.0",
     "lint-staged": "11.1.2",
+    "moment-timezone": "^0.5.34",
     "ngx-build-plus": "11.0.0",
     "ngx-tailwind": "2.1.0",
     "postcss": "8.4.5",
     "prettier": "2.4.1",
     "protractor": "7.0.0",
+    "replace-in-file": "^6.3.2",
     "tailwindcss": "3.0.7",
     "ts-node": "10.2.1",
     "tslint": "6.1.3",
