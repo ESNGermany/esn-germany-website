@@ -1,12 +1,11 @@
+const { guessProductionMode } = require("@ngneat/tailwind");
+
+process.env.TAILWIND_MODE = guessProductionMode() ? 'build' : 'watch';
+
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  purge: {
-    enabled: true,
-    content: ["./src/**/*.html", "./src/**/*.ts", "./src/**/*.scss"],
-  },
+  content: [
+    './src/**/*.{html,ts,css,scss,sass,less,styl}',
+  ],
   theme: {
     extend: {
       screens: {
@@ -38,6 +37,7 @@ module.exports = {
       },
       colors: {
         "esn-green": "#7ac143",
+        "esn-dark-green": "#558f29",
         "esn-blue": "#00aeef",
         "esn-pink": "#ec008c",
         "esn-lightpink": "#ffaabb",
@@ -57,6 +57,7 @@ module.exports = {
     fontFamily: {
       body: ["Lato", "sans-serif"],
       heading: ["Oswald", "sans-serif"],
+      comic: ["Comic Sans"],
     },
     gridAutoRows: {
       images: "280px",

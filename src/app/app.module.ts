@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +30,13 @@ import {
 import { SharedModule } from './shared/shared.module';
 import { ExpandableComponent } from './components/expandable/expandable.component';
 import { StickyNavbarComponent } from './components/sticky-navbar/sticky-navbar.component';
+import { BoardPositionsService } from './services/board-positions.service';
+import { LegalDocumentsService } from './services/legal-documents.service';
+import { MessageService } from './services/message.service';
+import { NewsService } from './services/news.service';
+import { PartnersService } from './services/partners.service';
+import { SectionsService } from './services/sections.service';
+import { TeamsService } from './services/teams.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +70,16 @@ import { StickyNavbarComponent } from './components/sticky-navbar/sticky-navbar.
     SharedModule,
     MarkdownModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    BoardPositionsService,
+    LegalDocumentsService,
+    MessageService,
+    NewsService,
+    PartnersService,
+    SectionsService,
+    TeamsService,
+  ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

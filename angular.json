@@ -15,15 +15,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
-            "outputPath": "dist/esn-germany-website/browser",
+            "outputPath": "dist/esn-sections-website/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/_redirects", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
@@ -48,7 +47,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumError": "85mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -56,20 +55,28 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
-          "options": {
-            "extraWebpackConfig": "webpack.config.js",
-            "browserTarget": "esn-germany-website:build"
-          },
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "esn-germany-website:build:production"
+            },
+            "development": {
+              "browserTarget": "esn-germany-website:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -78,9 +85,8 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "extraWebpackConfig": "webpack.config.js",
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
@@ -90,36 +96,13 @@
             "scripts": []
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json",
-              "tsconfig.server.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "esn-germany-website:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "esn-germany-website:serve:production"
-            }
-          }
-        },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/esn-germany-website/server",
             "main": "server.ts",
-            "tsConfig": "tsconfig.server.json"
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
           },
           "configurations": {
             "production": {
@@ -130,8 +113,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "sourceMap": false,
-              "optimization": true
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
             }
           }
         },
