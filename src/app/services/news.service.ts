@@ -27,6 +27,7 @@ export interface NewsItem {
   Author: string;
   Text: string;
   updated_at: Date;
+  newsItemId?: string;
 }
 
 @Injectable({
