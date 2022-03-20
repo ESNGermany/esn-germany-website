@@ -36,7 +36,7 @@ export class TeamsService {
     );
   }
 
-  fetchTeam(): Observable<TeamsItem[]> {
+  public fetchTeam(): Observable<TeamsItem[]> {
     return this.dataRequest;
   }
 

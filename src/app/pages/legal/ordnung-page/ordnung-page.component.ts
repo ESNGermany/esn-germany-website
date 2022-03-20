@@ -8,7 +8,6 @@ import {
 @Component({
   selector: 'app-ordnung-page',
   templateUrl: './ordnung-page.component.html',
-  styleUrls: ['./ordnung-page.component.scss'],
 })
 export class OrdnungPageComponent implements OnInit {
   ordnungItem: LegalDocumentsItem;
@@ -16,13 +15,15 @@ export class OrdnungPageComponent implements OnInit {
   constructor(
     private title: Title,
     private LegalDocumentsService: LegalDocumentsService
-  ) {}
+  ) {
+    this.title.setTitle('Ordnung - ESN Germany');
+  }
 
   ngOnInit(): void {
-    this.title.setTitle('Ordnung - ESN Germany');
     this.getOrdnungItem();
   }
-  getOrdnungItem(): void {
+
+  private getOrdnungItem(): void {
     this.LegalDocumentsService.fetchLegalDocumentsList('2').subscribe(
       (ordnungItem) => (this.ordnungItem = ordnungItem)
     );

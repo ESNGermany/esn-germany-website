@@ -41,7 +41,7 @@ export class PartnersService {
     );
   }
 
-  fetchPartnersList(): Observable<PartnersItem[]> {
+  public fetchPartnersList(): Observable<PartnersItem[]> {
     return this.dataRequest;
   }
 

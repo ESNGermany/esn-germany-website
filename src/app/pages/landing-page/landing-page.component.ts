@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-// import { Component, HostListener, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   animate,
   state,
@@ -20,7 +19,7 @@ import { Title } from '@angular/platform-browser';
     ]),
   ],
 })
-export class LandingPageComponent implements OnInit {
+export class LandingPageComponent {
   index: number = 0;
   numImages: number = 3;
   imagesLoaded: number = 0;
@@ -32,32 +31,7 @@ export class LandingPageComponent implements OnInit {
     '../../../assets/landing/landing1.png',
   ];
 
-  constructor(private title: Title) {}
-
-  ngOnInit() {
+  constructor(private title: Title) {
     this.title.setTitle('ESN Germany');
-    // TODO: preload images with a service worker
-    /*this.imagesUrl.forEach((x, index) => {
-      const image = new Image();
-      image.onload = () => {
-        this.imagesLoaded++;
-      };
-      image.src = x;
-    });*/
-    // TODO: solve this in a way that makes the app go stable
-    /*interval(5000).subscribe(() => {
-      this.index = (this.index + 1) % this.numImages;
-    });*/
   }
-
-  // @HostListener('window:scroll', ['$event'])
-  // onWindowScroll(e) {
-  //   if (window.pageYOffset > 200) {
-  //     let element = document.getElementById('navbar');
-  //     element.classList.add('extra');
-  //   } else {
-  //     let element = document.getElementById('navbar');
-  //     element.classList.remove('extra');
-  //   }
-  // }
 }

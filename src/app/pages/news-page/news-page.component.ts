@@ -12,10 +12,11 @@ export class NewsPageComponent implements OnInit {
   news$: Observable<NewsItem[]>;
   private newsItemId: string;
 
-  constructor(private title: Title, private newsService: NewsService) {}
+  constructor(private title: Title, private newsService: NewsService) {
+    this.title.setTitle('News - ESN Germany');
+  }
 
   async ngOnInit() {
-    this.title.setTitle('News - ESN Germany');
     this.news$ = this.newsService.fetchNewsList().pipe(shareReplay(1));
     this.setNewsItemId();
   }
@@ -46,29 +47,6 @@ export class NewsPageComponent implements OnInit {
         this.newsItemId.length - 1
       );
     }
-
     return this.newsItemId;
   }
-
-  // showText(id: string) {
-  //   document
-  //     .getElementsByClassName('news' + id)[0]
-  //     .setAttribute('style', 'display:block;');
-  //   document.getElementById('span' + id).style.display = 'none';
-  //   document.getElementById('shortnews' + id).style.display = 'none';
-  //   document
-  //     .getElementsByClassName('spanLess' + id)[0]
-  //     .setAttribute('style', 'display:block;');
-  // }
-
-  // showLess(id: string) {
-  //   document
-  //     .getElementsByClassName('news' + id)[0]
-  //     .setAttribute('style', 'display:none;');
-  //   document.getElementById('span' + id).style.display = 'block';
-  //   document.getElementById('shortnews' + id).style.display = 'block';
-  //   document
-  //     .getElementsByClassName('spanLess' + id)[0]
-  //     .setAttribute('style', 'display:none;');
-  // }
 }

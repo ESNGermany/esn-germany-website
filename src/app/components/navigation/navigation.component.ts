@@ -1,18 +1,12 @@
 import { DOCUMENT } from '@angular/common';
-import {
-  Component,
-  HostListener,
-  OnInit,
-  ElementRef,
-  Inject,
-} from '@angular/core';
+import { Component, HostListener, ElementRef, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
   constructor(
     private el: ElementRef,
     @Inject(DOCUMENT) private document: Document
@@ -31,9 +25,7 @@ export class NavigationComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
-
-  showMenu() {
+  public showMenu(): void {
     var burger = <HTMLUListElement>this.document.getElementById('burger');
     var menu = <HTMLUListElement>this.document.getElementById('menu');
     burger.classList.add('hidden');
@@ -41,7 +33,7 @@ export class NavigationComponent implements OnInit {
     menu.classList.add('vis');
   }
 
-  hideMenu(burgerHide: boolean) {
+  public hideMenu(burgerHide: boolean): void {
     const burger = this.document.getElementById('burger') as HTMLUListElement;
     const menu = this.document.getElementById('menu') as HTMLUListElement;
     burger.classList.remove('hidden');

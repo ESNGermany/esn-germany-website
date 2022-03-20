@@ -18,12 +18,12 @@ export interface SectionItem {
 })
 export class SectionsService {
   private url = 'https://strapi.esn-germany.de/web-section';
-  private sectionList;
-  private northList;
-  private eastList;
-  private westList;
-  private southWestList;
-  private southEastList;
+  private sectionList: Observable<SectionItem[]>;
+  private northList: Observable<SectionItem[]>;
+  private eastList: Observable<SectionItem[]>;
+  private westList: Observable<SectionItem[]>;
+  private southWestList: Observable<SectionItem[]>;
+  private southEastList: Observable<SectionItem[]>;
 
   constructor(
     private http: HttpClient,
@@ -75,27 +75,27 @@ export class SectionsService {
       );
   }
 
-  fetchSectionList(): Observable<SectionItem[]> {
+  public fetchSectionList(): Observable<SectionItem[]> {
     return this.sectionList;
   }
 
-  fetchSectionsNorthList(): Observable<SectionItem[]> {
+  public fetchSectionsNorthList(): Observable<SectionItem[]> {
     return this.northList;
   }
 
-  fetchSectionsEastList(): Observable<SectionItem[]> {
+  public fetchSectionsEastList(): Observable<SectionItem[]> {
     return this.eastList;
   }
 
-  fetchSectionsWestList(): Observable<SectionItem[]> {
+  public fetchSectionsWestList(): Observable<SectionItem[]> {
     return this.westList;
   }
 
-  fetchSectionsSouthWestList(): Observable<SectionItem[]> {
+  public fetchSectionsSouthWestList(): Observable<SectionItem[]> {
     return this.southWestList;
   }
 
-  fetchSectionsSouthEastList(): Observable<SectionItem[]> {
+  public fetchSectionsSouthEastList(): Observable<SectionItem[]> {
     return this.southEastList;
   }
 

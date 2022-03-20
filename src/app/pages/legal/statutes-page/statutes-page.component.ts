@@ -8,7 +8,6 @@ import {
 @Component({
   selector: 'app-statutes-page',
   templateUrl: './statutes-page.component.html',
-  styleUrls: ['./statutes-page.component.scss'],
 })
 export class StatutesPageComponent implements OnInit {
   statutesItem: LegalDocumentsItem;
@@ -16,14 +15,15 @@ export class StatutesPageComponent implements OnInit {
   constructor(
     private title: Title,
     private LegalDocumentsService: LegalDocumentsService
-  ) {}
+  ) {
+    this.title.setTitle('Statutes - ESN Germany');
+  }
 
   ngOnInit(): void {
-    this.title.setTitle('Statutes - ESN Germany');
     this.getStatutesItem();
   }
 
-  getStatutesItem(): void {
+  private getStatutesItem(): void {
     this.LegalDocumentsService.fetchLegalDocumentsList('1').subscribe(
       (statutesItem) => (this.statutesItem = statutesItem)
     );

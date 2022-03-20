@@ -8,7 +8,6 @@ import {
 @Component({
   selector: 'app-coc-page',
   templateUrl: './coc-page.component.html',
-  styleUrls: ['./coc-page.component.scss'],
 })
 export class CocPageComponent implements OnInit {
   cocItem: LegalDocumentsItem;
@@ -16,14 +15,15 @@ export class CocPageComponent implements OnInit {
   constructor(
     private title: Title,
     private LegalDocumentsService: LegalDocumentsService
-  ) {}
+  ) {
+    this.title.setTitle('Code of Conduct - ESN Germany');
+  }
 
   ngOnInit(): void {
-    this.title.setTitle('Code of Conduct - ESN Germany');
     this.getCoCItem();
   }
 
-  getCoCItem(): void {
+  private getCoCItem(): void {
     this.LegalDocumentsService.fetchLegalDocumentsList('4').subscribe(
       (cocItem) => (this.cocItem = cocItem)
     );

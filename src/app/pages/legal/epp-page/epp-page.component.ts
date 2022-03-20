@@ -8,7 +8,6 @@ import {
 @Component({
   selector: 'app-epp-page',
   templateUrl: './epp-page.component.html',
-  styleUrls: ['./epp-page.component.scss'],
 })
 export class EppPageComponent implements OnInit {
   eppItem: LegalDocumentsItem;
@@ -16,14 +15,15 @@ export class EppPageComponent implements OnInit {
   constructor(
     private title: Title,
     private LegalDocumentsService: LegalDocumentsService
-  ) {}
+  ) {
+    this.title.setTitle('Event Policy Paper - ESN Germany');
+  }
 
   ngOnInit(): void {
-    this.title.setTitle('Event Policy Paper - ESN Germany');
     this.getEppItem();
   }
 
-  getEppItem(): void {
+  private getEppItem(): void {
     this.LegalDocumentsService.fetchLegalDocumentsList('3').subscribe(
       (eppItem) => (this.eppItem = eppItem)
     );

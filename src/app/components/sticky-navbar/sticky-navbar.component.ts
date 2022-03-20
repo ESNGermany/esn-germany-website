@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   animate,
   state,
@@ -20,19 +20,17 @@ import { DOCUMENT } from '@angular/common';
     ]),
   ],
 })
-export class StickyNavbarComponent implements OnInit {
+export class StickyNavbarComponent {
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
-  ngOnInit(): void {}
-
-  showMenu(): void {
+  public showMenu(): void {
     var burger = <HTMLUListElement>this.document.getElementById('burger');
     var menu = <HTMLUListElement>this.document.getElementById('menu');
     burger.classList.add('hidden');
     menu.classList.remove('hidden');
     menu.classList.add('vis');
   }
-  hideMenu(burgerHide: boolean): void {
+  public hideMenu(burgerHide: boolean): void {
     const burger = this.document.getElementById('burger') as HTMLUListElement;
     const menu = this.document.getElementById('menu') as HTMLUListElement;
     burger.classList.remove('hidden');

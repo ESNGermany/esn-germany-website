@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -6,10 +6,8 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './error-page.component.html',
   styleUrls: ['./error-page.component.scss'],
 })
-export class ErrorPageComponent implements OnInit {
-  constructor(private title: Title) {}
-
-  ngOnInit(): void {
+export class ErrorPageComponent {
+  constructor(private title: Title) {
     this.title.setTitle('Oopsie... - ESN Germany');
   }
 }

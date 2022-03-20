@@ -31,7 +31,7 @@ export class LegalDocumentsService {
     private messageService: MessageService
   ) {}
 
-  fetchLegalDocumentsList(id: string): Observable<LegalDocumentsItem> {
+  public fetchLegalDocumentsList(id: string): Observable<LegalDocumentsItem> {
     this.fullUrl = this.url + id;
     return this.http.get<LegalDocumentsItem>(this.fullUrl).pipe(
       tap((_) => this.log('fetched LegalDocuments')),

@@ -8,7 +8,6 @@ import {
 @Component({
   selector: 'app-konsultationsordnung-page',
   templateUrl: './konsultationsordnung-page.component.html',
-  styleUrls: ['./konsultationsordnung-page.component.scss'],
 })
 export class KonsultationsordnungPageComponent implements OnInit {
   konsultationsordnungItem: LegalDocumentsItem;
@@ -16,13 +15,15 @@ export class KonsultationsordnungPageComponent implements OnInit {
   constructor(
     private title: Title,
     private LegalDocumentsService: LegalDocumentsService
-  ) {}
+  ) {
+    this.title.setTitle('Konsultationsordnung - ESN Germany');
+  }
 
   ngOnInit(): void {
-    this.title.setTitle('Konsultationsordnung - ESN Germany');
     this.getKonsultationsordnungItem();
   }
-  getKonsultationsordnungItem(): void {
+
+  private getKonsultationsordnungItem(): void {
     this.LegalDocumentsService.fetchLegalDocumentsList('5').subscribe(
       (konsultationsordnungItem) =>
         (this.konsultationsordnungItem = konsultationsordnungItem)

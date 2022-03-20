@@ -26,11 +26,10 @@ export interface BoardPositionItem {
 })
 export class BoardPositionsService {
   private url = 'https://strapi.esn-germany.de/web-board-member?_sort=order';
-  private fullUrl: string;
 
-  private ABList;
-  private NBList;
-  private RCList;
+  private ABList: Observable<BoardPositionItem[]>;
+  private NBList: Observable<BoardPositionItem[]>;
+  private RCList: Observable<BoardPositionItem[]>;
 
   constructor(
     private http: HttpClient,
@@ -59,15 +58,15 @@ export class BoardPositionsService {
       );
   }
 
-  fetchABList(): Observable<BoardPositionItem[]> {
+  public fetchABList(): Observable<BoardPositionItem[]> {
     return this.ABList;
   }
 
-  fetchNBList(): Observable<BoardPositionItem[]> {
+  public fetchNBList(): Observable<BoardPositionItem[]> {
     return this.NBList;
   }
 
-  fetchRCList(): Observable<BoardPositionItem[]> {
+  public fetchRCList(): Observable<BoardPositionItem[]> {
     return this.RCList;
   }
 

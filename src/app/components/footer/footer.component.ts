@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, OnInit, Inject, HostListener } from '@angular/core';
+import { Component, Inject, HostListener } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   windowScrolled: boolean;
   desktop: boolean = false;
   timestamp: string = environment.timeStamp;
@@ -32,7 +32,8 @@ export class FooterComponent implements OnInit {
       this.windowScrolled = false;
     }
   }
-  scrollToTop() {
+
+  public scrollToTop(): void {
     (function smoothscroll() {
       var currentScroll =
         this.document.documentElement.scrollTop || this.document.body.scrollTop;
@@ -42,5 +43,4 @@ export class FooterComponent implements OnInit {
       }
     })();
   }
-  ngOnInit(): void {}
 }

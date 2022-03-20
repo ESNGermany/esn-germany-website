@@ -3,7 +3,6 @@ import {
   Component,
   Input,
   HostListener,
-  OnInit,
   ElementRef,
   Inject,
 } from '@angular/core';
@@ -13,7 +12,7 @@ import {
   templateUrl: './navigation-dark.component.html',
   styleUrls: ['./navigation-dark.component.scss'],
 })
-export class NavigationDarkComponent implements OnInit {
+export class NavigationDarkComponent {
   constructor(
     private el: ElementRef,
     @Inject(DOCUMENT) private document: Document
@@ -28,9 +27,7 @@ export class NavigationDarkComponent implements OnInit {
 
   @Input() activeMenu: string;
 
-  ngOnInit() {}
-
-  showMenu() {
+  public showMenu(): void {
     const burger = this.document.getElementById('burger') as HTMLUListElement;
     const menu = this.document.getElementById('menu') as HTMLUListElement;
     burger.classList.add('hidden');
@@ -38,7 +35,7 @@ export class NavigationDarkComponent implements OnInit {
     menu.classList.add('vis');
   }
 
-  hideMenu() {
+  public hideMenu(): void {
     const burger = this.document.getElementById('burger') as HTMLUListElement;
     const menu = this.document.getElementById('menu') as HTMLUListElement;
     burger.classList.remove('hidden');

@@ -5,7 +5,6 @@ import {
   ElementRef,
   HostListener,
   Inject,
-  OnInit,
 } from '@angular/core';
 
 @Directive({
@@ -112,8 +111,6 @@ export class SectionmapDirective {
   templateUrl: './sectionmap.component.html',
   styleUrls: ['./sectionmap.component.scss'],
 })
-export class SectionmapComponent implements OnInit {
+export class SectionmapComponent {
   constructor() {}
-
-  ngOnInit(): void {}
 }

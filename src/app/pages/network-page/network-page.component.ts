@@ -22,10 +22,11 @@ export class NetworkPageComponent implements OnInit {
     private title: Title,
     private boardPositionService: BoardPositionsService,
     private teamsService: TeamsService
-  ) {}
+  ) {
+    this.title.setTitle('Our Network - ESN Germany');
+  }
 
   async ngOnInit() {
-    this.title.setTitle('Our Network - ESN Germany');
     this.ABItemList$ = this.boardPositionService
       .fetchABList()
       .pipe(shareReplay(1));

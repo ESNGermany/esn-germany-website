@@ -49,7 +49,7 @@ export class NewsService {
     );
   }
 
-  fetchNewsList(): Observable<NewsItem[]> {
+  public fetchNewsList(): Observable<NewsItem[]> {
     return this.dataRequest;
   }
 

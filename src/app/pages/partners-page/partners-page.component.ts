@@ -14,10 +14,11 @@ import {
 export class PartnersPageComponent implements OnInit {
   partners$: Observable<PartnersItem[]>;
 
-  constructor(private title: Title, private partnersService: PartnersService) {}
+  constructor(private title: Title, private partnersService: PartnersService) {
+    this.title.setTitle('ESNcard & Partners - ESN Germany');
+  }
 
   async ngOnInit() {
-    this.title.setTitle('ESNcard & Partners - ESN Germany');
     this.partners$ = this.partnersService
       .fetchPartnersList()
       .pipe(shareReplay(1));
@@ -30,7 +31,7 @@ export class PartnersPageComponent implements OnInit {
     });
   }
 
-  toggleInfo(partner): void {
+  public toggleInfo(partner: PartnersItem): void {
     partner.show = !partner.show;
 
     if (!partner.show) {

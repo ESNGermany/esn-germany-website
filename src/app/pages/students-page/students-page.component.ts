@@ -20,10 +20,11 @@ export class StudentsPageComponent implements OnInit {
 
   regions: string[] = ['North', 'West', 'East', 'SouthWest', 'SouthEast'];
 
-  constructor(private title: Title, private sectionsService: SectionsService) {}
+  constructor(private title: Title, private sectionsService: SectionsService) {
+    this.title.setTitle('For Students - ESN Germany');
+  }
 
   async ngOnInit() {
-    this.title.setTitle('For Students - ESN Germany');
     this.northSections$ = this.sectionsService
       .fetchSectionsNorthList()
       .pipe(shareReplay(1));
