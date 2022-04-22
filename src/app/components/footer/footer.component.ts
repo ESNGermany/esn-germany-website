@@ -36,7 +36,7 @@ export class FooterComponent {
   public scrollToTop(): void {
     (function smoothscroll() {
       var currentScroll =
-        this.document.documentElement.scrollTop || this.document.body.scrollTop;
+        document.documentElement.scrollTop || document.body.scrollTop;
       if (currentScroll > 0) {
         window.requestAnimationFrame(smoothscroll);
         window.scrollTo(0, currentScroll - currentScroll / 8);
