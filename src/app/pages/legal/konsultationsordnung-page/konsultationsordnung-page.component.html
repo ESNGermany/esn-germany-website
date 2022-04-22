@@ -1,14 +1,14 @@
 <app-navigation-dark></app-navigation-dark>
 <div class="max-w-screen-xl m-auto mb-16 sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
   <div class="m-auto block mb-24 px-16 font-body">
-    <div
-      *ngIf="!konsultationsordnungItem"
-      class="bg-white h-screen w-screen"
-    ></div>
-    <markdown
-      *ngIf="konsultationsordnungItem"
-      [data]="konsultationsordnungItem.MarkdownText"
-    ></markdown>
+    <ng-container
+      *ngIf="konsultationsordnungItem$ | async as konsItem; else loading"
+    >
+      <markdown [data]="konsItem.MarkdownText"></markdown>
+    </ng-container>
+    <ng-template #loading>
+      <img width="200px" class="m-auto" src="assets/ESN-star-spinner.gif" />
+    </ng-template>
   </div>
 </div>
 <app-footer></app-footer>

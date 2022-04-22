@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { map, Observable, shareReplay } from 'rxjs';
 import {
   LegalDocumentsItem,
   LegalDocumentsService,
@@ -10,23 +11,21 @@ import {
   templateUrl: './konsultationsordnung-page.component.html',
 })
 export class KonsultationsordnungPageComponent implements OnInit {
-  konsultationsordnungItem: LegalDocumentsItem;
+  konsultationsordnungItem$: Observable<LegalDocumentsItem> | undefined;
 
   constructor(
     private title: Title,
-    private LegalDocumentsService: LegalDocumentsService
+    private legalDocumentsService: LegalDocumentsService
   ) {
     this.title.setTitle('Konsultationsordnung - ESN Germany');
   }
 
-  ngOnInit(): void {
-    this.getKonsultationsordnungItem();
-  }
-
-  private getKonsultationsordnungItem(): void {
-    this.LegalDocumentsService.fetchLegalDocumentsList('5').subscribe(
-      (konsultationsordnungItem) =>
-        (this.konsultationsordnungItem = konsultationsordnungItem)
-    );
+  async ngOnInit() {
+    this.konsultationsordnungItem$ = this.legalDocumentsService
+      .fetchLegalDocumentsList('5')
+      .pipe(
+        shareReplay(1),
+        map((res: LegalDocumentsItem) => res)
+      );
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { map, Observable, shareReplay } from 'rxjs';
 import {
   LegalDocumentsItem,
   LegalDocumentsService,
@@ -10,22 +11,21 @@ import {
   templateUrl: './coc-page.component.html',
 })
 export class CocPageComponent implements OnInit {
-  cocItem: LegalDocumentsItem;
+  cocItem$: Observable<LegalDocumentsItem> | undefined;
 
   constructor(
     private title: Title,
-    private LegalDocumentsService: LegalDocumentsService
+    private legalDocumentsService: LegalDocumentsService
   ) {
     this.title.setTitle('Code of Conduct - ESN Germany');
   }
 
-  ngOnInit(): void {
-    this.getCoCItem();
-  }
-
-  private getCoCItem(): void {
-    this.LegalDocumentsService.fetchLegalDocumentsList('4').subscribe(
-      (cocItem) => (this.cocItem = cocItem)
-    );
+  async ngOnInit() {
+    this.cocItem$ = this.legalDocumentsService
+      .fetchLegalDocumentsList('4')
+      .pipe(
+        shareReplay(1),
+        map((res: LegalDocumentsItem) => res)
+      );
   }
 }

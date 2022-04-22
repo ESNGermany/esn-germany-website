@@ -62,13 +62,7 @@
           </div>
         </div>
         <div
-          class="
-            flex
-            items-center
-            flex-col-reverse
-            lg:flex-row
-            border-gray border-b
-          "
+          class="flex items-center flex-col-reverse lg:flex-row border-gray border-b"
         >
           <div class="m-6">
             <p>
@@ -121,13 +115,7 @@
           </p>
         </div>
         <div
-          class="
-            flex
-            items-center
-            flex-col-reverse
-            lg:flex-row
-            border-gray border-b
-          "
+          class="flex items-center flex-col-reverse lg:flex-row border-gray border-b"
         >
           <p class="m-6">
             According to the Erasmus Impact Study launched by the European
@@ -235,45 +223,49 @@
     </div>
   </div>
 </div>
-<div
-  class="max-w-screen-2xl m-auto mb-16 mt-6"
-  *ngIf="NBItemList$ | async as NBItemList"
->
-  <div class="mb-8 font-body m-auto flex flex-wrap items-start justify-evenly">
-    <div *ngFor="let nb of NBItemList">
-      <figure
-        class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
-      >
-        <img
-          class="h-56 hoverimg"
-          src="https://strapi.esn-germany.de{{
-            nb.Portrait[0].formats.portrait.url
-          }}"
-          alt="{{ nb.Portrait[0].alternativeText }}"
-        />
-        <figcaption class="text-left bg-white">
-          <p class="pt-2 text-lg font-bold">{{ nb.position }}</p>
-          <p class="text-lg">{{ nb.name }}</p>
-        </figcaption>
-        <div class="middle text-black">
-          <p class="text-md">
-            {{ nb.position_description }}
-            <br />
-          </p>
-          <p class="text-md pt-2 font-bold">
-            <a
-              href="mailto:{{ nb.email }}"
-              target="_blank"
-              rel="noopener"
-              class="cursor-pointer hover:underline"
-              >{{ nb.email }}</a
-            >
-          </p>
-        </div>
-      </figure>
+<ng-container *ngIf="NBItemList$ | async as NBItemList; else loading">
+  <div class="max-w-screen-2xl m-auto mb-16 mt-6">
+    <div
+      class="mb-8 font-body m-auto flex flex-wrap items-start justify-evenly"
+    >
+      <div *ngFor="let nb of NBItemList">
+        <figure
+          class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
+        >
+          <img
+            class="h-56 hoverimg"
+            src="https://strapi.esn-germany.de{{
+              nb.Portrait[0].formats.portrait.url
+            }}"
+            alt="{{ nb.Portrait[0].alternativeText }}"
+          />
+          <figcaption class="text-left bg-white">
+            <p class="pt-2 text-lg font-bold">{{ nb.position }}</p>
+            <p class="text-lg">{{ nb.name }}</p>
+          </figcaption>
+          <div class="middle text-black">
+            <p class="text-md">
+              {{ nb.position_description }}
+              <br />
+            </p>
+            <p class="text-md pt-2 font-bold">
+              <a
+                href="mailto:{{ nb.email }}"
+                target="_blank"
+                rel="noopener"
+                class="cursor-pointer hover:underline"
+                >{{ nb.email }}</a
+              >
+            </p>
+          </div>
+        </figure>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
+<ng-template #loading>
+  <img width="200px" class="m-auto" src="assets/ESN-star-spinner.gif" />
+</ng-template>
 <div class="bg-whitebg w-full pt-8 pb-4 my-8">
   <div class="max-w-screen-xl m-auto px-16 mb-12">
     <div class="px-8" id="committees">
@@ -475,18 +467,7 @@
         </p>
         <button
           type="button"
-          class="
-            bg-white
-            hover:bg-graylight
-            text-black
-            font-semibold
-            py-2
-            px-4
-            border border-gray
-            rounded-full
-            shadow
-            addeffect
-          "
+          class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
         >
           <a
             href="https://alumni.esn-germany.de"
@@ -530,18 +511,7 @@
       </p>
       <button
         type="button"
-        class="
-          bg-white
-          hover:bg-graylight
-          text-black
-          font-semibold
-          py-2
-          px-4
-          border border-gray
-          rounded-full
-          shadow
-          addeffect
-        "
+        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
       >
         <a
           href="https://esn.org"

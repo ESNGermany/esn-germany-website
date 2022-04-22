@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { map, Observable, shareReplay } from 'rxjs';
 import {
   LegalDocumentsItem,
   LegalDocumentsService,
@@ -10,22 +11,21 @@ import {
   templateUrl: './statutes-page.component.html',
 })
 export class StatutesPageComponent implements OnInit {
-  statutesItem: LegalDocumentsItem;
+  statutesItem$: Observable<LegalDocumentsItem> | undefined;
 
   constructor(
     private title: Title,
-    private LegalDocumentsService: LegalDocumentsService
+    private legalDocumentsService: LegalDocumentsService
   ) {
     this.title.setTitle('Statutes - ESN Germany');
   }
 
-  ngOnInit(): void {
-    this.getStatutesItem();
-  }
-
-  private getStatutesItem(): void {
-    this.LegalDocumentsService.fetchLegalDocumentsList('1').subscribe(
-      (statutesItem) => (this.statutesItem = statutesItem)
-    );
+  async ngOnInit() {
+    this.statutesItem$ = this.legalDocumentsService
+      .fetchLegalDocumentsList('1')
+      .pipe(
+        shareReplay(1),
+        map((res: LegalDocumentsItem) => res)
+      );
   }
 }

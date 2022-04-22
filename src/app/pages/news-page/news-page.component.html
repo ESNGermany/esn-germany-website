@@ -1,79 +1,70 @@
 <app-navigation-dark></app-navigation-dark>
-<div
-  class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4"
-  *ngIf="news$ | async as newsItemList"
->
-  <!-- <div *ngIf="!newsItemList" class="bg-white h-screen w-screen"></div> -->
-  <div
-    *ngFor="let ni of newsItemList"
-    class="p-8 mb-16 border rounded border-graylight shadow-xl overflow-hidden"
-  >
-    <div class="m-auto mb-4 relative w-full">
-      <p
-        id="{{ ni.newsItemId }}"
-        class="font-heading text-esn-dark-blue font-bold text-4xl title w-full relative"
-      >
-        {{ ni.Title }}
-      </p>
-    </div>
-    <div class="m-auto font-body text-lg">
-      <figure class="pl-8 pb-0 pr-0 pt-0 float-right w-2/5">
-        <img
-          src="https://strapi.esn-germany.de{{ ni.Image.formats.medium.url }}"
-          alt="{{ ni.Image.alternativeText }}"
-          class="pb-4"
-        />
-        <figcaption class="text-black italic">
-          {{ ni.Image.caption }}
-        </figcaption>
-      </figure>
-      <p class="text-gray pb-4 text-xl">
-        {{ ni.Author }} – {{ ni.updated_at | date: "mediumDate" }}
-      </p>
-      <!-- <p id="shortnews{{ ni.id }}">
-        {{ ni.Text }} <br />
-        <span
-          id="span{{ ni.id }}"
-          (click)="showText(ni.id)"
-          class="cursor-pointer text-esn-dark-blue hover:underline"
-          >Show more</span
+<ng-container *ngIf="news$ | async as newsItemList; else loading">
+  <div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
+    <div
+      *ngFor="let ni of newsItemList"
+      class="p-8 mb-16 border rounded border-graylight shadow-xl overflow-hidden"
+    >
+      <div class="m-auto mb-4 relative w-full">
+        <p
+          id="{{ ni.newsItemId }}"
+          class="font-heading text-esn-dark-blue font-bold text-4xl title w-full relative"
         >
-      </p> -->
-      <div class="news{{ ni.id }}">
-        <!-- <p>{{ ni.Text }}</p> -->
-        <markdown [data]="ni.Text"></markdown>
-        <div *ngIf="ni.Attachments" class="my-4">
-          <p>Open attachment:</p>
-          <a
-            href="https://strapi.esn-germany.de{{ ni.Attachments.url }}"
-            target="_blank"
-            rel="noopener"
-            class="font-body text-lg text-esn-dark-blue hover:underline"
-          >
-            {{ ni.Attachments.name }}
-            <i class="material-icons icon"> call_made </i></a
-          >
-        </div>
+          {{ ni.Title }}
+        </p>
       </div>
-      <span
-        (click)="showLess(ni.id)"
-        class="cursor-pointer hidden text-esn-dark-blue hover:underline spanLess{{
-          ni.id
-        }}"
-        >Show less</span
-      >
-      <br />
+      <div class="m-auto font-body text-lg">
+        <figure class="pl-8 pb-0 pr-0 pt-0 float-right w-2/5">
+          <img
+            src="https://strapi.esn-germany.de{{ ni.Image.formats.medium.url }}"
+            alt="{{ ni.Image.alternativeText }}"
+            class="pb-4"
+          />
+          <figcaption class="text-black italic">
+            {{ ni.Image.caption }}
+          </figcaption>
+        </figure>
+        <p class="text-gray pb-4 text-xl">
+          {{ ni.Author }} – {{ ni.updated_at | date: "mediumDate" }}
+        </p>
+        <div class="news{{ ni.id }}">
+          <markdown [data]="ni.Text"></markdown>
+          <div *ngIf="ni.Attachments" class="my-4">
+            <p>Open attachment:</p>
+            <a
+              href="https://strapi.esn-germany.de{{ ni.Attachments.url }}"
+              target="_blank"
+              rel="noopener"
+              class="font-body text-lg text-esn-dark-blue hover:underline"
+            >
+              {{ ni.Attachments.name }}
+              <i class="material-icons icon"> call_made </i></a
+            >
+          </div>
+        </div>
+        <span
+          (click)="showLess(ni.id)"
+          class="cursor-pointer hidden text-esn-dark-blue hover:underline spanLess{{
+            ni.id
+          }}"
+          >Show less</span
+        >
+        <br />
+      </div>
     </div>
+    <p class="mb-24 px-8 text-center font-body">
+      Do you want to write an article? Contact us at
+      <a
+        href="mailto:board@esn-germany.de"
+        target="_blank"
+        rel="noopener"
+        class="text-esn-dark-blue hover:underline"
+        >board@esn-germany.de</a
+      >.
+    </p>
   </div>
-  <p class="mb-24 px-8 text-center font-body">
-    Do you want to write an article? Contact us at
-    <a
-      href="mailto:board@esn-germany.de"
-      target="_blank"
-      rel="noopener"
-      class="text-esn-dark-blue hover:underline"
-      >board@esn-germany.de</a
-    >.
-  </p>
-</div>
+</ng-container>
+<ng-template #loading>
+  <img width="200px" class="m-auto mb-22" src="assets/ESN-star-spinner.gif" />
+</ng-template>
 <app-footer></app-footer>
