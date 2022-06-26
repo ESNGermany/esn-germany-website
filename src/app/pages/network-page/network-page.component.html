@@ -62,7 +62,13 @@
           </div>
         </div>
         <div
-          class="flex items-center flex-col-reverse lg:flex-row border-gray border-b"
+          class="
+            flex
+            items-center
+            flex-col-reverse
+            lg:flex-row
+            border-gray border-b
+          "
         >
           <div class="m-6">
             <p>
@@ -115,7 +121,13 @@
           </p>
         </div>
         <div
-          class="flex items-center flex-col-reverse lg:flex-row border-gray border-b"
+          class="
+            flex
+            items-center
+            flex-col-reverse
+            lg:flex-row
+            border-gray border-b
+          "
         >
           <p class="m-6">
             According to the Erasmus Impact Study launched by the European
@@ -232,13 +244,22 @@
         <figure
           class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
         >
-          <img
-            class="h-56 hoverimg"
-            src="https://strapi.esn-germany.de{{
-              nb.Portrait[0].formats.portrait.url
-            }}"
-            alt="{{ nb.Portrait[0].alternativeText }}"
-          />
+          <ng-container *ngIf="nb.Portrait[0]; else portraitnb">
+            <img
+              class="h-56 hoverimg"
+              src="https://strapi.esn-germany.de{{
+                nb.Portrait[0].formats.portrait.url
+              }}"
+              alt="{{ nb.Portrait[0].alternativeText }}"
+            />
+          </ng-container>
+          <ng-template #portraitnb>
+            <img
+              class="h-56 hoverimg"
+              src="../../../assets/portrait.png"
+              alt="no image for this person"
+            />
+          </ng-template>
           <figcaption class="text-left bg-white">
             <p class="pt-2 text-lg font-bold">{{ nb.position }}</p>
             <p class="text-lg">{{ nb.name }}</p>
@@ -341,13 +362,22 @@
       <figure
         class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
       >
-        <img
-          class="h-56 hoverimg"
-          src="https://strapi.esn-germany.de{{
-            rc.Portrait[0].formats.portrait.url
-          }}"
-          alt="{{ rc.Portrait[0].alternativeText }}"
-        />
+        <ng-container *ngIf="rc.Portrait[0]; else portraitrc">
+          <img
+            class="h-56 hoverimg"
+            src="https://strapi.esn-germany.de{{
+              rc.Portrait[0].formats.portrait.url
+            }}"
+            alt="{{ rc.Portrait[0].alternativeText }}"
+          />
+        </ng-container>
+        <ng-template #portraitrc>
+          <img
+            class="h-56 hoverimg"
+            src="../../../assets/portrait.png"
+            alt="no image for this person"
+          />
+        </ng-template>
         <figcaption class="text-left bg-white">
           <p class="pt-2 text-lg font-bold">{{ rc.position }}</p>
           <p class="text-lg">{{ rc.name }}</p>
@@ -403,13 +433,22 @@
       <figure
         class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
       >
-        <img
-          class="h-56 hoverimg"
-          src="https://strapi.esn-germany.de{{
-            ab.Portrait[0].formats.portrait.url
-          }}"
-          alt="{{ ab.Portrait[0].alternativeText }}"
-        />
+        <ng-container *ngIf="ab.Portrait[0]; else portraitab">
+          <img
+            class="h-56 hoverimg"
+            src="https://strapi.esn-germany.de{{
+              ab.Portrait[0].formats.portrait.url
+            }}"
+            alt="{{ ab.Portrait[0].alternativeText }}"
+          />
+        </ng-container>
+        <ng-template #portraitab>
+          <img
+            class="h-56 hoverimg"
+            src="../../../assets/portrait.png"
+            alt="no image for this person"
+          />
+        </ng-template>
         <figcaption class="text-left bg-white">
           <p class="pt-2 text-lg font-bold">{{ ab.position }}</p>
           <p class="text-lg">{{ ab.name }}</p>
@@ -467,7 +506,18 @@
         </p>
         <button
           type="button"
-          class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+          class="
+            bg-white
+            hover:bg-graylight
+            text-black
+            font-semibold
+            py-2
+            px-4
+            border border-gray
+            rounded-full
+            shadow
+            addeffect
+          "
         >
           <a
             href="https://alumni.esn-germany.de"
@@ -511,7 +561,18 @@
       </p>
       <button
         type="button"
-        class="bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+        class="
+          bg-white
+          hover:bg-graylight
+          text-black
+          font-semibold
+          py-2
+          px-4
+          border border-gray
+          rounded-full
+          shadow
+          addeffect
+        "
       >
         <a
           href="https://esn.org"
