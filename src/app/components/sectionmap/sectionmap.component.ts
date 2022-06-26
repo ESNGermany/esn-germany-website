@@ -25,6 +25,7 @@ export class SectionmapDirective {
     'ESN Hannover',
     'ESN Hildesheim',
     'ESN LEI Rostock',
+    'ESN Lübeck',
   ];
   public eastSections: string[] = [
     'ESN Erasmix Medizin Berlin',
