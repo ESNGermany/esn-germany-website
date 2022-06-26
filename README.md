@@ -1,27 +1,54 @@
 # ESN Germany Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Publish a new version of this website
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Push the new version to the main branch of this repository.
+2. Connect to the server of ESN Germany.
+3. Start the script to build the new version of the website.
+   Everything else will happen automatically within few minutes.
 
-## Running end-to-end tests
+## How to add a new section to the section map
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Add the section to the map
 
-## Further help
+1. Go to `components/sectionmap/sectionmap.component.html`.
+2. Add a `<path>` element with the correct id (section name), the respective color to fill, and the position on the map.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+|   Region   | ESN Color |
+| :--------: | :-------: |
+|   North    |  #00aeef  |
+|    West    |  #ec008c  |
+|    East    |  #f47b20  |
+| South West |  #7ac143  |
+| South East |  #2e3192  |
+
+Find the correct position on the map by playing around with the values in `translate()`. The value of `d` you can just copy from one of the other section path elements.
+
+If you are not sure what to do here, just copy a `<path>` element from another section, change it's color by the `fill` attribute and/or the `translate()` values and see what happens.
+
+### Add the section to the list of sections
+
+1. Go to `components/sectionmap/sectionmap.component.ts`.
+2. Find the region where the new section belongs to and add its section name to the list.
+
+### Add the section to strapi
+
+1. Navigate to https://strapi.esn-germany.de/admin/auth/login and login.
+2. Find the collection type `Website Section Maps`.
+3. Add a new entry by clicking on the blue `+ Add a New Website Section Maps` button at the top of the page.
+4. Enter all details and save.
+
+### Update the number of sections
+
+1. In line 10 of `pages/students-page/students-page.component.html` change the number according to the new number of sections.
+2. In line 98 of `pages/landing-page/landing-page.component.html` change the number according to the new number of sections.
