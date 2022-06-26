@@ -8,7 +8,7 @@
     </div>
     <div class="m-auto mb-16">
       <img
-        src="../../../assets/esncard.png"
+        src="/assets/esncard.png"
         title="ESNcard"
         alt="ESNcard"
         class="float-right hx"
@@ -69,7 +69,17 @@
 <ng-container *ngIf="partners$ | async as partners; else loading">
   <div class="max-w-screen-2xl m-auto mb-16">
     <div
-      class="mx-8 flex flex-wrap justify-evenly font-body text-lg border border-graylight shadow-xl p-8 items-baseline"
+      class="
+        mx-8
+        flex flex-wrap
+        justify-evenly
+        font-body
+        text-lg
+        border border-graylight
+        shadow-xl
+        p-8
+        items-baseline
+      "
     >
       <ng-container *ngFor="let partner of partners; let i = index">
         <figure class="my-4 px-8 maxw">
@@ -148,26 +158,18 @@
       </div>
       <div class="flex flex-wrap items-center justify-between pt-4">
         <a href="https://www.vdsi.org/" target="_blank" rel="noopener">
-          <img
-            src="../../../assets/partners/vdsi.png"
-            alt="VDSI"
-            class="h-24 m-4"
-          />
+          <img src="/assets/partners/vdsi.png" alt="VDSI" class="h-24 m-4" />
         </a>
         <a
           href="https://ec.europa.eu/programmes/erasmus-plus"
           target="_blank"
           rel="noopener"
         >
-          <img
-            src="../../../assets/partners/eu.png"
-            alt="EU"
-            class="h-12 m-4"
-          />
+          <img src="/assets/partners/eu.png" alt="EU" class="h-12 m-4" />
         </a>
         <a href="https://www.daad.de/" target="_blank" rel="noopener">
           <img
-            src="../../../assets/partners/logo-daad.png"
+            src="/assets/partners/logo-daad.png"
             alt="DAAD"
             class="h-24 m-4"
           />
