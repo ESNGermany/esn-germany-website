@@ -32,6 +32,7 @@ import { ExpandableComponent } from './components/expandable/expandable.componen
 import { StickyNavbarComponent } from './components/sticky-navbar/sticky-navbar.component';
 import { BoardPositionsService } from './services/board-positions.service';
 import { LegalDocumentsService } from './services/legal-documents.service';
+import { ImprintService } from './services/imprint.service';
 import { MessageService } from './services/message.service';
 import { NewsService } from './services/news.service';
 import { PartnersService } from './services/partners.service';
@@ -73,6 +74,7 @@ import { TeamsService } from './services/teams.service';
   providers: [
     BoardPositionsService,
     LegalDocumentsService,
+    ImprintService,
     MessageService,
     NewsService,
     PartnersService,
@@ -80,6 +82,6 @@ import { TeamsService } from './services/teams.service';
     TeamsService,
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
