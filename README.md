@@ -1,6 +1,6 @@
 # ESN Germany Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Installation
 
@@ -9,6 +9,10 @@ Clone this repo to a local folder. Navigate to the `src` folder in a command lin
 ## Development
 
 Run `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Testing
+
+Some basic cypress tests automatically run every Wednesday at 8a.m. via a scheduled GitHub action. In case of failure, there is a message posted to the [ESN Germany Slack Workspace](https://esn-germany.slack.com/) (#website_monitoring).
 
 ## Build (locally, not needed if you want to publish the website)
 
