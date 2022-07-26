@@ -60,7 +60,10 @@
       </p>
     </div>
     <div class="m-auto mb-4 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
+      <p
+        data-testid="esn-national-partners"
+        class="font-heading text-esn-dark-blue font-bold text-4xl title"
+      >
         Our National Partners
       </p>
     </div>
@@ -69,20 +72,10 @@
 <ng-container *ngIf="partners$ | async as partners; else loading">
   <div class="max-w-screen-2xl m-auto mb-16">
     <div
-      class="
-        mx-8
-        flex flex-wrap
-        justify-evenly
-        font-body
-        text-lg
-        border border-graylight
-        shadow-xl
-        p-8
-        items-baseline
-      "
+      class="mx-8 flex flex-wrap justify-evenly font-body text-lg border border-graylight shadow-xl p-8 items-baseline"
     >
       <ng-container *ngFor="let partner of partners; let i = index">
-        <figure class="my-4 px-8 maxw">
+        <figure data-testid="esn-partner-figure" class="my-4 px-8 maxw">
           <a
             href="{{ partner.Link }}"
             title="{{ partner.Logo.alternativeText }}"

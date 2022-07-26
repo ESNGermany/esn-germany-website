@@ -23,8 +23,16 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/_redirects", "src/assets", "src/robots.txt", "src/sitemap.xml"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/_redirects",
+              "src/assets",
+              "src/robots.txt",
+              "src/sitemap.xml"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,8 +92,14 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/_redirects", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/_redirects",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -130,10 +144,43 @@
           "options": {
             "browserTarget": "esn-germany-website:build:production",
             "serverTarget": "esn-germany-website:server:production",
-            "routes": ["/"]
+            "routes": [
+              "/"
+            ]
           },
           "configurations": {
             "production": {}
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "esn-germany-website:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "esn-germany-website:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "esn-germany-website:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "esn-germany-website:serve:production"
+            }
           }
         }
       }
