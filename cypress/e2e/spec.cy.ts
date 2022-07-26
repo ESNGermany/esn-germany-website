@@ -46,3 +46,10 @@ describe('Assets are available on students page', () => {
     cy.log('**confirm downloaded PDF**');
   });
 });
+
+describe('Redirect to error page on non-existing page', () => {
+  it(`Should redirect to error page on non-existing page`, () => {
+    cy.visit('/non-existing-page');
+    cy.url().should('include', '/error');
+  });
+});
