@@ -14,6 +14,8 @@ jobs:
         with:
           browser: firefox
           record: true
+          start: yarn start
+          wait-on: 'http://localhost:4200'
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
