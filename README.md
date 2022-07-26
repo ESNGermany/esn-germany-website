@@ -12,7 +12,7 @@ Run `yarn start` for a dev server. Navigate to `http://localhost:4200/`. The app
 
 ## Testing
 
-Some basic cypress tests automatically run every Wednesday at 8a.m. via a scheduled GitHub action. In case of failure, there is a message posted to the [ESN Germany Slack Workspace](https://esn-germany.slack.com/) (#website_monitoring).
+Some basic cypress tests automatically run every Wednesday at 8a.m. via a scheduled GitHub action (and on each push to main). In case of failure, there is a message posted to the [ESN Germany Slack Workspace](https://esn-germany.slack.com/) (#website_monitoring). You can at all times run the tests locally using `yarn cy:run`.
 
 ## Build (locally, not needed if you want to publish the website)
 
