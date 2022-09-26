@@ -27,9 +27,10 @@ export interface BoardPositionItem {
 export class BoardPositionsService {
   private url = 'https://strapi.esn-germany.de/web-board-member?_sort=order';
 
-  private ABList: Observable<BoardPositionItem[]>;
-  private NBList: Observable<BoardPositionItem[]>;
-  private RCList: Observable<BoardPositionItem[]>;
+  private ABList: Observable<BoardPositionItem[]>; // audit board
+  private NBList: Observable<BoardPositionItem[]>; // national board
+  private RCList: Observable<BoardPositionItem[]>; // regional coordinators
+  private BSList: Observable<BoardPositionItem[]>; // board supporters
 
   constructor(
     private http: HttpClient,
@@ -56,6 +57,13 @@ export class BoardPositionsService {
         tap((_) => this.log('fetched RCPositions')),
         catchError(this.handleError<BoardPositionItem[]>('fetchRCPositions'))
       );
+    this.BSList = this.http
+      .get<BoardPositionItem[]>(this.url + '&type=BS')
+      .pipe(
+        shareReplay(1),
+        tap((_) => this.log('fetched BSPositions')),
+        catchError(this.handleError<BoardPositionItem[]>('fetchBSPositions'))
+      );
   }
 
   public fetchABList(): Observable<BoardPositionItem[]> {
@@ -68,6 +76,10 @@ export class BoardPositionsService {
 
   public fetchRCList(): Observable<BoardPositionItem[]> {
     return this.RCList;
+  }
+
+  public fetchBSList(): Observable<BoardPositionItem[]> {
+    return this.BSList;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
