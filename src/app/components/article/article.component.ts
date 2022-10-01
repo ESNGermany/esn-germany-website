@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ArticleComponent{
   @Input() title!: string;
+  @Input() grayBg: boolean = false;
+  @Input() grayBox: boolean = false;
 }
