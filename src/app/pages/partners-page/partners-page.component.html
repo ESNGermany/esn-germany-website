@@ -43,7 +43,7 @@
     >partnership@esn-germany.de</a
   >.
 </esn-article>
-<esn-article [title]="'Our National Partners'" [grayBox]="true">
+<esn-article [title]="'Our National Partners'" [grayBox]="true" data-testid="esn-national-partners">
   <ng-container *ngIf="partners$ | async as partners; else loading">
     <div class="flex flex-wrap justify-evenly items-baseline">
       <ng-container *ngFor="let partner of partners; let i = index">
