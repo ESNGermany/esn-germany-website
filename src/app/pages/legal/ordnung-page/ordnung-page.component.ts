@@ -6,7 +6,7 @@ import {
 } from 'src/app/services/legal-documents.service';
 
 @Component({
-  selector: 'app-ordnung-page',
+  selector: 'esn-ordnung-page',
   templateUrl: './ordnung-page.component.html',
 })
 export class OrdnungPageComponent implements OnInit {

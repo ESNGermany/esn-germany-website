@@ -9,13 +9,13 @@ const pages = [
 describe('Page contains navigation', () => {
   it(`Should display navigation on landing page`, () => {
     cy.visit('/');
-    cy.get('app-navigation').should('be.visible');
+    cy.get('esn-navigation').should('be.visible');
   });
 
   pages.forEach((page) => {
     it(`Should display navigation on ${page} page`, () => {
       cy.visit(page);
-      cy.get('app-navigation-dark').should('be.visible');
+      cy.get('esn-navigation-dark').should('be.visible');
     });
   });
 });

@@ -7,7 +7,7 @@ import {
 import { TeamsItem, TeamsService } from 'src/app/services/teams.service';
 
 @Component({
-  selector: 'app-network-page',
+  selector: 'esn-network-page',
   templateUrl: './network-page.component.html',
   styleUrls: ['./../../../styles.scss', './network-page.component.scss'],
 })

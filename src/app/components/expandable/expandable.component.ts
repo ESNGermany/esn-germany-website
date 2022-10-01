@@ -9,7 +9,7 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-expandable',
+  selector: 'esn-expandable',
   template: `
     <div
       class="cursor-pointer flex flex-row justify-between"

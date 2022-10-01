@@ -108,7 +108,7 @@ export class SectionmapDirective {
 }
 
 @Component({
-  selector: 'app-sectionmap',
+  selector: 'esn-sectionmap',
   templateUrl: './sectionmap.component.html',
   styleUrls: ['./sectionmap.component.scss'],
 })

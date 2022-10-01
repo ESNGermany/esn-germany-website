@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'esn-root',
   templateUrl: './app.component.html',
 })
 export class AppComponent {}

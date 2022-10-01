@@ -6,7 +6,7 @@ import {
 } from 'src/app/services/legal-documents.service';
 
 @Component({
-  selector: 'app-konsultationsordnung-page',
+  selector: 'esn-konsultationsordnung-page',
   templateUrl: './konsultationsordnung-page.component.html',
 })
 export class KonsultationsordnungPageComponent implements OnInit {

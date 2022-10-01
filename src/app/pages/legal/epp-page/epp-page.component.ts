@@ -6,7 +6,7 @@ import {
 } from 'src/app/services/legal-documents.service';
 
 @Component({
-  selector: 'app-epp-page',
+  selector: 'esn-epp-page',
   templateUrl: './epp-page.component.html',
 })
 export class EppPageComponent implements OnInit {

@@ -3,7 +3,7 @@ import { Observable, shareReplay } from 'rxjs';
 import { NewsItem, NewsService } from 'src/app/services/news.service';
 
 @Component({
-  selector: 'app-news-page',
+  selector: 'esn-news-page',
   templateUrl: './news-page.component.html',
   styleUrls: ['./../../../styles.scss', './news-page.component.scss'],
 })

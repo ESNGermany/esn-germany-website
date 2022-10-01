@@ -6,7 +6,7 @@ import {
 } from 'src/app/services/legal-documents.service';
 
 @Component({
-  selector: 'app-statutes-page',
+  selector: 'esn-statutes-page',
   templateUrl: './statutes-page.component.html',
 })
 export class StatutesPageComponent implements OnInit {

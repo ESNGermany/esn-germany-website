@@ -38,6 +38,7 @@ import { NewsService } from './services/news.service';
 import { PartnersService } from './services/partners.service';
 import { SectionsService } from './services/sections.service';
 import { TeamsService } from './services/teams.service';
+import { ArticleComponent } from './components/article/article.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { TeamsService } from './services/teams.service';
     SectionmapDirective,
     ExpandableComponent,
     StickyNavbarComponent,
+    ArticleComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

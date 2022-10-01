@@ -6,7 +6,7 @@ import {
 } from 'src/app/services/legal-documents.service';
 
 @Component({
-  selector: 'app-coc-page',
+  selector: 'esn-coc-page',
   templateUrl: './coc-page.component.html',
 })
 export class CocPageComponent implements OnInit {

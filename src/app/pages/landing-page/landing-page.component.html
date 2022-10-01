@@ -1,8 +1,8 @@
-<!-- <app-sticky-navbar></app-sticky-navbar> -->
+<!-- <esn-sticky-navbar></esn-sticky-navbar> -->
 <ng-container *ngFor="let i of [0, 1, 2, 3]">
   <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i"></div>
 </ng-container>
-<app-navigation></app-navigation>
+<esn-navigation></esn-navigation>
 <!-- <section (scroll)="onWindowScroll($event)"> -->
 <div class="m-auto py-16 w-128 mb-8 extra">
   <span class="bg-white font-heading text-center text-black font-bold text-4xl">
@@ -137,4 +137,4 @@
   </div>
 </div>
 <!-- </section> -->
-<app-footer></app-footer>
+<esn-footer></esn-footer>

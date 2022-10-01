@@ -9,7 +9,7 @@ import {
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-sticky-navbar',
+  selector: 'esn-sticky-navbar',
   templateUrl: './sticky-navbar.component.html',
   styleUrls: ['./sticky-navbar.component.scss'],
   animations: [

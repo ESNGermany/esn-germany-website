@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, ElementRef, Inject } from '@angular/core';
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'esn-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })

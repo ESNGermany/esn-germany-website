@@ -1,4 +1,4 @@
-<app-navigation-dark></app-navigation-dark>
+<esn-navigation-dark></esn-navigation-dark>
 <ng-container *ngIf="news$ | async as newsItemList; else loading">
   <div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
     <div
@@ -70,4 +70,4 @@
 <ng-template #loading>
   <img width="200px" class="m-auto mb-22" src="assets/ESN-star-spinner.gif" />
 </ng-template>
-<app-footer></app-footer>
+<esn-footer></esn-footer>

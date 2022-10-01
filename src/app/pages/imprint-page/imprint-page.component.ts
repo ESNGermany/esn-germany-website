@@ -3,7 +3,7 @@ import { Observable, shareReplay } from 'rxjs';
 import { ImprintItem, ImprintService } from 'src/app/services/imprint.service';
 
 @Component({
-  selector: 'app-imprint-page',
+  selector: 'esn-imprint-page',
   templateUrl: './imprint-page.component.html',
   styleUrls: ['./../../../styles.scss'],
 })

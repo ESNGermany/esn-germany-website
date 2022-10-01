@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-error-page',
+  selector: 'esn-error-page',
   templateUrl: './error-page.component.html',
   styleUrls: ['./../../../styles.scss'],
 })

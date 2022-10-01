@@ -6,7 +6,7 @@ import {
 } from 'src/app/services/partners.service';
 
 @Component({
-  selector: 'app-partners-page',
+  selector: 'esn-partners-page',
   templateUrl: './partners-page.component.html',
   styleUrls: ['./../../../styles.scss', './partners-page.component.scss'],
 })

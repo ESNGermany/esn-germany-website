@@ -1,4 +1,4 @@
-<app-navigation-dark></app-navigation-dark>
+<esn-navigation-dark></esn-navigation-dark>
 <div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
   <div class="px-8 mb-8">
     <div class="m-auto mb-8 relative">
@@ -18,11 +18,11 @@
   </div>
 </div>
 <div class="max-w-screen-xl m-auto flex flex-wrap justify-evenly">
-  <app-sectionmap></app-sectionmap>
+  <esn-sectionmap></esn-sectionmap>
   <div class="font-body">
     <p class="font-bold text-2xl">Sections ordered by region</p>
     <div class="m-4" *ngIf="northSections$ | async as northSections">
-      <app-expandable class="border border-esn-blue rounded-lg">
+      <esn-expandable class="border border-esn-blue rounded-lg">
         <p slot="header" class="font-bold text-xl">North</p>
         <div *ngFor="let section of northSections" class="cont">
           <div class="flex justify-between pt-1">
@@ -55,10 +55,10 @@
             </span>
           </div>
         </div>
-      </app-expandable>
+      </esn-expandable>
     </div>
     <div class="m-4" *ngIf="eastSections$ | async as eastSections">
-      <app-expandable class="border border-esn-orange rounded-lg">
+      <esn-expandable class="border border-esn-orange rounded-lg">
         <p slot="header" class="font-bold text-xl">East</p>
         <div *ngFor="let section of eastSections" class="cont">
           <div class="flex justify-between pt-1">
@@ -89,10 +89,10 @@
             </span>
           </div>
         </div>
-      </app-expandable>
+      </esn-expandable>
     </div>
     <div class="m-4" *ngIf="westSections$ | async as westSections">
-      <app-expandable class="border border-esn-pink rounded-lg">
+      <esn-expandable class="border border-esn-pink rounded-lg">
         <p slot="header" class="font-bold text-xl">West</p>
         <div *ngFor="let section of westSections" class="cont">
           <div class="flex justify-between pt-1">
@@ -123,10 +123,10 @@
             </span>
           </div>
         </div>
-      </app-expandable>
+      </esn-expandable>
     </div>
     <div class="m-4" *ngIf="southEastSections$ | async as southEastSections">
-      <app-expandable class="border border-esn-dark-blue rounded-lg">
+      <esn-expandable class="border border-esn-dark-blue rounded-lg">
         <p slot="header" class="font-bold text-xl">South East</p>
         <div *ngFor="let section of southEastSections" class="cont">
           <div class="flex justify-between pt-1">
@@ -157,10 +157,10 @@
             </span>
           </div>
         </div>
-      </app-expandable>
+      </esn-expandable>
     </div>
     <div class="m-4" *ngIf="southWestSections$ | async as southWestSections">
-      <app-expandable class="border border-esn-green rounded-lg">
+      <esn-expandable class="border border-esn-green rounded-lg">
         <p slot="header" class="font-bold text-xl">South West</p>
         <div *ngFor="let section of southWestSections" class="cont">
           <div class="flex justify-between pt-1">
@@ -191,7 +191,7 @@
             </span>
           </div>
         </div>
-      </app-expandable>
+      </esn-expandable>
     </div>
   </div>
 </div>
@@ -275,4 +275,4 @@
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+<esn-footer></esn-footer>

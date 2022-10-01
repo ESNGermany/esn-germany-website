@@ -6,7 +6,7 @@ import {
 } from 'src/app/services/sections.service';
 
 @Component({
-  selector: 'app-students-page',
+  selector: 'esn-students-page',
   templateUrl: './students-page.component.html',
   styleUrls: ['./../../../styles.scss', './students-page.component.scss'],
 })

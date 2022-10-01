@@ -8,7 +8,7 @@ import {
 } from '@angular/animations';
 
 @Component({
-  selector: 'app-landing-page',
+  selector: 'esn-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./../../../styles.scss', './landing-page.component.scss'],
   animations: [
