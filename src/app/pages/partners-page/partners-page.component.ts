@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { Observable, shareReplay } from 'rxjs';
 import {
   PartnersItem,
@@ -14,9 +13,7 @@ import {
 export class PartnersPageComponent implements OnInit {
   partners$: Observable<PartnersItem[]>;
 
-  constructor(private title: Title, private partnersService: PartnersService) {
-    this.title.setTitle('ESNcard & Partners - ESN Germany');
-  }
+  constructor(private partnersService: PartnersService) {}
 
   async ngOnInit() {
     this.partners$ = this.partnersService

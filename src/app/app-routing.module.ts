@@ -17,54 +17,63 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    title: 'ESN Germany',
     component: LandingPageComponent,
   },
   {
     path: 'our-network',
+    title: 'Our Network - ESN Germany',
     component: NetworkPageComponent,
   },
   {
     path: 'for-students',
+    title: 'For Students - ESN Germany',
     component: StudentsPageComponent,
   },
   {
     path: 'for-partners',
+    title: 'ESNcard & Partners - ESN Germany',
     component: PartnersPageComponent,
   },
   {
     path: 'news',
+    title: 'News - ESN Germany',
     component: NewsPageComponent,
   },
   {
     path: 'imprint',
+    title: 'Imprint - ESN Germany',
     component: ImprintPageComponent,
   },
   {
     path: 'coc',
+    title: 'Code of Conduct - ESN Germany',
     component: CocPageComponent,
   },
   {
     path: 'epp',
+    title: 'Event Policy Paper - ESN Germany',
     component: EppPageComponent,
   },
   {
     path: 'statutes',
+    title: 'Statutes - ESN Germany',
     component: StatutesPageComponent,
   },
   {
     path: 'standing-orders',
+    title: 'Ordnung - ESN Germany',
     component: OrdnungPageComponent,
   },
   {
     path: 'consultation-order',
+    title: 'Konsultationsordnung - ESN Germany',
     component: KonsultationsordnungPageComponent,
   },
   {
     path: 'error',
+    title: 'Oopsie... - ESN Germany',
     component: ErrorPageComponent,
-    data: {
-      title: 'Oopsie - ESN Germany',
-    },
   },
   {
     path: '**',

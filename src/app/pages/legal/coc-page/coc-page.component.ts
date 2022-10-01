@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { map, Observable, shareReplay } from 'rxjs';
 import {
   LegalDocumentsItem,
@@ -13,12 +12,7 @@ import {
 export class CocPageComponent implements OnInit {
   cocItem$: Observable<LegalDocumentsItem> | undefined;
 
-  constructor(
-    private title: Title,
-    private legalDocumentsService: LegalDocumentsService
-  ) {
-    this.title.setTitle('Code of Conduct - ESN Germany');
-  }
+  constructor(private legalDocumentsService: LegalDocumentsService) {}
 
   async ngOnInit() {
     this.cocItem$ = this.legalDocumentsService

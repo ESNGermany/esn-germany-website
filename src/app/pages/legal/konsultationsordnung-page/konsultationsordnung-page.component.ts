@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { map, Observable, shareReplay } from 'rxjs';
 import {
   LegalDocumentsItem,
@@ -13,12 +12,7 @@ import {
 export class KonsultationsordnungPageComponent implements OnInit {
   konsultationsordnungItem$: Observable<LegalDocumentsItem> | undefined;
 
-  constructor(
-    private title: Title,
-    private legalDocumentsService: LegalDocumentsService
-  ) {
-    this.title.setTitle('Konsultationsordnung - ESN Germany');
-  }
+  constructor(private legalDocumentsService: LegalDocumentsService) {}
 
   async ngOnInit() {
     this.konsultationsordnungItem$ = this.legalDocumentsService

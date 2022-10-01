@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { Observable, shareReplay } from 'rxjs';
 import {
   SectionItem,
@@ -20,9 +19,7 @@ export class StudentsPageComponent implements OnInit {
 
   regions: string[] = ['North', 'West', 'East', 'SouthWest', 'SouthEast'];
 
-  constructor(private title: Title, private sectionsService: SectionsService) {
-    this.title.setTitle('For Students - ESN Germany');
-  }
+  constructor(private sectionsService: SectionsService) {}
 
   async ngOnInit() {
     this.northSections$ = this.sectionsService
