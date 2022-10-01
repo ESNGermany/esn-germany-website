@@ -9,7 +9,7 @@ import {
 @Component({
   selector: 'app-students-page',
   templateUrl: './students-page.component.html',
-  styleUrls: ['./students-page.component.scss'],
+  styleUrls: ['./../../../styles.scss', './students-page.component.scss'],
 })
 export class StudentsPageComponent implements OnInit {
   northSections$: Observable<SectionItem[]>;

@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss'],
+  styleUrls: ['./../../../styles.scss', './landing-page.component.scss'],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),
