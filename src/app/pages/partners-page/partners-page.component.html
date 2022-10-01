@@ -1,79 +1,51 @@
 <esn-navigation-dark></esn-navigation-dark>
-<div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
-  <div class="px-8 mb-24">
-    <div class="m-auto mb-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        The ESNcard
-      </p>
-    </div>
-    <div class="m-auto mb-16">
-      <img
-        src="/assets/esncard.png"
-        title="ESNcard"
-        alt="ESNcard"
-        class="float-right hx"
-      />
-      <p class="font-body text-lg">
-        The ESNcard is the membership card of the Erasmus Student Network! It is
-        the proof that you belong to the Erasmus Generation - in an ESN section
-        as well as in the network itself. It also serves as a discount card
-        which gives you access to services and discounts all over Europe as well
-        as online. To get an ESNcard, contact your closest ESN section. To find
-        out more about discounts, check out our partners. You will find more
-        information on how to register your ESNcard on
-        <a
-          href="https://esncard.org"
-          target="_blank"
-          rel="noopener"
-          class="text-esn-dark-blue hover:underline"
-          >ESNcard.org</a
-        >.
-      </p>
-    </div>
-    <div class="m-auto mb-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Become a partner of ESN Germany
-      </p>
-    </div>
-    <div class="m-auto block mb-16">
-      <p class="font-body text-lg">
-        You are a company or association and would like to work with a young,
-        international student network based in Germany? Then become our partner!
-        We are currently cooperating with several companies in very different
-        ways. From discounts connected to our membership card, the
-        <a
-          href="https://esncard.org"
-          rel="noopener"
-          target="_blank"
-          class="text-esn-dark-blue hover:underline"
-          >ESNcard</a
-        >, sponsoring or collaborating on projects, the possibilities are
-        endless. If you would like to contact us and discuss your ideas, feel
-        free to send an email to our partnership manager at
-        <a
-          href="mailto:partnership@esn-germany.de"
-          rel="noopener"
-          target="_blank"
-          class="text-esn-dark-blue hover:underline"
-          >partnership@esn-germany.de</a
-        >.
-      </p>
-    </div>
-    <div class="m-auto mb-4 relative">
-      <p
-        data-testid="esn-national-partners"
-        class="font-heading text-esn-dark-blue font-bold text-4xl title"
-      >
-        Our National Partners
-      </p>
-    </div>
-  </div>
-</div>
-<ng-container *ngIf="partners$ | async as partners; else loading">
-  <div class="max-w-screen-2xl m-auto mb-16">
-    <div
-      class="mx-8 flex flex-wrap justify-evenly font-body text-lg border border-graylight shadow-xl p-8 items-baseline"
-    >
+<esn-article [title]="'The ESNcard'">
+  <img
+    src="/assets/esncard.png"
+    title="ESNcard"
+    alt="ESNcard"
+    class="float-right hx"
+  />
+  The ESNcard is the membership card of the Erasmus Student Network! It is the
+  proof that you belong to the Erasmus Generation - in an ESN section as well as
+  in the network itself. It also serves as a discount card which gives you
+  access to services and discounts all over Europe as well as online. To get an
+  ESNcard, contact your closest ESN section. To find out more about discounts,
+  check out our partners. You will find more information on how to register your
+  ESNcard on
+  <a
+    href="https://esncard.org"
+    target="_blank"
+    rel="noopener"
+    class="text-esn-dark-blue hover:underline"
+    >ESNcard.org</a
+  >.
+</esn-article>
+<esn-article [title]="'Become a Partner of ESN Germany'">
+  You are a company or association and would like to work with a young,
+  international student network based in Germany? Then become our partner! We
+  are currently cooperating with several companies in very different ways. From
+  discounts connected to our membership card, the
+  <a
+    href="https://esncard.org"
+    rel="noopener"
+    target="_blank"
+    class="text-esn-dark-blue hover:underline"
+    >ESNcard</a
+  >, sponsoring or collaborating on projects, the possibilities are endless. If
+  you would like to contact us and discuss your ideas, feel free to send an
+  email to our partnership manager at
+  <a
+    href="mailto:partnership@esn-germany.de"
+    rel="noopener"
+    target="_blank"
+    class="text-esn-dark-blue hover:underline"
+    >partnership@esn-germany.de</a
+  >.
+</esn-article>
+<esn-article [title]="'Our National Partners'" [grayBox]="true">
+  <ng-container *ngIf="partners$ | async as partners; else loading">
+    <div class="flex flex-wrap justify-evenly items-baseline">
       <ng-container *ngFor="let partner of partners; let i = index">
         <figure data-testid="esn-partner-figure" class="my-4 px-8 maxw">
           <a
@@ -108,67 +80,50 @@
         </figure>
       </ng-container>
     </div>
-  </div>
-</ng-container>
+  </ng-container>
+</esn-article>
 <ng-template #loading>
   <img width="200px" class="m-auto" src="assets/ESN-star-spinner.gif" />
 </ng-template>
-<div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
-  <div class="px-8 mb-12">
-    <div class="m-auto my-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Institutional Stakeholders
-      </p>
-    </div>
-    <div class="m-auto block mb-16">
-      <p class="font-body text-lg">
-        ESN Germany advocates for students on international mobilities, incoming
-        as well as outgoing, with a focus on the Erasmus+ Programme. We
-        represent their needs and rights on the local, national and
-        international level. Furthermore, we advocate for social inclusion and
-        accessible international mobility programmes for every person,
-        regardless of their background.
-        <br />
-        We are constantly looking for new institutional cooperations with
-        organisations that have similar goals and aims. If your organisation
-        would like to work with us, send us an email at
-        <a
-          href="mailto:board@esn-germany.de"
-          rel="noopener"
-          target="_blank"
-          class="text-esn-dark-blue hover:underline"
-          >board@esn-germany.de</a
-        >
-        and we can talk about possibilities for joint projects or general
-        cooperation opportunities!
-      </p>
-    </div>
-    <div class="mb-32">
-      <div class="m-auto relative">
-        <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-          Cooperations
-        </p>
-      </div>
-      <div class="flex flex-wrap items-center justify-between pt-4">
-        <a href="https://www.vdsi.org/" target="_blank" rel="noopener">
-          <img src="/assets/partners/vdsi.png" alt="VDSI" class="h-24 m-4" />
-        </a>
-        <a
-          href="https://ec.europa.eu/programmes/erasmus-plus"
-          target="_blank"
-          rel="noopener"
-        >
-          <img src="/assets/partners/eu.png" alt="EU" class="h-12 m-4" />
-        </a>
-        <a href="https://www.daad.de/" target="_blank" rel="noopener">
-          <img
-            src="/assets/partners/logo-daad.png"
-            alt="DAAD"
-            class="h-24 m-4"
-          />
-        </a>
-      </div>
-    </div>
+<esn-article [title]="'Institutional Stakeholders'">
+  ESN Germany advocates for students on international mobilities, incoming as
+  well as outgoing, with a focus on the Erasmus+ Programme. We represent their
+  needs and rights on the local, national and international level. Furthermore,
+  we advocate for social inclusion and accessible international mobility
+  programmes for every person, regardless of their background.
+  <br />
+  We are constantly looking for new institutional cooperations with
+  organisations that have similar goals and aims. If your organisation would
+  like to work with us, send us an email at
+  <a
+    href="mailto:board@esn-germany.de"
+    rel="noopener"
+    target="_blank"
+    class="text-esn-dark-blue hover:underline"
+    >board@esn-germany.de</a
+  >
+  and we can talk about possibilities for joint projects or general cooperation
+  opportunities!
+</esn-article>
+<esn-article [title]="'Cooperations'">
+  <div class="flex flex-wrap items-center justify-between">
+    <a href="https://www.vdsi.org/" target="_blank" rel="noopener">
+      <img src="/assets/partners/vdsi.png" alt="VDSI" class="h-24 m-4" />
+    </a>
+    <a
+      href="https://ec.europa.eu/programmes/erasmus-plus"
+      target="_blank"
+      rel="noopener"
+    >
+      <img src="/assets/partners/eu.png" alt="EU" class="h-12 m-4" />
+    </a>
+    <a href="https://www.daad.de/" target="_blank" rel="noopener">
+      <img
+        src="/assets/partners/logo-daad.png"
+        alt="DAAD"
+        class="h-24 m-4"
+      />
+    </a>
   </div>
-</div>
+</esn-article>
 <esn-footer></esn-footer>
