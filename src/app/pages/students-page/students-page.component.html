@@ -1,22 +1,13 @@
 <esn-navigation-dark></esn-navigation-dark>
-<div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
-  <div class="px-8 mb-8">
-    <div class="m-auto mb-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Find ESN in your city!
-      </p>
-    </div>
-    <p class="font-body text-lg pb-4">
-      ESN Germany relies on the action of its 42 local associations or so called
-      “sections”, operating at the campus, university or city level, that
-      directly work with the incoming students. Our local associations welcome,
-      support and enrich the stay of international students through various
-      actions (social, cultural, sport activities, welcome days, on-arrival
-      support, Café Lingua, SocialErasmus, Erasmus In Schools, parties, etc.) to
-      improve their social and practical integration.
-    </p>
-  </div>
-</div>
+<esn-article [title]="'Find ESN in your city!'">
+  ESN Germany relies on the action of its 42 local associations or so called
+  “sections”, operating at the campus, university or city level, that directly
+  work with the incoming students. Our local associations welcome, support and
+  enrich the stay of international students through various actions (social,
+  cultural, sport activities, welcome days, on-arrival support, Café Lingua,
+  SocialErasmus, Erasmus In Schools, parties, etc.) to improve their social and
+  practical integration.
+</esn-article>
 <div class="max-w-screen-xl m-auto flex flex-wrap justify-evenly">
   <esn-sectionmap></esn-sectionmap>
   <div class="font-body">
@@ -195,84 +186,67 @@
     </div>
   </div>
 </div>
-<div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
-  <div class="px-8 mb-24">
-    <p class="font-body text-lg pb-4">
-      In addition to that, many sections introduce mentor or buddy systems to
-      help and guide mainly in their academic and official activities. Local
-      associations also deal with the reintegration of homecoming students and
-      support them to use their freshly gained experiences and to keep contact
-      with the international environment. Our local associations are very
-      diverse in size and activity level. Most of them actively take part in the
-      life of our network through the various statutory events for example our
-      National Assemblies or Local Platforms. They often work in good
-      collaboration with their hosting Higher Education Institutions.
-    </p>
-    <div class="m-auto my-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        The Student Guidebook
-      </p>
-    </div>
-    <div class="flex flex-wrap lg:flex-no-wrap">
-      <a
-        data-testid="esn-students-pdf"
-        href="/assets/pdf/student_guidebook.pdf"
-        target="_blank"
-        rel="noopener"
+<esn-article>
+  In addition to that, many sections introduce mentor or buddy systems to help
+  and guide mainly in their academic and official activities. Local associations
+  also deal with the reintegration of homecoming students and support them to
+  use their freshly gained experiences and to keep contact with the
+  international environment. Our local associations are very diverse in size and
+  activity level. Most of them actively take part in the life of our network
+  through the various statutory events for example our National Assemblies or
+  Local Platforms. They often work in good collaboration with their hosting
+  Higher Education Institutions.
+</esn-article>
+<esn-article [title]="'The Student Guidebook'">
+  <div class="flex flex-wrap lg:flex-no-wrap">
+    <a
+      data-testid="esn-students-pdf"
+      href="/assets/pdf/student_guidebook.pdf"
+      target="_blank"
+      rel="noopener"
+    >
+      <div
+        class="flex items-center lg:flex-no-wrap flex-wrap font-body text-lg border border-graylight rounded shadow-xl"
       >
-        <div
-          class="flex items-center lg:flex-no-wrap flex-wrap font-body text-lg border border-graylight rounded shadow-xl"
-        >
-          <div class="m-4 mx-8">
-            <img
-              src="/assets/stud-guidebook.jpg"
-              alt="Student Guidebook"
-              class="w-48"
-            />
-          </div>
-          <p
-            class="font-body font-bold pb-2 px-8 text-esn-dark-blue hover:underline"
-          >
-            Open PDF
-            <img
-              src="assets/fonts/MaterialIcons/call_made.png"
-              width="24px"
-              class="inline"
-            />
-          </p>
+        <div class="m-4 mx-8">
+          <img
+            src="/assets/stud-guidebook.jpg"
+            alt="Student Guidebook"
+            class="w-48"
+          />
         </div>
-      </a>
-      <p class="font-body text-lg p-8">
-        This document provides useful information if you are a student enrolled
-        in a German university and consider going abroad with the ERASMUS+
-        programme.
-      </p>
-    </div>
-    <div class="m-auto my-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Become an ESN Section
-      </p>
-    </div>
-    <div class="flex flex-wrap lg:flex-no-wrap">
-      <p class="font-body text-lg">
-        If there is no ESN section yet in your city, you can consider founding
-        one. If you have any questions, contact our Vice President at
-        <a
-          href="mailto:vice-president@esn-germany.de"
-          target="_blank"
-          rel="noopener"
-          class="text-esn-dark-blue hover:underline"
-          >vice-president@esn-germany.de</a
-        >.
-      </p>
-      <div class="mb-16 mt-4">
-        <img
-          class="m-auto w-2/3"
-          src="/assets/How-to-become-an-ESN-section.jpg"
-          alt="How to become an ESN section"
-        />
+        <p
+          class="font-body font-bold pb-2 px-8 text-esn-dark-blue hover:underline"
+        >
+          Open PDF
+          <img
+            src="assets/fonts/MaterialIcons/call_made.png"
+            width="24px"
+            class="inline"
+          />
+        </p>
       </div>
-    </div>
+    </a>
+    <p class="pt-8">
+      This document provides useful information if you are a student enrolled in
+      a German university and consider going abroad with the ERASMUS+ programme.
+    </p>
   </div>
-</div>
+</esn-article>
+<esn-article [title]="'Become an ESN Section'">
+  If there is no ESN section yet in your city, you can consider founding one. If
+  you have any questions, contact our Vice President at
+  <a
+    href="mailto:vice-president@esn-germany.de"
+    target="_blank"
+    rel="noopener"
+    class="text-esn-dark-blue hover:underline"
+    >vice-president@esn-germany.de</a
+  >.
+  <img
+    class="m-auto mt-4 w-2/3"
+    src="/assets/How-to-become-an-ESN-section.jpg"
+    alt="How to become an ESN section"
+  />
+</esn-article>
 <esn-footer></esn-footer>
