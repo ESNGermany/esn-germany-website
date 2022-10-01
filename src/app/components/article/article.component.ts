@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'esn-article',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./../../../styles.scss']
 })
 export class ArticleComponent{
-  constructor() { }
+  @Input() title!: string;
 }

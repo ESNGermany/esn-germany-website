@@ -1,36 +1,22 @@
-<!-- <esn-sticky-navbar></esn-sticky-navbar> -->
 <ng-container *ngFor="let i of [0, 1, 2, 3]">
   <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i"></div>
 </ng-container>
 <esn-navigation></esn-navigation>
-<!-- <section (scroll)="onWindowScroll($event)"> -->
-<div class="m-auto py-16 w-128 mb-8 extra">
+<div class="m-auto py-16 mb-40 extra">
   <span class="bg-white font-heading text-center text-black font-bold text-4xl">
     Find your second home<br style="line-height: 44px" />with ESN Germany.<br
       style="line-height: 62px"
     />#MyErasmusExperience
   </span>
 </div>
-<div class="max-w-screen-xl m-auto sm:px-16 pt-8 xl:mt-28 lg:mt-22 sm:mt-16">
-  <div class="px-8 mt-32 mb-16">
-    <div class="m-auto my-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        We are ESN Germany.
-      </p>
-    </div>
-    <div class="m-auto block">
-      <p class="font-body text-lg">
-        Erasmus Student Network (ESN) is a non-profit international student
-        organisation. Our mission is to represent international students, thus
-        provide opportunities for cultural understanding and self-development
-        under the principle of <b>Students Helping Students</b>. In Europe there
-        are local ESN sections at more than 500 higher education facilities in
-        more than 40 countries. This makes us one of the largest student
-        initiatives in Europe.
-      </p>
-    </div>
-  </div>
-</div>
+<esn-article title="We are ESN Germany.">
+  Erasmus Student Network (ESN) is a non-profit international student
+  organisation. Our mission is to represent international students, thus provide
+  opportunities for cultural understanding and self-development under the
+  principle of <b>Students Helping Students</b>. In Europe there are local ESN
+  sections at more than 500 higher education facilities in more than 40
+  countries. This makes us one of the largest student initiatives in Europe.
+</esn-article>
 <div class="grid grid-cols-4 auto-rows-images gap-0.5">
   <div class="col-span-3">
     <img
@@ -89,52 +75,33 @@
     </div>
   </div>
 </div>
-<div class="max-w-screen-xl m-auto sm:px-16 pt-8 xl:mt-28 lg:mt-22 sm:mt-16">
-  <div class="px-8 mb-16">
-    <div class="m-auto mb-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Join us!
-      </p>
-    </div>
-    <div class="m-auto block">
-      <p class="font-body text-lg">
-        <img
-          src="assets/fonts/MaterialIcons/format_quote.png"
-          width="24px"
-          class="text-4xl text-gray"
-        />ESN gave me the opportunity, not only to envelope myself into the
-        culture and history of my host city, but gave me friends from all around
-        the world, and an experience that will last a lifetime.
-      </p>
-    </div>
+<esn-article title="Join us!">
+  <img
+    src="assets/fonts/MaterialIcons/format_quote.png"
+    width="24px"
+    class="text-4xl text-gray"
+  />ESN gave me the opportunity, not only to envelope myself into the culture
+  and history of my host city, but gave me friends from all around the world,
+  and an experience that will last a lifetime.
+</esn-article>
+<esn-article title="Cooperations">
+  <div class="flex flex-wrap items-center justify-evenly pt-4">
+    <a href="https://www.vdsi.org/" target="_blank" rel="noopener"
+      ><img src="/assets/partners/vdsi.png" alt="VDSI" class="h-24 m-4"
+    /></a>
+    <a
+      href="https://ec.europa.eu/programmes/erasmus-plus"
+      target="_blank"
+      rel="noopener"
+    >
+      <img src="/assets/partners/eu.png" alt="EU" class="h-12 m-4" />
+    </a>
+    <a href="https://wwww.daad.de/" target="_blank" rel="noopener">
+      <img src="/assets/partners/logo-daad.png" alt="DAAD" class="h-24 m-4" />
+    </a>
+    <a href="https://www.bvmd.de/" target="_blank" rel="noopener">
+      <img src="/assets/partners/bvmd.png" alt="BVMD" class="h-24 m-4" />
+    </a>
   </div>
-</div>
-<div class="max-w-screen-xl m-auto sm:px-16 pt-8">
-  <div class="px-8 mb-32">
-    <div class="m-auto mb-8 relative">
-      <p class="font-heading text-esn-dark-blue font-bold text-4xl title">
-        Cooperations
-      </p>
-    </div>
-    <div class="flex flex-wrap items-center justify-evenly pt-4">
-      <a href="https://www.vdsi.org/" target="_blank" rel="noopener"
-        ><img src="/assets/partners/vdsi.png" alt="VDSI" class="h-24 m-4"
-      /></a>
-      <a
-        href="https://ec.europa.eu/programmes/erasmus-plus"
-        target="_blank"
-        rel="noopener"
-      >
-        <img src="/assets/partners/eu.png" alt="EU" class="h-12 m-4" />
-      </a>
-      <a href="https://wwww.daad.de/" target="_blank" rel="noopener">
-        <img src="/assets/partners/logo-daad.png" alt="DAAD" class="h-24 m-4" />
-      </a>
-      <a href="https://www.bvmd.de/" target="_blank" rel="noopener">
-        <img src="/assets/partners/bvmd.png" alt="BVMD" class="h-24 m-4" />
-      </a>
-    </div>
-  </div>
-</div>
-<!-- </section> -->
+</esn-article>
 <esn-footer></esn-footer>
