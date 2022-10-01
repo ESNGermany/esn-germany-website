@@ -29,7 +29,6 @@
     "@angular/platform-browser-dynamic": "14.2.4",
     "@angular/platform-server": "14.2.4",
     "@angular/router": "14.2.4",
-    "@babel/helper-member-expression-to-functions": "7.18.9",
     "@ngneat/tailwind": "7.0.3",
     "@nguniversal/builders": "14.2.0",
     "@nguniversal/express-engine": "14.2.0",
