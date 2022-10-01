@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { Observable, shareReplay } from 'rxjs';
 import { ImprintItem, ImprintService } from 'src/app/services/imprint.service';
 
@@ -11,9 +10,7 @@ import { ImprintItem, ImprintService } from 'src/app/services/imprint.service';
 export class ImprintPageComponent implements OnInit {
   imprintItem$: Observable<ImprintItem[]> | undefined;
 
-  constructor(private title: Title, private imprintService: ImprintService) {
-    this.title.setTitle('Imprint - ESN Germany');
-  }
+  constructor(private imprintService: ImprintService) {}
 
   async ngOnInit() {
     this.imprintItem$ = this.imprintService

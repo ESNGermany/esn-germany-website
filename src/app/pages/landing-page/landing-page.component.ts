@@ -6,7 +6,6 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing-page',
@@ -30,8 +29,4 @@ export class LandingPageComponent {
     '/assets/landing/landing3.png',
     '/assets/landing/landing1.png',
   ];
-
-  constructor(private title: Title) {
-    this.title.setTitle('ESN Germany');
-  }
 }

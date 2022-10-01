@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { Observable, shareReplay } from 'rxjs';
 import {
   BoardPositionItem,
@@ -20,12 +19,9 @@ export class NetworkPageComponent implements OnInit {
   teamsList$: Observable<TeamsItem[]>;
 
   constructor(
-    private title: Title,
     private boardPositionService: BoardPositionsService,
     private teamsService: TeamsService
-  ) {
-    this.title.setTitle('Our Network - ESN Germany');
-  }
+  ) {}
 
   async ngOnInit() {
     this.ABItemList$ = this.boardPositionService

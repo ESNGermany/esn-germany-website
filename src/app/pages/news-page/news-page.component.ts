@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { Observable, shareReplay } from 'rxjs';
 import { NewsItem, NewsService } from 'src/app/services/news.service';
 
@@ -12,9 +11,7 @@ export class NewsPageComponent implements OnInit {
   news$: Observable<NewsItem[]>;
   private newsItemId: string;
 
-  constructor(private title: Title, private newsService: NewsService) {
-    this.title.setTitle('News - ESN Germany');
-  }
+  constructor(private newsService: NewsService) {}
 
   async ngOnInit() {
     this.news$ = this.newsService.fetchNewsList().pipe(shareReplay(1));
