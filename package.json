@@ -63,7 +63,7 @@
     "lint-staged": "13.0.3",
     "moment-timezone": "0.5.37",
     "ngx-build-plus": "14.0.0",
-    "ngx-tailwind": "4.0.0",
+    "ngx-tailwind": "3.0.0",
     "postcss": "8.4.17",
     "prettier": "2.7.1",
     "protractor": "7.0.0",
