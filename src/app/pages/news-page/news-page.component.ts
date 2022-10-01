@@ -5,7 +5,7 @@ import { NewsItem, NewsService } from 'src/app/services/news.service';
 @Component({
   selector: 'app-news-page',
   templateUrl: './news-page.component.html',
-  styleUrls: ['./news-page.component.scss'],
+  styleUrls: ['./../../../styles.scss', './news-page.component.scss'],
 })
 export class NewsPageComponent implements OnInit {
   news$: Observable<NewsItem[]>;

@@ -5,7 +5,7 @@ import { ImprintItem, ImprintService } from 'src/app/services/imprint.service';
 @Component({
   selector: 'app-imprint-page',
   templateUrl: './imprint-page.component.html',
-  styleUrls: ['./imprint-page.component.scss'],
+  styleUrls: ['./../../../styles.scss'],
 })
 export class ImprintPageComponent implements OnInit {
   imprintItem$: Observable<ImprintItem[]> | undefined;
