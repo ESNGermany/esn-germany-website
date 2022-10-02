@@ -9,7 +9,7 @@ import { TeamsItem, TeamsService } from 'src/app/services/teams.service';
 @Component({
   selector: 'esn-network-page',
   templateUrl: './network-page.component.html',
-  styleUrls: ['./../../../styles.scss', './network-page.component.scss'],
+  styleUrls: ['./network-page.component.scss'],
 })
 export class NetworkPageComponent implements OnInit {
   NBItemList$: Observable<BoardPositionItem[]>;

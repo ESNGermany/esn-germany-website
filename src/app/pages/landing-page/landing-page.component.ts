@@ -10,7 +10,7 @@ import {
 @Component({
   selector: 'esn-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./../../../styles.scss', './landing-page.component.scss'],
+  styleUrls: ['./landing-page.component.scss'],
   animations: [
     trigger('fadeInOut', [
       state('void', style({ opacity: 0 })),

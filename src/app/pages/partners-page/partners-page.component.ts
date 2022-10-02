@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'esn-partners-page',
   templateUrl: './partners-page.component.html',
-  styleUrls: ['./../../../styles.scss', './partners-page.component.scss'],
+  styleUrls: ['./partners-page.component.scss'],
 })
 export class PartnersPageComponent implements OnInit {
   partners$: Observable<PartnersItem[]>;

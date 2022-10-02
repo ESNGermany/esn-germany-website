@@ -8,7 +8,7 @@ import {
 @Component({
   selector: 'esn-students-page',
   templateUrl: './students-page.component.html',
-  styleUrls: ['./../../../styles.scss', './students-page.component.scss'],
+  styleUrls: ['./students-page.component.scss'],
 })
 export class StudentsPageComponent implements OnInit {
   northSections$: Observable<SectionItem[]>;
