@@ -39,6 +39,8 @@ import { PartnersService } from './services/partners.service';
 import { SectionsService } from './services/sections.service';
 import { TeamsService } from './services/teams.service';
 import { ArticleComponent } from './components/article/article.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,12 @@ import { ArticleComponent } from './components/article/article.component';
     TruncateModule,
     SharedModule,
     MarkdownModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     BoardPositionsService,
