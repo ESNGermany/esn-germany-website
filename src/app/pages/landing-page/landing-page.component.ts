@@ -27,8 +27,7 @@ export class LandingPageComponent implements OnInit{
   imagesUrl = [
     '/assets/landing/landing1.png',
     '/assets/landing/landing2.png',
-    '/assets/landing/landing3.png',
-    '/assets/landing/landing1.png',
+    '/assets/landing/landing3.png'
   ];
 
   ngOnInit() {
