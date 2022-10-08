@@ -16,7 +16,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          browser: firefox
+          browser: Chrome
           record: true
           start: yarn start
           wait-on: 'http://localhost:4200'
