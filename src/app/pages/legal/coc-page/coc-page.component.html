@@ -1,4 +1,21 @@
 <esn-navigation-dark></esn-navigation-dark>
+<esn-article [title]="'Report an incident'" [grayBg]="true">
+  You can notify us if an incident has occurred which violates the Code of
+  Conduct of ESN Germany. The form can be filled out anonymously but if you wish
+  to further discuss the incident with the Code of Conduct contact team, please
+  provide your contact information. <br />
+  <button
+    type="button"
+    class="my-3 -mx-2 bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+  >
+    <a
+      href="https://forms.gle/FuUG37pAbGFSAG8R8"
+      target="_blank"
+      rel="noopener"
+      class="font-body text-lg p-2"
+      >Report an incident</a>
+  </button>
+</esn-article>
 <div class="max-w-screen-xl m-auto mb-16 sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
   <div class="m-auto block mb-24 px-16 font-body">
     <ng-container *ngIf="cocItem$ | async as cocItem; else loading">
