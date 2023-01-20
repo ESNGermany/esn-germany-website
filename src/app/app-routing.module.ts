@@ -12,6 +12,7 @@ import { StatutesPageComponent } from './pages/legal/statutes-page/statutes-page
 import { OrdnungPageComponent } from './pages/legal/ordnung-page/ordnung-page.component';
 import { KonsultationsordnungPageComponent } from './pages/legal/konsultationsordnung-page/konsultationsordnung-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,11 @@ const routes: Routes = [
     path: 'imprint',
     title: 'Imprint - ESN Germany',
     component: ImprintPageComponent,
+  },
+  {
+    path: 'contact-us',
+    title: 'Contact Us - ESN Germany',
+    component: ContactPageComponent,
   },
   {
     path: 'coc',

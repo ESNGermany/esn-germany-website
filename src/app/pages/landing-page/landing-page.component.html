@@ -1,5 +1,7 @@
 <ng-container *ngFor="let i of [0, 1, 2, 3]">
-  <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i"></div>
+  <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i">
+    <div class="esn-colors"></div>
+  </div>
 </ng-container>
 <esn-navigation></esn-navigation>
 <div class="m-auto py-16 mb-40 extra">

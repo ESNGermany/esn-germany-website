@@ -21,3 +21,17 @@
 .icon {
   padding-right: 1rem;
 }
+
+.esn-colors {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    #00aef0 0 25vw,
+    #ed008c 25vw 50vw,
+    #7ac143 50vw 75vw,
+    #f57b20 75vw 100vw
+  );
+}
