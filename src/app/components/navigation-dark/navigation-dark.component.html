@@ -8,17 +8,7 @@
 </div>
 <div class="w-full">
   <ul
-    class="
-      z-10
-      font-body
-      text-white text-xl
-      bg-footer
-      float-right
-      w-3/5
-      hidden
-      absolute
-      right-0
-    "
+    class="z-10 font-body text-white text-xl bg-footer float-right w-3/5 hidden absolute right-0"
     id="menu"
   >
     <a routerLink="/" routerLinkActive="addhoverActive">
@@ -37,22 +27,16 @@
       <li class="p-4 pl-8 border-b border-white">News</li>
     </a>
     <a routerLink="/imprint" routerLinkActive="addhoverActive">
-      <li class="p-4 pl-8">Imprint</li>
+      <li class="p-4 pl-8 border-b border-white">Imprint</li>
+    </a>
+    <a routerLink="/contact-us" routerLinkActive="addhoverActive">
+      <li class="p-4 pl-8">Contact Us</li>
     </a>
   </ul>
 </div>
 <div class="w-full mb-16 bg">
   <nav
-    class="
-      flex flex-wrap
-      items-center
-      max-w-screen-xl
-      justify-between
-      m-auto
-      sm:px-16
-      pt-8
-      font-body
-    "
+    class="flex flex-wrap items-center max-w-screen-xl justify-between m-auto sm:px-16 pt-8 font-body"
   >
     <div class="flex items-center flex-shrink-0 text-2xl pr-8">
       <a routerLink="/" routerLinkActive="addhoverActive"
@@ -63,15 +47,7 @@
       /></a>
     </div>
     <div
-      class="
-        px-8
-        w-full
-        block
-        flex-grow
-        lg:flex lg:items-center lg:w-auto
-        hidden
-        lg:visible
-      "
+      class="px-8 w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden lg:visible"
     >
       <div class="text-2xl flex justify-between lg:flex-grow max-w-screen-xl">
         <div class="relative">
@@ -79,15 +55,7 @@
             <button
               type="button"
               id="network-button"
-              class="
-                block
-                mt-4
-                inline-block
-                font-bold
-                text-white
-                focus:outline-none
-                addhover
-              "
+              class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
             >
               Our Network
             </button></a
@@ -98,15 +66,7 @@
             ><button
               type="button"
               id="students-button"
-              class="
-                block
-                mt-4
-                inline-block
-                font-bold
-                text-white
-                focus:outline-none
-                addhover
-              "
+              class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
             >
               For Students
             </button></a
@@ -117,15 +77,7 @@
             <button
               type="button"
               id="partners-button"
-              class="
-                block
-                mt-4
-                inline-block
-                font-bold
-                text-white
-                focus:outline-none
-                addhover
-              "
+              class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
             >
               ESNcard & Partners
             </button></a
@@ -136,17 +88,20 @@
             ><button
               type="button"
               id="news-button"
-              class="
-                block
-                mt-4
-                inline-block
-                font-bold
-                text-white
-                focus:outline-none
-                addhover
-              "
+              class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
             >
               News
+            </button></a
+          >
+        </div>
+        <div class="relative">
+          <a routerLink="/contact-us" routerLinkActive="addhoverActive"
+            ><button
+              type="button"
+              id="contact-button"
+              class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
+            >
+              Contact Us
             </button></a
           >
         </div>
@@ -154,16 +109,7 @@
     </div>
     <div class="block pr-8 sm:pr-16 lg:hidden" id="burger">
       <button
-        class="
-          flex
-          items-center
-          px-3
-          py-2
-          border
-          rounded
-          text-white
-          border-white
-        "
+        class="flex items-center px-3 py-2 border rounded text-white border-white"
         (click)="showMenu()"
       >
         <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">

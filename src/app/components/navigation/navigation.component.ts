@@ -19,7 +19,7 @@ export class NavigationComponent {
       !this.document.getElementById('menu').classList.contains('hidden')
     ) {
       this.hideMenu(false);
-      if (screenX > 1024) {
+      if (screenX > 1172) {
         this.hideMenu(true);
       }
     }
