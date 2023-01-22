@@ -56,10 +56,10 @@ module.exports = {
     },
     fontFamily: {
       body: ["Lato", "sans-serif"],
-      heading: ["Oswald", "sans-serif"],
+      heading: ["Oswald", 'system-ui', "sans-serif"],
       comic: ["Comic Sans"],
     },
-    gridAutoRows: {
+    gridAutoRows: { 
       images: "280px",
     },
   },

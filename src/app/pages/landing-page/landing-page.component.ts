@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   Component,
+  Inject,
   OnInit,
   Renderer2,
   ViewChild,
@@ -12,7 +13,8 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Subject, interval } from 'rxjs';
+import { interval } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'esn-landing-page',
@@ -25,7 +27,6 @@ import { Subject, interval } from 'rxjs';
     ]),
   ],
 })
-
 export class LandingPageComponent implements OnInit, AfterViewInit {
   index: number = 0;
   numImages: number = 3;
@@ -39,13 +40,18 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
 
   isAnimated: boolean = false;
 
-  @ViewChild('a') a: any;
-  @ViewChild('b') b: any;
-  @ViewChild('c') c: any;
+  @ViewChild('a', { static: false }) a: any;
+  @ViewChild('b', { static: false }) b: any;
+  @ViewChild('c', { static: false }) c: any;
 
-  constructor(private render: Renderer2) {}
-  
-  ngAfterViewInit() {
+  constructor(
+    private render: Renderer2,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
+
+  ngAfterViewInit() {}
+
+  ngOnInit() {
     this.render.listen('window', 'scroll', () => {
       let aPosition = this.a.nativeElement.getBoundingClientRect();
 
@@ -57,18 +63,22 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
 
           setTimeout(function () {
             this.isAnimated = true;
-            document.getElementById('a').innerHTML = '1200 +';
+            const aEl = this.document.getElementById('a');
+            if (aEl) {
+              aEl.innerHTML = '1200 +';
+            }
           }, 1101);
           setTimeout(function () {
             this.isAnimated = true;
-            document.getElementById('b').innerHTML = '10 600 +';
+            const bEl = this.document.getElementById('b');
+            if (bEl) {
+              bEl.innerHTML = '10 600 +';
+            }
           }, 1801);
         }
       }
     });
-  }
 
-  ngOnInit() {
     this.imagesUrl.forEach((x, index) => {
       const image = new Image();
       image.onload = () => {

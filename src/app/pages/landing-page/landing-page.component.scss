@@ -35,3 +35,14 @@
     #f57b20 75vw 100vw
   );
 }
+
+@media screen and (max-width: 768px) {
+  .col {
+    flex-direction: column;
+  }
+  .text {
+    // vertical-align: top;
+    // font-size: 2.1rem; 
+    // line-height: 2.4rem;
+  }
+}
