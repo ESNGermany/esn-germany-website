@@ -54,25 +54,27 @@
     class="flex flex-wrap items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body"
   >
     <div class="inline-block">
-      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">
-        1 200
-      </p>
+      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" id="a" #a>
+        0
+      </div>
+      <p *ngIf="isAnimated" class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline">+</p>
       <p class="text-lg text-center font-bold">Volunteers</p>
     </div>
     <div class="inline-block">
       <p class="text-2xl font-bold text-center px-3">for</p>
     </div>
     <div class="inline-block">
-      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">
-        10 600
-      </p>
+      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" id="b" #b>
+        0
+      </div>
+      <p *ngIf="isAnimated" class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline">+</p>
       <p class="text-lg text-center font-bold">Exchange Students</p>
     </div>
     <div class="inline-block">
       <p class="text-2xl font-bold text-center px-3">in</p>
     </div>
     <div class="inline-block">
-      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">42</p>
+      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" #c>0</div>
       <p class="text-lg text-center font-bold">Sections</p>
     </div>
   </div>

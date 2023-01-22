@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import {
   animate,
   state,
@@ -6,7 +12,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { interval } from 'rxjs';
+import { Subject, interval } from 'rxjs';
 
 @Component({
   selector: 'esn-landing-page',
@@ -19,7 +25,8 @@ import { interval } from 'rxjs';
     ]),
   ],
 })
-export class LandingPageComponent implements OnInit{
+
+export class LandingPageComponent implements OnInit, AfterViewInit {
   index: number = 0;
   numImages: number = 3;
   imagesLoaded: number = 0;
@@ -27,8 +34,39 @@ export class LandingPageComponent implements OnInit{
   imagesUrl = [
     '/assets/landing/landing1.png',
     '/assets/landing/landing2.png',
-    '/assets/landing/landing3.png'
+    '/assets/landing/landing3.png',
   ];
+
+  isAnimated: boolean = false;
+
+  @ViewChild('a') a: any;
+  @ViewChild('b') b: any;
+  @ViewChild('c') c: any;
+
+  constructor(private render: Renderer2) {}
+  
+  ngAfterViewInit() {
+    this.render.listen('window', 'scroll', () => {
+      let aPosition = this.a.nativeElement.getBoundingClientRect();
+
+      if (aPosition.top >= 0 && aPosition.bottom <= window.innerHeight) {
+        if (this.isAnimated == false) {
+          this.animateValue(this.a, 0, 1200, 1100);
+          this.animateValue(this.b, 0, 10600, 1800);
+          this.animateValue(this.c, 0, 42, 630);
+
+          setTimeout(function () {
+            this.isAnimated = true;
+            document.getElementById('a').innerHTML = '1200 +';
+          }, 1101);
+          setTimeout(function () {
+            this.isAnimated = true;
+            document.getElementById('b').innerHTML = '10 600 +';
+          }, 1801);
+        }
+      }
+    });
+  }
 
   ngOnInit() {
     this.imagesUrl.forEach((x, index) => {
@@ -42,5 +80,20 @@ export class LandingPageComponent implements OnInit{
     interval(5000).subscribe(() => {
       this.index = (this.index + 1) % this.numImages;
     });
+  }
+
+  animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.nativeElement.innerHTML = Math.floor(
+        progress * (end - start) + start
+      );
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
   }
 }
