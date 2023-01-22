@@ -39,6 +39,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   ];
 
   isAnimated: boolean = false;
+  doneAnimating: boolean = false;
 
   @ViewChild('a', { static: false }) a: any;
   @ViewChild('b', { static: false }) b: any;
@@ -49,13 +50,14 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     @Inject(DOCUMENT) private document: Document
   ) {}
 
-  ngAfterViewInit() {}
-
-  ngOnInit() {
+  ngAfterViewInit() {
     this.render.listen('window', 'scroll', () => {
       let aPosition = this.a.nativeElement.getBoundingClientRect();
-
-      if (aPosition.top >= 0 && aPosition.bottom <= window.innerHeight) {
+      if (
+        !this.doneAnimating &&
+        aPosition.top >= 0 &&
+        aPosition.bottom <= window.innerHeight
+      ) {
         if (this.isAnimated == false) {
           this.animateValue(this.a, 0, 1200, 1100);
           this.animateValue(this.b, 0, 10600, 1800);
@@ -67,18 +69,21 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
             if (aEl) {
               aEl.innerHTML = '1200 +';
             }
-          }, 1101);
+          }, 1100);
           setTimeout(function () {
             this.isAnimated = true;
             const bEl = this.document.getElementById('b');
             if (bEl) {
               bEl.innerHTML = '10 600 +';
             }
-          }, 1801);
+          }, 1800);
+          this.doneAnimating = true;
         }
       }
     });
+  }
 
+  ngOnInit() {
     this.imagesUrl.forEach((x, index) => {
       const image = new Image();
       image.onload = () => {
