@@ -11,7 +11,7 @@ module.exports = {
       screens: {
         // "sm": "640px",
         // "md": "768px",
-        // "lg": "1024px",
+        "lg": "1172px",
         // "xl": "1280px",
         "2lg": "1400px",
         "2xl": "1570px",
@@ -56,10 +56,10 @@ module.exports = {
     },
     fontFamily: {
       body: ["Lato", "sans-serif"],
-      heading: ["Oswald", "sans-serif"],
+      heading: ["Oswald", 'system-ui', "sans-serif"],
       comic: ["Comic Sans"],
     },
-    gridAutoRows: {
+    gridAutoRows: { 
       images: "280px",
     },
   },

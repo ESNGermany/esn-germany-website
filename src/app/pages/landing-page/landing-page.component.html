@@ -1,11 +1,12 @@
 <ng-container *ngFor="let i of [0, 1, 2, 3]">
-  <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i"></div>
+  <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i">
+    <div class="esn-colors"></div>
+  </div>
 </ng-container>
 <esn-navigation></esn-navigation>
 <div class="m-auto py-16 mb-40 extra">
-  <span class="bg-white font-heading text-center text-black font-bold text-4xl">
-    Find your second home<br style="line-height: 44px" />with ESN Germany.<br
-      style="line-height: 62px"
+  <span class="bg-white font-heading text-center text-black font-bold text-4xl leading-snug">
+    Find your second home<br />with ESN Germany.<br
     />#MyErasmusExperience
   </span>
 </div>
@@ -47,30 +48,32 @@
     />
   </div>
 </div>
-<div class="block w-full bg-esn-blue text-white m-auto relative">
+<div class="block w-full bg-esn-blue text-white m-auto relative mb-3">
   <div
-    class="flex flex-wrap items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body"
+    class="flex col items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body"
   >
     <div class="inline-block">
-      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">
-        1 200
-      </p>
+      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" id="a" #a>
+        0
+      </div>
+      <p *ngIf="isAnimated" class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline">+</p>
       <p class="text-lg text-center font-bold">Volunteers</p>
     </div>
     <div class="inline-block">
       <p class="text-2xl font-bold text-center px-3">for</p>
     </div>
     <div class="inline-block">
-      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">
-        10 600
-      </p>
+      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" id="b" #b>
+        0
+      </div>
+      <p *ngIf="isAnimated" class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline">+</p>
       <p class="text-lg text-center font-bold">Exchange Students</p>
     </div>
     <div class="inline-block">
       <p class="text-2xl font-bold text-center px-3">in</p>
     </div>
     <div class="inline-block">
-      <p class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold">42</p>
+      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" #c>0</div>
       <p class="text-lg text-center font-bold">Sections</p>
     </div>
   </div>

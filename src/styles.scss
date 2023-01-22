@@ -6,25 +6,25 @@
 /* You can add global styles to this file, and also import other style files */
 
 @font-face {
-  font-family: "Lato";
+  font-family: "Lato", Arial, Helvetica, sans-serif;
   src: url("./assets/fonts/Lato/Lato-Regular.ttf") format("truetype");
   font-weight: normal;
 }
 
 @font-face {
-  font-family: "Lato";
+  font-family: "Lato", Arial, Helvetica, sans-serif;
   src: url("./assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
   font-weight: bold;
 }
 
 @font-face {
-  font-family: "Lato";
+  font-family: "Lato", Arial, Helvetica, sans-serif;
   src: url("./assets/fonts/Lato/Lato-Italic.ttf") format("truetype");
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Lato";
+  font-family: "Lato", Arial, Helvetica, sans-serif;
   src: url("./assets/fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
   font-weight: bold;
   font-style: italic;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: "Oswald";
-  src: url("./assets/fonts/Oswald-Regular.ttf");
+  src: url("./assets/fonts/Oswald-Regular.ttf") format("truetype");
 }
 
 .title::after {

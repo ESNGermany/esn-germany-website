@@ -11,6 +11,7 @@ import { PartnersPageComponent } from './pages/partners-page/partners-page.compo
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { CocPageComponent } from './pages/legal/coc-page/coc-page.component';
 import { EppPageComponent } from './pages/legal/epp-page/epp-page.component';
 import { StatutesPageComponent } from './pages/legal/statutes-page/statutes-page.component';
@@ -54,6 +55,7 @@ import { environment } from '../environments/environment';
     PartnersPageComponent,
     NewsPageComponent,
     ImprintPageComponent,
+    ContactPageComponent,
     ErrorPageComponent,
     CocPageComponent,
     EppPageComponent,

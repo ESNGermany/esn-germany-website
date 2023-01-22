@@ -43,17 +43,19 @@
     >partnership@esn-germany.de</a
   >.
 </esn-article>
-<esn-article [title]="'Our National Partners'" [grayBox]="true" data-testid="esn-national-partners">
+<esn-article
+  [title]="'Our National Partners'"
+  [grayBox]="true"
+  data-testid="esn-national-partners"
+>
   <ng-container *ngIf="partners$ | async as partners; else loading">
+    <p>
+      Click on a logo to get more information.
+    </p>
     <div class="flex flex-wrap justify-evenly items-baseline">
       <ng-container *ngFor="let partner of partners; let i = index">
         <figure data-testid="esn-partner-figure" class="my-4 px-8 maxw">
-          <a
-            href="{{ partner.Link }}"
-            title="{{ partner.Logo.alternativeText }}"
-            target="_blank"
-            rel="noopener"
-          >
+          <button (click)="toggleInfo(partner)">
             <img
               class="imgh m-auto zoom"
               src="https://strapi.esn-germany.de{{
@@ -61,21 +63,38 @@
               }}"
               alt="{{ partner.Logo.alternativeText }}"
             />
-          </a>
+          </button>
           <figcaption class="pt-4 text-center font-bold">
             {{ partner.Name }}
-            <br />
+            <!-- <br />
             <button
               *ngIf="partner.Description"
               (click)="toggleInfo(partner)"
               class="text-esn-dark-blue hover:underline"
             >
               {{ partner.buttonText }}
-            </button>
+            </button> -->
             <br />
             <p class="font-normal text-left" [hidden]="!partner.show">
               {{ partner.Description }}
             </p>
+            <button
+            [hidden]="!partner.show"
+            type="button"
+            class="text-left bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+          >
+            <a
+              href="{{ partner.Link }}"
+              target="_blank"
+              rel="noopener"
+              class="font-body text-lg p-2"
+              >Website
+              <img
+                src="assets/fonts/MaterialIcons/call_made.png"
+                width="24px"
+                class="inline"
+            /></a>
+          </button>
           </figcaption>
         </figure>
       </ng-container>
@@ -118,11 +137,7 @@
       <img src="/assets/partners/eu.png" alt="EU" class="h-12 m-4" />
     </a>
     <a href="https://www.daad.de/" target="_blank" rel="noopener">
-      <img
-        src="/assets/partners/logo-daad.png"
-        alt="DAAD"
-        class="h-24 m-4"
-      />
+      <img src="/assets/partners/logo-daad.png" alt="DAAD" class="h-24 m-4" />
     </a>
   </div>
 </esn-article>
