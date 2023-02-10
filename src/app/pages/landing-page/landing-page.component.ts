@@ -67,7 +67,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
             this.isAnimated = true;
             const aEl = this.document.getElementById('a');
             if (aEl) {
-              aEl.innerHTML = '1200 +';
+              aEl.innerHTML = '1 200 +';
             }
           }, 1100);
           setTimeout(function () {
