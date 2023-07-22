@@ -4,7 +4,7 @@ import {
   IBoardPositionItem,
   BoardPositionsService,
 } from 'src/app/services/board-positions.service';
-import { TeamsItem, TeamsService } from 'src/app/services/teams.service';
+import { ITeamsItem, TeamsService } from 'src/app/services/teams.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -19,7 +19,7 @@ export class NetworkPageComponent implements OnInit {
   ABItemList$: Observable<IBoardPositionItem[]>;
   RCItemList$: Observable<IBoardPositionItem[]>;
   BSItemList$: Observable<IBoardPositionItem[]>;
-  teamsList$: Observable<TeamsItem[]>;
+  teamsList$: Observable<ITeamsItem[]>;
 
   constructor(
     private boardPositionService: BoardPositionsService,
@@ -44,6 +44,9 @@ export class NetworkPageComponent implements OnInit {
       map((res: any) => res.data)
     );
 
-    this.teamsList$ = this.teamsService.fetchTeam().pipe(shareReplay(1));
+    this.teamsList$ = this.teamsService.fetchTeam().pipe(
+      shareReplay(1),
+      map((res: any) => res.data)
+    );
   }
 }

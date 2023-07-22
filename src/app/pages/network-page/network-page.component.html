@@ -294,15 +294,15 @@
     >
       <img
         class="h-56 hoverimg"
-        src="https://strapi.esn-germany.de{{ team.Image.formats.portrait.url }}"
+        src="{{ directusImageUrl }}{{ team.image }}?height=300"
         alt=""
       />
       <figcaption class="text-center font-bold text-xl">
-        {{ team.Teamname }}
+        {{ team.teamname }}
       </figcaption>
       <div class="middlecom text-black">
         <p>
-          {{ team.Description }}
+          {{ team.description }}
         </p>
       </div>
     </figure>

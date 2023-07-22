@@ -3,41 +3,31 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
+import { environment as env } from 'src/environments/environment';
 
-export interface TeamsItem {
-  id: string;
-  Teamname: string;
-  Description: string;
-  Image: {
-    alternativeText: string;
-    formats: {
-      portrait: {
-        url: string;
-      };
-    };
-  };
+export interface ITeamsItem {
+  image: string;
+  teamname: string;
+  description: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class TeamsService {
-  private url = 'https://strapi.esn-germany.de/website-national-teams';
-  private dataRequest;
+  private url = `${env.DIRECTUS_URL}national_teams`;
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {
-    this.dataRequest = this.http.get<TeamsItem[]>(this.url).pipe(
+  ) {}
+
+  public fetchTeam(): Observable<ITeamsItem[]> {
+    return this.http.get<ITeamsItem[]>(this.url).pipe(
       shareReplay(1),
       tap((_) => this.log('fetched Team')),
-      catchError(this.handleError<TeamsItem[]>('fetchTeamsList', []))
+      catchError(this.handleError<ITeamsItem[]>('fetchTeamsList', []))
     );
-  }
-
-  public fetchTeam(): Observable<TeamsItem[]> {
-    return this.dataRequest;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
