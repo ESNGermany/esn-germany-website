@@ -49,23 +49,19 @@
   data-testid="esn-national-partners"
 >
   <ng-container *ngIf="partners$ | async as partners; else loading">
-    <p>
-      Click on a logo to get more information.
-    </p>
+    <p>Click on a logo to get more information.</p>
     <div class="flex flex-wrap justify-evenly items-baseline">
       <ng-container *ngFor="let partner of partners; let i = index">
         <figure data-testid="esn-partner-figure" class="my-4 px-8 maxw">
           <button (click)="toggleInfo(partner)">
             <img
               class="imgh m-auto zoom"
-              src="https://strapi.esn-germany.de{{
-                partner.Logo.formats.medium.url
-              }}"
-              alt="{{ partner.Logo.alternativeText }}"
+              src="{{ directusImageUrl }}{{ partner.logo }}"
+              alt="{{ partner.name }}"
             />
           </button>
           <figcaption class="pt-4 text-center font-bold">
-            {{ partner.Name }}
+            {{ partner.name }}
             <!-- <br />
             <button
               *ngIf="partner.Description"
@@ -76,25 +72,25 @@
             </button> -->
             <br />
             <p class="font-normal text-left" [hidden]="!partner.show">
-              {{ partner.Description }}
+              {{ partner.description }}
             </p>
             <button
-            [hidden]="!partner.show"
-            type="button"
-            class="text-left bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
-          >
-            <a
-              href="{{ partner.Link }}"
-              target="_blank"
-              rel="noopener"
-              class="font-body text-lg p-2"
-              >Website
-              <img
-                src="assets/fonts/MaterialIcons/call_made.png"
-                width="24px"
-                class="inline"
-            /></a>
-          </button>
+              [hidden]="!partner.show"
+              type="button"
+              class="text-left bg-white hover:bg-graylight text-black font-semibold py-2 px-4 border border-gray rounded-full shadow addeffect"
+            >
+              <a
+                href="{{ partner.link }}"
+                target="_blank"
+                rel="noopener"
+                class="font-body text-lg p-2"
+                >Website
+                <img
+                  src="assets/fonts/MaterialIcons/call_made.png"
+                  width="24px"
+                  class="inline"
+              /></a>
+            </button>
           </figcaption>
         </figure>
       </ng-container>

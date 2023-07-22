@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
+import { Observable, map, shareReplay } from 'rxjs';
 import {
-  PartnersItem,
+  IPartnersItem,
   PartnersService,
 } from 'src/app/services/partners.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'esn-partners-page',
@@ -11,30 +12,33 @@ import {
   styleUrls: ['./partners-page.component.scss'],
 })
 export class PartnersPageComponent implements OnInit {
-  partners$: Observable<PartnersItem[]>;
+  partners$: Observable<IPartnersItem[]>;
+  public directusImageUrl: string = environment.DIRECTUS_URL_IMAGE;
+  private buttonText = 'Learn More ↓';
 
   constructor(private partnersService: PartnersService) {}
 
   async ngOnInit() {
-    this.partners$ = this.partnersService
-      .fetchPartnersList()
-      .pipe(shareReplay(1));
+    this.partners$ = this.partnersService.fetchPartnersList().pipe(
+      shareReplay(1),
+      map((res: any) => res.data)
+    );
 
     // initialize each buttontext
-    this.partnersService.fetchPartnersList().subscribe((listPartners) => {
+    this.partners$.subscribe((listPartners) => {
       for (let p of listPartners) {
-        p.buttonText = 'Learn More ↓';
+        p.buttontext = this.buttonText;
       }
     });
   }
 
-  public toggleInfo(partner: PartnersItem): void {
+  public toggleInfo(partner: IPartnersItem): void {
     partner.show = !partner.show;
 
     if (!partner.show) {
-      partner.buttonText = `Learn more ↓`;
+      partner.buttontext = this.buttonText;
     } else {
-      partner.buttonText = `Hide text ↑`;
+      partner.buttontext = `Hide text ↑`;
     }
   }
 }
