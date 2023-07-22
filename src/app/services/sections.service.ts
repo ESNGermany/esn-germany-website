@@ -3,100 +3,87 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
+import { environment as env } from 'src/environments/environment';
 
-export interface SectionItem {
-  id: string;
+export interface ISectionItem {
   name: string;
   city: string;
-  email: string;
   website: string;
-  region: 'North' | 'West' | 'East' | 'SouthWest' | 'SouthEast';
+  email: string;
+  region: 'north' | 'west' | 'east' | 'southwest' | 'southeast';
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class SectionsService {
-  private url = 'https://strapi.esn-germany.de/web-section';
-  private sectionList: Observable<SectionItem[]>;
-  private northList: Observable<SectionItem[]>;
-  private eastList: Observable<SectionItem[]>;
-  private westList: Observable<SectionItem[]>;
-  private southWestList: Observable<SectionItem[]>;
-  private southEastList: Observable<SectionItem[]>;
+  private url = `${env.DIRECTUS_URL}section_map`;
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {
-    this.sectionList = this.http.get<SectionItem[]>(this.url).pipe(
+  ) {}
+
+  public fetchSectionList(): Observable<ISectionItem[]> {
+    return this.http.get<ISectionItem[]>(this.url).pipe(
       shareReplay(1),
       tap((_) => this.log('fetched sections')),
-      catchError(this.handleError<SectionItem[]>('fetchSections', []))
+      catchError(this.handleError<ISectionItem[]>('fetchSections', []))
     );
-    this.northList = this.http
-      .get<SectionItem[]>(this.url + '?region_eq=North')
+  }
+
+  public fetchSectionsNorthList(): Observable<ISectionItem[]> {
+    return this.http
+      .get<ISectionItem[]>(this.url + '?filter[region]=north')
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched north sections')),
-        catchError(this.handleError<SectionItem[]>('fetchEastSectionList', []))
+        catchError(this.handleError<ISectionItem[]>('fetchEastSectionList', []))
       );
-    this.eastList = this.http
-      .get<SectionItem[]>(this.url + '?region_eq=East')
+  }
+
+  public fetchSectionsEastList(): Observable<ISectionItem[]> {
+    return this.http
+      .get<ISectionItem[]>(this.url + '?filter[region]=east')
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched east sections')),
-        catchError(this.handleError<SectionItem[]>('fetchEastSectionList', []))
+        catchError(this.handleError<ISectionItem[]>('fetchEastSectionList', []))
       );
-    this.westList = this.http
-      .get<SectionItem[]>(this.url + '?region_eq=West')
+  }
+
+  public fetchSectionsWestList(): Observable<ISectionItem[]> {
+    return this.http
+      .get<ISectionItem[]>(this.url + '?filter[region]=west')
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched west sections')),
-        catchError(this.handleError<SectionItem[]>('fetchWestSectionList', []))
+        catchError(this.handleError<ISectionItem[]>('fetchWestSectionList', []))
       );
-    this.southWestList = this.http
-      .get<SectionItem[]>(this.url + '?region_eq=SouthWest')
+  }
+
+  public fetchSectionsSouthWestList(): Observable<ISectionItem[]> {
+    return this.http
+      .get<ISectionItem[]>(this.url + '?filter[region]=southwest')
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched south west sections')),
         catchError(
-          this.handleError<SectionItem[]>('fetchSouthWestSectionList', [])
+          this.handleError<ISectionItem[]>('fetchSouthWestSectionList', [])
         )
       );
-    this.southEastList = this.http
-      .get<SectionItem[]>(this.url + '?region_eq=SouthEast')
+  }
+
+  public fetchSectionsSouthEastList(): Observable<ISectionItem[]> {
+    return this.http
+      .get<ISectionItem[]>(this.url + '?filter[region]=southeast')
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched south east sections')),
         catchError(
-          this.handleError<SectionItem[]>('fetchSouthEastSectionList', [])
+          this.handleError<ISectionItem[]>('fetchSouthEastSectionList', [])
         )
       );
-  }
-
-  public fetchSectionList(): Observable<SectionItem[]> {
-    return this.sectionList;
-  }
-
-  public fetchSectionsNorthList(): Observable<SectionItem[]> {
-    return this.northList;
-  }
-
-  public fetchSectionsEastList(): Observable<SectionItem[]> {
-    return this.eastList;
-  }
-
-  public fetchSectionsWestList(): Observable<SectionItem[]> {
-    return this.westList;
-  }
-
-  public fetchSectionsSouthWestList(): Observable<SectionItem[]> {
-    return this.southWestList;
-  }
-
-  public fetchSectionsSouthEastList(): Observable<SectionItem[]> {
-    return this.southEastList;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
