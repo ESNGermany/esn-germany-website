@@ -1,33 +1,18 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
+import { environment as env} from 'src/environments/environment';
 
-export interface NewsItem {
+export interface INewsItem {
   id: string;
-  Title: string;
-  Shorttext: string;
-  Image: {
-    id: string;
-    alternativeText: string;
-    caption: string;
-    width: number;
-    height: number;
-    formats: {
-      medium: {
-        url: string;
-      };
-    };
-  };
-  Attachments: {
-    name: string;
-    url: string;
-  };
-  Author: string;
-  Text: string;
-  updated_at: Date;
-  newsItemId?: string;
+  title: string;
+  text: string;
+  image: string;
+  attachment: string;
+  author: string;
+  published: Date;
 }
 
 @Injectable({
@@ -35,22 +20,22 @@ export interface NewsItem {
 })
 export class NewsService {
   private url =
-    'https://strapi.esn-germany.de/web-news-item?_sort=updated_at:DESC';
+    `${env.DIRECTUS_URL}news`;
 
-  private dataRequest;
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {
-    this.dataRequest = this.http.get<NewsItem[]>(this.url).pipe(
+  ) { }
+
+  public fetchNewsList(): Observable<INewsItem[]> {
+    const params = new HttpParams()
+      .set('sort', '-published');
+
+    return this.http.get<INewsItem[]>(this.url, { params }).pipe(
       shareReplay(1),
       tap((_) => this.log('fetched news')),
-      catchError(this.handleError<NewsItem[]>('fetchNewsList', []))
+      catchError(this.handleError<INewsItem[]>('fetchNewsList', []))
     );
-  }
-
-  public fetchNewsList(): Observable<NewsItem[]> {
-    return this.dataRequest;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

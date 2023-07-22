@@ -7,37 +7,34 @@
     >
       <div class="m-auto mb-4 relative w-full">
         <p
-          id="{{ ni.newsItemId }}"
+          id="{{ ni.id }}"
           class="font-heading text-esn-dark-blue font-bold text-4xl title w-full relative"
         >
-          {{ ni.Title }}
+          {{ ni.title }}
         </p>
       </div>
       <div class="m-auto font-body text-lg">
         <figure class="pl-8 pb-0 pr-0 pt-0 float-right w-2/5">
           <img
-            src="https://strapi.esn-germany.de{{ ni.Image.formats.medium.url }}"
-            alt="{{ ni.Image.alternativeText }}"
+            src="{{ directusImageUrl }}{{ ni.image }}?height=300"
+            alt=""
             class="pb-4"
           />
-          <figcaption class="text-black italic">
-            {{ ni.Image.caption }}
-          </figcaption>
         </figure>
         <p class="text-gray pb-4 text-xl">
-          {{ ni.Author }} – {{ ni.updated_at | date: "mediumDate" }}
+          {{ ni.author }} – {{ ni.published | date: "mediumDate" }}
         </p>
         <div class="news{{ ni.id }}">
-          <markdown [data]="ni.Text"></markdown>
-          <div *ngIf="ni.Attachments" class="my-4">
+          <markdown [data]="ni.text"></markdown>
+          <div *ngIf="ni.attachment" class="my-4">
             <p>Open attachment:</p>
             <a
-              href="https://strapi.esn-germany.de{{ ni.Attachments.url }}"
+              href="{{ directusImageUrl }}{{ ni.attachment }}?download"
               target="_blank"
               rel="noopener"
               class="font-body text-lg text-esn-dark-blue hover:underline"
             >
-              {{ ni.Attachments.name }}
+              Document PDF
               <img
                 src="assets/fonts/MaterialIcons/call_made.png"
                 width="24px"
@@ -45,14 +42,6 @@
             /></a>
           </div>
         </div>
-        <span
-          (click)="showLess(ni.id)"
-          class="cursor-pointer hidden text-esn-dark-blue hover:underline spanLess{{
-            ni.id
-          }}"
-          >Show less</span
-        >
-        <br />
       </div>
     </div>
     <p class="mb-24 px-8 text-center font-body">
