@@ -1,85 +1,81 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
+import { environment as env } from 'src/environments/environment';
 
-export interface BoardPositionItem {
-  id: string;
+export interface IBoardPositionItem {
+  portrait: string;
   name: string;
-  position: string;
-  email: string;
   position_description: string;
-  Portrait: [
-    {
-      formats: {
-        portrait: {
-          url: string;
-        };
-      };
-    }
-  ];
+  position: string;
+  order: number;
+  email: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class BoardPositionsService {
-  private url = 'https://strapi.esn-germany.de/web-board-member?_sort=order';
-
-  private ABList: Observable<BoardPositionItem[]>; // audit board
-  private NBList: Observable<BoardPositionItem[]>; // national board
-  private RCList: Observable<BoardPositionItem[]>; // regional coordinators
-  private BSList: Observable<BoardPositionItem[]>; // board supporters
+  private url = `${env.DIRECTUS_URL}board_members`;
+  private params = new HttpParams().set('sort', 'order');
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {
-    this.ABList = this.http
-      .get<BoardPositionItem[]>(this.url + '&type=AB')
+  ) {}
+
+  public fetchABList(): Observable<IBoardPositionItem[]> {
+    // audit board
+    return this.http
+      .get<IBoardPositionItem[]>(this.url + '?filter[type]=AB', {
+        params: this.params,
+      })
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched ABPositions')),
-        catchError(this.handleError<BoardPositionItem[]>('fetchABPositions'))
+        catchError(this.handleError<IBoardPositionItem[]>('fetchABPositions'))
       );
-    this.NBList = this.http
-      .get<BoardPositionItem[]>(this.url + '&type=NB')
+  }
+
+  public fetchNBList(): Observable<IBoardPositionItem[]> {
+    // national board
+    return this.http
+      .get<IBoardPositionItem[]>(this.url + '?filter[type]=NB', {
+        params: this.params,
+      })
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched NBPositions')),
-        catchError(this.handleError<BoardPositionItem[]>('fetchNBPositions'))
+        catchError(this.handleError<IBoardPositionItem[]>('fetchNBPositions'))
       );
-    this.RCList = this.http
-      .get<BoardPositionItem[]>(this.url + '&type=RC')
+  }
+
+  public fetchRCList(): Observable<IBoardPositionItem[]> {
+    // regional coordinators
+    return this.http
+      .get<IBoardPositionItem[]>(this.url + '?filter[type]=RC', {
+        params: this.params,
+      })
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched RCPositions')),
-        catchError(this.handleError<BoardPositionItem[]>('fetchRCPositions'))
+        catchError(this.handleError<IBoardPositionItem[]>('fetchRCPositions'))
       );
-    this.BSList = this.http
-      .get<BoardPositionItem[]>(this.url + '&type=BS')
+  }
+
+  public fetchBSList(): Observable<IBoardPositionItem[]> {
+    // board supporters
+    return this.http
+      .get<IBoardPositionItem[]>(this.url + '?filter[type]=BS', {
+        params: this.params,
+      })
       .pipe(
         shareReplay(1),
         tap((_) => this.log('fetched BSPositions')),
-        catchError(this.handleError<BoardPositionItem[]>('fetchBSPositions'))
+        catchError(this.handleError<IBoardPositionItem[]>('fetchBSPositions'))
       );
-  }
-
-  public fetchABList(): Observable<BoardPositionItem[]> {
-    return this.ABList;
-  }
-
-  public fetchNBList(): Observable<BoardPositionItem[]> {
-    return this.NBList;
-  }
-
-  public fetchRCList(): Observable<BoardPositionItem[]> {
-    return this.RCList;
-  }
-
-  public fetchBSList(): Observable<BoardPositionItem[]> {
-    return this.BSList;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -188,13 +188,11 @@
         <figure
           class="py-4 px-5 inline-block relative hoverimgcontainer bg-white"
         >
-          <ng-container *ngIf="nb.Portrait[0]; else portraitnb">
+          <ng-container *ngIf="nb.portrait; else portraitnb">
             <img
               class="h-56 hoverimg"
-              src="https://strapi.esn-germany.de{{
-                nb.Portrait[0].formats.portrait.url
-              }}"
-              alt="{{ nb.Portrait[0].alternativeText }}"
+              src="{{ directusImageUrl }}{{ nb.portrait }}?height=300"
+              alt="{{ nb.name }}"
             />
           </ng-container>
           <ng-template #portraitnb>
@@ -238,13 +236,11 @@
         <figure
           class="py-4 px-6 inline-block relative hoverimgcontainer bg-whitebg"
         >
-          <ng-container *ngIf="bs.Portrait[0]; else portraitbs">
+          <ng-container *ngIf="bs.portrait; else portraitbs">
             <img
               class="h-56 hoverimg"
-              src="https://strapi.esn-germany.de{{
-                bs.Portrait[0].formats.portrait.url
-              }}"
-              alt="{{ bs.Portrait[0].alternativeText }}"
+              src="{{ directusImageUrl }}{{ bs.portrait }}?height=300"
+              alt="{{ bs.name }}"
             />
           </ng-container>
           <ng-template #portraitbs>
@@ -324,20 +320,16 @@
   </p>
   <p class="pt-4">The current Regional Coordinators are:</p>
   <div *ngIf="RCItemList$ | async as RCItemList">
-    <div
-      class="m-auto flex flex-wrap items-start justify-evenly"
-    >
+    <div class="m-auto flex flex-wrap items-start justify-evenly">
       <div *ngFor="let rc of RCItemList">
         <figure
           class="py-4 px-6 inline-block relative hoverimgcontainer bg-whitebg"
         >
-          <ng-container *ngIf="rc.Portrait[0]; else portraitrc">
+          <ng-container *ngIf="rc.portrait; else portraitrc">
             <img
               class="h-56 hoverimg"
-              src="https://strapi.esn-germany.de{{
-                rc.Portrait[0].formats.portrait.url
-              }}"
-              alt="{{ rc.Portrait[0].alternativeText }}"
+              src="{{ directusImageUrl }}{{ rc.portrait }}?height=300"
+              alt="{{ rc.name }}"
             />
           </ng-container>
           <ng-template #portraitrc>
@@ -388,13 +380,11 @@
         <figure
           class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
         >
-          <ng-container *ngIf="ab.Portrait[0]; else portraitab">
+          <ng-container *ngIf="ab.portrait; else portraitab">
             <img
               class="h-56 hoverimg"
-              src="https://strapi.esn-germany.de{{
-                ab.Portrait[0].formats.portrait.url
-              }}"
-              alt="{{ ab.Portrait[0].alternativeText }}"
+              src="{{ directusImageUrl }}{{ ab.portrait }}?height=300"
+              alt="{{ ab.name }}"
             />
           </ng-container>
           <ng-template #portraitab>

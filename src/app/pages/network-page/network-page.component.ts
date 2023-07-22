@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
+import { Observable, map, shareReplay } from 'rxjs';
 import {
-  BoardPositionItem,
+  IBoardPositionItem,
   BoardPositionsService,
 } from 'src/app/services/board-positions.service';
 import { TeamsItem, TeamsService } from 'src/app/services/teams.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'esn-network-page',
@@ -12,10 +13,12 @@ import { TeamsItem, TeamsService } from 'src/app/services/teams.service';
   styleUrls: ['./network-page.component.scss'],
 })
 export class NetworkPageComponent implements OnInit {
-  NBItemList$: Observable<BoardPositionItem[]>;
-  ABItemList$: Observable<BoardPositionItem[]>;
-  RCItemList$: Observable<BoardPositionItem[]>;
-  BSItemList$: Observable<BoardPositionItem[]>;
+  public directusImageUrl: string = environment.DIRECTUS_URL_IMAGE;
+
+  NBItemList$: Observable<IBoardPositionItem[]>;
+  ABItemList$: Observable<IBoardPositionItem[]>;
+  RCItemList$: Observable<IBoardPositionItem[]>;
+  BSItemList$: Observable<IBoardPositionItem[]>;
   teamsList$: Observable<TeamsItem[]>;
 
   constructor(
@@ -24,18 +27,23 @@ export class NetworkPageComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.ABItemList$ = this.boardPositionService
-      .fetchABList()
-      .pipe(shareReplay(1));
-    this.NBItemList$ = this.boardPositionService
-      .fetchNBList()
-      .pipe(shareReplay(1));
-    this.RCItemList$ = this.boardPositionService
-      .fetchRCList()
-      .pipe(shareReplay(1));
-    this.BSItemList$ = this.boardPositionService
-      .fetchBSList()
-      .pipe(shareReplay(1));
+    this.ABItemList$ = this.boardPositionService.fetchABList().pipe(
+      shareReplay(1),
+      map((res: any) => res.data)
+    );
+    this.NBItemList$ = this.boardPositionService.fetchNBList().pipe(
+      shareReplay(1),
+      map((res: any) => res.data)
+    );
+    this.RCItemList$ = this.boardPositionService.fetchRCList().pipe(
+      shareReplay(1),
+      map((res: any) => res.data)
+    );
+    this.BSItemList$ = this.boardPositionService.fetchBSList().pipe(
+      shareReplay(1),
+      map((res: any) => res.data)
+    );
+
     this.teamsList$ = this.teamsService.fetchTeam().pipe(shareReplay(1));
   }
 }
