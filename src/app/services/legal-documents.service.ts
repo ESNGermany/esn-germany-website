@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
+import { environment as env } from 'src/environments/environment';
 
-export interface LegalDocumentsItem {
-  id: string;
-  UpdateDate: string;
-  MarkdownText: string;
-  Title: string;
+export interface ILegalDocumentsItem {
+  markdowntext: string;
+  title: string;
+  pdf: string;
 }
 
 @Injectable({
@@ -16,14 +16,14 @@ export interface LegalDocumentsItem {
 })
 export class LegalDocumentsService {
   /**
-   * 1: Satzung
-   * 2: Ordnung
-   * 3: Event Policy Paper
-   * 4: Code of Conduct
-   * 5: Konsultationsordnung
+   * Satzung
+   * Ordnung
+   * EPP
+   * Code of Conduct
+   * Konsultationsordnung
    */
 
-  private url = 'https://strapi.esn-germany.de/web-legal-documents/';
+  private url = `${env.DIRECTUS_URL}legal_documents`;
   private fullUrl: string;
 
   constructor(
@@ -31,11 +31,11 @@ export class LegalDocumentsService {
     private messageService: MessageService
   ) {}
 
-  public fetchLegalDocumentsList(id: string): Observable<LegalDocumentsItem> {
+  public fetchLegalDocumentsList(id: string): Observable<ILegalDocumentsItem> {
     this.fullUrl = this.url + id;
-    return this.http.get<LegalDocumentsItem>(this.fullUrl).pipe(
-      tap((_) => this.log('fetched LegalDocuments')),
-      catchError(this.handleError<LegalDocumentsItem>('fetchLegalDocuments'))
+    return this.http.get<ILegalDocumentsItem>(this.fullUrl).pipe(
+      tap((_) => this.log('fetched LegalDocument')),
+      catchError(this.handleError<ILegalDocumentsItem>('fetchLegalDocument'))
     );
   }
 

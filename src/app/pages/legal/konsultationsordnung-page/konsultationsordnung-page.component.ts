@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable, shareReplay } from 'rxjs';
 import {
-  LegalDocumentsItem,
+  ILegalDocumentsItem,
   LegalDocumentsService,
 } from 'src/app/services/legal-documents.service';
 
@@ -10,16 +10,16 @@ import {
   templateUrl: './konsultationsordnung-page.component.html',
 })
 export class KonsultationsordnungPageComponent implements OnInit {
-  konsultationsordnungItem$: Observable<LegalDocumentsItem> | undefined;
+  konsultationsordnungItem$: Observable<ILegalDocumentsItem> | undefined;
 
   constructor(private legalDocumentsService: LegalDocumentsService) {}
 
   async ngOnInit() {
     this.konsultationsordnungItem$ = this.legalDocumentsService
-      .fetchLegalDocumentsList('5')
+      .fetchLegalDocumentsList('?filter[title]=Konsultationsordnung')
       .pipe(
         shareReplay(1),
-        map((res: LegalDocumentsItem) => res)
+        map((res: any) => res.data[0])
       );
   }
 }

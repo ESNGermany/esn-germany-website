@@ -2,7 +2,7 @@
 <div class="max-w-screen-xl m-auto mb-16 sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
   <div class="m-auto block mb-24 px-16 font-body">
     <ng-container *ngIf="ordnungItem$ | async as ordnungItem; else loading">
-      <markdown [data]="ordnungItem.MarkdownText"></markdown>
+      <markdown [data]="ordnungItem.markdowntext"></markdown>
     </ng-container>
     <ng-template #loading>
       <img width="200px" class="m-auto" src="assets/ESN-star-spinner.gif" />

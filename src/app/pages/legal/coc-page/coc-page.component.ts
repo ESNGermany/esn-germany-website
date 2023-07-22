@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable, shareReplay } from 'rxjs';
 import {
-  LegalDocumentsItem,
+  ILegalDocumentsItem,
   LegalDocumentsService,
 } from 'src/app/services/legal-documents.service';
 
@@ -10,16 +10,16 @@ import {
   templateUrl: './coc-page.component.html',
 })
 export class CocPageComponent implements OnInit {
-  cocItem$: Observable<LegalDocumentsItem> | undefined;
+  cocItem$: Observable<ILegalDocumentsItem> | undefined;
 
   constructor(private legalDocumentsService: LegalDocumentsService) {}
 
   async ngOnInit() {
     this.cocItem$ = this.legalDocumentsService
-      .fetchLegalDocumentsList('4')
+      .fetchLegalDocumentsList('?filter[title]=Verhaltenskodex / Code of Conduct')
       .pipe(
         shareReplay(1),
-        map((res: LegalDocumentsItem) => res)
+        map((res: any) => res.data[0])
       );
   }
 }

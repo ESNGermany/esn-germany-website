@@ -4,7 +4,7 @@
     <ng-container
       *ngIf="konsultationsordnungItem$ | async as konsItem; else loading"
     >
-      <markdown [data]="konsItem.MarkdownText"></markdown>
+      <markdown [data]="konsItem.markdowntext"></markdown>
     </ng-container>
     <ng-template #loading>
       <img width="200px" class="m-auto" src="assets/ESN-star-spinner.gif" />
