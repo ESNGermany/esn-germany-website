@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
-import { ImprintItem, ImprintService } from 'src/app/services/imprint.service';
+import { firstValueFrom } from 'rxjs';
+import { IImprintItem, ImprintService } from 'src/app/services/imprint.service';
 
 @Component({
   selector: 'esn-imprint-page',
-  templateUrl: './imprint-page.component.html'
+  templateUrl: './imprint-page.component.html',
 })
 export class ImprintPageComponent implements OnInit {
-  imprintItem$: Observable<ImprintItem[]> | undefined;
+  imprintItem: IImprintItem | undefined;
 
   constructor(private imprintService: ImprintService) {}
 
   async ngOnInit() {
-    this.imprintItem$ = this.imprintService
-      .fetchImprintList()
-      .pipe(shareReplay(1));
+    this.imprintItem = await firstValueFrom(
+      this.imprintService.fetchImprint()
+    ).then((res: any) => res.data);
   }
 }

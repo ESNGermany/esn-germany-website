@@ -3,32 +3,29 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
+import { environment as env } from 'src/environments/environment';
 
-export interface ImprintItem {
-  id: string;
-  Content: string;
+export interface IImprintItem {
+  content: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class ImprintService {
-  private url = 'https://strapi.esn-germany.de/website-imprints';
+  private url = `${env.DIRECTUS_URL}imprint`;
 
-  private dataRequest;
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {
-    this.dataRequest = this.http.get<ImprintItem[]>(this.url).pipe(
+  ) {}
+
+  public fetchImprint(): Observable<IImprintItem> {
+    return this.http.get<IImprintItem>(this.url).pipe(
       shareReplay(1),
       tap((_) => this.log('fetched imprint')),
-      catchError(this.handleError<ImprintItem[]>('fetchImprintList', []))
+      catchError(this.handleError<IImprintItem>('fetchImprint'))
     );
-  }
-
-  public fetchImprintList(): Observable<ImprintItem[]> {
-    return this.dataRequest;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

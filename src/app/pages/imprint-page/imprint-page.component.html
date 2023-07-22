@@ -1,7 +1,7 @@
 <esn-navigation-dark></esn-navigation-dark>
 <esn-article [title]="'Imprint'">
-  <ng-container *ngIf="imprintItem$ | async as imprintItem; else loading">
-    <markdown [data]="imprintItem[0].Content"></markdown>
+  <ng-container *ngIf="imprintItem; else loading">
+    <markdown [data]="imprintItem.content"></markdown>
   </ng-container>
   <ng-template #loading>
     <img width="200px" class="m-auto" src="assets/ESN-star-spinner.gif" />
