@@ -25,18 +25,22 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 3. Start the script to build the new version of the website.
    Everything else will happen automatically within few minutes.
 
-## Update National/Audit Board members or Regional Coordinators
-
-You do not need to change anything in the code here.
-
-1. Navigate to https://strapi.esn-germany.de/admin/auth/login and login.
-2. Find the collection type `Website Board Members`.
-3. Update, remove or add the persons.
-   > If you do not upload a photo, the default gray portrait image will be displayed instead.
 
 ## Add a new section to the section map
 
-### Add the section to the map
+### 1) Add the section to Directus
+
+1. Navigate to https://strapi.esn-germany.de/admin/auth/login and login.
+2. Find the collection type `Website Section Maps`.
+3. Add a new entry by clicking on the blue `+ Add a New Website Section Maps` button at the top of the page.
+4. Enter all details and save.
+
+### 2) Add the section to the list of sections
+
+1. Go to `components/sectionmap/sectionmap.component.ts`.
+2. Find the region where the new section belongs to and add its section name to the list.
+
+### 3) Add the section to the map
 
 1. Go to `components/sectionmap/sectionmap.component.html`.
 2. Add a `<path>` element with the correct id (section name), the respective color to fill, and the position on the map.
@@ -53,23 +57,7 @@ Find the correct position on the map by playing around with the values in `trans
 
 If you are not sure what to do here, just copy a `<path>` element from another section, change its color by the `fill` attribute and/or the `translate()` values and see what happens.
 
-### Add the section to the list of sections
-
-1. Go to `components/sectionmap/sectionmap.component.ts`.
-2. Find the region where the new section belongs to and add its section name to the list.
-
-### Add the section to strapi
-
-1. Navigate to https://strapi.esn-germany.de/admin/auth/login and login.
-2. Find the collection type `Website Section Maps`.
-3. Add a new entry by clicking on the blue `+ Add a New Website Section Maps` button at the top of the page.
-4. Enter all details and save.
-
-### Update the number of sections
+### 4) Update the number of sections
 
 1. In line 10 of `pages/students-page/students-page.component.html` change the number according to the new number of sections.
 2. In line 98 of `pages/landing-page/landing-page.component.html` change the number according to the new number of sections.
-
-## Add News, Legal Documents, National Teams and Partners
-
-All this information is handled on Strapi only. No need to change the code :-)
