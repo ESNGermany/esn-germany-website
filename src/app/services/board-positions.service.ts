@@ -34,7 +34,7 @@ export class BoardPositionsService {
       })
       .pipe(
         shareReplay(1),
-        tap((_) => this.log('fetched ABPositions')),
+        tap(() => this.log('fetched ABPositions')),
         catchError(this.handleError<IBoardPositionItem[]>('fetchABPositions'))
       );
   }
@@ -47,7 +47,7 @@ export class BoardPositionsService {
       })
       .pipe(
         shareReplay(1),
-        tap((_) => this.log('fetched NBPositions')),
+        tap(() => this.log('fetched NBPositions')),
         catchError(this.handleError<IBoardPositionItem[]>('fetchNBPositions'))
       );
   }
@@ -60,7 +60,7 @@ export class BoardPositionsService {
       })
       .pipe(
         shareReplay(1),
-        tap((_) => this.log('fetched RCPositions')),
+        tap(() => this.log('fetched RCPositions')),
         catchError(this.handleError<IBoardPositionItem[]>('fetchRCPositions'))
       );
   }
@@ -73,7 +73,7 @@ export class BoardPositionsService {
       })
       .pipe(
         shareReplay(1),
-        tap((_) => this.log('fetched BSPositions')),
+        tap(() => this.log('fetched BSPositions')),
         catchError(this.handleError<IBoardPositionItem[]>('fetchBSPositions'))
       );
   }

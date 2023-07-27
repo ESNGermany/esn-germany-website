@@ -38,7 +38,7 @@ export class GeneralInformationService {
     return this.http.get<IGeneralInformationItem>(this.url).pipe(
       shareReplay(1),
       map((res: any) => res.data),
-      tap((_) => this.log('fetched general information')),
+      tap(() => this.log('fetched general information')),
       catchError(this.handleError<IGeneralInformationItem>('fetchGeneralInformation'))
     );
   }

@@ -13,7 +13,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Observable, firstValueFrom, interval, map, share, shareReplay } from 'rxjs';
+import { firstValueFrom, interval } from 'rxjs';
 import { DOCUMENT, NgFor, NgIf, NgClass, AsyncPipe } from '@angular/common';
 import {
   GeneralInformationService,
@@ -49,24 +49,24 @@ import { NavigationComponent } from '../../components/navigation/navigation.comp
     ],
 })
 export class LandingPageComponent implements OnInit, AfterViewInit {
-  index: number = 0;
-  numImages: number = 3;
-  imagesLoaded: number = 0;
-  loading: boolean = true;
-  imagesUrl = [
+  private index = 0;
+  private numImages = 3;
+  private imagesLoaded = 0;
+  private loading = true;
+  private imagesUrl = [
     '/assets/landing/landing1.png',
     '/assets/landing/landing2.png',
     '/assets/landing/landing3.png',
   ];
 
-  generalInformation: IGeneralInformationItem = {} as IGeneralInformationItem;
-  contentItems: IContentItem[];
-  isAnimated: boolean = false;
-  doneAnimating: boolean = false;
+  public generalInformation: IGeneralInformationItem = {} as IGeneralInformationItem;
+  public contentItems: IContentItem[];
+  public isAnimated = false;
+  private doneAnimating = false;
 
-  public landing_image_div0: string = '';
-  public landing_image_div1: string = '';
-  public landing_image_div2: string = '';
+  public landing_image_div0 = '';
+  public landing_image_div1 = '';
+  public landing_image_div2 = '';
 
   @ViewChild('a', { static: false }) a: any;
   @ViewChild('b', { static: false }) b: any;
@@ -99,7 +99,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   }
 
   async ngAfterViewInit() {
-    this.imagesUrl.forEach((x, index) => {
+    this.imagesUrl.forEach((x) => {
       const image = new Image();
       image.onload = () => {
         this.imagesLoaded++;
@@ -109,19 +109,19 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     // TODO: solve this in a way that makes the app go stable
     interval(2000).subscribe(() => {
       // this.index = (this.index + 1) % this.numImages;
-      var image0 = this.document.getElementsByClassName(
+      const image0 = this.document.getElementsByClassName(
         'div0'
         )[0] as HTMLDivElement;
       if (image0) {
         image0.style.backgroundImage = `url(${env.DIRECTUS_URL_IMAGE}${this.landing_image_div0})`;
       }
-      var image1 = this.document.getElementsByClassName(
+      const image1 = this.document.getElementsByClassName(
         'div1'
       )[0] as HTMLDivElement;
       if (image1) {
         image1.style.backgroundImage = `url(${env.DIRECTUS_URL_IMAGE}${this.landing_image_div1})`;
       }
-      var image2 = this.document.getElementsByClassName(
+      const image2 = this.document.getElementsByClassName(
         'div2'
       )[0] as HTMLDivElement;
       if (image2) {
@@ -135,7 +135,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     ).then((x) => x.section_counter);
 
     this.render.listen('window', 'scroll', () => {
-      let aPosition = this.a.nativeElement.getBoundingClientRect();
+      const aPosition = this.a.nativeElement.getBoundingClientRect();
       if (
         !this.doneAnimating &&
         aPosition.top >= 0 &&

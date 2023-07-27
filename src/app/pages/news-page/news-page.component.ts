@@ -40,7 +40,7 @@ export class NewsPageComponent implements OnInit {
 
   private setNewsItemId(): void {
     this.news$.subscribe((NewsItemList: INewsItem[]) => {
-      for (let newsItem of NewsItemList) {
+      for (const newsItem of NewsItemList) {
         newsItem.id = this.generateNewsItemId(newsItem.title);
       }
     });
@@ -50,7 +50,7 @@ export class NewsPageComponent implements OnInit {
     // no uppercase letters for URL
     this.id = title.toLowerCase();
     // remove all special characters
-    this.id = this.id.split(/[&\/\\#,+()$~%.'":*-?!<>{}]/g).join('');
+    this.id = this.id.split(/[&/\\#,+()$~%.'":*-?!<>{}]/g).join('');
     // remove double spaces
     this.id = this.id.split('  ').join(' ');
     // replace every space with a hyphen

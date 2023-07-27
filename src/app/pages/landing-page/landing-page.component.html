@@ -1,5 +1,5 @@
 <ng-container *ngFor="let i of [0, 1, 2]">
-  <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i">
+  <div *ngIf="i === index" [@fadeInOut] [ngClass]="'background div' + i">
     <div class="esn-colors"></div>
   </div>
 </ng-container>
@@ -115,6 +115,7 @@
     src="assets/fonts/MaterialIcons/format_quote.png"
     width="24px"
     class="text-4xl text-gray"
+    alt="quotation marks"
   />ESN gave me the opportunity, not only to envelope myself into the culture
   and history of my host city, but gave me friends from all around the world,
   and an experience that will last a lifetime.

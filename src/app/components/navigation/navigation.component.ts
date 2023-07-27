@@ -34,8 +34,8 @@ export class NavigationComponent {
   }
 
   public showMenu(): void {
-    var burger = <HTMLUListElement>this.document.getElementById('burger');
-    var menu = <HTMLUListElement>this.document.getElementById('menu');
+    const burger = <HTMLUListElement>this.document.getElementById('burger');
+    const menu = <HTMLUListElement>this.document.getElementById('menu');
     burger.classList.add('hidden');
     menu.classList.remove('hidden');
     menu.classList.add('vis');

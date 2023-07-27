@@ -15,12 +15,15 @@ import { AsyncPipe } from '@angular/common';
     <div
       class="cursor-pointer flex flex-row justify-between"
       (click)="toggleState()"
+      (keydown)="toggleState()"
+      tabindex="0"
     >
       <ng-content select="[slot=header]"></ng-content>
       <img
         [@indicatorRotate]="state$ | async"
         src="assets/fonts/MaterialIcons/expand_more.png"
         width="24px"
+        alt="expand"
       />
     </div>
     <div [@openClose]="state$ | async" class="overflow-hidden">
@@ -53,7 +56,7 @@ import { AsyncPipe } from '@angular/common';
 })
 export class ExpandableComponent {
   public state$ = new BehaviorSubject('closed');
-  constructor() {}
+  
   public toggleState(): void {
     if (this.state$.value === 'closed') {
       this.state$.next('open');

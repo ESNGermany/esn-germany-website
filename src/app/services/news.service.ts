@@ -33,7 +33,7 @@ export class NewsService {
 
     return this.http.get<INewsItem[]>(this.url, { params }).pipe(
       shareReplay(1),
-      tap((_) => this.log('fetched news')),
+      tap(() => this.log('fetched news')),
       catchError(this.handleError<INewsItem[]>('fetchNewsList', []))
     );
   }

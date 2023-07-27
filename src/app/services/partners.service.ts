@@ -28,7 +28,7 @@ export class PartnersService {
   public fetchPartnersList(): Observable<IPartnersItem[]> {
     return this.http.get<IPartnersItem[]>(this.url).pipe(
       shareReplay(1),
-      tap((_) => this.log('fetched partners')),
+      tap(() => this.log('fetched partners')),
       catchError(this.handleError<IPartnersItem[]>('fetchPartnersList', []))
     );
   }

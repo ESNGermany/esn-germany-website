@@ -184,12 +184,23 @@
               "devServerTarget": "esn-germany-website:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "esn-germany-website",
   "cli": {
-    "analytics": "52d5bcd8-baaa-492c-93a8-a100196bf7c3"
+    "analytics": "52d5bcd8-baaa-492c-93a8-a100196bf7c3",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

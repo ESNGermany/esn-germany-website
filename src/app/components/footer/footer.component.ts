@@ -23,11 +23,11 @@ import { SectionmapDirective } from '../sectionmap/sectionmap.component';
     ],
 })
 export class FooterComponent implements OnInit {
-  windowScrolled: boolean;
-  desktop: boolean = false;
-  timestamp: string = environment.timeStamp;
+  private windowScrolled: boolean;
+  public desktop = false;
+  public timestamp: string = environment.timeStamp;
 
-  generalInformation: IGeneralInformationItem | undefined = { } as IGeneralInformationItem;
+  public generalInformation: IGeneralInformationItem | undefined = { } as IGeneralInformationItem;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -61,7 +61,7 @@ export class FooterComponent implements OnInit {
 
   public scrollToTop(): void {
     (function smoothscroll() {
-      var currentScroll =
+      const currentScroll =
         document.documentElement.scrollTop || document.body.scrollTop;
       if (currentScroll > 0) {
         window.requestAnimationFrame(smoothscroll);

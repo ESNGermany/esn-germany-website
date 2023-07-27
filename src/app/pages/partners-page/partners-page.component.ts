@@ -39,7 +39,7 @@ export class PartnersPageComponent implements OnInit {
 
     // initialize each buttontext
     this.partners$.subscribe((listPartners) => {
-      for (let p of listPartners) {
+      for (const p of listPartners) {
         p.buttontext = this.buttonText;
       }
     });

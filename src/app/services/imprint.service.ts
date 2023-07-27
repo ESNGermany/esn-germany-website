@@ -23,7 +23,7 @@ export class ImprintService {
   public fetchImprint(): Observable<IImprintItem> {
     return this.http.get<IImprintItem>(this.url).pipe(
       shareReplay(1),
-      tap((_) => this.log('fetched imprint')),
+      tap(() => this.log('fetched imprint')),
       catchError(this.handleError<IImprintItem>('fetchImprint'))
     );
   }

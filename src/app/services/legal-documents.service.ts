@@ -34,7 +34,7 @@ export class LegalDocumentsService {
   public fetchLegalDocumentsList(id: string): Observable<ILegalDocumentsItem> {
     this.fullUrl = this.url + id;
     return this.http.get<ILegalDocumentsItem>(this.fullUrl).pipe(
-      tap((_) => this.log('fetched LegalDocument')),
+      tap(() => this.log('fetched LegalDocument')),
       catchError(this.handleError<ILegalDocumentsItem>('fetchLegalDocument'))
     );
   }

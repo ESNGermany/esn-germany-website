@@ -49,7 +49,7 @@ export class ContentService {
       .pipe(
         shareReplay(1),
         map((res: any) => res.data),
-        tap((_) => this.log('fetched content')),
+        tap(() => this.log('fetched content')),
         catchError(this.handleError<IContentItem[]>('fetchContentList'))
       );
   }

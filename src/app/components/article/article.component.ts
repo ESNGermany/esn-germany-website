@@ -9,6 +9,6 @@ import { NgClass } from '@angular/common';
 })
 export class ArticleComponent{
   @Input() title: string;
-  @Input() grayBg: boolean = false;
-  @Input() grayBox: boolean = false;
+  @Input() grayBg = false;
+  @Input() grayBox = false;
 }
