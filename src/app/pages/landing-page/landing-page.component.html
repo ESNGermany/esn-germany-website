@@ -20,15 +20,13 @@
   sections at more than 500 higher education facilities in more than 40
   countries. This makes us one of the largest student initiatives in Europe.
 </esn-article> -->
-<ng-container *ngIf="contentItems$ | async as content; else loading">
-  <div *ngFor="let contentItem of content">
-    <ng-container *ngIf="contentItem.title == 'We are ESN Germany.'">
+  <ng-container *ngFor="let contentItem of contentItems">
+    <ng-container *ngIf="contentItem.title === 'We are ESN Germany.'">
       <esn-article [title]="contentItem.title">
         <markdown [data]="contentItem.text"></markdown>
       </esn-article>
     </ng-container>
-  </div>
-</ng-container>
+  </ng-container>
 <div class="grid grid-cols-4 auto-rows-images gap-0.5">
   <div class="col-span-3">
     <img

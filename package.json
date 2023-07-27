@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.2",
-    "@angular/cli": "^16.0.2",
+    "@angular/cli": "^16.1.6",
     "@angular/compiler-cli": "^16.0.2",
     "@cypress/schematic": "^2.5.0",
     "@tailwindcss/typography": "^0.5.9",

@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: 'g path',
+    selector: 'g path',
+    standalone: true,
 })
 export class SectionmapDirective {
   constructor(
@@ -109,9 +110,11 @@ export class SectionmapDirective {
 }
 
 @Component({
-  selector: 'esn-sectionmap',
-  templateUrl: './sectionmap.component.html',
-  styleUrls: ['./sectionmap.component.scss'],
+    selector: 'esn-sectionmap',
+    templateUrl: './sectionmap.component.html',
+    styleUrls: ['./sectionmap.component.scss'],
+    standalone: true,
+    imports: [SectionmapDirective],
 })
 export class SectionmapComponent {
   constructor() {}

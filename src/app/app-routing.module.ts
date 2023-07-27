@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Route } from '@angular/router';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { NetworkPageComponent } from './pages/network-page/network-page.component';
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
@@ -14,7 +13,7 @@ import { KonsultationsordnungPageComponent } from './pages/legal/konsultationsor
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 
-const routes: Routes = [
+export const routes: Route[] = [
   {
     path: '',
     pathMatch: 'full',
@@ -87,16 +86,3 @@ const routes: Routes = [
     redirectTo: 'error',
   },
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      initialNavigation: 'enabledBlocking',
-      anchorScrolling: 'enabled',
-      onSameUrlNavigation: 'reload',
-      scrollPositionRestoration: 'enabled',
-    }),
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

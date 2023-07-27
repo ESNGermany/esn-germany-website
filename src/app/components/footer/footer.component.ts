@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgIf, NgClass } from '@angular/common';
 import { Component, Inject, HostListener, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import {
@@ -6,11 +6,21 @@ import {
   IGeneralInformationItem,
 } from 'src/app/services/general-information.service';
 import { environment } from 'src/environments/environment';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 
 @Component({
-  selector: 'esn-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+    selector: 'esn-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.scss'],
+    standalone: true,
+    imports: [
+        SectionmapDirective,
+        NgIf,
+        NgClass,
+        RouterLink,
+        RouterLinkActive,
+    ],
 })
 export class FooterComponent implements OnInit {
   windowScrolled: boolean;

@@ -14,24 +14,39 @@ import {
   trigger,
 } from '@angular/animations';
 import { Observable, firstValueFrom, interval, map, share, shareReplay } from 'rxjs';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgFor, NgIf, NgClass, AsyncPipe } from '@angular/common';
 import {
   GeneralInformationService,
   IGeneralInformationItem,
 } from 'src/app/services/general-information.service';
 import { environment as env } from 'src/environments/environment';
 import { ContentService, IContentItem } from 'src/app/services/content.service';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { ArticleComponent } from '../../components/article/article.component';
+import { NavigationComponent } from '../../components/navigation/navigation.component';
 
 @Component({
-  selector: 'esn-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state('void', style({ opacity: 0 })),
-      transition('void <=> *', [animate(600)]),
-    ]),
-  ],
+    selector: 'esn-landing-page',
+    templateUrl: './landing-page.component.html',
+    styleUrls: ['./landing-page.component.scss'],
+    animations: [
+        trigger('fadeInOut', [
+            state('void', style({ opacity: 0 })),
+            transition('void <=> *', [animate(600)]),
+        ]),
+    ],
+    standalone: true,
+    imports: [
+        NgFor,
+        NgIf,
+        NgClass,
+        NavigationComponent,
+        ArticleComponent,
+        MarkdownModule,
+        FooterComponent,
+        AsyncPipe,
+    ],
 })
 export class LandingPageComponent implements OnInit, AfterViewInit {
   index: number = 0;
@@ -45,7 +60,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   ];
 
   generalInformation: IGeneralInformationItem = {} as IGeneralInformationItem;
-  contentItems$: Observable<IContentItem[]>;
+  contentItems: IContentItem[];
   isAnimated: boolean = false;
   doneAnimating: boolean = false;
 
@@ -65,9 +80,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   ) {}
 
   async ngOnInit() {
-    this.contentItems$ = this.contentService.fetchPageContent('Home').pipe(
-      shareReplay(1),
-      map((res: any) => res.data)
+    this.contentItems = await firstValueFrom(
+      this.contentService.fetchPageContent('Home')
     );
     this.generalInformation = await firstValueFrom(
       this.generalInformationService.fetchGeneralInformation()

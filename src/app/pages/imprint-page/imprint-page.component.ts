@@ -1,10 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { IImprintItem, ImprintService } from 'src/app/services/imprint.service';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { NgIf } from '@angular/common';
+import { ArticleComponent } from '../../components/article/article.component';
+import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-  selector: 'esn-imprint-page',
-  templateUrl: './imprint-page.component.html',
+    selector: 'esn-imprint-page',
+    templateUrl: './imprint-page.component.html',
+    standalone: true,
+    imports: [
+        NavigationDarkComponent,
+        ArticleComponent,
+        NgIf,
+        MarkdownModule,
+        FooterComponent,
+    ],
 })
 export class ImprintPageComponent implements OnInit {
   imprintItem: IImprintItem | undefined;

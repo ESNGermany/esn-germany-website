@@ -5,11 +5,24 @@ import {
   PartnersService,
 } from 'src/app/services/partners.service';
 import { environment } from 'src/environments/environment';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { ArticleComponent } from '../../components/article/article.component';
+import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-  selector: 'esn-partners-page',
-  templateUrl: './partners-page.component.html',
-  styleUrls: ['./partners-page.component.scss'],
+    selector: 'esn-partners-page',
+    templateUrl: './partners-page.component.html',
+    styleUrls: ['./partners-page.component.scss'],
+    standalone: true,
+    imports: [
+        NavigationDarkComponent,
+        ArticleComponent,
+        NgIf,
+        NgFor,
+        FooterComponent,
+        AsyncPipe,
+    ],
 })
 export class PartnersPageComponent implements OnInit {
   partners$: Observable<IPartnersItem[]>;

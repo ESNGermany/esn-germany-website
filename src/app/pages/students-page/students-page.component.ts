@@ -4,11 +4,28 @@ import {
   ISectionItem,
   SectionsService,
 } from 'src/app/services/sections.service';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { ExpandableComponent } from '../../components/expandable/expandable.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { SectionmapComponent } from '../../components/sectionmap/sectionmap.component';
+import { ArticleComponent } from '../../components/article/article.component';
+import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-  selector: 'esn-students-page',
-  templateUrl: './students-page.component.html',
-  styleUrls: ['./students-page.component.scss'],
+    selector: 'esn-students-page',
+    templateUrl: './students-page.component.html',
+    styleUrls: ['./students-page.component.scss'],
+    standalone: true,
+    imports: [
+        NavigationDarkComponent,
+        ArticleComponent,
+        SectionmapComponent,
+        NgIf,
+        ExpandableComponent,
+        NgFor,
+        FooterComponent,
+        AsyncPipe,
+    ],
 })
 export class StudentsPageComponent implements OnInit {
   northSections$: Observable<ISectionItem[]>;

@@ -6,11 +6,24 @@ import {
 } from 'src/app/services/board-positions.service';
 import { ITeamsItem, TeamsService } from 'src/app/services/teams.service';
 import { environment } from 'src/environments/environment';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { ArticleComponent } from '../../components/article/article.component';
+import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-  selector: 'esn-network-page',
-  templateUrl: './network-page.component.html',
-  styleUrls: ['./network-page.component.scss'],
+    selector: 'esn-network-page',
+    templateUrl: './network-page.component.html',
+    styleUrls: ['./network-page.component.scss'],
+    standalone: true,
+    imports: [
+        NavigationDarkComponent,
+        ArticleComponent,
+        NgIf,
+        NgFor,
+        FooterComponent,
+        AsyncPipe,
+    ],
 })
 export class NetworkPageComponent implements OnInit {
   public directusImageUrl: string = environment.DIRECTUS_URL_IMAGE;

@@ -6,11 +6,19 @@ import {
   ElementRef,
   Inject,
 } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 
 @Component({
-  selector: 'esn-navigation-dark',
-  templateUrl: './navigation-dark.component.html',
-  styleUrls: ['./navigation-dark.component.scss'],
+    selector: 'esn-navigation-dark',
+    templateUrl: './navigation-dark.component.html',
+    styleUrls: ['./navigation-dark.component.scss'],
+    standalone: true,
+    imports: [
+        SectionmapDirective,
+        RouterLink,
+        RouterLinkActive,
+    ],
 })
 export class NavigationDarkComponent {
   constructor(

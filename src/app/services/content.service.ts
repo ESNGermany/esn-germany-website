@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
+import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 
 import { environment as env } from 'src/environments/environment';
 import { MessageService } from './message.service';
@@ -48,6 +48,7 @@ export class ContentService {
       })
       .pipe(
         shareReplay(1),
+        map((res: any) => res.data),
         tap((_) => this.log('fetched content')),
         catchError(this.handleError<IContentItem[]>('fetchContentList'))
       );

@@ -4,10 +4,22 @@ import {
   ILegalDocumentsItem,
   LegalDocumentsService,
 } from 'src/app/services/legal-documents.service';
+import { FooterComponent } from '../../../components/footer/footer.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { NgIf, AsyncPipe } from '@angular/common';
+import { NavigationDarkComponent } from '../../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-  selector: 'esn-epp-page',
-  templateUrl: './epp-page.component.html',
+    selector: 'esn-epp-page',
+    templateUrl: './epp-page.component.html',
+    standalone: true,
+    imports: [
+        NavigationDarkComponent,
+        NgIf,
+        MarkdownModule,
+        FooterComponent,
+        AsyncPipe,
+    ],
 })
 export class EppPageComponent implements OnInit {
   eppItem$: Observable<ILegalDocumentsItem> | undefined;

@@ -2,11 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, map, shareReplay } from 'rxjs';
 import { INewsItem, NewsService } from 'src/app/services/news.service';
 import { environment } from 'src/environments/environment';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { MarkdownModule } from 'ngx-markdown';
+import { NgIf, NgFor, AsyncPipe, DatePipe } from '@angular/common';
+import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-  selector: 'esn-news-page',
-  templateUrl: './news-page.component.html',
-  styleUrls: ['./news-page.component.scss'],
+    selector: 'esn-news-page',
+    templateUrl: './news-page.component.html',
+    styleUrls: ['./news-page.component.scss'],
+    standalone: true,
+    imports: [
+        NavigationDarkComponent,
+        NgIf,
+        NgFor,
+        MarkdownModule,
+        FooterComponent,
+        AsyncPipe,
+        DatePipe,
+    ],
 })
 export class NewsPageComponent implements OnInit {
   news$: Observable<INewsItem[]>;
