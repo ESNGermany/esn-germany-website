@@ -6,34 +6,48 @@
     ></path>
   </svg>
 </div>
-<div class="w-full">
-  <ul
-    class="z-10 font-body text-white text-xl bg-footer float-right w-3/5 hidden absolute right-0"
-    id="menu"
-  >
-    <a routerLink="/" routerLinkActive="addhoverActive">
-      <li class="p-4 pl-8 border-b border-white">Home</li>
-    </a>
-    <a routerLink="/our-network" routerLinkActive="addhoverActive">
-      <li class="p-4 pl-8 border-b border-white">Our Network</li>
-    </a>
-    <a routerLink="/for-students" routerLinkActive="addhoverActive">
-      <li class="p-4 pl-8 border-b border-white">For Students</li>
-    </a>
-    <a routerLink="/for-partners" routerLinkActive="addhoverActive">
-      <li class="p-4 pl-8 border-b border-white">ESNcard & Partners</li>
-    </a>
-    <a routerLink="/news" routerLinkActive="addhoverActive">
-      <li class="p-4 pl-8 border-b border-white">News</li>
-    </a>
-    <a routerLink="/imprint" routerLinkActive="addhoverActive">
-      <li class="p-4 pl-8 border-b border-white">Imprint</li>
-    </a>
-    <a routerLink="/contact-us" routerLinkActive="addhoverActive">
-      <li class="p-4 pl-8">Contact Us</li>
-    </a>
-  </ul>
-</div>
+<ul
+  class="z-10 font-body text-white text-xl bg-footer float-right w-3/5 hidden absolute right-0"
+  id="menu"
+>
+  <a routerLink="/">
+    <li
+      class="p-4 pl-8 border-b border-white"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Home
+    </li>
+  </a>
+  <a routerLink="/our-network">
+    <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+      Our Network
+    </li>
+  </a>
+  <a routerLink="/for-students">
+    <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+      For Students
+    </li>
+  </a>
+  <a routerLink="/for-partners">
+    <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+      ESNcard & Partners
+    </li>
+  </a>
+  <a routerLink="/news">
+    <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+      News
+    </li>
+  </a>
+  <a routerLink="/imprint">
+    <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+      Imprint
+    </li>
+  </a>
+  <a routerLink="/contact-us">
+    <li class="p-4 pl-8" routerLinkActive="active">Contact Us</li>
+  </a>
+</ul>
 <div class="w-full mb-16 bg">
   <nav
     class="flex flex-wrap items-center max-w-screen-xl justify-between m-auto sm:px-16 pt-8 font-body"

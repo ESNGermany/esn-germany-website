@@ -33,7 +33,7 @@ export class ContentService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {}
 
   fetchPageContent(page: string): Observable<IContentItem[]> {
@@ -50,7 +50,7 @@ export class ContentService {
         shareReplay(1),
         map((res: any) => res.data),
         tap(() => this.log('fetched content')),
-        catchError(this.handleError<IContentItem[]>('fetchContentList'))
+        catchError(this.handleError<IContentItem[]>('fetchContentList')),
       );
   }
 

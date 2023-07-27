@@ -19,7 +19,7 @@ export class TeamsService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {}
 
   public fetchTeam(): Observable<ITeamsItem[]> {
@@ -27,7 +27,7 @@ export class TeamsService {
       shareReplay(1),
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       tap((_) => this.log('fetched Team')),
-      catchError(this.handleError<ITeamsItem[]>('fetchTeamsList', []))
+      catchError(this.handleError<ITeamsItem[]>('fetchTeamsList', [])),
     );
   }
 

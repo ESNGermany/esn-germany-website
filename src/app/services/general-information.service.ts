@@ -19,7 +19,7 @@ export interface IGeneralInformationItem {
   background_photos: [
     {
       directus_files_id: string | undefined;
-    }
+    },
   ];
 }
 
@@ -31,7 +31,7 @@ export class GeneralInformationService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {}
 
   public fetchGeneralInformation(): Observable<IGeneralInformationItem> {
@@ -39,7 +39,9 @@ export class GeneralInformationService {
       shareReplay(1),
       map((res: any) => res.data),
       tap(() => this.log('fetched general information')),
-      catchError(this.handleError<IGeneralInformationItem>('fetchGeneralInformation'))
+      catchError(
+        this.handleError<IGeneralInformationItem>('fetchGeneralInformation'),
+      ),
     );
   }
 

@@ -11,7 +11,9 @@
           "/index.html",
           "/*.css",
           "/*.js",
-          "/assets/*.png"
+          "/assets/*.png",
+          "/assets/*.jpg",
+          "/assets/*.gif"
         ]
       }
     },

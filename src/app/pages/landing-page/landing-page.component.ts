@@ -27,26 +27,26 @@ import { ArticleComponent } from '../../components/article/article.component';
 import { NavigationComponent } from '../../components/navigation/navigation.component';
 
 @Component({
-    selector: 'esn-landing-page',
-    templateUrl: './landing-page.component.html',
-    styleUrls: ['./landing-page.component.scss'],
-    animations: [
-        trigger('fadeInOut', [
-            state('void', style({ opacity: 0 })),
-            transition('void <=> *', [animate(600)]),
-        ]),
-    ],
-    standalone: true,
-    imports: [
-        NgFor,
-        NgIf,
-        NgClass,
-        NavigationComponent,
-        ArticleComponent,
-        MarkdownModule,
-        FooterComponent,
-        AsyncPipe,
-    ],
+  selector: 'esn-landing-page',
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({ opacity: 0 })),
+      transition('void <=> *', [animate(600)]),
+    ]),
+  ],
+  standalone: true,
+  imports: [
+    NgFor,
+    NgIf,
+    NgClass,
+    NavigationComponent,
+    ArticleComponent,
+    MarkdownModule,
+    FooterComponent,
+    AsyncPipe,
+  ],
 })
 export class LandingPageComponent implements OnInit, AfterViewInit {
   private index = 0;
@@ -59,7 +59,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     '/assets/landing/landing3.png',
   ];
 
-  public generalInformation: IGeneralInformationItem = {} as IGeneralInformationItem;
+  public generalInformation: IGeneralInformationItem =
+    {} as IGeneralInformationItem;
   public contentItems: IContentItem[];
   public isAnimated = false;
   private doneAnimating = false;
@@ -76,15 +77,15 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     private render: Renderer2,
     @Inject(DOCUMENT) private document: Document,
     private generalInformationService: GeneralInformationService,
-    private contentService: ContentService
+    private contentService: ContentService,
   ) {}
 
   async ngOnInit() {
     this.contentItems = await firstValueFrom(
-      this.contentService.fetchPageContent('Home')
+      this.contentService.fetchPageContent('Home'),
     );
     this.generalInformation = await firstValueFrom(
-      this.generalInformationService.fetchGeneralInformation()
+      this.generalInformationService.fetchGeneralInformation(),
     );
     if (this.generalInformation.background_photos.length > 0) {
       this.landing_image_div0 =
@@ -110,28 +111,27 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     interval(2000).subscribe(() => {
       // this.index = (this.index + 1) % this.numImages;
       const image0 = this.document.getElementsByClassName(
-        'div0'
-        )[0] as HTMLDivElement;
+        'div0',
+      )[0] as HTMLDivElement;
       if (image0) {
         image0.style.backgroundImage = `url(${env.DIRECTUS_URL_IMAGE}${this.landing_image_div0})`;
       }
       const image1 = this.document.getElementsByClassName(
-        'div1'
+        'div1',
       )[0] as HTMLDivElement;
       if (image1) {
         image1.style.backgroundImage = `url(${env.DIRECTUS_URL_IMAGE}${this.landing_image_div1})`;
       }
       const image2 = this.document.getElementsByClassName(
-        'div2'
+        'div2',
       )[0] as HTMLDivElement;
       if (image2) {
         image2.style.backgroundImage = `url(${env.DIRECTUS_URL_IMAGE}${this.landing_image_div2})`;
       }
     });
 
-
     const section_count = await firstValueFrom(
-      this.generalInformationService.fetchGeneralInformation()
+      this.generalInformationService.fetchGeneralInformation(),
     ).then((x) => x.section_counter);
 
     this.render.listen('window', 'scroll', () => {
@@ -172,7 +172,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       obj.nativeElement.innerHTML = Math.floor(
-        progress * (end - start) + start
+        progress * (end - start) + start,
       );
       if (progress < 1) {
         window.requestAnimationFrame(step);

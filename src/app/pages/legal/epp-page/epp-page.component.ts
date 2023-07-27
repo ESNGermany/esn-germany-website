@@ -10,16 +10,16 @@ import { NgIf, AsyncPipe } from '@angular/common';
 import { NavigationDarkComponent } from '../../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-    selector: 'esn-epp-page',
-    templateUrl: './epp-page.component.html',
-    standalone: true,
-    imports: [
-        NavigationDarkComponent,
-        NgIf,
-        MarkdownModule,
-        FooterComponent,
-        AsyncPipe,
-    ],
+  selector: 'esn-epp-page',
+  templateUrl: './epp-page.component.html',
+  standalone: true,
+  imports: [
+    NavigationDarkComponent,
+    NgIf,
+    MarkdownModule,
+    FooterComponent,
+    AsyncPipe,
+  ],
 })
 export class EppPageComponent implements OnInit {
   eppItem$: Observable<ILegalDocumentsItem> | undefined;
@@ -31,7 +31,7 @@ export class EppPageComponent implements OnInit {
       .fetchLegalDocumentsList('?filter[title]=EPP')
       .pipe(
         shareReplay(1),
-        map((res: any) => res.data[0])
+        map((res: any) => res.data[0]),
       );
   }
 }

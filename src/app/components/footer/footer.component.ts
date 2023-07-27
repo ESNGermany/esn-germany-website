@@ -10,28 +10,23 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 
 @Component({
-    selector: 'esn-footer',
-    templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss'],
-    standalone: true,
-    imports: [
-        SectionmapDirective,
-        NgIf,
-        NgClass,
-        RouterLink,
-        RouterLinkActive,
-    ],
+  selector: 'esn-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss'],
+  standalone: true,
+  imports: [SectionmapDirective, NgIf, NgClass, RouterLink, RouterLinkActive],
 })
 export class FooterComponent implements OnInit {
   private windowScrolled: boolean;
   public desktop = false;
   public timestamp: string = environment.timeStamp;
 
-  public generalInformation: IGeneralInformationItem | undefined = { } as IGeneralInformationItem;
+  public generalInformation: IGeneralInformationItem | undefined =
+    {} as IGeneralInformationItem;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private generalInformationService: GeneralInformationService
+    private generalInformationService: GeneralInformationService,
   ) {}
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -55,7 +50,7 @@ export class FooterComponent implements OnInit {
 
   async ngOnInit() {
     this.generalInformation = await firstValueFrom(
-      this.generalInformationService.fetchGeneralInformation()
+      this.generalInformationService.fetchGeneralInformation(),
     );
   }
 

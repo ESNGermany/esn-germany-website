@@ -11,22 +11,18 @@ import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-    selector: 'esn-sticky-navbar',
-    templateUrl: './sticky-navbar.component.html',
-    styleUrls: ['./sticky-navbar.component.scss'],
-    animations: [
-        trigger('fade', [
-            state('void', style({ opacity: 0 })),
-            transition(':enter', [animate(300)]),
-            transition(':leave', [animate(500)]),
-        ]),
-    ],
-    standalone: true,
-    imports: [
-        RouterLink,
-        RouterLinkActive,
-        SectionmapDirective,
-    ],
+  selector: 'esn-sticky-navbar',
+  templateUrl: './sticky-navbar.component.html',
+  styleUrls: ['./sticky-navbar.component.scss'],
+  animations: [
+    trigger('fade', [
+      state('void', style({ opacity: 0 })),
+      transition(':enter', [animate(300)]),
+      transition(':leave', [animate(500)]),
+    ]),
+  ],
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, SectionmapDirective],
 })
 export class StickyNavbarComponent {
   constructor(@Inject(DOCUMENT) private document: Document) {}

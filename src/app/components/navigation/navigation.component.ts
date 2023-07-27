@@ -4,20 +4,16 @@ import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-    selector: 'esn-navigation',
-    templateUrl: './navigation.component.html',
-    styleUrls: ['./navigation.component.scss'],
-    standalone: true,
-    imports: [
-        RouterLink,
-        RouterLinkActive,
-        SectionmapDirective,
-    ],
+  selector: 'esn-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss'],
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, SectionmapDirective],
 })
 export class NavigationComponent {
   constructor(
     private el: ElementRef,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
   ) {}
 
   @HostListener('document:click', ['$event'])

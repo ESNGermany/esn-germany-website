@@ -12,21 +12,13 @@
     >
   </div>
 </ng-container>
-<!-- <esn-article [title]="'We are ESN Germany.'">
-  Erasmus Student Network (ESN) is a non-profit international student
-  organisation. Our mission is to represent international students, thus provide
-  opportunities for cultural understanding and self-development under the
-  principle of <b>Students Helping Students</b>. In Europe there are local ESN
-  sections at more than 500 higher education facilities in more than 40
-  countries. This makes us one of the largest student initiatives in Europe.
-</esn-article> -->
-  <ng-container *ngFor="let contentItem of contentItems">
-    <ng-container *ngIf="contentItem.title === 'We are ESN Germany.'">
-      <esn-article [title]="contentItem.title">
-        <markdown [data]="contentItem.text"></markdown>
-      </esn-article>
-    </ng-container>
+<ng-container *ngFor="let contentItem of contentItems">
+  <ng-container *ngIf="contentItem.title === 'We are ESN Germany.'">
+    <esn-article [title]="contentItem.title">
+      <markdown [data]="contentItem.text"></markdown>
+    </esn-article>
   </ng-container>
+</ng-container>
 <div class="grid grid-cols-4 auto-rows-images gap-0.5">
   <div class="col-span-3">
     <img

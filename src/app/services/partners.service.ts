@@ -22,14 +22,14 @@ export class PartnersService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {}
 
   public fetchPartnersList(): Observable<IPartnersItem[]> {
     return this.http.get<IPartnersItem[]>(this.url).pipe(
       shareReplay(1),
       tap(() => this.log('fetched partners')),
-      catchError(this.handleError<IPartnersItem[]>('fetchPartnersList', []))
+      catchError(this.handleError<IPartnersItem[]>('fetchPartnersList', [])),
     );
   }
 

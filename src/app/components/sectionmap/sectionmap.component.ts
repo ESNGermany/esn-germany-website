@@ -14,7 +14,7 @@ import {
 export class SectionmapDirective {
   constructor(
     private el: ElementRef,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
   ) {}
 
   public northSections: string[] = [
@@ -103,7 +103,7 @@ export class SectionmapDirective {
           String(event.pageY - box.offsetHeight - 30) +
           'px; left: ' +
           String(event.pageX - box.offsetWidth / 2) +
-          'px'
+          'px',
       );
     }
   }

@@ -10,20 +10,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 
 @Component({
-    selector: 'esn-navigation-dark',
-    templateUrl: './navigation-dark.component.html',
-    styleUrls: ['./navigation-dark.component.scss'],
-    standalone: true,
-    imports: [
-        SectionmapDirective,
-        RouterLink,
-        RouterLinkActive,
-    ],
+  selector: 'esn-navigation-dark',
+  templateUrl: './navigation-dark.component.html',
+  styleUrls: ['./navigation-dark.component.scss'],
+  standalone: true,
+  imports: [SectionmapDirective, RouterLink, RouterLinkActive],
 })
 export class NavigationDarkComponent {
   constructor(
     private el: ElementRef,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
   ) {}
 
   @HostListener('document:click', ['$event'])

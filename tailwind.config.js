@@ -26,7 +26,7 @@ module.exports = {
         80: "20rem",
         84: "21rem",
         96: "24rem",
-        104: "26rem",
+        104: "26rem"
       },
       inset: {
         "1/8": "12.5%",
@@ -59,7 +59,7 @@ module.exports = {
       heading: ["Oswald", 'system-ui', "sans-serif"],
       comic: ["Comic Sans"],
     },
-    gridAutoRows: { 
+    gridAutoRows: {
       images: "280px",
     },
   },

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-    selector: 'esn-root',
-    templateUrl: './app.component.html',
-    standalone: true,
-    imports: [RouterOutlet],
+  selector: 'esn-root',
+  templateUrl: './app.component.html',
+  standalone: true,
+  imports: [RouterOutlet],
 })
 export class AppComponent {}

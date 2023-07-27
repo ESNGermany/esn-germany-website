@@ -23,7 +23,7 @@ export class BoardPositionsService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {}
 
   public fetchABList(): Observable<IBoardPositionItem[]> {
@@ -35,7 +35,7 @@ export class BoardPositionsService {
       .pipe(
         shareReplay(1),
         tap(() => this.log('fetched ABPositions')),
-        catchError(this.handleError<IBoardPositionItem[]>('fetchABPositions'))
+        catchError(this.handleError<IBoardPositionItem[]>('fetchABPositions')),
       );
   }
 
@@ -48,7 +48,7 @@ export class BoardPositionsService {
       .pipe(
         shareReplay(1),
         tap(() => this.log('fetched NBPositions')),
-        catchError(this.handleError<IBoardPositionItem[]>('fetchNBPositions'))
+        catchError(this.handleError<IBoardPositionItem[]>('fetchNBPositions')),
       );
   }
 
@@ -61,7 +61,7 @@ export class BoardPositionsService {
       .pipe(
         shareReplay(1),
         tap(() => this.log('fetched RCPositions')),
-        catchError(this.handleError<IBoardPositionItem[]>('fetchRCPositions'))
+        catchError(this.handleError<IBoardPositionItem[]>('fetchRCPositions')),
       );
   }
 
@@ -74,7 +74,7 @@ export class BoardPositionsService {
       .pipe(
         shareReplay(1),
         tap(() => this.log('fetched BSPositions')),
-        catchError(this.handleError<IBoardPositionItem[]>('fetchBSPositions'))
+        catchError(this.handleError<IBoardPositionItem[]>('fetchBSPositions')),
       );
   }
 

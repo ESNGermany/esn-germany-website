@@ -8,19 +8,19 @@ import { NgIf, NgFor, AsyncPipe, DatePipe } from '@angular/common';
 import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-    selector: 'esn-news-page',
-    templateUrl: './news-page.component.html',
-    styleUrls: ['./news-page.component.scss'],
-    standalone: true,
-    imports: [
-        NavigationDarkComponent,
-        NgIf,
-        NgFor,
-        MarkdownModule,
-        FooterComponent,
-        AsyncPipe,
-        DatePipe,
-    ],
+  selector: 'esn-news-page',
+  templateUrl: './news-page.component.html',
+  styleUrls: ['./news-page.component.scss'],
+  standalone: true,
+  imports: [
+    NavigationDarkComponent,
+    NgIf,
+    NgFor,
+    MarkdownModule,
+    FooterComponent,
+    AsyncPipe,
+    DatePipe,
+  ],
 })
 export class NewsPageComponent implements OnInit {
   news$: Observable<INewsItem[]>;
@@ -33,7 +33,7 @@ export class NewsPageComponent implements OnInit {
   async ngOnInit() {
     this.news$ = this.newsService.fetchNewsList().pipe(
       shareReplay(1),
-      map((res: any) => res.data)
+      map((res: any) => res.data),
     );
     this.setNewsItemId();
   }

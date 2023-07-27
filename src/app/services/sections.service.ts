@@ -21,14 +21,14 @@ export class SectionsService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {}
 
   public fetchSectionList(): Observable<ISectionItem[]> {
     return this.http.get<ISectionItem[]>(this.url).pipe(
       shareReplay(1),
       tap(() => this.log('fetched sections')),
-      catchError(this.handleError<ISectionItem[]>('fetchSections', []))
+      catchError(this.handleError<ISectionItem[]>('fetchSections', [])),
     );
   }
 
@@ -38,7 +38,9 @@ export class SectionsService {
       .pipe(
         shareReplay(1),
         tap(() => this.log('fetched north sections')),
-        catchError(this.handleError<ISectionItem[]>('fetchEastSectionList', []))
+        catchError(
+          this.handleError<ISectionItem[]>('fetchEastSectionList', []),
+        ),
       );
   }
 
@@ -48,7 +50,9 @@ export class SectionsService {
       .pipe(
         shareReplay(1),
         tap(() => this.log('fetched east sections')),
-        catchError(this.handleError<ISectionItem[]>('fetchEastSectionList', []))
+        catchError(
+          this.handleError<ISectionItem[]>('fetchEastSectionList', []),
+        ),
       );
   }
 
@@ -58,7 +62,9 @@ export class SectionsService {
       .pipe(
         shareReplay(1),
         tap(() => this.log('fetched west sections')),
-        catchError(this.handleError<ISectionItem[]>('fetchWestSectionList', []))
+        catchError(
+          this.handleError<ISectionItem[]>('fetchWestSectionList', []),
+        ),
       );
   }
 
@@ -69,8 +75,8 @@ export class SectionsService {
         shareReplay(1),
         tap(() => this.log('fetched south west sections')),
         catchError(
-          this.handleError<ISectionItem[]>('fetchSouthWestSectionList', [])
-        )
+          this.handleError<ISectionItem[]>('fetchSouthWestSectionList', []),
+        ),
       );
   }
 
@@ -81,8 +87,8 @@ export class SectionsService {
         shareReplay(1),
         tap(() => this.log('fetched south east sections')),
         catchError(
-          this.handleError<ISectionItem[]>('fetchSouthEastSectionList', [])
-        )
+          this.handleError<ISectionItem[]>('fetchSouthEastSectionList', []),
+        ),
       );
   }
 

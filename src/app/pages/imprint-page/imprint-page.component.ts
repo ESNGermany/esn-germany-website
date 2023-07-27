@@ -8,16 +8,16 @@ import { ArticleComponent } from '../../components/article/article.component';
 import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
 
 @Component({
-    selector: 'esn-imprint-page',
-    templateUrl: './imprint-page.component.html',
-    standalone: true,
-    imports: [
-        NavigationDarkComponent,
-        ArticleComponent,
-        NgIf,
-        MarkdownModule,
-        FooterComponent,
-    ],
+  selector: 'esn-imprint-page',
+  templateUrl: './imprint-page.component.html',
+  standalone: true,
+  imports: [
+    NavigationDarkComponent,
+    ArticleComponent,
+    NgIf,
+    MarkdownModule,
+    FooterComponent,
+  ],
 })
 export class ImprintPageComponent implements OnInit {
   imprintItem: IImprintItem | undefined;
@@ -26,7 +26,7 @@ export class ImprintPageComponent implements OnInit {
 
   async ngOnInit() {
     this.imprintItem = await firstValueFrom(
-      this.imprintService.fetchImprint()
+      this.imprintService.fetchImprint(),
     ).then((res: any) => res.data);
   }
 }

@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-Clone this repo to a local folder. Navigate to the `src` folder in a command line and install all packages using `yarn`. Then, you are ready to develop.
+Clone this repo to a local folder. Navigate to the `src` folder in a command line and install all packages using the `yarn` command. Then, you are ready to develop.
 
 ## Development
 
@@ -30,9 +30,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ### 1) Add the section to Directus
 
-1. Navigate to https://strapi.esn-germany.de/admin/auth/login and login.
-2. Find the collection type `Website Section Maps`.
-3. Add a new entry by clicking on the blue `+ Add a New Website Section Maps` button at the top of the page.
+1. Navigate to https://directus.esn-germany.de/admin and login.
+2. Find the collection type `National Website Section Map`.
+3. Add a new entry by clicking on the pink `+` (Create item) button at the top right of the page.
 4. Enter all details and save.
 
 ### 2) Add the section to the list of sections
@@ -43,7 +43,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ### 3) Add the section to the map
 
 1. Go to `components/sectionmap/sectionmap.component.html`.
-2. Add a `<path>` element with the correct id (section name), the respective color to fill, and the position on the map.
+2. Add a `<path>` element with the correct id (section name) to below line 37, the respective color to fill, and the position on the map.
 
 |   Region   | ESN Color |
 | :--------: | :-------: |
@@ -59,5 +59,4 @@ If you are not sure what to do here, just copy a `<path>` element from another s
 
 ### 4) Update the number of sections
 
-1. In line 10 of `pages/students-page/students-page.component.html` change the number according to the new number of sections.
-2. In line 98 of `pages/landing-page/landing-page.component.html` change the number according to the new number of sections.
+In line 3 of `pages/students-page/students-page.component.html` change the number according to the new number of sections.

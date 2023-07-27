@@ -28,14 +28,14 @@ export class LegalDocumentsService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {}
 
   public fetchLegalDocumentsList(id: string): Observable<ILegalDocumentsItem> {
     this.fullUrl = this.url + id;
     return this.http.get<ILegalDocumentsItem>(this.fullUrl).pipe(
       tap(() => this.log('fetched LegalDocument')),
-      catchError(this.handleError<ILegalDocumentsItem>('fetchLegalDocument'))
+      catchError(this.handleError<ILegalDocumentsItem>('fetchLegalDocument')),
     );
   }
 

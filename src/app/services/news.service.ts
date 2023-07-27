@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, shareReplay, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
-import { environment as env} from 'src/environments/environment';
+import { environment as env } from 'src/environments/environment';
 
 export interface INewsItem {
   id: string;
@@ -19,22 +19,20 @@ export interface INewsItem {
   providedIn: 'root',
 })
 export class NewsService {
-  private url =
-    `${env.DIRECTUS_URL}news`;
+  private url = `${env.DIRECTUS_URL}news`;
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
-  ) { }
+    private messageService: MessageService,
+  ) {}
 
   public fetchNewsList(): Observable<INewsItem[]> {
-    const params = new HttpParams()
-      .set('sort', '-published');
+    const params = new HttpParams().set('sort', '-published');
 
     return this.http.get<INewsItem[]>(this.url, { params }).pipe(
       shareReplay(1),
       tap(() => this.log('fetched news')),
-      catchError(this.handleError<INewsItem[]>('fetchNewsList', []))
+      catchError(this.handleError<INewsItem[]>('fetchNewsList', [])),
     );
   }
 
