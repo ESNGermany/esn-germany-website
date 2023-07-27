@@ -1,5 +1,10 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject, HostListener } from '@angular/core';
+import { Component, Inject, HostListener, OnInit } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import {
+  GeneralInformationService,
+  IGeneralInformationItem,
+} from 'src/app/services/general-information.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -7,12 +12,17 @@ import { environment } from 'src/environments/environment';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   windowScrolled: boolean;
   desktop: boolean = false;
   timestamp: string = environment.timeStamp;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  generalInformation: IGeneralInformationItem | undefined = { } as IGeneralInformationItem;
+
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private generalInformationService: GeneralInformationService
+  ) {}
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.screenX >= 1267) {
@@ -31,6 +41,12 @@ export class FooterComponent {
     ) {
       this.windowScrolled = false;
     }
+  }
+
+  async ngOnInit() {
+    this.generalInformation = await firstValueFrom(
+      this.generalInformationService.fetchGeneralInformation()
+    );
   }
 
   public scrollToTop(): void {

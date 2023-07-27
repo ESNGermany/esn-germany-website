@@ -22,16 +22,16 @@
     <div class="sm:w-full lg:w-1/2 xl:w-1/4 px-8">
       <p class="font-bold uppercase pb-1 text-lg">Contact</p>
       <p class="font-bold">Erasmus Student Network Deutschland e.V.</p>
-      <p class="pt-2">c/o International Office</p>
-      <p>Ruhr Universität Bochum</p>
-      <p>Universitätsstraße 150</p>
-      <p>44801 Bochum</p>
+      <p class="pt-2 whitespace-pre">{{ generalInformation.address_co }}</p>
+      <!-- <p>Ruhr Universität Bochum</p> -->
+      <p>{{ generalInformation.address_street }}</p>
+      <p>{{ generalInformation.address_city }}</p>
       <p class="pt-1 pb-4">
         <a
-          href="mailto:board@esn-germany.de"
+          href="mailto:{{ generalInformation.email }}"
           rel="noopener"
           class="hover:underline"
-          >board@esn-germany.de</a
+          >{{ generalInformation.email }}</a
         >
       </p>
     </div>
@@ -128,7 +128,7 @@
       <p class="font-bold uppercase pb-1 text-lg">Social Media</p>
       <p>
         <a
-          href="https://www.instagram.com/esngermany/"
+          href="{{ generalInformation.instagram }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"
@@ -138,7 +138,7 @@
       </p>
       <p>
         <a
-          href="https://facebook.com/esngermany/"
+          href="{{ generalInformation.facebook }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"
@@ -148,7 +148,7 @@
       </p>
       <p>
         <a
-          href="https://www.linkedin.com/company/erasmus-student-network-germany/"
+          href="{{ generalInformation.linkedin }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"
@@ -158,7 +158,7 @@
       </p>
       <p>
         <a
-          href="https://twitter.com/esngermany/"
+          href="{{ generalInformation.twitter }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"

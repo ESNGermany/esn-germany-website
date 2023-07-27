@@ -27,6 +27,7 @@ import {
   SectionmapComponent,
   SectionmapDirective,
 } from './components/sectionmap/sectionmap.component';
+import { ArticleComponent } from './components/article/article.component';
 
 import { SharedModule } from './shared/shared.module';
 import { ExpandableComponent } from './components/expandable/expandable.component';
@@ -39,9 +40,10 @@ import { NewsService } from './services/news.service';
 import { PartnersService } from './services/partners.service';
 import { SectionsService } from './services/sections.service';
 import { TeamsService } from './services/teams.service';
-import { ArticleComponent } from './components/article/article.component';
+import { GeneralInformationService } from './services/general-information.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ContentService } from './services/content.service';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { environment } from '../environments/environment';
     PartnersService,
     SectionsService,
     TeamsService,
+    GeneralInformationService,
+    ContentService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

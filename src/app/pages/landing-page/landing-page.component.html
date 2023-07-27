@@ -1,23 +1,34 @@
-<ng-container *ngFor="let i of [0, 1, 2, 3]">
+<ng-container *ngFor="let i of [0, 1, 2]">
   <div *ngIf="i == index" [@fadeInOut] [ngClass]="'background div' + i">
     <div class="esn-colors"></div>
   </div>
 </ng-container>
 <esn-navigation></esn-navigation>
-<div class="m-auto py-16 mb-40 extra">
-  <span class="bg-white font-heading text-center text-black font-bold text-4xl leading-snug">
-    Find your second home<br />with ESN Germany.<br
-    />#THISisESN
-  </span>
-</div>
-<esn-article [title]="'We are ESN Germany.'">
+<ng-container *ngIf="generalInformation.banner_text">
+  <div class="m-auto py-16 mb-40 extra">
+    <span
+      class="whitespace-pre bg-white font-heading text-center text-black font-bold text-4xl leading-snug"
+      >{{ generalInformation.banner_text.trim() }}</span
+    >
+  </div>
+</ng-container>
+<!-- <esn-article [title]="'We are ESN Germany.'">
   Erasmus Student Network (ESN) is a non-profit international student
   organisation. Our mission is to represent international students, thus provide
   opportunities for cultural understanding and self-development under the
   principle of <b>Students Helping Students</b>. In Europe there are local ESN
   sections at more than 500 higher education facilities in more than 40
   countries. This makes us one of the largest student initiatives in Europe.
-</esn-article>
+</esn-article> -->
+<ng-container *ngIf="contentItems$ | async as content; else loading">
+  <div *ngFor="let contentItem of content">
+    <ng-container *ngIf="contentItem.title == 'We are ESN Germany.'">
+      <esn-article [title]="contentItem.title">
+        <markdown [data]="contentItem.text"></markdown>
+      </esn-article>
+    </ng-container>
+  </div>
+</ng-container>
 <div class="grid grid-cols-4 auto-rows-images gap-0.5">
   <div class="col-span-3">
     <img
@@ -53,27 +64,50 @@
     class="flex col items-center justify-evenly max-w-screen-lg m-auto sm:px-16 xl:px-20 py-8 px-12 font-body"
   >
     <div class="inline-block">
-      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" id="a" #a>
+      <div
+        class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline"
+        id="a"
+        #a
+      >
         0
       </div>
-      <p *ngIf="isAnimated" class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline">+</p>
+      <p
+        *ngIf="isAnimated"
+        class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline"
+      >
+        +
+      </p>
       <p class="text-lg text-center font-bold">Volunteers</p>
     </div>
     <div class="inline-block">
       <p class="text-2xl font-bold text-center px-3">for</p>
     </div>
     <div class="inline-block">
-      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" id="b" #b>
+      <div
+        class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline"
+        id="b"
+        #b
+      >
         0
       </div>
-      <p *ngIf="isAnimated" class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline">+</p>
+      <p
+        *ngIf="isAnimated"
+        class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline"
+      >
+        +
+      </p>
       <p class="text-lg text-center font-bold">Exchange Students</p>
     </div>
     <div class="inline-block">
       <p class="text-2xl font-bold text-center px-3">in</p>
     </div>
     <div class="inline-block">
-      <div class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline" #c>0</div>
+      <div
+        class="text-6xl lg:text-5xl xl:text-6xl text-center font-bold inline"
+        #c
+      >
+        0
+      </div>
       <p class="text-lg text-center font-bold">Sections</p>
     </div>
   </div>
