@@ -28,7 +28,8 @@
               "src/_redirects",
               "src/assets",
               "src/robots.txt",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              "src/sitemap_index.xml"
             ],
             "styles": [
               "src/styles.scss"
