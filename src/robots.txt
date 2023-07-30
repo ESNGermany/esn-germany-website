@@ -1,3 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: 
 Sitemap: https://esn-germany.de/sitemap.xml
+Sitemap: https://esn-germany.de/sitemap_index.xml
