@@ -12,6 +12,7 @@ import { OrdnungPageComponent } from './pages/legal/ordnung-page/ordnung-page.co
 import { KonsultationsordnungPageComponent } from './pages/legal/konsultationsordnung-page/konsultationsordnung-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { SectionsPageComponent } from './pages/sections-page/sections-page.component';
 
 export const routes: Route[] = [
   {
@@ -74,6 +75,11 @@ export const routes: Route[] = [
     path: 'consultation-order',
     title: 'Konsultationsordnung - ESN Germany',
     component: KonsultationsordnungPageComponent,
+  },
+  {
+    path: 'sections',
+    title: 'Sections - ESN Germany',
+    component: SectionsPageComponent,
   },
   {
     path: 'error',
