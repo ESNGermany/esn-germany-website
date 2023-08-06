@@ -3,7 +3,7 @@ const pages = [
   '/for-students',
   '/for-partners',
   '/news',
-  '/imprint',
+  '/legal-notice',
 ];
 
 describe('Page contains navigation', () => {
@@ -25,7 +25,7 @@ describe('ESNcard page contains national partners', () => {
     cy.visit('/for-partners');
     cy.get('[data-testid="esn-national-partners"]').should(
       'contain.text',
-      'Our National Partners'
+      'Our National Partners',
     );
   });
 
