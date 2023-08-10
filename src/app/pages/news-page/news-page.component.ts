@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgIf, NgFor, AsyncPipe, DatePipe } from '@angular/common';
-import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
+import { NavigationComponent } from '../../components/navigation/navigation.component';
 
 @Component({
   selector: 'esn-news-page',
@@ -13,7 +13,7 @@ import { NavigationDarkComponent } from '../../components/navigation-dark/naviga
   styleUrls: ['./news-page.component.scss'],
   standalone: true,
   imports: [
-    NavigationDarkComponent,
+    NavigationComponent,
     NgIf,
     NgFor,
     MarkdownModule,

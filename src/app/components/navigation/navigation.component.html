@@ -1,38 +1,58 @@
-<div class="bg-cover bg-center m-auto">
-  <div class="w-full">
-    <ul
-      class="z-10 font-body text-white text-xl bg-footer float-right w-3/5 hidden absolute right-0"
-      id="menu"
-    >
-      <a href="/">
-        <li class="p-4 pl-8 border-b border-white">Home</li>
-      </a>
-      <a routerLink="/our-network" routerLinkActive="active">
-        <li class="p-4 pl-8 border-b border-white">Our Network</li>
-      </a>
-      <a routerLink="/for-students" routerLinkActive="active">
-        <li class="p-4 pl-8 border-b border-white">For Students</li>
-      </a>
-      <a routerLink="/for-partners" routerLinkActive="active">
-        <li class="p-4 pl-8 border-b border-white">ESNcard & Partners</li>
-      </a>
-      <a routerLink="/news" routerLinkActive="active">
-        <li class="p-4 pl-8 border-b border-white">News</li>
-      </a>
-      <a routerLink="/legal-notice" routerLinkActive="active">
-        <li class="p-4 pl-8 border-b border-white">Legal Notice</li>
-      </a>
-      <a routerLink="/contact-us" routerLinkActive="active">
-        <li class="p-4 pl-8">Contact Us</li>
-      </a>
-    </ul>
-  </div>
-  <div class="w-full mb-16">
+<div *ngIf="!isLandingPage" class="divider-bottom">
+  <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path
+      d="M892.25 114.72L0 0 0 120 1200 120 1200 0 892.25 114.72z"
+      class="shape-fill"
+    ></path>
+  </svg>
+</div>
+<div class="bg-cover bg-center m-auto w-full">
+  <ul
+    class="z-10 font-body text-white text-xl bg-footer float-right w-3/5 hidden absolute right-0"
+    id="menu"
+  >
+    <a routerLink="/">
+      <li
+        class="p-4 pl-8 border-b border-white"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </li>
+    </a>
+    <a routerLink="/our-network" routerLinkActive="active">
+      <li class="p-4 pl-8 border-b border-white">Our Network</li>
+    </a>
+    <a routerLink="/for-students">
+      <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+        For Students
+      </li>
+    </a>
+    <a routerLink="/for-partners">
+      <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+        ESNcard & Partners
+      </li>
+    </a>
+    <a routerLink="/news">
+      <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+        News
+      </li>
+    </a>
+    <a routerLink="/legal-notice">
+      <li class="p-4 pl-8 border-b border-white" routerLinkActive="active">
+        Legal Notice
+      </li>
+    </a>
+    <a routerLink="/contact-us">
+      <li class="p-4 pl-8" routerLinkActive="active">Contact Us</li>
+    </a>
+  </ul>
+  <div class="w-full mb-16" [ngClass]="isLandingPage ? '' : 'bg'">
     <nav
       class="flex flex-wrap items-center max-w-screen-xl justify-between m-auto sm:px-16 pt-8 font-body"
     >
       <div class="flex items-center flex-shrink-0 text-2xl pr-8">
-        <a routerLink="/" routerLinkActive="active"
+        <a routerLink="/" routerLinkActive="addhoverActive"
           ><img
             class="h-26 ml-8"
             alt="ESN logo"
@@ -44,59 +64,59 @@
       >
         <div class="text-2xl flex justify-between lg:flex-grow max-w-screen-xl">
           <div class="relative">
-            <a routerLink="/our-network" routerLinkActive="active"
-              ><button
-                type="button"
-                id="network-button"
-                class="mt-4 mr-2 inline-block font-bold text-white focus:outline-none addhover"
-              >
-                Our Network
-              </button>
-            </a>
-          </div>
-          <div class="relative">
-            <a routerLink="/for-students" routerLinkActive="active">
+            <a routerLink="/our-network" routerLinkActive="addhoverActive">
               <button
                 type="button"
-                id="students-button"
-                class="mt-4 mr-2 inline-block font-bold text-white ocus:outline-none addhover"
+                id="network-button"
+                class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
               >
-                For Students
-              </button>
-            </a>
+                Our Network
+              </button></a
+            >
           </div>
           <div class="relative">
-            <a routerLink="/for-partners" routerLinkActive="active">
+            <a routerLink="/for-students" routerLinkActive="addhoverActive"
+              ><button
+                type="button"
+                id="students-button"
+                class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
+              >
+                For Students
+              </button></a
+            >
+          </div>
+          <div class="relative">
+            <a routerLink="/for-partners" routerLinkActive="addhoverActive">
               <button
                 type="button"
                 id="partners-button"
-                class="mt-4 mr-2 inline-block font-bold text-white focus:outline-none addhover"
+                class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
               >
                 ESNcard & Partners
               </button></a
             >
           </div>
           <div class="relative">
-            <a routerLink="/news" routerLinkActive="active">
-              <button
+            <a routerLink="/news" routerLinkActive="addhoverActive"
+              ><button
                 type="button"
                 id="news-button"
-                class="mt-4 mr-2 inline-block font-bold text-white focus:outline-none addhover"
+                class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
               >
                 News
-              </button>
-            </a>
+              </button></a
+            >
           </div>
           <div class="relative">
-            <a routerLink="/contact-us" routerLinkActive="active">
-              <button
+            <a routerLink="/contact-us" routerLinkActive="addhoverActive"
+              ><button
                 type="button"
                 id="contact-button"
-                class="mt-4 mr-2 inline-block font-bold text-white focus:outline-none addhover"
+                class="block mt-4 inline-block font-bold text-white focus:outline-none addhover"
               >
                 Contact Us
-              </button>
-            </a>
+              </button></a
+            >
           </div>
         </div>
       </div>
@@ -115,12 +135,63 @@
   </div>
 </div>
 <div class="max-w-screen-2xl m-auto">
+  <div class="fixed top-56 right-0 z-10 xl:mr-12 lg:mr-1 invisible lg:visible">
+    <a
+      href="https://www.instagram.com/esngermany/"
+      target="_blank"
+      rel="noopener"
+      title="Instagram"
+      ><button class="bg-esn-dark-blue p-2 rounded-full hov">
+        <img
+          class="m-2 h-6"
+          src="/assets/social/instagram.png"
+          alt="Instagram logo"
+        /></button
+    ></a>
+    <a
+      href="https://facebook.com/esngermany/"
+      target="_blank"
+      rel="noopener"
+      title="Facebook"
+      ><button class="bg-esn-dark-blue p-2 rounded-full block my-2 hov">
+        <img
+          class="m-2 h-6"
+          src="/assets/social/facebook.png"
+          alt="Facebook logo"
+        /></button
+    ></a>
+    <a
+      href="https://www.linkedin.com/company/erasmus-student-network-germany/"
+      target="_blank"
+      rel="noopener"
+      title="LinkedIn"
+      ><button class="bg-esn-dark-blue p-2 rounded-full block my-2 hov">
+        <img
+          class="m-2 h-6"
+          alt="LinkedIn logo"
+          src="/assets/social/linkedin.png"
+        /></button
+    ></a>
+    <a
+      href="https://twitter.com/esngermany/"
+      target="_blank"
+      rel="noopener"
+      title="Twitter"
+      ><button class="bg-esn-dark-blue p-2 rounded-full hov">
+        <img
+          class="m-2 h-6"
+          alt="Twitter logo"
+          src="/assets/social/twitter.png"
+        /></button
+    ></a>
+  </div>
   <div class="m-auto">
     <div class="fixed bottom-0 right-0 visible lg:invisible z-10 mr-32 mb-4">
       <a
         href="https://www.instagram.com/esngermany/"
         target="_blank"
         rel="noopener"
+        title="Instagram"
         ><button class="bg-esn-dark-blue p-2 rounded-full hov">
           <img
             class="m-2 h-6"
@@ -128,7 +199,11 @@
             alt="Instagram logo"
           /></button
       ></a>
-      <a href="https://facebook.com/esngermany/" target="_blank" rel="noopener"
+      <a
+        href="https://facebook.com/esngermany/"
+        target="_blank"
+        rel="noopener"
+        title="Facebook"
         ><button class="bg-esn-dark-blue p-2 rounded-full mx-2 hov">
           <img
             class="m-2 h-6"
@@ -140,6 +215,7 @@
         href="https://www.linkedin.com/company/erasmus-student-network-germany/"
         target="_blank"
         rel="noopener"
+        title="LinkedIn"
         ><button class="bg-esn-dark-blue p-2 rounded-full mx-2 hov">
           <img
             class="m-2 h-6"
@@ -147,7 +223,11 @@
             alt="LinkedIn logo"
           /></button
       ></a>
-      <a href="https://twitter.com/esngermany/" target="_blank" rel="noopener"
+      <a
+        href="https://twitter.com/esngermany/"
+        target="_blank"
+        rel="noopener"
+        title="Twitter"
         ><button class="bg-esn-dark-blue p-2 rounded-full hov">
           <img
             class="m-2 h-6"

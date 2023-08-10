@@ -15,7 +15,7 @@ describe('Page contains navigation', () => {
   pages.forEach((page) => {
     it(`Should display navigation on ${page} page`, () => {
       cy.visit(page);
-      cy.get('esn-navigation-dark').should('be.visible');
+      cy.get('esn-navigation').should('be.visible');
     });
   });
 });

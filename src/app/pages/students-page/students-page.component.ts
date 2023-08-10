@@ -9,7 +9,7 @@ import { ExpandableComponent } from '../../components/expandable/expandable.comp
 import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 import { SectionmapComponent } from '../../components/sectionmap/sectionmap.component';
 import { ArticleComponent } from '../../components/article/article.component';
-import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
+import { NavigationComponent } from '../../components/navigation/navigation.component';
 
 @Component({
   selector: 'esn-students-page',
@@ -17,7 +17,7 @@ import { NavigationDarkComponent } from '../../components/navigation-dark/naviga
   styleUrls: ['./students-page.component.scss'],
   standalone: true,
   imports: [
-    NavigationDarkComponent,
+    NavigationComponent,
     ArticleComponent,
     SectionmapComponent,
     NgIf,

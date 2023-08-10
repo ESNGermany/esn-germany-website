@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ArticleComponent } from '../../components/article/article.component';
-import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
+import { NavigationComponent } from '../../components/navigation/navigation.component';
 
 @Component({
   selector: 'esn-contact-page',
@@ -10,7 +10,7 @@ import { NavigationDarkComponent } from '../../components/navigation-dark/naviga
   styleUrls: ['./contact-page.component.scss'],
   standalone: true,
   imports: [
-    NavigationDarkComponent,
+    NavigationComponent,
     ArticleComponent,
     RouterLink,
     RouterLinkActive,

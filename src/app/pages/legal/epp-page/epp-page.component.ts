@@ -7,14 +7,14 @@ import {
 import { FooterComponent } from '../../../components/footer/footer.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgIf, AsyncPipe } from '@angular/common';
-import { NavigationDarkComponent } from '../../../components/navigation-dark/navigation-dark.component';
+import { NavigationComponent } from '../../../components/navigation/navigation.component';
 
 @Component({
   selector: 'esn-epp-page',
   templateUrl: './epp-page.component.html',
   standalone: true,
   imports: [
-    NavigationDarkComponent,
+    NavigationComponent,
     NgIf,
     MarkdownModule,
     FooterComponent,

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 import { ArticleComponent } from '../../components/article/article.component';
-import { NavigationDarkComponent } from '../../components/navigation-dark/navigation-dark.component';
+import { NavigationComponent } from '../../components/navigation/navigation.component';
 
 @Component({
   selector: 'esn-network-page',
@@ -17,7 +17,7 @@ import { NavigationDarkComponent } from '../../components/navigation-dark/naviga
   styleUrls: ['./network-page.component.scss'],
   standalone: true,
   imports: [
-    NavigationDarkComponent,
+    NavigationComponent,
     ArticleComponent,
     NgIf,
     NgFor,
