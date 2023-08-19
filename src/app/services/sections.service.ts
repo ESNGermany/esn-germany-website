@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
-import { MessageService } from './message.service';
+
+import { BehaviorSubject, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 import { environment as env } from 'src/environments/environment';
 
+import { MessageService } from './message.service';
+import { SectionItem } from './section-item';
+
 export interface ISectionItem {
-  name: string;
-  city: string;
-  website: string;
-  email: string;
-  region: 'north' | 'west' | 'east' | 'southwest' | 'southeast';
+  data: SectionItem[];
 }
 
 @Injectable({
@@ -18,88 +18,66 @@ export interface ISectionItem {
 })
 export class SectionsService {
   private url = `${env.DIRECTUS_URL}section_map`;
+  private northSectionsSubject = new BehaviorSubject<SectionItem[]>([]);
+  private westSectionsSubject = new BehaviorSubject<SectionItem[]>([]);
+  private eastSectionsSubject = new BehaviorSubject<SectionItem[]>([]);
+  private southWestSectionsSubject = new BehaviorSubject<SectionItem[]>([]);
+  private southEastSectionsSubject = new BehaviorSubject<SectionItem[]>([]);
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
-  ) {}
-
-  public fetchSectionList(): Observable<ISectionItem[]> {
-    return this.http.get<ISectionItem[]>(this.url).pipe(
-      shareReplay(1),
-      tap(() => this.log('fetched sections')),
-      catchError(this.handleError<ISectionItem[]>('fetchSections', [])),
-    );
+  ) {
+    this.fetchSections('north');
+    this.fetchSections('west');
+    this.fetchSections('east');
+    this.fetchSections('southwest');
+    this.fetchSections('southeast');
   }
 
-  public fetchSectionsNorthList(): Observable<ISectionItem[]> {
-    return this.http
-      .get<ISectionItem[]>(this.url + '?filter[region]=north')
+  public getSections(region: string): Observable<SectionItem[]> {
+    switch (region) {
+      case 'north':
+        return this.northSectionsSubject.asObservable();
+      case 'west':
+        return this.westSectionsSubject.asObservable();
+      case 'east':
+        return this.eastSectionsSubject.asObservable();
+      case 'southwest':
+        return this.southWestSectionsSubject.asObservable();
+      case 'southeast':
+        return this.southEastSectionsSubject.asObservable();
+    }
+  }
+
+  private fetchSections(region: string): void {
+    this.http
+      .get<ISectionItem>(`${this.url}?filter[region]=${region}`)
       .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched north sections')),
         catchError(
-          this.handleError<ISectionItem[]>('fetchEastSectionList', []),
+          this.messageService.handleError<ISectionItem>(
+            `fetchSections${region}`,
+          ),
         ),
-      );
-  }
-
-  public fetchSectionsEastList(): Observable<ISectionItem[]> {
-    return this.http
-      .get<ISectionItem[]>(this.url + '?filter[region]=east')
-      .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched east sections')),
-        catchError(
-          this.handleError<ISectionItem[]>('fetchEastSectionList', []),
-        ),
-      );
-  }
-
-  public fetchSectionsWestList(): Observable<ISectionItem[]> {
-    return this.http
-      .get<ISectionItem[]>(this.url + '?filter[region]=west')
-      .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched west sections')),
-        catchError(
-          this.handleError<ISectionItem[]>('fetchWestSectionList', []),
-        ),
-      );
-  }
-
-  public fetchSectionsSouthWestList(): Observable<ISectionItem[]> {
-    return this.http
-      .get<ISectionItem[]>(this.url + '?filter[region]=southwest')
-      .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched south west sections')),
-        catchError(
-          this.handleError<ISectionItem[]>('fetchSouthWestSectionList', []),
-        ),
-      );
-  }
-
-  public fetchSectionsSouthEastList(): Observable<ISectionItem[]> {
-    return this.http
-      .get<ISectionItem[]>(this.url + '?filter[region]=southeast')
-      .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched south east sections')),
-        catchError(
-          this.handleError<ISectionItem[]>('fetchSouthEastSectionList', []),
-        ),
-      );
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-  private log(message: string) {
-    this.messageService.add(`SectionsService: ${message}`);
+      )
+      .subscribe((sections: ISectionItem) => {
+        switch (region) {
+          case 'north':
+            this.northSectionsSubject.next(sections?.data);
+            break;
+          case 'west':
+            this.westSectionsSubject.next(sections?.data);
+            break;
+          case 'east':
+            this.eastSectionsSubject.next(sections?.data);
+            break;
+          case 'southwest':
+            this.southWestSectionsSubject.next(sections?.data);
+            break;
+          case 'southeast':
+            this.southEastSectionsSubject.next(sections?.data);
+            break;
+        }
+      });
   }
 }

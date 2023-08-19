@@ -1,15 +1,13 @@
+import { NgIf, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Observable, map, shareReplay } from 'rxjs';
-import {
-  ISectionItem,
-  SectionsService,
-} from 'src/app/services/sections.service';
-import { FooterComponent } from '../../components/footer/footer.component';
-import { ExpandableComponent } from '../../components/expandable/expandable.component';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
-import { SectionmapComponent } from '../../components/sectionmap/sectionmap.component';
-import { ArticleComponent } from '../../components/article/article.component';
-import { NavigationComponent } from '../../components/navigation/navigation.component';
+
+import { ArticleComponent } from 'src/app/components/article/article.component';
+import { ExpandableComponent } from 'src/app/components/expandable/expandable.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { NavigationComponent } from 'src/app/components/navigation/navigation.component';
+import { SectionmapComponent } from 'src/app/components/sectionmap/sectionmap.component';
+import { SectionsService } from 'src/app/services/sections.service';
+import { SectionItem } from 'src/app/services/section-item';
 
 @Component({
   selector: 'esn-students-page',
@@ -24,44 +22,57 @@ import { NavigationComponent } from '../../components/navigation/navigation.comp
     ExpandableComponent,
     NgFor,
     FooterComponent,
-    AsyncPipe,
   ],
 })
 export class StudentsPageComponent implements OnInit {
-  northSections$: Observable<ISectionItem[]>;
-  westSections$: Observable<ISectionItem[]>;
-  eastSections$: Observable<ISectionItem[]>;
-  southWestSections$: Observable<ISectionItem[]>;
-  southEastSections$: Observable<ISectionItem[]>;
-
-  regions: string[] = ['north', 'west', 'east', 'southwest', 'southeast'];
+  public northSections: SectionItem[];
+  public westSections: SectionItem[];
+  public eastSections: SectionItem[];
+  public southWestSections: SectionItem[];
+  public southEastSections: SectionItem[];
 
   constructor(private sectionsService: SectionsService) {}
 
-  async ngOnInit() {
-    this.northSections$ = this.sectionsService.fetchSectionsNorthList().pipe(
-      shareReplay(1),
-      map((res: any) => res.data),
-    );
-    this.westSections$ = this.sectionsService.fetchSectionsWestList().pipe(
-      shareReplay(1),
-      map((res: any) => res.data),
-    );
-    this.eastSections$ = this.sectionsService.fetchSectionsEastList().pipe(
-      shareReplay(1),
-      map((res: any) => res.data),
-    );
-    this.southEastSections$ = this.sectionsService
-      .fetchSectionsSouthEastList()
-      .pipe(
-        shareReplay(1),
-        map((res: any) => res.data),
-      );
-    this.southWestSections$ = this.sectionsService
-      .fetchSectionsSouthWestList()
-      .pipe(
-        shareReplay(1),
-        map((res: any) => res.data),
-      );
+  ngOnInit(): void {
+    this.sectionsService.getSections('north').subscribe({
+      next: (sections?: SectionItem[]) => {
+        this.northSections = sections;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+    this.sectionsService.getSections('west').subscribe({
+      next: (sections?: SectionItem[]) => {
+        this.westSections = sections;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+    this.sectionsService.getSections('east').subscribe({
+      next: (sections?: SectionItem[]) => {
+        this.eastSections = sections;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+    this.sectionsService.getSections('southwest').subscribe({
+      next: (sections?: SectionItem[]) => {
+        this.southWestSections = sections;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+    this.sectionsService.getSections('southeast').subscribe({
+      next: (sections?: SectionItem[]) => {
+        this.southEastSections = sections;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 }
