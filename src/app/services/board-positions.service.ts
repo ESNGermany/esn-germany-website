@@ -1,91 +1,77 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { environment as env } from 'src/environments/environment';
+import { BoardPositionItem } from './board-position-item';
 
 export interface IBoardPositionItem {
-  portrait: string;
-  name: string;
-  position_description: string;
-  position: string;
-  order: number;
-  email: string;
+  data: BoardPositionItem[];
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class BoardPositionsService {
-  private url = `${env.DIRECTUS_URL}board_members`;
-  private params = new HttpParams().set('sort', 'order');
+  private ABSubject = new BehaviorSubject<BoardPositionItem[]>([]);
+  private NBSubject = new BehaviorSubject<BoardPositionItem[]>([]);
+  private RCSubject = new BehaviorSubject<BoardPositionItem[]>([]);
+  private BSSubject = new BehaviorSubject<BoardPositionItem[]>([]);
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
-  ) {}
+  ) {
+    this.fetchBoard('AB'); // audit board
+    this.fetchBoard('NB'); // national board
+    this.fetchBoard('RC'); // regional coordinators
+    this.fetchBoard('BS'); // board supporters
+  }
 
-  public fetchABList(): Observable<IBoardPositionItem[]> {
-    // audit board
-    return this.http
-      .get<IBoardPositionItem[]>(this.url + '?filter[type]=AB', {
-        params: this.params,
+  public getBoardPositions(board: string): Observable<BoardPositionItem[]> {
+    switch (board) {
+      case 'AB':
+        return this.ABSubject.asObservable();
+      case 'NB':
+        return this.NBSubject.asObservable();
+      case 'RC':
+        return this.RCSubject.asObservable();
+      case 'BS':
+        return this.BSSubject.asObservable();
+    }
+  }
+
+  private fetchBoard(board: string): void {
+    const url = `${env.DIRECTUS_URL}board_members`;
+    const params = new HttpParams().set('sort', 'order');
+
+    this.http
+      .get<IBoardPositionItem>(`${url}?filter[type]=${board}`, {
+        params: params,
       })
       .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched ABPositions')),
-        catchError(this.handleError<IBoardPositionItem[]>('fetchABPositions')),
-      );
-  }
-
-  public fetchNBList(): Observable<IBoardPositionItem[]> {
-    // national board
-    return this.http
-      .get<IBoardPositionItem[]>(this.url + '?filter[type]=NB', {
-        params: this.params,
-      })
-      .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched NBPositions')),
-        catchError(this.handleError<IBoardPositionItem[]>('fetchNBPositions')),
-      );
-  }
-
-  public fetchRCList(): Observable<IBoardPositionItem[]> {
-    // regional coordinators
-    return this.http
-      .get<IBoardPositionItem[]>(this.url + '?filter[type]=RC', {
-        params: this.params,
-      })
-      .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched RCPositions')),
-        catchError(this.handleError<IBoardPositionItem[]>('fetchRCPositions')),
-      );
-  }
-
-  public fetchBSList(): Observable<IBoardPositionItem[]> {
-    // board supporters
-    return this.http
-      .get<IBoardPositionItem[]>(this.url + '?filter[type]=BS', {
-        params: this.params,
-      })
-      .pipe(
-        shareReplay(1),
-        tap(() => this.log('fetched BSPositions')),
-        catchError(this.handleError<IBoardPositionItem[]>('fetchBSPositions')),
-      );
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-  private log(message: string) {
-    this.messageService.add(`BoardPositionService: ${message}`);
+        catchError(
+          this.messageService.handleError<IBoardPositionItem>(
+            `fetch${board}Positions`,
+          ),
+        ),
+      )
+      .subscribe((positions: IBoardPositionItem) => {
+        switch (board) {
+          case 'AB':
+            this.ABSubject.next(positions?.data);
+            break;
+          case 'NB':
+            this.NBSubject.next(positions?.data);
+            break;
+          case 'RC':
+            this.RCSubject.next(positions?.data);
+            break;
+          case 'BS':
+            this.BSSubject.next(positions?.data);
+            break;
+        }
+      });
   }
 }

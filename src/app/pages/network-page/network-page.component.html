@@ -184,11 +184,11 @@
     network in a joint effort.
   </p>
   <p class="pt-4">The current board members are:</p>
-  <ng-container *ngIf="NBItemList$ | async as NBItemList; else loading">
+  <ng-container *ngIf="NBPositions; else loading">
     <div
       class="mb-8 font-body m-auto flex flex-wrap items-start justify-evenly"
     >
-      <div *ngFor="let nb of NBItemList">
+      <div *ngFor="let nb of NBPositions">
         <figure
           class="py-4 px-5 inline-block relative hoverimgcontainer bg-white"
         >
@@ -232,11 +232,11 @@
 </esn-article>
 <!-- Board Supporters -->
 <esn-article [title]="'The Board Supporters'" [grayBg]="true">
-  <ng-container *ngIf="BSItemList$ | async as BSItemList; else loading">
+  <ng-container *ngIf="BSPositions; else loading">
     <div
       class="mb-8 font-body m-auto flex flex-wrap items-start justify-evenly"
     >
-      <div *ngFor="let bs of BSItemList">
+      <div *ngFor="let bs of BSPositions">
         <figure
           class="py-4 px-6 inline-block relative hoverimgcontainer bg-whitebg"
         >
@@ -328,9 +328,9 @@
     coordination of regional events.
   </p>
   <p class="pt-4">The current Regional Coordinators are:</p>
-  <div *ngIf="RCItemList$ | async as RCItemList">
+  <div *ngIf="RCPositions">
     <div class="m-auto flex flex-wrap items-start justify-evenly">
-      <div *ngFor="let rc of RCItemList">
+      <div *ngFor="let rc of RCPositions">
         <figure
           class="py-4 px-6 inline-block relative hoverimgcontainer bg-whitebg"
         >
@@ -383,9 +383,9 @@
     compliance and check the budget. The Audit board consists of 3 to 5 people
     (one Main Chair, 1-2 Legal Auditors and 1-2 Financial Auditors).
   </p>
-  <div *ngIf="ABItemList$ | async as ABItemList">
+  <div *ngIf="ABPositions">
     <div class="px-8 mb-8 font-body m-auto flex flex-wrap justify-evenly">
-      <div *ngFor="let ab of ABItemList">
+      <div *ngFor="let ab of ABPositions">
         <figure
           class="py-4 px-6 inline-block relative hoverimgcontainer bg-white"
         >
