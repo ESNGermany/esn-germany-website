@@ -26,10 +26,10 @@ import { BoardPositionItem } from 'src/app/services/board-position-item';
 export class NetworkPageComponent implements OnInit {
   public directusImageUrl: string = environment.DIRECTUS_URL_IMAGE;
 
-  NBPositions: BoardPositionItem[];
-  ABPositions: BoardPositionItem[];
-  RCPositions: BoardPositionItem[];
-  BSPositions: BoardPositionItem[];
+  public NBPositions: BoardPositionItem[];
+  public ABPositions: BoardPositionItem[];
+  public RCPositions: BoardPositionItem[];
+  public BSPositions: BoardPositionItem[];
   teamsList$: Observable<ITeamsItem[]>;
 
   constructor(

@@ -20,11 +20,12 @@ import {
   IGeneralInformationItem,
 } from 'src/app/services/general-information.service';
 import { environment as env } from 'src/environments/environment';
-import { ContentService, IContentItem } from 'src/app/services/content.service';
+import { ContentService } from 'src/app/services/content.service';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { ArticleComponent } from '../../components/article/article.component';
 import { NavigationComponent } from '../../components/navigation/navigation.component';
+import { ContentItem } from 'src/app/services/content-item';
 
 @Component({
   selector: 'esn-landing-page',
@@ -61,7 +62,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
 
   public generalInformation: IGeneralInformationItem =
     {} as IGeneralInformationItem;
-  public contentItems: IContentItem[];
+  public contentItems: ContentItem[];
   public isAnimated = false;
   private doneAnimating = false;
 
@@ -81,9 +82,15 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   ) {}
 
   async ngOnInit() {
-    this.contentItems = await firstValueFrom(
-      this.contentService.fetchPageContent('Home'),
-    );
+    this.contentService.getPageContent('Home').subscribe({
+      next: (contentItems?: ContentItem[]) => {
+        this.contentItems = contentItems;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+
     this.generalInformation = await firstValueFrom(
       this.generalInformationService.fetchGeneralInformation(),
     );
