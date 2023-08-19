@@ -1,17 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
-import { MessageService } from './message.service';
+
+import { BehaviorSubject, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 import { environment as env } from 'src/environments/environment';
 
+import { MessageService } from './message.service';
+import { PartnersItem } from './partners-item';
+
 export interface IPartnersItem {
-  name: string;
-  logo: string;
-  link: string;
-  description: string;
-  buttontext: string;
-  show: boolean;
+  data: PartnersItem[];
 }
 
 @Injectable({
@@ -19,28 +18,36 @@ export interface IPartnersItem {
 })
 export class PartnersService {
   private url = `${env.DIRECTUS_URL}partners`;
+  private partnersSubject = new BehaviorSubject<PartnersItem[]>([]);
+  private buttonText = 'Learn More ↓';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
-  ) {}
-
-  public fetchPartnersList(): Observable<IPartnersItem[]> {
-    return this.http.get<IPartnersItem[]>(this.url).pipe(
-      shareReplay(1),
-      tap(() => this.log('fetched partners')),
-      catchError(this.handleError<IPartnersItem[]>('fetchPartnersList', [])),
-    );
+  ) {
+    this.fetchPartners();
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
+  public getPartners(): Observable<PartnersItem[]> {
+    return this.partnersSubject.asObservable();
   }
-  private log(message: string) {
-    this.messageService.add(`PartnersService: ${message}`);
+
+  private fetchPartners(): void {
+    this.http
+      .get<IPartnersItem>(this.url)
+      .pipe(
+        catchError(
+          this.messageService.handleError<IPartnersItem>('fetchPartnersList'),
+        ),
+      )
+      .subscribe((partners: IPartnersItem) => {
+        const partnersItems = partners?.data.map((item: PartnersItem) => {
+          return {
+            ...item,
+            buttonText: this.buttonText,
+          };
+        });
+        this.partnersSubject.next(partnersItems);
+      });
   }
 }

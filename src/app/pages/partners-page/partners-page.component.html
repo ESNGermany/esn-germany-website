@@ -48,7 +48,7 @@
   [grayBox]="true"
   data-testid="esn-national-partners"
 >
-  <ng-container *ngIf="partners$ | async as partners; else loading">
+  <ng-container *ngIf="partners; else loading">
     <p>Click on a logo to get more information.</p>
     <div class="flex flex-wrap justify-evenly items-baseline">
       <ng-container *ngFor="let partner of partners; let i = index">

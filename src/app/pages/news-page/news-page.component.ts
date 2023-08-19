@@ -3,7 +3,7 @@ import { NewsService } from 'src/app/services/news.service';
 import { environment } from 'src/environments/environment';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarkdownModule } from 'ngx-markdown';
-import { NgIf, NgFor, AsyncPipe, DatePipe } from '@angular/common';
+import { NgIf, NgFor, DatePipe } from '@angular/common';
 import { NavigationComponent } from '../../components/navigation/navigation.component';
 import { NewsItem } from 'src/app/services/news-item';
 
@@ -18,7 +18,6 @@ import { NewsItem } from 'src/app/services/news-item';
     NgFor,
     MarkdownModule,
     FooterComponent,
-    AsyncPipe,
     DatePipe,
   ],
 })
