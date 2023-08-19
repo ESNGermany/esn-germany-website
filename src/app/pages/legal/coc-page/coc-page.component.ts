@@ -1,14 +1,13 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { map, Observable, shareReplay } from 'rxjs';
-import {
-  ILegalDocumentsItem,
-  LegalDocumentsService,
-} from 'src/app/services/legal-documents.service';
-import { FooterComponent } from '../../../components/footer/footer.component';
+
 import { MarkdownModule } from 'ngx-markdown';
-import { NgIf, AsyncPipe } from '@angular/common';
-import { ArticleComponent } from '../../../components/article/article.component';
-import { NavigationComponent } from '../../../components/navigation/navigation.component';
+
+import { ArticleComponent } from 'src/app/components/article/article.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { NavigationComponent } from 'src/app/components/navigation/navigation.component';
+import { LegalDocumentsService } from 'src/app/services/legal-documents.service';
+import { LegalDocument } from 'src/app/services/legal-document-item';
 
 @Component({
   selector: 'esn-coc-page',
@@ -20,22 +19,23 @@ import { NavigationComponent } from '../../../components/navigation/navigation.c
     NgIf,
     MarkdownModule,
     FooterComponent,
-    AsyncPipe,
   ],
 })
 export class CocPageComponent implements OnInit {
-  cocItem$: Observable<ILegalDocumentsItem> | undefined;
+  cocItem: LegalDocument;
 
   constructor(private legalDocumentsService: LegalDocumentsService) {}
 
-  async ngOnInit() {
-    this.cocItem$ = this.legalDocumentsService
-      .fetchLegalDocumentsList(
-        '?filter[title]=Verhaltenskodex / Code of Conduct',
-      )
-      .pipe(
-        shareReplay(1),
-        map((res: any) => res.data[0]),
-      );
+  ngOnInit(): void {
+    this.legalDocumentsService
+      .getLegalDocument('Verhaltenskodex / Code of Conduct')
+      .subscribe({
+        next: (document?: LegalDocument) => {
+          this.cocItem = document;
+        },
+        error: (error) => {
+          console.error(error);
+        },
+      });
   }
 }

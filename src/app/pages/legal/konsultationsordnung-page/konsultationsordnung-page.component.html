@@ -1,10 +1,8 @@
 <esn-navigation></esn-navigation>
 <div class="max-w-screen-xl m-auto mb-16 sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
   <div class="m-auto block mb-24 px-16 font-body">
-    <ng-container
-      *ngIf="konsultationsordnungItem$ | async as konsItem; else loading"
-    >
-      <markdown [data]="konsItem.markdowntext"></markdown>
+    <ng-container *ngIf="konsultationsordnungItem; else loading">
+      <markdown [data]="konsultationsordnungItem.markdowntext"></markdown>
     </ng-container>
     <ng-template #loading>
       <img

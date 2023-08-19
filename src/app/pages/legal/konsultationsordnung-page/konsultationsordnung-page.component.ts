@@ -1,37 +1,34 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { map, Observable, shareReplay } from 'rxjs';
-import {
-  ILegalDocumentsItem,
-  LegalDocumentsService,
-} from 'src/app/services/legal-documents.service';
-import { FooterComponent } from '../../../components/footer/footer.component';
+
 import { MarkdownModule } from 'ngx-markdown';
-import { NgIf, AsyncPipe } from '@angular/common';
-import { NavigationComponent } from '../../../components/navigation/navigation.component';
+
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { NavigationComponent } from 'src/app/components/navigation/navigation.component';
+import { LegalDocumentsService } from 'src/app/services/legal-documents.service';
+import { LegalDocument } from 'src/app/services/legal-document-item';
 
 @Component({
   selector: 'esn-konsultationsordnung-page',
   templateUrl: './konsultationsordnung-page.component.html',
   standalone: true,
-  imports: [
-    NavigationComponent,
-    NgIf,
-    MarkdownModule,
-    FooterComponent,
-    AsyncPipe,
-  ],
+  imports: [NavigationComponent, NgIf, MarkdownModule, FooterComponent],
 })
 export class KonsultationsordnungPageComponent implements OnInit {
-  konsultationsordnungItem$: Observable<ILegalDocumentsItem> | undefined;
+  konsultationsordnungItem: LegalDocument;
 
   constructor(private legalDocumentsService: LegalDocumentsService) {}
 
-  async ngOnInit() {
-    this.konsultationsordnungItem$ = this.legalDocumentsService
-      .fetchLegalDocumentsList('?filter[title]=Konsultationsordnung')
-      .pipe(
-        shareReplay(1),
-        map((res: any) => res.data[0]),
-      );
+  ngOnInit(): void {
+    this.legalDocumentsService
+      .getLegalDocument('Konsultationsordnung')
+      .subscribe({
+        next: (document?: LegalDocument) => {
+          this.konsultationsordnungItem = document;
+        },
+        error: (error) => {
+          console.error(error);
+        },
+      });
   }
 }
