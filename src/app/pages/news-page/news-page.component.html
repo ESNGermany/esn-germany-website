@@ -1,35 +1,35 @@
 <esn-navigation></esn-navigation>
-<ng-container *ngIf="news$ | async as newsItemList; else loading">
+<ng-container *ngIf="news; else loading">
   <div class="max-w-screen-xl m-auto sm:px-16 xl:mt-16 lg:mt-8 sm:mt-4">
     <div
-      *ngFor="let ni of newsItemList"
+      *ngFor="let n of news"
       class="p-8 mb-16 border rounded border-graylight shadow-xl overflow-hidden"
     >
       <div class="m-auto mb-4 relative w-full">
         <p
-          id="{{ ni.id }}"
+          id="{{ n.id }}"
           class="font-heading text-esn-dark-blue font-bold text-4xl title w-full relative"
         >
-          {{ ni.title }}
+          {{ n.title }}
         </p>
       </div>
       <div class="m-auto font-body text-lg">
         <figure class="pl-8 pb-0 pr-0 pt-0 float-right w-2/5">
           <img
-            src="{{ directusImageUrl }}{{ ni.image }}?height=300"
+            src="{{ directusImageUrl }}{{ n.image }}?height=300"
             alt=""
             class="pb-4"
           />
         </figure>
         <p class="text-gray pb-4 text-xl">
-          {{ ni.author }} – {{ ni.published | date: "mediumDate" }}
+          {{ n.author }} – {{ n.published | date: "mediumDate" }}
         </p>
-        <div class="news{{ ni.id }}">
-          <markdown [data]="ni.text"></markdown>
-          <div *ngIf="ni.attachment" class="my-4">
+        <div class="news{{ n.id }}">
+          <markdown [data]="n.text"></markdown>
+          <div *ngIf="n.attachment" class="my-4">
             <p>Open attachment:</p>
             <a
-              href="{{ directusImageUrl }}{{ ni.attachment }}?download"
+              href="{{ directusImageUrl }}{{ n.attachment }}?download"
               target="_blank"
               rel="noopener"
               class="font-body text-lg text-esn-dark-blue hover:underline"

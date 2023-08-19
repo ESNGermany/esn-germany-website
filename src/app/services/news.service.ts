@@ -1,18 +1,16 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
-import { MessageService } from './message.service';
+
+import { BehaviorSubject, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 import { environment as env } from 'src/environments/environment';
 
+import { MessageService } from './message.service';
+import { NewsItem } from './news-item';
+
 export interface INewsItem {
-  id: string;
-  title: string;
-  text: string;
-  image: string;
-  attachment: string;
-  author: string;
-  published: Date;
+  data: NewsItem[];
 }
 
 @Injectable({
@@ -20,30 +18,50 @@ export interface INewsItem {
 })
 export class NewsService {
   private url = `${env.DIRECTUS_URL}news`;
+  private newsSubject = new BehaviorSubject<NewsItem[]>([]);
+  private id: string;
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
-  ) {}
+  ) {
+    this.fetchNews();
+  }
 
-  public fetchNewsList(): Observable<INewsItem[]> {
+  public getNews(): Observable<NewsItem[]> {
+    return this.newsSubject.asObservable();
+  }
+
+  private fetchNews(): void {
     const params = new HttpParams().set('sort', '-published');
 
-    return this.http.get<INewsItem[]>(this.url, { params }).pipe(
-      shareReplay(1),
-      tap(() => this.log('fetched news')),
-      catchError(this.handleError<INewsItem[]>('fetchNewsList', [])),
-    );
+    this.http
+      .get<INewsItem>(this.url, { params })
+      .pipe(catchError(this.messageService.handleError<INewsItem>('fetchNews')))
+      .subscribe((newsItem: INewsItem) => {
+        const news = newsItem.data.map((item: NewsItem) => {
+          return {
+            ...item,
+            id: this.generateNewsItemId(item.title),
+          };
+        });
+        this.newsSubject.next(news);
+      });
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-  private log(message: string) {
-    this.messageService.add(`NewsService: ${message}`);
+  private generateNewsItemId(title: string): string {
+    // no uppercase letters for URL
+    this.id = title.toLowerCase();
+    // remove all special characters
+    this.id = this.id.split(/[&/\\#,+()$~%.'":*-?!<>{}]/g).join('');
+    // remove double spaces
+    this.id = this.id.split('  ').join(' ');
+    // replace every space with a hyphen
+    this.id = this.id.split(' ').join('-');
+    // if string ends with a hyphen, remove it
+    if (this.id.substring(this.id.length - 1) === '-') {
+      this.id = this.id.substring(0, this.id.length - 1);
+    }
+    return this.id;
   }
 }
