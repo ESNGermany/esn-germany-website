@@ -98,15 +98,15 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       },
     });
 
-    if (this.generalInformation.background_photos.length > 0) {
+    if (this.generalInformation?.background_photos.length > 0) {
       this.landing_image_div0 =
-        this.generalInformation.background_photos[0].directus_files_id;
+        this.generalInformation?.background_photos[0].directus_files_id;
       this.landing_image_div1 =
         // @ts-ignore:next-line
-        this.generalInformation.background_photos[1].directus_files_id;
+        this.generalInformation?.background_photos[1].directus_files_id;
       this.landing_image_div2 =
         // @ts-ignore:next-line
-        this.generalInformation.background_photos[2].directus_files_id;
+        this.generalInformation?.background_photos[2].directus_files_id;
     }
   }
 
@@ -124,7 +124,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       const image0 = this.document.getElementsByClassName(
         'div0',
       )[0] as HTMLDivElement;
-      if (image0) {
+      if (image0 && this.landing_image_div0 !== '') {
         image0.style.backgroundImage = `url(${env.DIRECTUS_URL_IMAGE}${this.landing_image_div0})`;
       }
       const image1 = this.document.getElementsByClassName(

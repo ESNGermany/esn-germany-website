@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { MessageService } from './message.service';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 import { environment as env } from 'src/environments/environment';
+
 import { GeneralInformationItem } from './general-information-item';
+import { MessageService } from './message.service';
 
 export interface IGeneralInformationItem {
   data: GeneralInformationItem;

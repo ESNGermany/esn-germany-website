@@ -18,7 +18,7 @@ import { SectionsService } from './app/services/sections.service';
 import { PartnersService } from './app/services/partners.service';
 import { NewsService } from './app/services/news.service';
 import { MessageService } from './app/services/message.service';
-import { ImprintService } from './app/services/imprint.service';
+import { LegalNoticeService } from './app/services/legal-notice.service';
 import { LegalDocumentsService } from './app/services/legal-documents.service';
 import { BoardPositionsService } from './app/services/board-positions.service';
 import { provideRouter } from '@angular/router';
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ),
       BoardPositionsService,
       LegalDocumentsService,
-      ImprintService,
+      LegalNoticeService,
       MessageService,
       NewsService,
       PartnersService,

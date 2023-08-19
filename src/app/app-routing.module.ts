@@ -4,7 +4,7 @@ import { NetworkPageComponent } from './pages/network-page/network-page.componen
 import { StudentsPageComponent } from './pages/students-page/students-page.component';
 import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
-import { ImprintPageComponent } from './pages/imprint-page/imprint-page.component';
+import { LegalNoticePageComponent } from './pages/legal-notice-page/legal-notice-page.component';
 import { CocPageComponent } from './pages/legal/coc-page/coc-page.component';
 import { EppPageComponent } from './pages/legal/epp-page/epp-page.component';
 import { StatutesPageComponent } from './pages/legal/statutes-page/statutes-page.component';
@@ -44,7 +44,7 @@ export const routes: Route[] = [
   {
     path: 'legal-notice',
     title: 'Legal Notice | ESN Germany e.V.',
-    component: ImprintPageComponent,
+    component: LegalNoticePageComponent,
   },
   {
     path: 'imprint',

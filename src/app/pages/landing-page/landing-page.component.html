@@ -4,11 +4,11 @@
   </div>
 </ng-container>
 <esn-navigation [isLandingPage]="true"></esn-navigation>
-<ng-container *ngIf="generalInformation.banner_text">
+<ng-container *ngIf="generalInformation?.banner_text">
   <div class="m-auto py-16 mb-40 extra">
     <span
       class="whitespace-pre bg-white font-heading text-center text-black font-bold text-4xl leading-snug"
-      >{{ generalInformation.banner_text.trim() }}</span
+      >{{ generalInformation?.banner_text.trim() }}</span
     >
   </div>
 </ng-container>

@@ -1,7 +1,7 @@
 <esn-navigation></esn-navigation>
 <esn-article [title]="'Legal Notice'">
-  <ng-container *ngIf="imprintItem; else loading">
-    <markdown [data]="imprintItem.content"></markdown>
+  <ng-container *ngIf="legalNoticeItem; else loading">
+    <markdown [data]="legalNoticeItem?.content"></markdown>
   </ng-container>
   <ng-template #loading>
     <img

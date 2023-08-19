@@ -22,16 +22,16 @@
     <div class="sm:w-full lg:w-1/2 xl:w-1/4 px-8">
       <p class="font-bold uppercase pb-1 text-lg">Contact</p>
       <p class="font-bold">Erasmus Student Network Deutschland e.V.</p>
-      <p class="pt-2 whitespace-pre">{{ generalInformation.address_co }}</p>
+      <p class="pt-2 whitespace-pre">{{ generalInformation?.address_co }}</p>
       <p>Ruhr Universität Bochum</p>
-      <p>{{ generalInformation.address_street }}</p>
-      <p>{{ generalInformation.address_city }}</p>
+      <p>{{ generalInformation?.address_street }}</p>
+      <p>{{ generalInformation?.address_city }}</p>
       <p class="pt-1 pb-4">
         <a
-          href="mailto:{{ generalInformation.email }}"
+          href="mailto:{{ generalInformation?.email }}"
           rel="noopener"
           class="hover:underline"
-          >{{ generalInformation.email }}</a
+          >{{ generalInformation?.email }}</a
         >
       </p>
     </div>
@@ -136,7 +136,7 @@
       <p class="font-bold uppercase pb-1 text-lg">Social Media</p>
       <p>
         <a
-          href="{{ generalInformation.instagram }}"
+          href="{{ generalInformation?.instagram }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"
@@ -146,7 +146,7 @@
       </p>
       <p>
         <a
-          href="{{ generalInformation.facebook }}"
+          href="{{ generalInformation?.facebook }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"
@@ -156,7 +156,7 @@
       </p>
       <p>
         <a
-          href="{{ generalInformation.linkedin }}"
+          href="{{ generalInformation?.linkedin }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"
@@ -166,7 +166,7 @@
       </p>
       <p>
         <a
-          href="{{ generalInformation.twitter }}"
+          href="{{ generalInformation?.twitter }}"
           target="_blank"
           rel="noopener"
           class="hover:underline"
