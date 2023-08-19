@@ -1,12 +1,10 @@
 import { DOCUMENT, NgIf, NgClass } from '@angular/common';
 import { Component, Inject, HostListener, OnInit } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
-import {
-  GeneralInformationService,
-  IGeneralInformationItem,
-} from 'src/app/services/general-information.service';
-import { environment } from 'src/environments/environment';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+import { GeneralInformationService } from 'src/app/services/general-information.service';
+import { GeneralInformationItem } from 'src/app/services/general-information-item';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'esn-footer',
@@ -16,17 +14,16 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [NgIf, NgClass, RouterLink, RouterLinkActive],
 })
 export class FooterComponent implements OnInit {
-  private windowScrolled: boolean;
   public desktop = false;
+  public generalInformation: GeneralInformationItem;
   public timestamp: string = environment.timeStamp;
-
-  public generalInformation: IGeneralInformationItem | undefined =
-    {} as IGeneralInformationItem;
+  private windowScrolled: boolean;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private generalInformationService: GeneralInformationService,
   ) {}
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (window.screenX >= 1267) {
@@ -47,10 +44,15 @@ export class FooterComponent implements OnInit {
     }
   }
 
-  async ngOnInit() {
-    this.generalInformation = await firstValueFrom(
-      this.generalInformationService.fetchGeneralInformation(),
-    );
+  ngOnInit(): void {
+    this.generalInformationService.getGeneralInformation().subscribe({
+      next: (generalInfo?: GeneralInformationItem) => {
+        this.generalInformation = generalInfo;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 
   public scrollToTop(): void {

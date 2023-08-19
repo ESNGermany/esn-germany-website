@@ -1,4 +1,12 @@
 import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { DOCUMENT, NgFor, NgIf, NgClass, AsyncPipe } from '@angular/common';
+import {
   AfterViewInit,
   Component,
   Inject,
@@ -6,26 +14,18 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
-import { firstValueFrom, interval } from 'rxjs';
-import { DOCUMENT, NgFor, NgIf, NgClass, AsyncPipe } from '@angular/common';
-import {
-  GeneralInformationService,
-  IGeneralInformationItem,
-} from 'src/app/services/general-information.service';
-import { environment as env } from 'src/environments/environment';
-import { ContentService } from 'src/app/services/content.service';
-import { FooterComponent } from '../../components/footer/footer.component';
+
 import { MarkdownModule } from 'ngx-markdown';
-import { ArticleComponent } from '../../components/article/article.component';
-import { NavigationComponent } from '../../components/navigation/navigation.component';
+import { interval } from 'rxjs';
+
+import { ArticleComponent } from 'src/app/components/article/article.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { NavigationComponent } from 'src/app/components/navigation/navigation.component';
+import { ContentService } from 'src/app/services/content.service';
 import { ContentItem } from 'src/app/services/content-item';
+import { GeneralInformationService } from 'src/app/services/general-information.service';
+import { GeneralInformationItem } from 'src/app/services/general-information-item';
+import { environment as env } from 'src/environments/environment';
 
 @Component({
   selector: 'esn-landing-page',
@@ -60,19 +60,18 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     '/assets/landing/landing3.png',
   ];
 
-  public generalInformation: IGeneralInformationItem =
-    {} as IGeneralInformationItem;
-  public contentItems: ContentItem[];
-  public isAnimated = false;
-  private doneAnimating = false;
-
   public landing_image_div0 = '';
   public landing_image_div1 = '';
   public landing_image_div2 = '';
 
-  @ViewChild('a', { static: false }) a: any;
-  @ViewChild('b', { static: false }) b: any;
-  @ViewChild('c', { static: false }) c: any;
+  public generalInformation: GeneralInformationItem;
+  public contentItems: ContentItem[];
+  public isAnimated = false;
+  private doneAnimating = false;
+
+  @ViewChild('firstNumber', { static: false }) firstNumber: any;
+  @ViewChild('secondNumber', { static: false }) secondNumber: any;
+  @ViewChild('thirdNumber', { static: false }) thirdNumber: any;
 
   constructor(
     private render: Renderer2,
@@ -81,7 +80,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     private contentService: ContentService,
   ) {}
 
-  async ngOnInit() {
+  ngOnInit(): void {
     this.contentService.getPageContent('Home').subscribe({
       next: (contentItems?: ContentItem[]) => {
         this.contentItems = contentItems;
@@ -90,10 +89,15 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
         console.error(error);
       },
     });
+    this.generalInformationService.getGeneralInformation().subscribe({
+      next: (generalInfo?: GeneralInformationItem) => {
+        this.generalInformation = generalInfo;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
 
-    this.generalInformation = await firstValueFrom(
-      this.generalInformationService.fetchGeneralInformation(),
-    );
     if (this.generalInformation.background_photos.length > 0) {
       this.landing_image_div0 =
         this.generalInformation.background_photos[0].directus_files_id;
@@ -137,34 +141,34 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       }
     });
 
-    const section_count = await firstValueFrom(
-      this.generalInformationService.fetchGeneralInformation(),
-    ).then((x) => x.section_counter);
+    const section_count = this.generalInformation?.section_counter;
 
     this.render.listen('window', 'scroll', () => {
-      const aPosition = this.a.nativeElement.getBoundingClientRect();
+      const aPosition = this.firstNumber.nativeElement.getBoundingClientRect();
       if (
         !this.doneAnimating &&
         aPosition.top >= 0 &&
         aPosition.bottom <= window.innerHeight
       ) {
         if (this.isAnimated == false) {
-          this.animateValue(this.a, 0, 1200, 1100);
-          this.animateValue(this.b, 0, 10600, 1800);
-          this.animateValue(this.c, 0, section_count, 630);
+          this.animateValue(this.firstNumber, 0, 1200, 1100);
+          this.animateValue(this.secondNumber, 0, 10600, 1800);
+          this.animateValue(this.thirdNumber, 0, section_count, 630);
 
           setTimeout(function () {
             this.isAnimated = true;
-            const aEl = this.document.getElementById('a');
-            if (aEl) {
-              aEl.innerHTML = '1 200 +';
+            const firstNumberElement =
+              this.document.getElementById('firstNumber');
+            if (firstNumberElement) {
+              firstNumberElement.innerHTML = '1 200 +';
             }
           }, 1100);
           setTimeout(function () {
             this.isAnimated = true;
-            const bEl = this.document.getElementById('b');
-            if (bEl) {
-              bEl.innerHTML = '10 600 +';
+            const secondNumberElement =
+              this.document.getElementById('secondNumber');
+            if (secondNumberElement) {
+              secondNumberElement.innerHTML = '10 600 +';
             }
           }, 1800);
           this.doneAnimating = true;
