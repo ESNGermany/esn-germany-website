@@ -1,13 +1,14 @@
+import { NgIf, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Observable, map, shareReplay } from 'rxjs';
+
+import { ArticleComponent } from 'src/app/components/article/article.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { NavigationComponent } from 'src/app/components/navigation/navigation.component';
 import { BoardPositionsService } from 'src/app/services/board-positions.service';
-import { ITeamsItem, TeamsService } from 'src/app/services/teams.service';
-import { environment } from 'src/environments/environment';
-import { FooterComponent } from '../../components/footer/footer.component';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
-import { ArticleComponent } from '../../components/article/article.component';
-import { NavigationComponent } from '../../components/navigation/navigation.component';
 import { BoardPositionItem } from 'src/app/services/board-position-item';
+import { TeamsService } from 'src/app/services/teams.service';
+import { TeamsItem } from 'src/app/services/teams-item';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'esn-network-page',
@@ -20,7 +21,6 @@ import { BoardPositionItem } from 'src/app/services/board-position-item';
     NgIf,
     NgFor,
     FooterComponent,
-    AsyncPipe,
   ],
 })
 export class NetworkPageComponent implements OnInit {
@@ -30,7 +30,7 @@ export class NetworkPageComponent implements OnInit {
   public ABPositions: BoardPositionItem[];
   public RCPositions: BoardPositionItem[];
   public BSPositions: BoardPositionItem[];
-  teamsList$: Observable<ITeamsItem[]>;
+  public teamsList: TeamsItem[];
 
   constructor(
     private boardPositionService: BoardPositionsService,
@@ -71,9 +71,13 @@ export class NetworkPageComponent implements OnInit {
       },
     });
 
-    this.teamsList$ = this.teamsService.fetchTeam().pipe(
-      shareReplay(1),
-      map((res: any) => res.data),
-    );
+    this.teamsService.getTeams().subscribe({
+      next: (teams?: TeamsItem[]) => {
+        this.teamsList = teams;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
   }
 }

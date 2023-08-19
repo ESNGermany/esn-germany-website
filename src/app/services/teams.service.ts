@@ -1,44 +1,45 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
-import { MessageService } from './message.service';
+
+import { BehaviorSubject, Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 import { environment as env } from 'src/environments/environment';
 
+import { MessageService } from './message.service';
+import { TeamsItem } from './teams-item';
+
 export interface ITeamsItem {
-  image: string;
-  teamname: string;
-  description: string;
+  data: TeamsItem[];
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class TeamsService {
-  private url = `${env.DIRECTUS_URL}national_teams`;
+  private teamsSubject = new BehaviorSubject<TeamsItem[]>([]);
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
-  ) {}
-
-  public fetchTeam(): Observable<ITeamsItem[]> {
-    return this.http.get<ITeamsItem[]>(this.url).pipe(
-      shareReplay(1),
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      tap((_) => this.log('fetched Team')),
-      catchError(this.handleError<ITeamsItem[]>('fetchTeamsList', [])),
-    );
+  ) {
+    this.fetchTeams();
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: Error): Observable<T> => {
-      console.error(error);
-      this.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
+  public getTeams(): Observable<TeamsItem[]> {
+    return this.teamsSubject.asObservable();
   }
-  private log(message: string) {
-    this.messageService.add(`BoardPositionService: ${message}`);
+
+  private fetchTeams(): void {
+    this.http
+      .get<ITeamsItem>(`${env.DIRECTUS_URL}national_teams`)
+      .pipe(
+        catchError(
+          this.messageService.handleError<ITeamsItem>('fetchTeamsList'),
+        ),
+      )
+      .subscribe((teams: ITeamsItem) => {
+        this.teamsSubject.next(teams.data);
+      });
   }
 }
