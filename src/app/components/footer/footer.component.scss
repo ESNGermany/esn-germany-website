@@ -7,18 +7,15 @@
   line-height: 0;
   transform: rotate(180deg);
 }
-
 .divider-top svg {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
   height: 50px;
 }
-
 .divider-top .shape-fill {
   fill: #3a3a3a;
 }
-
 .icon {
   vertical-align: -3px;
 }
@@ -34,11 +31,9 @@
   opacity: 1;
   transition: all 0.2s ease-in-out;
 }
-
 .hov {
   transition: transform 0.2s;
 }
-
 .hov:hover {
   transform: scale(1.13);
 }

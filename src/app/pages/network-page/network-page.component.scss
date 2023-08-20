@@ -2,7 +2,6 @@
   flex-basis: 100%;
   height: 0;
 }
-
 .hash:hover::before {
   position: absolute;
   content: "#";
@@ -13,31 +12,25 @@
   color: #2e3192;
   opacity: 0.7;
 }
-
 .icon {
   font-size: 18px;
   vertical-align: -3px;
 }
-
 .addeffect {
   transition: all 0.35s ease-in-out;
 }
-
 .zoom {
   transition: transform 0.2s;
   width: 256px;
   margin: 0 35px;
 }
-
 .zoom:hover {
   transform: scale(1.08);
 }
-
 .hoverimg {
   transition: 0.5s ease;
   backface-visibility: hidden;
 }
-
 .middle {
   transition: 0.5s ease;
   opacity: 0;
@@ -62,15 +55,12 @@
   -ms-transform: translate(0, 8%);
   text-align: center;
 }
-
 .hoverimgcontainer:hover .hoverimg {
   opacity: 0.3;
 }
-
 .hoverimgcontainer:hover .middlecom {
   opacity: 1;
 }
-
 .hoverimgcontainer:hover .middle {
   opacity: 1;
 }

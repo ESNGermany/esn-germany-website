@@ -1,28 +1,29 @@
-import { enableProdMode, importProvidersFrom } from '@angular/core';
-
-import { environment } from './environments/environment';
-import { AppComponent } from './app/app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { MarkdownModule } from 'ngx-markdown';
-import { TruncateModule } from '@yellowspot/ng-truncate';
 import {
   withInterceptorsFromDi,
   provideHttpClient,
 } from '@angular/common/http';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
+import { MarkdownModule } from 'ngx-markdown';
+import { TruncateModule } from '@yellowspot/ng-truncate';
+
+import { AppComponent } from './app/app.component';
+import { routes } from './app/app-routing.module';
+import { BoardPositionsService } from './app/services/board-positions.service';
 import { ContentService } from './app/services/content.service';
 import { GeneralInformationService } from './app/services/general-information.service';
-import { TeamsService } from './app/services/teams.service';
-import { SectionsService } from './app/services/sections.service';
-import { PartnersService } from './app/services/partners.service';
-import { NewsService } from './app/services/news.service';
-import { MessageService } from './app/services/message.service';
-import { LegalNoticeService } from './app/services/legal-notice.service';
 import { LegalDocumentsService } from './app/services/legal-documents.service';
-import { BoardPositionsService } from './app/services/board-positions.service';
-import { provideRouter } from '@angular/router';
-import { routes } from './app/app-routing.module';
+import { LegalNoticeService } from './app/services/legal-notice.service';
+import { MessageService } from './app/services/message.service';
+import { NewsService } from './app/services/news.service';
+import { PartnersService } from './app/services/partners.service';
+import { SectionsService } from './app/services/sections.service';
+import { TeamsService } from './app/services/teams.service';
+import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
@@ -43,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }),
       ),
       BoardPositionsService,
+      ContentService,
+      GeneralInformationService,
       LegalDocumentsService,
       LegalNoticeService,
       MessageService,
@@ -50,8 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
       PartnersService,
       SectionsService,
       TeamsService,
-      GeneralInformationService,
-      ContentService,
       provideAnimations(),
       provideHttpClient(withInterceptorsFromDi()),
       provideRouter(routes),

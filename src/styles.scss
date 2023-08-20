@@ -1,40 +1,32 @@
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
-
 @import "tailwindcss/utilities";
-/* You can add global styles to this file, and also import other style files */
 
 @font-face {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   src: url("./assets/fonts/Lato/Lato-Regular.ttf") format("truetype");
   font-weight: normal;
 }
-
 @font-face {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   src: url("./assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
   font-weight: bold;
 }
-
 @font-face {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   src: url("./assets/fonts/Lato/Lato-Italic.ttf") format("truetype");
   font-style: italic;
 }
-
 @font-face {
   font-family: "Lato", Arial, Helvetica, sans-serif;
   src: url("./assets/fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
   font-weight: bold;
   font-style: italic;
 }
-
 @font-face {
   font-family: "Oswald";
   src: url("./assets/fonts/Oswald-Regular.ttf") format("truetype");
 }
-
 .title::after {
   position: absolute;
   content: "";
@@ -44,11 +36,9 @@
   height: 5px;
   background: #2e3192;
 }
-
 .mb-40 {
   margin-bottom: 10rem;
 }
-
 markdown {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -60,11 +50,9 @@ markdown {
   -webkit-hyphens: auto;
   hyphens: auto;
   font-family: Lato, sans-serif;
-
   p {
     font-size: 1.125rem;
   }
-
   h1 {
     margin-top: 3rem;
     margin-bottom: 1rem;
@@ -72,7 +60,6 @@ markdown {
     line-height: 1;
     font-size: 1.5rem;
   }
-
   h2 {
     margin-top: 3rem;
     margin-bottom: 1rem;
@@ -80,28 +67,24 @@ markdown {
     line-height: 1;
     font-size: 1.5rem;
   }
-
   h3 {
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
     line-height: 1;
     font-size: 1.25rem;
   }
-
   h4 {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     line-height: 1;
     font-size: 1.25;
   }
-
   h5 {
     font-style: italic;
     color: #3a3a3a;
     font-size: 1.5rem;
     text-align: center;
   }
-
   h6 {
     margin-bottom: 1rem;
     line-height: 1;
@@ -111,39 +94,30 @@ markdown {
     text-align: center;
     font-weight: 700;
   }
-
   ol {
     list-style-type: decimal;
   }
-
   ul {
     list-style-type: disc;
   }
-
   ol li {
     margin-left: 32px;
   }
-
   ul li {
     margin-left: 32px;
   }
-
   ul li ul {
     list-style-type: circle;
   }
-
   a {
     color: #2e3192;
-
     &:hover {
       text-decoration: underline;
     }
-
     &:visited {
       text-decoration: underline double;
     }
   }
-
   img {
     width: 100%;
     max-width: 600px;

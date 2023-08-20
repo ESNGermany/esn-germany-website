@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from '../../components/footer/footer.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { ArticleComponent } from '../../components/article/article.component';
-import { NavigationComponent } from '../../components/navigation/navigation.component';
+
+import { ArticleComponent } from 'src/app/components/article/article.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { NavigationComponent } from 'src/app/components/navigation/navigation.component';
 
 @Component({
   selector: 'esn-sections-page',

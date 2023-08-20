@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { NewsService } from 'src/app/services/news.service';
-import { environment } from 'src/environments/environment';
-import { FooterComponent } from '../../components/footer/footer.component';
-import { MarkdownModule } from 'ngx-markdown';
 import { NgIf, NgFor, DatePipe } from '@angular/common';
-import { NavigationComponent } from '../../components/navigation/navigation.component';
+import { Component, OnInit } from '@angular/core';
+
+import { MarkdownModule } from 'ngx-markdown';
+
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { NavigationComponent } from 'src/app/components/navigation/navigation.component';
+import { NewsService } from 'src/app/services/news.service';
 import { NewsItem } from 'src/app/services/news-item';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'esn-news-page',

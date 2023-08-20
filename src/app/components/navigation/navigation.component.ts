@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgClass, NgIf } from '@angular/common';
 import {
   Component,
   Input,
@@ -7,7 +7,7 @@ import {
   Inject,
 } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { NgClass, NgIf } from '@angular/common';
+
 import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 
 @Component({
@@ -18,6 +18,7 @@ import { SectionmapDirective } from '../sectionmap/sectionmap.component';
   imports: [NgIf, NgClass, SectionmapDirective, RouterLink, RouterLinkActive],
 })
 export class NavigationComponent {
+  @Input() activeMenu: string;
   @Input() isLandingPage = false;
 
   constructor(
@@ -31,8 +32,6 @@ export class NavigationComponent {
       this.hideMenu();
     }
   }
-
-  @Input() activeMenu: string;
 
   public showMenu(): void {
     const burger = this.document.getElementById('burger') as HTMLUListElement;

@@ -7,8 +7,9 @@ import {
   trigger,
 } from '@angular/animations';
 import { DOCUMENT } from '@angular/common';
-import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+import { SectionmapDirective } from '../sectionmap/sectionmap.component';
 
 @Component({
   selector: 'esn-sticky-navbar',

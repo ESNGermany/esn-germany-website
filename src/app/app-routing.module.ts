@@ -1,18 +1,19 @@
 import { Route } from '@angular/router';
+
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { NetworkPageComponent } from './pages/network-page/network-page.component';
-import { StudentsPageComponent } from './pages/students-page/students-page.component';
-import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
-import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { LegalNoticePageComponent } from './pages/legal-notice-page/legal-notice-page.component';
 import { CocPageComponent } from './pages/legal/coc-page/coc-page.component';
 import { EppPageComponent } from './pages/legal/epp-page/epp-page.component';
-import { StatutesPageComponent } from './pages/legal/statutes-page/statutes-page.component';
-import { OrdnungPageComponent } from './pages/legal/ordnung-page/ordnung-page.component';
 import { KonsultationsordnungPageComponent } from './pages/legal/konsultationsordnung-page/konsultationsordnung-page.component';
-import { ErrorPageComponent } from './pages/error-page/error-page.component';
-import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { OrdnungPageComponent } from './pages/legal/ordnung-page/ordnung-page.component';
+import { StatutesPageComponent } from './pages/legal/statutes-page/statutes-page.component';
+import { NetworkPageComponent } from './pages/network-page/network-page.component';
+import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { SectionsPageComponent } from './pages/sections-page/sections-page.component';
+import { StudentsPageComponent } from './pages/students-page/students-page.component';
+import { PartnersPageComponent } from './pages/partners-page/partners-page.component';
 
 export const routes: Route[] = [
   {
