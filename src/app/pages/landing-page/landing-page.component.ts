@@ -141,7 +141,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       }
     });
 
-    const section_count = this.generalInformation?.section_counter;
+    let section_count = this.generalInformation?.section_counter;
 
     this.render.listen('window', 'scroll', () => {
       const aPosition = this.firstNumber.nativeElement.getBoundingClientRect();
@@ -152,7 +152,10 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
       ) {
         if (this.isAnimated == false) {
           this.animateValue(this.firstNumber, 0, 1200, 1100);
-          this.animateValue(this.secondNumber, 0, 10600, 1800);
+          this.animateValue(this.secondNumber, 0, 44300, 1800);
+          if (section_count === undefined) {
+            section_count = 44;
+          }
           this.animateValue(this.thirdNumber, 0, section_count, 630);
 
           setTimeout(function () {
@@ -168,7 +171,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
             const secondNumberElement =
               this.document.getElementById('secondNumber');
             if (secondNumberElement) {
-              secondNumberElement.innerHTML = '10 600 +';
+              secondNumberElement.innerHTML = '44 300 +';
             }
           }, 1800);
           this.doneAnimating = true;
