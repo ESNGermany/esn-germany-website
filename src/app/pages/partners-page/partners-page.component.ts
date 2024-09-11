@@ -1,5 +1,6 @@
 import { NgIf, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { GalleryComponent, GalleryItem, ImageItem } from 'ng-gallery';
 
 import { ArticleComponent } from 'src/app/components/article/article.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
@@ -19,12 +20,13 @@ import { environment } from 'src/environments/environment';
     NgIf,
     NgFor,
     FooterComponent,
+    GalleryComponent,
   ],
 })
 export class PartnersPageComponent implements OnInit {
   partners: PartnersItem[];
+  public images!: GalleryItem[];
   public directusImageUrl: string = environment.DIRECTUS_URL_IMAGE;
-  private buttonText = 'Learn More ↓';
 
   constructor(private partnersService: PartnersService) {}
 
@@ -32,17 +34,16 @@ export class PartnersPageComponent implements OnInit {
     this.partnersService
       .getPartners()
       .subscribe((partners?: PartnersItem[]) => {
+        this.images = [];
         this.partners = partners;
+        partners.forEach((partner: PartnersItem) => {
+          this.images.unshift(
+            new ImageItem({
+              src: `${this.directusImageUrl}${partner.logo}&format=auto`,
+              thumb: `${this.directusImageUrl}${partner.logo}?width=200&format=auto`,
+            }),
+          );
+        });
       });
-  }
-
-  public toggleInfo(partner: PartnersItem): void {
-    partner.show = !partner.show;
-
-    if (!partner.show) {
-      partner.buttontext = this.buttonText;
-    } else {
-      partner.buttontext = `Hide text ↑`;
-    }
   }
 }

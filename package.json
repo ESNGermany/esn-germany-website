@@ -38,6 +38,7 @@
     "@yellowspot/ng-truncate": "^2.0.2",
     "autoprefixer": "^10.4.14",
     "express": "^4.18.2",
+    "ng-gallery": "^11.0.0",
     "marked": "^7.0.2",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.1",
