@@ -29,7 +29,7 @@ export class SectionmapDirective {
     'ESN Lübeck',
   ];
   public eastSections: string[] = [
-    'ESN Berlin <br> ESN Erasmix Medizin Berlin',
+    'ESN Berlin',
     'ESN TU Dresden <br> ESN HTW Dresden',
     'ESN Frankfurt (Oder)',
     'ESN Halle',
@@ -53,6 +53,7 @@ export class SectionmapDirective {
     'ESN AKI-Deggendorf',
     'ESN Ingolstadt',
     'ESN MESA München <br> ESN TUMi München',
+    'ESN Regensburg',
   ];
   public southWestSections: string[] = [
     'ESN Darmstadt',
@@ -67,6 +68,8 @@ export class SectionmapDirective {
     'ESN Saarbrücken',
     'ESN Stuttgart',
     'ESN Pforzheim',
+    'ESN Gießen',
+    'ESN Mainz',
   ];
   public sections: string[] = this.northSections
     .concat(this.eastSections)
