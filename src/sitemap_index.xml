@@ -4,6 +4,9 @@
         <loc>https://esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
+        <loc>https://aachen.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
         <loc>https://augsburg.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
@@ -11,6 +14,9 @@
     </sitemap>
     <sitemap>
         <loc>https://berlin.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://bielefeld.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://bochum.esn-germany.de/sitemap.xml</loc>
@@ -22,6 +28,9 @@
         <loc>https://braunschweig.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
+        <loc>https://bremen.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
         <loc>https://darmstadt.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
@@ -31,19 +40,31 @@
         <loc>https://dortmund.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
+        <loc>https://tudresden.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
         <loc>https://duesseldorf.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
-        <loc>https://unifrankfurt.esn-germany.de/sitemap.xml</loc>
+        <loc>https://erlangen-nuernberg.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://frankfurt-oder.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
+        <loc>https://unifrankfurt.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
         <loc>https://freiburg.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
+        <loc>https://giessen.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
         <loc>https://goettingen.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://greifswald.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://halle.esn-germany.de/sitemap.xml</loc>
@@ -59,9 +80,6 @@
     </sitemap>
     <sitemap>
         <loc>https://hildesheim.esn-germany.de/sitemap.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://htwdresden.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://ingolstadt.esn-germany.de/sitemap.xml</loc>
@@ -91,22 +109,31 @@
         <loc>https://landau.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
-        <loc>https://greifswald.esn-germany.de/sitemap.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://rostock.esn-germany.de/sitemap.xml</loc>
-    </sitemap>
-    <sitemap>
         <loc>https://luebeck.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
+        <loc>https://mainz.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://mannheim.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
         <loc>https://mesa.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://tumi.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://pforzheim.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://potsdam.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://regensburg.esn-germany.de/sitemap.xml</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://rostock.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://saarbruecken.esn-germany.de/sitemap.xml</loc>
@@ -116,9 +143,6 @@
     </sitemap>
     <sitemap>
         <loc>https://stuttgart.esn-germany.de/sitemap.xml</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://tudresden.esn-germany.de/sitemap.xml</loc>
     </sitemap>
     <sitemap>
         <loc>https://witten.esn-germany.de/sitemap.xml</loc>

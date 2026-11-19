@@ -18,6 +18,7 @@ export class SectionmapDirective {
   ) {}
 
   public northSections: string[] = [
+    'ESN Bremen',
     'ESN Kiel',
     'ESN Braunschweig',
     'ESN Göttingen',
@@ -37,6 +38,7 @@ export class SectionmapDirective {
     'ESN Potsdam',
   ];
   public westSections: string[] = [
+    'ESN Aachen',
     'ESN Bielefeld',
     'ESN Bochum',
     'ESN Bonn',
@@ -50,6 +52,7 @@ export class SectionmapDirective {
   public southEastSections: string[] = [
     'ESN Augsburg',
     'ESN Bayreuth',
+    'ESN Erlangen-Nürnberg',
     'ESN AKI-Deggendorf',
     'ESN Ingolstadt',
     'ESN MESA München <br> ESN TUMi München',

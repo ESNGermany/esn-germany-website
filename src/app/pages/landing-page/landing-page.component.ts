@@ -154,7 +154,7 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
           this.animateValue(this.firstNumber, 0, 1200, 1100);
           this.animateValue(this.secondNumber, 0, 44300, 1800);
           if (section_count === undefined) {
-            section_count = 44;
+            section_count = 49;
           }
           this.animateValue(this.thirdNumber, 0, section_count, 630);
 
